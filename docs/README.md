@@ -1,1 +1,1 @@
-(Heroku link)[www.heroku.com]
+[Herkou Link](http://heroku.com)
