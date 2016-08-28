@@ -1,10 +1,8 @@
 # Demixify
-----
 
 [Herkou Link](http://demixify.herokuapp.com)
 
 ## Minimum Viable Product
----------
 
 Demixify
 
@@ -12,12 +10,12 @@ Demixify
 - [ ] other thing
 
 ## Design Docs
-* [View Wireframes](docs/wireframes)
-* [React Components](docs/component-hierarchy.md)
-* [API endpoints](docs/api-endpoints.md)
-* [DB Schema](docs/schema.md)
-* [Redux Structure](docs/redux-structure.md)
-* [Sample State](docs/sample-state.md)
+* [View Wireframes](wireframes)
+* [React Components](component-hierarchy.md)
+* [API endpoints](api-endpoints.md)
+* [DB Schema](schema.md)
+* [Redux Structure](redux-structure.md)
+* [Sample State](sample-state.md)
 
 ## Implementation Timeline
 
