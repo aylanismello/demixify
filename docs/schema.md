@@ -1,0 +1,88 @@
+# Schema Information
+
+## users
+* has_many mixes, comments, likes, faves
+
+column name     | data type | details
+----------------|-----------|-----------------------
+id              | integer   | not null, primary key
+email           | string    | not null, indexed, unique
+password_digest | string    | not null
+session_token   | string    | not null, indexed, unique
+
+
+## mixes
+* belong_to user; has_many tracks, likes
+
+column name     | data type | details
+----------------|-----------|-----------------------
+id              | integer   | not null, primary key
+user_id					| integer   | not null, foreign key, indexed
+soundcloud_id   | integer   | not null //referencing soundcloud api
+description     | string    |
+play_count      | integer   | not null
+title           | string    | not null, indexed
+artist          | string    | not null
+year            | integer   | not null
+track_url       | string    | not null //link to soundcloud page where track is hosted
+stream_url      | string    | not null //embeddable sound stream
+artwork_url     | string    | not null
+
+
+## track
+* belongs_to mix
+
+column name     | data type | details
+----------------|-----------|-----------------------
+id              | integer   | not null, primary key
+mix_id          | integer   | not null, foreign key, indexed
+soundcloud_id   | integer   | not null //referencing soundcloud api
+title           | string    | not null, indexed
+artist          | string    | not null
+album           | string    | not null
+year            | integer   | not null
+track_url       | string    | not null  //link to soundcloud page where track is hosted
+stream_url      | string    | not null  //embeddable sound stream
+artwork_url     | string    | not null
+
+## comments
+* belongs_to mix, belongs_to user
+
+column name     | data type | details
+----------------|-----------|-----------------------
+id              | integer   | not null, primary key
+mix_id          | integer   | not null, foreign key, indexed
+author_id       | integer   | not null, foreign key (references users), indexed
+body	          | string    | not null
+
+## likes
+* belongs_to mix, belongs_to user
+
+column name     | data type | details
+----------------|-----------|-----------------------
+id              | integer   | not null, primary key
+liker_id        | integer   | not null, foreign key (references users), indexed
+mix_id          | integer   | not null, foreign key, indexed
+
+## faves
+* belongs_to track, belongs_to user
+
+column name     | data type | details
+----------------|-----------|-----------------------
+id              | integer   | not null, primary key
+liker_id        | integer   | not null, foreign key (references users), indexed
+track_id        | integer   | not null, foreign key, indexed
+
+
+## tags
+column name | data type | details
+------------|-----------|-----------------------
+id          | integer   | not null, primary key
+name        | string    | not null
+
+## taggings
+column name | data type | details
+------------|-----------|-----------------------
+id          | integer   | not null, primary key
+mix_id      | integer    | not null, foreign key (references mixes), indexed, unique [tag_id]
+tag_id      | integer   | not null, foreign key (references tags), indexed

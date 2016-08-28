@@ -6,8 +6,15 @@
 
 Demixify
 
-- [ ] This thing
-- [ ] other thing
+- [ ] Hosting on Heroku
+- [ ] New account creation, login, and guest/demo login
+- [ ] A production README, replacing this README
+- [ ] Home feed of mixes
+- [ ] Comments
+- [ ] Search mixes/tracks
+- [ ] `Like` feature / profile to view liked mixes/tracks
+
+
 
 ## Design Docs
 * [View Wireframes](wireframes)
@@ -28,4 +35,9 @@ Demixify
 - [ ] Second thing
 
 ### Bonus Features
-- [ ] Whoa
+- [ ] Facebook login
+- [ ] Change mix image
+- [ ] Synchronization between tracks and mixes (requires timestamps)
+- [ ] Follow users
+- [ ] Pagination (infinite scroll)
+- [ ] Listen map (show where people listened to mix around the world on map)

@@ -8,7 +8,7 @@
 node_modules/
 bundle.js
 bundle.js.map
-
+notes.js
 
 # Ignore bundler config.
 /.bundle
