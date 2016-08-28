@@ -11,7 +11,7 @@ Demixify
 - [ ] A production README, replacing this README
 - [ ] Home feed of mixes
 - [ ] Comments
-- [ ] Search mixes/tracks
+- [ ] Search mixes/tracks (explore mode)
 - [ ] `Like` feature / profile to view liked mixes/tracks
 
 

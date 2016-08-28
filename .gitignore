@@ -6,6 +6,7 @@
 
 
 node_modules/
+examples/
 bundle.js
 bundle.js.map
 notes.js
