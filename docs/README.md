@@ -37,7 +37,7 @@ Demixify
 ### Bonus Features
 - [ ] Facebook login
 - [ ] Change mix image
-- [ ] Synchronization between tracks and mixes (requires timestamps)
 - [ ] Follow users
+- [ ] Synchronization between tracks and mixes (requires timestamps)
 - [ ] Pagination (infinite scroll)
 - [ ] Listen map (show where people listened to mix around the world on map)

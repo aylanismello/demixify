@@ -12,7 +12,7 @@ session_token   | string    | not null, indexed, unique
 
 
 ## mixes
-* belong_to user; has_many tracks, likes
+* belong_to user; has_many tracks, likes, tags
 
 column name     | data type | details
 ----------------|-----------|-----------------------
@@ -30,7 +30,7 @@ artwork_url     | string    | not null
 
 
 ## track
-* belongs_to mix
+* belongs_to mix, has_many faves
 
 column name     | data type | details
 ----------------|-----------|-----------------------
@@ -73,16 +73,19 @@ id              | integer   | not null, primary key
 liker_id        | integer   | not null, foreign key (references users), indexed
 track_id        | integer   | not null, foreign key, indexed
 
-
 ## tags
+* has_many taggings
+
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 name        | string    | not null
 
 ## taggings
+* belongs_to mix, belongs_to tag
+
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-mix_id      | integer    | not null, foreign key (references mixes), indexed, unique [tag_id]
+mix_id      | integer   | not null, foreign key (references mixes), indexed, unique
 tag_id      | integer   | not null, foreign key (references tags), indexed
