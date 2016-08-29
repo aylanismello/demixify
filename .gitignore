@@ -4,9 +4,10 @@
 # or operating system, you probably want to add a global ignore instead:
 #   git config --global core.excludesfile '~/.gitignore_global'
 
-./docs/wireframes/helper_images/
-./docs/8tracks_login.htm
-./docs/8tracks_login_files/
+source_wireframes/
+helper_images/
+8tracks_login.htm
+8tracks_login_files/
 node_modules/
 examples/
 bundle.js
