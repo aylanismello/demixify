@@ -7,8 +7,22 @@ column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key
 email           | string    | not null, indexed, unique
+username        | string    | not null
 password_digest | string    | not null
 session_token   | string    | not null, indexed, unique
+
+
+## djs (is created upon mix of theirs being added for the first time)
+* has_many mixes, tracks
+
+column name     | data type | details
+----------------|-----------|-----------------------
+id              | integer   | not null, primary key
+soundcloud_id   | integer   | //referencing soundcloud api
+name            | string    | // reference soundcloud api
+location        | string    | //pulled from soundcloud api
+image_url       | string    | //pulled form soundcloud api
+
 
 
 ## mixes
@@ -18,6 +32,7 @@ column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key
 user_id					| integer   | not null, foreign key, indexed
+dj_id           | integer   | not null, foreign key, indexed
 soundcloud_id   | integer   | not null //referencing soundcloud api
 description     | string    |
 play_count      | integer   | not null
