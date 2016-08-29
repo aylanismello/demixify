@@ -1,5 +1,8 @@
 **Header**
 - AuthForm
+ + SignUpForm
+ 
+**SignUpForm**
 
 **HomeContainer**
 - Home
@@ -7,10 +10,19 @@
 
 
 **MixContainer**
-
+  - MixDetail
 
 **MixIndex**
  - MixIndexItem
+  - Mix
+
+**Search**
+
+**SearchResultsContainer**
+
+**TagContainer**
+
+**NewMixContainer**
 
 
  ## Routes
@@ -20,13 +32,8 @@
  | "/sign-up" | "AuthFormContainer" |
  | "/sign-in" | "AuthFormContainer" |
  | "/home" | "HomeContainer" |
- | "/home/note/:noteId" | "NotesContainer" |
- | "/home/notebook/:notebookId/note/:noteId" | "NotebookContainer" |
- | "/home/tag/:tagId/note/:notedId" | "TagContainer" |
+ | "/home/user/:mixId" | "MixesContainer" |
+ | "/home/tag/:tagId/mix/:mixId" | "TagContainer" |
  | "/home/search-results" | "SearchResultsContainer"
- | "/new-note" | "NewNoteContainer" |
+ | "/new-mix" | "NewMixContainer" |
  | "/search" | "Search" |
- | "/new-notebook" | "NewNotebook" |
- | "/new-tag" | "NewTag" |
- | "/tag-search" | "TagSearch" |
- | "/notebook-search" | "NotebookSearch" |

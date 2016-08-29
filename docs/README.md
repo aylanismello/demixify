@@ -49,8 +49,8 @@ works too - (6 days left)
 with some type of autocomplete
 
 
-### Phase 3: Mixes Model, API, components (2 days)
-**Objective:** Mixes can be created, edited, and destroyed through API (4 days left)
+### Phase 3: Mixes Model, API, components (3 days)
+**Objective:** Mixes can be created, edited, and destroyed through API (3 days left)
 - [ ] Make Mix model
 - [ ] Develop association between mixes and tracks
 - [ ] Seed database with appropriate amount of data
@@ -63,7 +63,7 @@ with some type of autocomplete
 
 ### Phase 4: Comments functionality to mixes #show (1 day)
 **Objective** Make it so that comments can be added to mixes. This is done
-through an API. Comments can only be added, not edited or deleted. (3 days left)
+through an API. Comments can only be added, not edited or deleted. (2 days left)
 - [ ] create comments model
 - [ ] develop necessary associations
 - [ ] seed db
@@ -74,19 +74,21 @@ through an API. Comments can only be added, not edited or deleted. (3 days left)
 	- [ ] `CommentIndexItem`
 	- [ ] `CommentForm`
 
-### Phase 5: Tags (2 days)
+### Phase 5: Tags + Search (2 days)
 **Objective** Up till now we've has no real search. Now mixes
 can be tagged with multiple tags, and tags will be searchable along with
-djs, track names, and artist names.  (1 day left)
-- [ ] create tags/taggings model and association
-
-
-
+djs, track names, and artist names.  (0 days left)
+- [ ] create tags/taggings model and associations (join table)
+- [ ] seed db with tags
+- [ ] make necessary crud API
+- [ ] set up fetching tags for mixes
+- [ ] Connect this tag search with MixesIndex component
+ where our filter is tags
 
 ### Bonus Features
 - [ ] Facebook login
 - [ ] Change mix image
-- [ ] Follow users
+- [ ] Follow djs
 - [ ] Synchronization between tracks and mixes (requires timestamps)
 - [ ] Pagination (infinite scroll)
 - [ ] Listen map (show where people listened to mix around the world on map)
