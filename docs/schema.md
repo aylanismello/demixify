@@ -26,7 +26,7 @@ image_url       | string    | //pulled form soundcloud api
 
 
 ## mixes
-* belong_to user; has_many tracks, likes, tags
+* belong_to user; has_many tracks, likes; has_many tags through taggings
 
 column name     | data type | details
 ----------------|-----------|-----------------------

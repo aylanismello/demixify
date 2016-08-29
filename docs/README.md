@@ -26,13 +26,62 @@ Demixify
 
 ## Implementation Timeline
 
-### Phase 1: Do thing (2 days)
-- [ ] One thing
-- [ ] Second thing
+### Phase 1: Backend setup/Front End User Authentication (2 days)
+**Objective:** Functioning rails project w/ front-end auth - (7 days left)
+- [ ] User model and migration
+- [ ] Back end authentication
+- [ ] StaticPages controller and root view
+- [ ] Webpack, react, redux modules
+- [ ] APIUtil to interact with API
+- [ ] Redux cycle for frontend authentication
+- [ ] User signup/signin components
+- [ ] Blank landing component after signup/signin
+- [ ] Seed users, mixes, DJs
 
-### Phase 2: Do other thing (2 days)
-- [ ] One thing
-- [ ] Second thing
+
+### Phase 2: Get Soundcloud API prepared, get search found SD working (1 day)
+**Objective** Ensure all soundcloud API calls needed for the model are fully functional. The app relies on searching from soundcloud, make sure that
+works too - (6 days left)
+- [ ] Start writing boiler plater code for future general API
+- [ ] devise fastest way to consolidate queries to external API
+- [ ] Get streaming audio working
+- [ ] Make sure we can use the soundcloud api to search for things
+with some type of autocomplete
+
+
+### Phase 3: Mixes Model, API, components (2 days)
+**Objective:** Mixes can be created, edited, and destroyed through API (4 days left)
+- [ ] Make Mix model
+- [ ] Develop association between mixes and tracks
+- [ ] Seed database with appropriate amount of data
+- [ ] CRUD API for mixes (`MixesController`)
+- [ ] JBuilder views for mixes
+ * Mix components + redux loops
+  - [ ] `MixesIndex`
+  - [ ] `MixIndexItem`
+  - [ ] `MixForm`
+
+### Phase 4: Comments functionality to mixes #show (1 day)
+**Objective** Make it so that comments can be added to mixes. This is done
+through an API. Comments can only be added, not edited or deleted. (3 days left)
+- [ ] create comments model
+- [ ] develop necessary associations
+- [ ] seed db
+- [ ] minimalist create/read API for comments
+- [ ] JBuilder views for comments
+ * Comment components + redux loops
+  - [ ] `CommentsIndex`
+	- [ ] `CommentIndexItem`
+	- [ ] `CommentForm`
+
+### Phase 5: Tags (2 days)
+**Objective** Up till now we've has no real search. Now mixes
+can be tagged with multiple tags, and tags will be searchable along with
+djs, track names, and artist names.  (1 day left)
+- [ ] create tags/taggings model and association
+
+
+
 
 ### Bonus Features
 - [ ] Facebook login
