@@ -6,7 +6,7 @@
 
 Demixify
 
-- [ ] Hosting on Heroku
+- [x] Hosting on Heroku
 - [ ] New account creation, login, and guest/demo login
 - [ ] A production README, replacing this README
 - [ ] Home feed of mixes
@@ -30,8 +30,8 @@ Demixify
 **Objective:** Functioning rails project w/ front-end auth - (7 days left)
 - [ ] User model and migration
 - [ ] Back end authentication
-- [ ] StaticPages controller and root view
-- [ ] Webpack, react, redux modules
+- [x] StaticPages controller and root view
+- [x] Webpack, react, redux modules
 - [ ] APIUtil to interact with API
 - [ ] Redux cycle for frontend authentication
 - [ ] User signup/signin components
