@@ -78,8 +78,3 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
-production:
-  <<: *default
-  database: demixify_production
-  username: demixify
-  password: <%= ENV['DEMIXIFY_DATABASE_PASSWORD'] %>

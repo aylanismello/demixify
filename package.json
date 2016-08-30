@@ -26,5 +26,8 @@
   "bugs": {
     "url": "https://github.com/aylanismello/demixify/issues"
   },
-  "homepage": "https://github.com/aylanismello/demixify#readme"
+  "homepage": "https://github.com/aylanismello/demixify#readme",
+  "dependencies": {
+    "webpack": "^1.13.2"
+  }
 }
