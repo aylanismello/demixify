@@ -28,11 +28,11 @@ Demixify
 
 ### Phase 1: Backend setup/Front End User Authentication (2 days)
 **Objective:** Functioning rails project w/ front-end auth - (7 days left)
-- [ ] User model and migration
-- [ ] Back end authentication
+- [x] User model and migration
+- [x] Back end authentication
 - [x] StaticPages controller and root view
 - [x] Webpack, react, redux modules
-- [ ] APIUtil to interact with API
+- [x] APIUtil to interact with API
 - [ ] Redux cycle for frontend authentication
 - [ ] User signup/signin components
 - [ ] Blank landing component after signup/signin
