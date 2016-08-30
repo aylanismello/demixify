@@ -45,8 +45,8 @@
 - `GET /api/faves/:track_id` #index -> all faves for a track
 - `GET /api/faves/:id` #show
 
-### Tags
+### Tag
 - `GET /api/tags/:mix_id` #index -> all tags for a mix
 - `POST /api/mixes/:mix_id/tags` #create -> add tag to mix by name
 	- tag will be created if doesn't yet exist
-- `DELETE /api/mixes/:mix_id/tags/:tag_name` #delete
+- `DELETE /api/mixes/:mix_id/taggings/:tag_name` #delete

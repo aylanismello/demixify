@@ -6,7 +6,7 @@ As a friendly reminder, the purpose of this document is to be able to, in the co
 ### Mix Api Request Actions
 
 * `fetchAllMixes`
- + invoked from `MixesIndex` `didMount/willReceiveProps`
+ + invoked from `MixesIndex` `onEnter` hook
  + `GET /api/mixes` called
  + `receiveAllMixes` is set as the success callback
 
@@ -14,11 +14,6 @@ As a friendly reminder, the purpose of this document is to be able to, in the co
  + invoked from new mix button `onClick`
  + `POST api/mixes/` is called
  + `receiveSingleMix` is set as success callback
-
-* `fetchSingleMix`
- + invoked from `MixDetail` `didMount/willReceiveProps`
- + `GET /api/mixes/:id` is called
- + `receiveSingleMix` is set as the success callback
 
 * `updateMix`
  + invoked from `MixForm` `onSubmit`
