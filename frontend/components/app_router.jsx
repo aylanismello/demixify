@@ -6,14 +6,24 @@ import SessionFormContainer from './session_form_container';
 class AppRouter extends React.Component {
 	constructor(props) {
 		super(props);
+		this._redirectIfLoggedIn = this._redirectIfLoggedIn.bind(this);
+	}
+
+
+	_redirectIfLoggedIn(nextState, replace) {
+		const currentUser = this.props.currentUser;
+
+		// debugger;
+
+		if (currentUser) replace('/');
 	}
 
 	render() {
 		return(
 			<Router history={ hashHistory }>
 				<Route path="/" component= { App }>
-					<Route path="/login" component = { SessionFormContainer } />
-					<Route path="/signup" component= { SessionFormContainer } />
+					<Route path="/login" component = { SessionFormContainer } onEnter={this._redirectIfLoggedIn}/>
+					<Route path="/signup" component= { SessionFormContainer } onEnter={this._redirectIfLoggedIn}/>
 				</Route>
 			</Router>
 		);

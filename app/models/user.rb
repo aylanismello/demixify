@@ -12,14 +12,13 @@
 #
 
 class User < ApplicationRecord
-	validates :email, :password_digest, :session_token, :username, presence: true
-	validates :username, :email, uniqueness: true
+	validates :email, :password_digest, :session_token, presence: true
+	validates :email, uniqueness: true
 	validates :password, length: { minimum: 6, allow_nil: true}
 
-	attr_reader :password, :username
+	attr_reader :password
 
 	after_initialize :ensure_session_token
-	after_initialize :set_username_to_random
 
 
 	# has_many :mixes
@@ -48,14 +47,15 @@ class User < ApplicationRecord
 		self.session_token
 	end
 
+	def generate_username
+		# user fake to create random username lol
+		self.username = Faker::Hipster.words(2).join('_')
+	end
+
 	private
 	def ensure_session_token
 		self.session_token ||= SecureRandom.urlsafe_base64
 	end
 
-	def set_username_to_random
-		# user fake to create random username lol
-		@username ||= Faker::Hipster.words(2).join('_')
-	end
 
 end

@@ -3,6 +3,8 @@ class Api::UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
+      @user.generate_username
+      @user.save
       sign_in(@user)
       render "api/users/show"
     else
