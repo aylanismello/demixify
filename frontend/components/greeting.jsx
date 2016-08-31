@@ -7,7 +7,7 @@ const sessionLinks = () => {
 	// debugger;
 
 	return (
-		<nav className="login-signup">
+		<nav className="login-signup cf">
 			<Link to="/login" activeClassName="current">Login</Link>
 			<br/>
 			<Link to="/signup" activeClassName="current">Sign up!</Link>

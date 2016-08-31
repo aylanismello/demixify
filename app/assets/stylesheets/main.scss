@@ -1,0 +1,78 @@
+@import 'https://fonts.googleapis.com/css?family=Baloo+Tamma';
+html, body, header, nav, h1, a, ul, li,
+strong, main, section, img, div, h2, p,
+form, fieldset, label, input, textarea,
+button, article, footer, small {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  // font: inherit;
+  // box-sizing: inherit;
+  // text-align: inherit;
+  // text-decoration: inherit;
+  // vertical-align: inherit;
+  // color: inherit;
+  // background: transparent;
+	// font: inherit;
+	font-family: inherit;
+}
+
+
+
+.nav-bar {
+	background-color: #2f364a;
+	color: white;
+	// padding: 0 20px;
+	height: 70px;
+	// margin: 0 auto;
+	text-decoration: none;
+
+	font-family: 'Baloo Tamma', cursive;
+}
+
+.login-signup {
+	// display: inline-block;
+	padding: 0 40px;
+	float: right;
+}
+
+//
+.login-signup > a {
+	display: inline;
+	color: inherit;
+	float: left;
+	// float: right;
+	text-decoration: inherit;
+}
+
+.nav-bar .header-link {
+	padding: 0 40px;
+	display: inline-block;
+	text-decoration: inherit;
+	color: inherit;
+}
+//
+// .nav-bar .header-link {
+// 	float: left;
+// 	font-weight: bold;
+// }
+
+.login-form-container {
+	display: inline-block;
+	text-align: center;
+	background-color: green;
+	margin: 0;
+	// margin-left: 25%;
+	// margin-right: 25%;
+	width: 100%;
+}
+
+
+
+
+.cf:after {
+	content: "";
+	clear: both;
+	display: block;
+}

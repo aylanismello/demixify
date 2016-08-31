@@ -2,14 +2,14 @@ import React from 'react';
 import { Link } from 'react-router';
 import GreetingContainer from './greeting_container';
 
-const App = ({children}) => (
+const NavBar = ({children}) => (
 	<div>
-		<header>
-			<Link to="/" className="header-link"><h1>Demixify</h1></Link>
+		<header className="nav-bar">
+			<Link to="/" className="header-link cf"><h1>Demixify</h1></Link>
 			<GreetingContainer/>
 		</header>
 		{children}
 	</div>
 );
 
-export default App;
+export default NavBar;

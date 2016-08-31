@@ -1,7 +1,9 @@
 import React from 'react';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
-import App from './app';
+import NavBar from './nav_bar';
 import SessionFormContainer from './session_form_container';
+import Splash from './splash';
+import Home from './home';
 
 class AppRouter extends React.Component {
 	constructor(props) {
@@ -18,10 +20,11 @@ class AppRouter extends React.Component {
 	render() {
 		return(
 			<Router history={ hashHistory }>
-				<Route path="/" component= { App }>
-
-					<Route path="/login" component = { SessionFormContainer } onEnter={this._redirectIfLoggedIn}/>
-					<Route path="/signup" component= { SessionFormContainer } onEnter={this._redirectIfLoggedIn}/>
+				<Route path="/" component= { NavBar }>
+					<IndexRoute component= { Splash } />
+					<Route path="/login" component={ SessionFormContainer } onEnter={this._redirectIfLoggedIn}/>
+					<Route path="/signup" component={ SessionFormContainer } onEnter={this._redirectIfLoggedIn}/>
+					<Route path="/home" component={ Home }/>
 
 				</Route>
 			</Router>
