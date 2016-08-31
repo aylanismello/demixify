@@ -11,9 +11,47 @@ $search-button-color: #5c6ea3;
 $text-font: 'Baloo Tamma', sans-serif;
 $other-text-font: 'Montserrat', sans-serif;
 
-$nav-bar-color: #2f364a;
+$nav-bar-color: #45d9e5;
 $nav-bar-height: 70px;
 $top-z-index: 1000;
+
+@mixin static-splash {
+  width: 100%;
+  height: 350px;
+  position: absolute;
+  top: $nav-bar-height;
+  color: white;
+  // font-family: monospace;
+  font-family: $other-text-font;
+  // background: #a0bacf;
+  background-image: url("https://i.ytimg.com/vi/iQpGq4HguVs/maxresdefault.jpg");
+  border-bottom: 4px solid #77d0c0;
+}
+
+@mixin buttonify {
+  // font: bold 11px Arial;
+  &:hover {
+    cursor: pointer;
+    background: lighten($search-button-color, 10%);
+  }
+
+  font-family: $text-font;
+  text-decoration: none;
+  background-color: $search-button-color;
+  color: white;
+  padding: 2px 6px 2px 6px;
+  width: 160px;
+  height: 47px;
+  border: $search-bar-border;
+  border-radius: $search-bar-radius;
+  // border-top: 1px solid #CCCCCC;
+  // border-right: 1px solid #333333;
+  // border-bottom: 1px solid #333333;
+  // border-left: 1px solid #CCCCCC;
+
+  display: inline-block;
+  margin: 40px 20px;
+}
 
 html, body, header, nav, h1, a, ul, li,
 strong, main, section, img, div, h2, p,
@@ -43,14 +81,12 @@ body {
 
 
 .splash {
-  // width: 100%;
-  // height: 350px;
-  // position: absolute;
-  // top: $nav-bar-height;
-  // background: #a0bacf;
+  @include static-splash;
   // background: gray;
-  font-family: $other-text-font;
-  color: black;
+
+  font-famiy: Arial;
+
+  // font-family: $other-text-font;
 
   .splash-text {
 
@@ -73,10 +109,20 @@ body {
       .splash-description {
 
       }
+
+
+    }
+
+    .signup-button {
+      @include buttonify;
+
+    }
+    .signup-button > a {
+      color: inherit;
+      line-height: 3;
     }
 
   }
-
 
 
 }
@@ -128,8 +174,6 @@ body {
 
 
 .login-form-status {
-  // border: 1px solid red;
-  // margin-top: 10%;
   margin-left: 40%;
   margin-right: 40%;
 }
@@ -285,29 +329,30 @@ body {
 }
 
 
-.container {
-  width: 400px;
-  position: relative;
-  margin-left: 20%;
-}
-.constainer video {
-
-  // width: 100%;
-  // height: auto;
-  position: relative;
-  z-index: 0;
-}
-
-.splash {
-  position: absolute;
-  top: 30%;
-  left: 100%;
-  z-index: 1;
-}
-
-.draggable {
-  display: none;
-}
-.vsc-controller {
-  display: none;
-}
+// VIDEO STUFF
+// .container {
+//   width: 400px;
+//   position: relative;
+//   margin-left: 20%;
+// }
+// .constainer video {
+//
+//   // width: 100%;
+//   // height: auto;
+//   position: relative;
+//   z-index: 0;
+// }
+//
+// .splash {
+//   position: absolute;
+//   top: 30%;
+//   left: 100%;
+//   z-index: 1;
+// }
+//
+// .draggable {
+//   display: none;
+// }
+// .vsc-controller {
+//   display: none;
+// }
