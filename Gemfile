@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 #set ruby version
 
+ruby '2.3.0'
+
 gem 'bcrypt'
 
 gem 'faker'

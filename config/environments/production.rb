@@ -3,7 +3,7 @@ Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
   #CUSTOM CONFIG FROM APP ACADEMY
 
-  config.serve_static_files = true
+  config.public_file_server_enabled = true
   config.log_level = :debug
 
 
