@@ -1,4 +1,5 @@
 @import 'https://fonts.googleapis.com/css?family=Baloo+Tamma';
+@import 'https://fonts.googleapis.com/css?family=Montserrat:400,700';
 
 $search-bar-width: 400px;
 $search-bar-height: 36px;
@@ -7,7 +8,8 @@ $search-bar-border: 1px solid gray;
 
 $search-button-color: #5c6ea3;
 
-
+$text-font: 'Baloo Tamma', sans-serif;
+$other-text-font: 'Montserrat', sans-serif;
 
 $nav-bar-color: #2f364a;
 $nav-bar-height: 70px;
@@ -41,15 +43,54 @@ body {
 
 
 .splash {
-  width: 100%;
-  height: 280px;
-  background: #a0bacf;
+  // width: 100%;
+  // height: 350px;
+  // position: absolute;
+  // top: $nav-bar-height;
+  // background: #a0bacf;
+  // background: gray;
+  font-family: $other-text-font;
+  color: black;
+
+  .splash-text {
+
+    margin-top: 4%;;
+    text-align: center;
+
+    .splash-logo {
+      font-size: 100px;
+    }
+
+    .sub-text{
+
+
+      .splash-summary {
+        font-weight: bold;
+        font-size: 25px;
+
+      }
+
+      .splash-description {
+
+      }
+    }
+
+  }
+
+
 
 }
+
 
 .welcome-text {
   text-align: center;
 }
+
+
+.login-form {
+  text-align: center;
+}
+
 
 
 .login-form-header {
@@ -113,10 +154,6 @@ body {
 
 }
 
-.login-form {
-  text-align: center;
-}
-
 
 
 
@@ -155,8 +192,8 @@ body {
       .dropdown-menu {
           display: none;
           position: absolute;
-          // top: 10;
-          margin-top: 70px;
+          top: $nav-bar-height;
+          // margin-top: 70px;
           right: 0;
           background: #fff;
           width: 155px;
@@ -245,4 +282,32 @@ body {
 	content: "";
 	clear: both;
 	display: block;
+}
+
+
+.container {
+  width: 400px;
+  position: relative;
+  margin-left: 20%;
+}
+.constainer video {
+
+  // width: 100%;
+  // height: auto;
+  position: relative;
+  z-index: 0;
+}
+
+.splash {
+  position: absolute;
+  top: 30%;
+  left: 100%;
+  z-index: 1;
+}
+
+.draggable {
+  display: none;
+}
+.vsc-controller {
+  display: none;
 }

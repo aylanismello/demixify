@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: dfkrjl3pb
+  api_key: '251539879442342'
+  api_secret: nf1Djbx59G47VhyCGUi8zuzFb0U
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: dfkrjl3pb
+  api_key: '251539879442342'
+  api_secret: nf1Djbx59G47VhyCGUi8zuzFb0U
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: dfkrjl3pb
+  api_key: '251539879442342'
+  api_secret: nf1Djbx59G47VhyCGUi8zuzFb0U
+  enhance_image_tag: true
+  static_image_support: false
