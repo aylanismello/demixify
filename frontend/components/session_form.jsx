@@ -23,6 +23,7 @@ class SessionForm extends React.Component {
 
 		if (this.props.loggedIn) {
 			hashHistory.push("/home");
+			// debugger;
 		}
 	}
 
@@ -70,6 +71,8 @@ class SessionForm extends React.Component {
 	}
 
 	render() {
+		// access img_url here
+
 		return (
 			<ul className="login-form-container">
 				<form onSubmit={this.handleSubmit} className="login-form-box">

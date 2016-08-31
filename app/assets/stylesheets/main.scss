@@ -39,14 +39,12 @@ body {
   background: #eeeeee;
 }
 
+
 .splash {
   width: 100%;
-  height: 2000px;
+  height: 280px;
+  background: #a0bacf;
 
-}
-
-.header-name {
-  color: black;
 }
 
 .welcome-text {
@@ -139,11 +137,70 @@ body {
 	font-family: 'Baloo Tamma', sans-serif;
 
 
-  .header-group{
+
+  .profile-dropdown-wrapper{
     padding: 0 40px;
+    height: 100px;
 		float: right;
     display: flex;
+
+      .header-profile-pic {
+        height: 50px;
+        background: white;
+        border: $search-bar-border;
+        border-radius: $search-bar-radius;
+        margin: 0 40px;
+      }
+
+      .dropdown-menu {
+          display: none;
+          position: absolute;
+          // top: 10;
+          margin-top: 70px;
+          right: 0;
+          background: #fff;
+          width: 155px;
+          color: #999;
+          box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+      }
+
+      .dropdown-menu > li {
+        // text-align: center;
+        padding-left: 20px;
+        list-style: none;
+      }
+    }
+
+    .profile-dropdown-wrapper:hover {
+      cursor: pointer;
+      // display: block;
+    }
+
+  .profile-dropdown-wrapper:hover > .dropdown-menu {
+    cursor: pointer;
+    display: block;
   }
+  .profile-dropdown-wrapper .dropdown-menu:hover > .dropdown-menu {
+    cursor: pointer;
+    display: block;
+  }
+
+  .profile-dropdown-wrapper .dropdown-menu > li:hover  {
+    background: #eee;
+    // cursor: pointer;
+    // display: block;
+  }
+
+
+
+  // .profile-dropdown-wrapper:hover {
+  //   cursor: pointer;
+  // }
+
+
+
+
+
 
 	.login-signup {
 		padding: 0 40px;

@@ -14,11 +14,17 @@ const sessionLinks = () => {
 };
 
 const personalGreeting = (currentUser, logout) => (
-	<hgroup className="header-group">
+	<nav className="profile-dropdown-wrapper">
+		<img className="header-profile-pic" src={currentUser.img_url} alt="{currentUser.username}"/>
 
-		<h2 className="header-name">Hi, {currentUser.username}!</h2>
-		<a className="logout" onClick={logout}>Log Out</a>
-	</hgroup>
+		<div className="dropdown-menu">
+			<li> <Link to="/profile" >Profile</Link></li>
+			<li> <Link to="/create_demix" >Create DeMix</Link></li>
+			<li> <a className="logout" onClick={logout}>Log Out</a> </li>
+
+		</div>
+
+	</nav>
 );
 
 const Greeting = ({currentUser, logout}) => {
