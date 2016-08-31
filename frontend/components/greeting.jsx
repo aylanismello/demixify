@@ -4,8 +4,6 @@ import { Link } from 'react-router';
 
 const sessionLinks = () => {
 
-	// debugger;
-
 	return (
 		<nav className="login-signup cf">
 			<Link to="/login" activeClassName="current">Login</Link>
@@ -17,13 +15,13 @@ const sessionLinks = () => {
 
 const personalGreeting = (currentUser, logout) => (
 	<hgroup className="header-group">
+
 		<h2 className="header-name">Hi, {currentUser.username}!</h2>
-		<button className="header-button" onClick={logout}>Log Out</button>
+		<a className="logout" onClick={logout}>Log Out</a>
 	</hgroup>
 );
 
 const Greeting = ({currentUser, logout}) => {
-	// debugger;
 
 	if (currentUser) {
 		return personalGreeting(currentUser, logout);
@@ -31,11 +29,6 @@ const Greeting = ({currentUser, logout}) => {
 		return sessionLinks();
 	}
 
-	// return (
-	// 	<div>
-	// 		what happened?
-	// 	</div>
-	// );
 };
 
 export default Greeting;

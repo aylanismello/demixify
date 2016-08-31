@@ -1,4 +1,18 @@
 @import 'https://fonts.googleapis.com/css?family=Baloo+Tamma';
+
+$search-bar-width: 479px;
+$search-bar-height: 36px;
+$search-bar-radius: 19px;
+$search-bar-border: 1px solid gray;
+
+$search-button-color: #5c6ea3;
+
+
+
+$nav-bar-color: #2f364a;
+$nav-bar-height: 70px;
+$top-z-index: 1000;
+
 html, body, header, nav, h1, a, ul, li,
 strong, main, section, img, div, h2, p,
 form, fieldset, label, input, textarea,
@@ -7,41 +21,146 @@ button, article, footer, small {
   padding: 0;
   // border: 0;
   outline: 0;
-  // font: inherit;
-  // box-sizing: inherit;
-  // text-align: inherit;
-  // text-decoration: inherit;
-  // vertical-align: inherit;
+
+  font: inherit;
+  box-sizing: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+
+  vertical-align: inherit;
   // color: inherit;
   // background: transparent;
-	// font: inherit;
+	font: inherit;
 	font-family: inherit;
 }
 
 
+body {
+  background: #eeeeee;
+}
+
+.splash {
+  width: 100%;
+  height: 2000px;
+
+}
+
+.header-name {
+  color: black;
+}
+
+.welcome-text {
+  text-align: center;
+}
+
+
+.login-form-header {
+  font-size: 40px;
+  font-weight: bold;
+
+}
+
+.login-form-box {
+  font-family: 'Baloo Tamma', sans-serif;
+  border: 1px solid black;
+  display: inline-block;
+  padding: 10px 60px;
+  box-shadow: 2px gray;
+  background: white;
+  // height: 20%;
+  // width: 25%;
+  margin-top: 10%;
+  margin-left: 25%;
+  // margin-right: 30%;
+
+}
+
+.login-input {
+
+  border: $search-bar-border;
+  border-radius: $search-bar-radius;
+  margin: 5px 0;
+  width: 350px;
+  padding-left: 10px;
+  height: $search-bar-height;
+
+
+}
+
+
+.login-form-status {
+  // border: 1px solid red;
+  // margin-top: 10%;
+  margin-left: 40%;
+  margin-right: 40%;
+}
+
+.search-bar {
+  // line-height: 70px;
+  border: $search-bar-border;;
+  padding-left: 10px;
+  border-top-left-radius: $search-bar-radius;
+  border-bottom-left-radius: $search-bar-radius;
+  width: $search-bar-width;
+  height: $search-bar-height;
+}
+
+.search-button {
+  padding: 4px 20px;
+  border-top-right-radius: $search-bar-radius;
+  border-bottom-right-radius: $search-bar-radius;
+  background-color: $search-button-color;
+  text-decoration: none;
+  color: white;
+
+}
+
+.login-form {
+  text-align: center;
+}
+
+
+
+
 .nav-bar {
 
-	background-color: #2f364a;
+  top: 0;
+  z-index: $top-z-index;
+  position: fixed;
+  width: 100%;
+
+
+	background-color: $nav-bar-color;
 	color: white;
-	// padding: 0 20px;
-	height: 70px;
-	// margin: 0 auto;
+  line-height: $nav-bar-height;
+	height: $nav-bar-height;
 	text-decoration: none;
 
 	font-family: 'Baloo Tamma', sans-serif;
 
 
+  .header-group{
+    padding: 0 40px;
+		float: right;
+    display: flex;
+  }
+
 	.login-signup {
-		// display: inline-block;
 		padding: 0 40px;
 		float: right;
+    display: flex;
 	}
+
+  .logout:hover {
+    cursor: pointer;
+  }
 
 	//
 	.login-signup > a {
 		display: inline;
 		color: inherit;
 		float: left;
+    padding: 0 20px ;
 		// float: right;
 		text-decoration: inherit;
 	}
@@ -52,19 +171,13 @@ button, article, footer, small {
 		text-decoration: inherit;
 		color: inherit;
 	}
-	//
-	// .nav-bar .header-link {
-	// 	float: left;
-	// 	font-weight: bold;
-	// }
 
-	.login-form-container {
+
+	.rm-container {
 		display: inline-block;
 		text-align: center;
 		background-color: green;
 		margin: 0;
-		// margin-left: 25%;
-		// margin-right: 25%;
 		width: 100%;
 	}
 
@@ -76,62 +189,3 @@ button, article, footer, small {
 	clear: both;
 	display: block;
 }
-
-
-
-// .nav-bar {
-// 	background-color: #2f364a;
-// 	color: white;
-// 	// padding: 0 20px;
-// 	height: 70px;
-// 	// margin: 0 auto;
-// 	text-decoration: none;
-//
-// 	font-family: 'Baloo Tamma', cursive;
-// }
-//
-// .login-signup {
-// 	// display: inline-block;
-// 	padding: 0 40px;
-// 	float: right;
-// }
-//
-// //
-// .login-signup > a {
-// 	display: inline;
-// 	color: inherit;
-// 	float: left;
-// 	// float: right;
-// 	text-decoration: inherit;
-// }
-//
-// .nav-bar .header-link {
-// 	padding: 0 40px;
-// 	display: inline-block;
-// 	text-decoration: inherit;
-// 	color: inherit;
-// }
-// //
-// // .nav-bar .header-link {
-// // 	float: left;
-// // 	font-weight: bold;
-// // }
-//
-// .login-form-container {
-// 	display: inline-block;
-// 	text-align: center;
-// 	background-color: green;
-// 	margin: 0;
-// 	// margin-left: 25%;
-// 	// margin-right: 25%;
-// 	width: 100%;
-// }
-//
-//
-//
-//
-// .cf:after {
-// 	content: "";
-// 	clear: both;
-// 	display: block;
-// }

@@ -47,12 +47,9 @@ class SessionForm extends React.Component {
 	}
 
 	renderErrors(){
-		// debugger;
 		let errorTexts;
-		// console.log(this.props.errors.responseJSON);
 		if (this.props.errors.responseJSON){
 			errorTexts = JSON.parse(this.props.errors.responseText);
-			// debugger;
 		} else {
 			errorTexts = [];
 		}
@@ -76,27 +73,39 @@ class SessionForm extends React.Component {
 		return (
 			<ul className="login-form-container">
 				<form onSubmit={this.handleSubmit} className="login-form-box">
-						Welcome to Demixify!
 						<br/>
-						Please { this.props.formType } or { this.navLink() }
-						{ this.renderErrors() }
+
+						<div className="login-form-status">
+							{/* Please { this.props.formType } or { this.navLink() } */}
+
+							{ this.renderErrors() }
+						</div>
+
+
+						<div className="welcome-text">
+							<h2 className="login-form-header">Get to know your mixes</h2>
+							<h3>Join the worldwide community and break down your music with Demixify</h3>
+						</div>
+
+						{this.props.formType}!
+
 
 						<div className="login-form">
 							<br />
-							<label> Email:
 								<input type="text"
 									value={this.state.email}
 									onChange={this.update("email")}
-									className="login-input" />
-							</label>
+									className="login-input"
+									placeholder="email"
+									/>
 
 							<br />
-							<label> Password:
 								<input type="password"
 									value={this.state.password}
 									onChange={this.update("password")}
-									className="login-input" />
-							</label>
+									className="login-input"
+									placeholder="Password"
+									/>
 
 							<br />
 							<input type="submit" value="Submit" />

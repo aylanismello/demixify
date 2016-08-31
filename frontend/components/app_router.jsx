@@ -22,11 +22,13 @@ class AppRouter extends React.Component {
 			<Router history={ hashHistory }>
 				<Route path="/" component= { NavBar }>
 					<IndexRoute component= { Splash } />
+
 					<Route path="/login" component={ SessionFormContainer } onEnter={this._redirectIfLoggedIn}/>
 					<Route path="/signup" component={ SessionFormContainer } onEnter={this._redirectIfLoggedIn}/>
 					<Route path="/home" component={ Home }/>
 
 				</Route>
+
 			</Router>
 		);
 	}
