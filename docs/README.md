@@ -33,9 +33,10 @@ Demixify
 - [x] StaticPages controller and root view
 - [x] Webpack, react, redux modules
 - [x] APIUtil to interact with API
-- [ ] Redux cycle for frontend authentication
-- [ ] User signup/signin components
+- [x] Redux cycle for frontend authentication
+- [x] User signup/signin components
 - [ ] Blank landing component after signup/signin
+- [ ] Style it up
 - [ ] Seed users, mixes, DJs
 
 

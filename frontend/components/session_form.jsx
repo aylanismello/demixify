@@ -13,9 +13,9 @@ class SessionForm extends React.Component {
 		this.renderErrors = this.renderErrors.bind(this);
 	}
 
+
+
 	componentDidUpdate() {
-		// debugger;
-		// console.log(this.props.errors);
 		this.redirectIfLoggedIn();
 	}
 
@@ -56,8 +56,7 @@ class SessionForm extends React.Component {
 		} else {
 			errorTexts = [];
 		}
-
-
+		// reset these errors so they don't print again
 
 		return(
 			<ul>
