@@ -10,9 +10,12 @@ class SessionForm extends React.Component {
 		};
 
 		this.handleSubmit = this.handleSubmit.bind(this);
+		this.renderErrors = this.renderErrors.bind(this);
 	}
 
 	componentDidUpdate() {
+		// debugger;
+		// console.log(this.props.errors);
 		this.redirectIfLoggedIn();
 	}
 
@@ -32,7 +35,6 @@ class SessionForm extends React.Component {
 	handleSubmit(e) {
 		e.preventDefault();
 		const user = this.state;
-		debugger;
 		this.props.processForm({user});
 	}
 
@@ -45,13 +47,28 @@ class SessionForm extends React.Component {
 	}
 
 	renderErrors(){
+		// debugger;
+		let errorTexts;
+		// console.log(this.props.errors.responseJSON);
+		if (this.props.errors.responseJSON){
+			errorTexts = JSON.parse(this.props.errors.responseText);
+			// debugger;
+		} else {
+			errorTexts = [];
+		}
+
+
+
 		return(
 			<ul>
-				{this.props.errors.map( (error, i) => (
-					<li key={`error-${i}`}>
-						{error}
-					</li>
-				))}
+				{errorTexts.map((errorText, idx) => {
+						return (
+							<li key={idx}>
+								{errorText}
+							</li>
+						);
+					})
+				}
 			</ul>
 		);
 	}
@@ -64,6 +81,7 @@ class SessionForm extends React.Component {
 						<br/>
 						Please { this.props.formType } or { this.navLink() }
 						{ this.renderErrors() }
+
 						<div className="login-form">
 							<br />
 							<label> Email:
