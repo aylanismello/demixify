@@ -3,7 +3,8 @@
   currentUser: {
     id: 1,
 		username: "aylan mello"
-    email: "hi@aylan.io"
+    email: "hi@aylan.io",
+    img_url: "https://robohash.org/my-own-slug.png?size=50x50&set=set1"
   },
   forms: {
     signUp: {errors: []},

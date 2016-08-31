@@ -36,7 +36,7 @@ Demixify
 - [x] Redux cycle for frontend authentication
 - [x] User signup/signin components
 - [ ] Blank landing component after signup/signin
-- [ ] Style it up
+- [x] Style it up
 - [ ] Seed users, mixes, DJs
 
 
