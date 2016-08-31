@@ -12,7 +12,7 @@
 #
 
 class User < ApplicationRecord
-	validates :email, :password_digest, :session_token, presence: true
+	validates :email, :password_digest, :session_token, :username, :img_url, presence: true
 	validates :email, uniqueness: true
 	validates :password, length: { minimum: 6, allow_nil: true}
 
@@ -47,9 +47,10 @@ class User < ApplicationRecord
 		self.session_token
 	end
 
-	def generate_username
+	def generate_faker_data
 		# user fake to create random username lol
 		self.username = Faker::Hipster.words(2).join('_')
+		self.img_url = Faker::Avatar.image("my-own-slug", "50x50")
 	end
 
 	private

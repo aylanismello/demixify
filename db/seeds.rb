@@ -11,6 +11,7 @@
 	email = Faker::Internet.free_email
 	user = User.new(email: email)
 	user.password = Faker::Internet.password(6)
-	user.generate_username
+	user.generate_faker_data
+	
 	user.save
 end
