@@ -12,7 +12,9 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-	const formType = ownProps.location.pathname.slice(1); // get rid of /
+	// debugger;
+	// const formType = ownProps.location.pathname.slice(1); // get rid of /
+	const formType = ownProps.typeOfForm;
 	let formFunction;
 
 	if (formType === 'login') {

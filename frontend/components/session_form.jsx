@@ -74,7 +74,7 @@ class SessionForm extends React.Component {
 		// access img_url here
 
 		return (
-			<ul className="login-form-container">
+			<div className="login-form-container">
 				<form onSubmit={this.handleSubmit} className="login-form-box">
 						<br/>
 
@@ -114,7 +114,7 @@ class SessionForm extends React.Component {
 							<input type="submit" value="Submit" />
 						</div>
 				</form>
-			</ul>
+			</div>
 		);
 	}
 

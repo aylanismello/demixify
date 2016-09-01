@@ -4,6 +4,8 @@ import * as API from './util/session_api_util';
 import { login, logout, signup } from './actions/session_actions';
 import configureStore from './store/store';
 import Root from './components/root';
+import Modal from 'react-modal';
+
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -22,6 +24,8 @@ document.addEventListener("DOMContentLoaded", () => {
 		store = window.store = configureStore();
 	}
 
+// this tells the modal that it can block the entire body
+	Modal.setAppElement(document.body);
 	const root = document.querySelector('#root');
 	ReactDOM.render(<Root store={store}/>, root);
 

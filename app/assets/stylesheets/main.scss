@@ -18,7 +18,8 @@ $other-text-font: 'Montserrat', sans-serif;
 
 $nav-bar-color: #45d9e5;
 $nav-bar-height: 70px;
-$top-z-index: 1000;
+$nav-z-index: 1000;
+$splash-z-index: 1;
 
 
 @mixin static-splash {
@@ -127,7 +128,7 @@ body {
     position: absolute;
     top: 30%;
     left: 10%;
-    z-index: 1;
+    z-index: $splash-z-index;
     // background: gray;
 
     font-famiy: Arial;
@@ -239,8 +240,9 @@ body {
   margin-right: 40%;
 }
 
-.search-bar {
+.my-search-bar {
   // line-height: 70px;
+  color: black;
   border: $search-bar-border;;
   padding-left: 10px;
   border-top-left-radius: $search-bar-radius;
@@ -262,7 +264,7 @@ body {
 .my-nav-bar {
 
   top: 0;
-  z-index: $top-z-index;
+  z-index: $nav-z-index;
   position: fixed;
   width: 100%;
 
