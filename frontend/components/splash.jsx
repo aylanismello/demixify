@@ -2,12 +2,12 @@ import React from 'react';
 import { Link } from 'react-router';
 import MixIndex from './mix_index';
 
-const Splash = () => (
+const Splash = ({openSignupModal}) => (
 	<div className="splash-mother">
 
 		<div className="splash-wrapper">
 				<video src="http://res.cloudinary.com/dfkrjl3pb/video/upload/v1472688101/dj_vid_e5p5vj.mp4"
-				 className="splash-video"  muted loop>
+				 className="splash-video"  autoPlay muted loop>
 				</video>
 
 			<div className="splash" >
@@ -27,18 +27,19 @@ const Splash = () => (
 								</span>
 						</div>
 							<div className="signup-button">
-								<Link to="/signup">Sign Up</Link>
+								{/* <Link to="/signup">Sign Up</Link> */}
+								<button className="signup button btn-default" onClick={openSignupModal}>Sign Up</button>
 							</div>
 					</div>
 
 
 			</div>
-			<MixIndex/>
 
 
 
 
 		</div>
+		{/* <MixIndex/> */}
 
 
 	</div>

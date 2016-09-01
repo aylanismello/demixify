@@ -14,7 +14,9 @@ const mapStateToProps = state => {
 const mapDispatchToProps = (dispatch, ownProps) => {
 	// debugger;
 	// const formType = ownProps.location.pathname.slice(1); // get rid of /
-	const formType = ownProps.typeOfForm;
+	const formType = ownProps.formType;
+	// const modal = ownProps.modalFunctions;
+	// debugger;
 	let formFunction;
 
 	if (formType === 'login') {

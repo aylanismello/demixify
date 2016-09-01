@@ -1,4 +1,6 @@
 import { SessionConstants, receiveCurrentUser, receiveErrors } from '../actions/session_actions';
+import { hashHistory } from 'react-router';
+
 import * as API from '../util/session_api_util';
 
 const SessionMiddleware = ({getState, dispatch}) => next => action => {
@@ -9,24 +11,33 @@ const SessionMiddleware = ({getState, dispatch}) => next => action => {
 		dispatch(receiveErrors(data));
 	};
 
+	const loginSuccess = user => {
+			hashHistory.push('/home');
+			dispatch(receiveCurrentUser(user));
+	};
+
+	const logoutSuccess = user => {
+		hashHistory.push('/');
+		next(action);
+	};
+
 	switch (action.type) {
 
 		case SessionConstants.LOGIN:
-			success = (user) =>  dispatch(receiveCurrentUser(user));
-			API.login(action.user, success, error);
+
+
+			API.login(action.user, loginSuccess, error);
 			return next(action);
 
 		case SessionConstants.SIGNUP:
-			success = (user) => {
-					// debugger;
-					dispatch(receiveCurrentUser(user));
-				};
-			API.signup(action.user, success, error);
+
+
+			API.signup(action.user, loginSuccess, error);
 			return next(action);
 
 		case SessionConstants.LOGOUT:
-			success = (data) => next(action);
-			API.logout(success, error);
+
+			API.logout(logoutSuccess, error);
 			break;
 
 		default:
