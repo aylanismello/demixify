@@ -17,7 +17,7 @@ const personalGreeting = (currentUser, logout) => (
 	<nav className="profile-dropdown-wrapper">
 		<img className="header-profile-pic" src={currentUser.img_url} alt="{currentUser.username}"/>
 
-		<div className="dropdown-menu">
+		<div className="my-dropdown">
 			<li> <Link to="/profile" >Profile</Link></li>
 			<li> <Link to="/create_demix" >Create DeMix</Link></li>
 			<li> <a className="logout" onClick={logout}>Log Out</a> </li>
