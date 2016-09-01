@@ -10,7 +10,7 @@ const NavBar = ({children}) => (
 				<Link to="/" className="header-link cf"><h1>Demixify</h1></Link>
 
 					{/* <div className="search-bar-wrapper"> */}
-						<input className="search-bar" autocomplete="off"
+						<input className="search-bar" 
 							placeholder="What sort of mix are you feeling?" type="text"/>
 						<Link to="/explore" className="search-button">Explore</Link>
 					{/* </div> */}
