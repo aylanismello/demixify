@@ -20,13 +20,14 @@ column name     | data type | details
 id              | integer   | not null, primary key
 soundcloud_id   | integer   | //referencing soundcloud api
 name            | string    | // reference soundcloud api
-location        | string    | //pulled from soundcloud api
-image_url       | string    | //pulled form soundcloud api
+avatar_url      | string    | //pulled form soundcloud api
 
+MAYBE
+location        | string    | //pulled from soundcloud api
 
 
 ## mixes
-* belong_to user; has_many tracks, likes; has_many tags through taggings
+* belong_to user, dj; has_many tracks, likes; has_many tags through taggings
 
 column name     | data type | details
 ----------------|-----------|-----------------------

@@ -5,7 +5,7 @@ import { login, logout, signup } from './actions/session_actions';
 import configureStore from './store/store';
 import Root from './components/root';
 import Modal from 'react-modal';
-import { makeTracks, makeMix } from './testers/soundcloud_tests';
+import { makeTracks, makeMix, createDJ } from './testers/soundcloud_tests';
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -24,11 +24,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	// makeTracks();
 
-	const getMixId = (mixId) => {
+	const getMixId = (mixId, mixArtist) => {
+
+
+		// debugger
+		// here you create the DJ!
+		createDJ(mixArtist);
 		console.log(mixId);
+
+
 		makeTracks(mixId);
 		return mixId;
 	};
+
+
+
+
+
 	makeMix('diplo', getMixId);
 
 

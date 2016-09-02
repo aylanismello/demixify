@@ -3,6 +3,12 @@ import {VARS, DUMMY_DATA} from '../util/vars';
 
 
 
+
+
+
+
+
+
 export const soundcloudMixModelCreation = (soundcloud_mix_id, getMixId) => {
 
 	const soundcloud_id = soundcloud_mix_id;
@@ -20,7 +26,11 @@ export const soundcloudMixModelCreation = (soundcloud_mix_id, getMixId) => {
 		mix.year = data.release_year;
 		mix.soundcloud_id = soundcloud_id;
 		// MY SHIT
+
+		// can be set from state
 		mix.user_id = 1;
+
+		// create dj from artist id and callback, then update this value
 		mix.dj_id = 1;
 
 		window.sentMix = mix;
@@ -31,7 +41,7 @@ export const soundcloudMixModelCreation = (soundcloud_mix_id, getMixId) => {
 			data: {mix: mix},
 			success: (theMix) => {
 				console.log(`SUCCESS: theMIX is ${theMix}`);
-				getMixId(theMix.id);
+				getMixId(theMix.id, mix.artist);
 				window.receivedMix = theMix;
 			},
 			error: (theMix) => {
