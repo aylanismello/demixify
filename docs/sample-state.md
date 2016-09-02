@@ -39,3 +39,27 @@
   tagFilters: [1, 7, 14] // Used to track selected Tags for filtering of mixes
 }
 ```
+//notes
+TRACK:
+NEED SOUNDCLOUD ID->
+
+{
+artist:  {
+  avatar_url: "https://i1.sndcdn.com/avatars-000004193858-jnf2pd-large.jpg"
+  id : 3699101
+  kind : "user"
+  last_modified : "2011/06/13 23:58:44 +0000"
+  permalink : "alex-stevenson"
+  permalink_url : "http://soundcloud.com/alex-stevenson"
+  uri : "https://api.soundcloud.com/users/3699101"
+  username : "Alex Stevenson"
+
+}
+
+ artwork_url: null,
+ permalink_url: "http://soundcloud.com/alex-stevenson/munching-at-tiannas-house,
+ stream_url:
+ title: "Munching at Tiannas house",
+ year
+
+}
