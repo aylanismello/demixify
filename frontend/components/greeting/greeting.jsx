@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router';
 import Modal from 'react-modal';
-import Splash from './splash';
-import SessionFormContainer from './session_form_container';
+import Splash from '../splash/splash';
+import SessionFormContainer from '../session_form/session_form_container';
 
 
 

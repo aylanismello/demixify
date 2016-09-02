@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
-import MixIndex from './mix_index';
+import MixIndex from '../mix_index/mix_index';
 
 const Home = () => (
 	<div className="home-screen">

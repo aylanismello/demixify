@@ -47,18 +47,23 @@ artwork_url     | string    | not null
 ## track
 * belongs_to mix, has_many faves
 
+
 column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key
 mix_id          | integer   | not null, foreign key, indexed
 soundcloud_id   | integer   | not null //referencing soundcloud api
 title           | string    | not null, indexed
-artist          | string    | not null
-album           | string    | not null
-year            | integer   | not null
-track_url       | string    | not null  //link to soundcloud page where track is hosted
-stream_url      | string    | not null  //embeddable sound stream
+year            | integer   |
+permalink_url   | string    | not null  //also link. converts to stream_url in react-soundplayer
 artwork_url     | string    | not null
+artist_id       | integer   | not null
+artist_username | string    | not null
+artist_avatar   | string    | not null
+
+
+
+
 
 ## comments
 * belongs_to mix, belongs_to user

@@ -1,10 +1,10 @@
 import React from 'react';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
-import NavBar from './nav_bar';
-import SessionFormContainer from './session_form_container';
-import Splash from './splash';
-import Home from './home';
-import ParentComponent from './parent_component';
+import NavBar from '../nav_bar/nav_bar';
+import SessionFormContainer from '../session_form/session_form_container';
+import Splash from '../splash/splash';
+import Home from '../home/home';
+import ParentComponent from '../parent_component/parent_component';
 
 class AppRouter extends React.Component {
 	constructor(props) {
@@ -33,7 +33,7 @@ class AppRouter extends React.Component {
 			<Router history={ hashHistory }>
 				<Route path="/" component= { ParentComponent }>
 					<Route path="/home" component={ Home } onEnter={ this._ensureLoggedIn }/>
-					
+
 				</Route>
 
 			</Router>

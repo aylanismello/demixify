@@ -1,5 +1,5 @@
 import React from 'react';
-import MixIndexItem from './mix_index_item.jsx';
+import MixIndexItem from '../mix_index_item/mix_index_item';
 
 const MixIndex =  () => {
 	return (
