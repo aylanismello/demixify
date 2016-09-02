@@ -1,7 +1,10 @@
+import {VARS, DUMMY_DATA} from '../util/vars';
+
+
 export const soundcloudTrackModelCreation = (track_id) => {
 	const soundcloud_id = track_id;
 	const url = `http://api.soundcloud.com/tracks/${soundcloud_id}`;
-	const clientId = 'a13f1496f3ee0b36504328dde940b256';
+	const clientId = VARS.CLIENT_ID;
 
 
 	let soundcloudApiSuccess = (data) => {
@@ -15,6 +18,9 @@ export const soundcloudTrackModelCreation = (track_id) => {
 		track.permalink_url = data.permalink_url;
 		// this way with the soundcloud player
 		// I can always generate new stream_urls!!
+
+
+		// DUMMY_DATA.RESOLVE_URL = track.permalink_url;
 
 		track.year = data.release_year;
 		track.soundcloud_id = soundcloud_id;
