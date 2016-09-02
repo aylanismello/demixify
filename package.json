@@ -41,6 +41,7 @@
     "react-soundplayer": "^0.3.6",
     "redux": "^3.5.2",
     "redux-logger": "^2.6.1",
+    "soundcloud-audio": "^1.0.3",
     "webpack": "^1.13.2"
   }
 }

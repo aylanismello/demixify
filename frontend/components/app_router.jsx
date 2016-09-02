@@ -33,7 +33,7 @@ class AppRouter extends React.Component {
 			<Router history={ hashHistory }>
 				<Route path="/" component= { ParentComponent }>
 					<Route path="/home" component={ Home } onEnter={ this._ensureLoggedIn }/>
-
+					
 				</Route>
 
 			</Router>

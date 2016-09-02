@@ -1,0 +1,139 @@
+.my-nav-bar {
+
+  top: 0;
+  z-index: $nav-z-index;
+  position: fixed;
+  width: 100%;
+
+
+	background-color: $nav-bar-color;
+	color: white;
+  line-height: $nav-bar-height;
+	height: $nav-bar-height;
+	text-decoration: none;
+
+	font-family: $text-font;
+
+  .my-search-bar {
+    // line-height: 70px;
+    color: black;
+    border: $search-bar-border;;
+    padding-left: 10px;
+    border-top-left-radius: $search-bar-radius;
+    border-bottom-left-radius: $search-bar-radius;
+    width: $search-bar-width;
+    height: $search-bar-height;
+  }
+
+  .search-button {
+    padding: 4px 20px;
+    border-top-right-radius: $search-bar-radius;
+    border-bottom-right-radius: $search-bar-radius;
+    background-color: $search-button-color;
+    text-decoration: none;
+    color: white;
+
+  }
+
+
+
+  .profile-dropdown-wrapper{
+    padding: 0 40px;
+    height: 100px;
+		float: right;
+    display: flex;
+
+      .header-profile-pic {
+        height: 50px;
+        background: white;
+        border: $search-bar-border;
+        border-radius: $search-bar-radius;
+        margin: 0 40px;
+      }
+
+      .my-dropdown {
+          display: none;
+          position: absolute;
+          top: $nav-bar-height;
+          // margin-top: 70px;
+          right: 0;
+          background: #fff;
+          width: 155px;
+          color: #999;
+          box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+      }
+
+      .my-dropdown > li {
+        // text-align: center;
+        padding-left: 20px;
+        list-style: none;
+      }
+    }
+
+    .profile-dropdown-wrapper:hover {
+      cursor: pointer;
+      // display: block;
+    }
+
+  .profile-dropdown-wrapper:hover > .my-dropdown {
+    cursor: pointer;
+    display: block;
+  }
+  .profile-dropdown-wrapper .my-dropdown:hover > .my-dropdown {
+    cursor: pointer;
+    display: block;
+  }
+
+  .profile-dropdown-wrapper .my-dropdown > li:hover  {
+    background: #eee;
+    // cursor: pointer;
+    // display: block;
+  }
+
+
+
+  // .profile-dropdown-wrapper:hover {
+  //   cursor: pointer;
+  // }
+
+
+
+
+
+
+	.login-signup {
+		padding: 0 40px;
+		float: right;
+    display: flex;
+	}
+
+  .logout:hover {
+    cursor: pointer;
+  }
+
+	//
+	.login-signup > a {
+		display: inline;
+		color: inherit;
+		float: left;
+    padding: 0 20px ;
+		// float: right;
+		text-decoration: inherit;
+	}
+
+	.header-link {
+		padding: 0 40px;
+		display: inline-block;
+		text-decoration: inherit;
+		color: inherit;
+	}
+
+
+	.rm-container {
+		display: inline-block;
+		text-align: center;
+		background-color: green;
+		margin: 0;
+		width: 100%;
+	}
+}

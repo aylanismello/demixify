@@ -9,13 +9,7 @@ import Modal from 'react-modal';
 
 
 document.addEventListener("DOMContentLoaded", () => {
-	// const store = configureStore();
-	window.store = store;
-	window.login = login;
-	window.signup = signup;
-	window.logout = logout;
 
-	// debugger;
 	let store;
 	if (window.currentUser) {
 		const preloadedState = {session: {currentUser: window.currentUser}};
@@ -27,6 +21,9 @@ document.addEventListener("DOMContentLoaded", () => {
 // this tells the modal that it can block the entire body
 	Modal.setAppElement(document.body);
 	const root = document.querySelector('#root');
-	ReactDOM.render(<Root store={store}/>, root);
 
+
+
+	ReactDOM.render(<Root store={store}/>, root);
+	// ReactDOM.render(<FirstSoundPlayer/>, root);
 });
