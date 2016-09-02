@@ -59,7 +59,7 @@ artist:  {
  artwork_url: null,
  permalink_url: "http://soundcloud.com/alex-stevenson/munching-at-tiannas-house,
  stream_url:
- title: "Munching at Tiannas house",
- year
+ title: "Munching at Tiannas house", x
+ year x
 
 }
