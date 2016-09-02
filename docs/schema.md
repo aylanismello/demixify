@@ -31,17 +31,23 @@ image_url       | string    | //pulled form soundcloud api
 column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key
-user_id					| integer   | not null, foreign key, indexed
-dj_id           | integer   | not null, foreign key, indexed
-soundcloud_id   | integer   | not null //referencing soundcloud api
 description     | string    |
+
+
+user_id					| integer   | not null, foreign key, indexed
 play_count      | integer   | not null
+dj_id           | integer   | not null, foreign key, indexed
+
+
+
+soundcloud_id   | integer   | not null //referencing soundcloud api
 title           | string    | not null, indexed
-artist          | string    | not null
 year            | integer   | not null
-track_url       | string    | not null //link to soundcloud page where track is hosted
-stream_url      | string    | not null //embeddable sound stream
+permalink_url   | string    | not null //link to soundcloud page where
 artwork_url     | string    | not null
+artist_id       | string    | not null
+artist_username | string    | not null
+artist_avatar   | string    | not null
 
 
 ## track
@@ -52,10 +58,13 @@ column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key
 mix_id          | integer   | not null, foreign key, indexed
+track_number    | integer   | not null
+unknown         | boolean   | not null
+
 soundcloud_id   | integer   | not null //referencing soundcloud api
 title           | string    | not null, indexed
 year            | integer   |
-permalink_url   | string    | not null  //also link. converts to stream_url in react-soundplayer
+permalink_url   | string    | not null  //also link. converts to stream_url
 artwork_url     | string    | not null
 artist_id       | integer   | not null
 artist_username | string    | not null

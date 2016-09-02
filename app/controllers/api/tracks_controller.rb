@@ -1,25 +1,39 @@
 class Api::TracksController < ApplicationController
   def create
 
-    # receive JSON object here from soundcloud
-    # @track = Track.new(track_params)
-    new_track_params = track_params
-    artist = params[:track][:artist]
+    track_params = params[:track]
 
-    # track[:artwork_url] = artist[:artwork_url]
-    new_track_params[:artist_id] = artist[:id]
-    new_track_params[:artist_username] = artist[:username]
-    new_track_params[:artist_avatar] = artist[:avatar_url]
+    track_final = {
+      title: track_params[:title],
+      artwork_url: track_params[:artwork_url],
+      permalink_url: track_params[:permalink_url],
+      year: track_params[:year],
+      soundcloud_id: track_params[:soundcloud_id],
+      track_number: track_params[:track_number],
+      unknown: track_params[:unknown],
+      mix_id: track_params[:mix_id],
+      artist_id: track_params[:artist][:id],
+      artist_username: track_params[:artist][:username],
+      artist_avatar: track_params[:artist][:avatar_url],
+    }
+    # track_final = {}
+    # track_final = track_params.dup
+    #
+    # artist = params[:track][:artist]
+    # track_final.artist_id = artist[:id]
+    # track_final.artist_username = artist[:username]
+    # track_final.artist_avatar = artist[:avatar_url]
+    #
+    # byebug
 
-    new_track_params[:mix_id] = 1 #just for now until we get mix model down
-
-    @track = Track.new(new_track_params)
+    @track = Track.new(track_final)
 
     if @track.save
 
       render "api/tracks/show"
       #do shit with track?
     else
+      byebug
       render json: @track.errors.full_messages, status: 402
     end
 
@@ -30,9 +44,11 @@ class Api::TracksController < ApplicationController
   def show
   end
 
-  private
-  def track_params
-    params.require(:track).permit(:title, :artwork_url, :permalink_url, :year, :soundcloud_id)
-  end
+  # private
+  # def track_params
+  #   params.require(:track).permit(:title, :artwork_url, :permalink_url, :year,
+  #     :soundcloud_id, :track_number, :unknown, :mix_id)
+  # end
+  #
 
 end

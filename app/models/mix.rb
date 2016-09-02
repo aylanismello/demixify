@@ -1,9 +1,12 @@
 # == Schema Information
 #
-# Table name: tracks
+# Table name: mixes
 #
 #  id              :integer          not null, primary key
-#  mix_id          :integer          not null
+#  description     :string
+#  user_id         :integer          not null
+#  dj_id           :integer          not null
+#  play_count      :integer
 #  soundcloud_id   :integer          not null
 #  title           :string           not null
 #  year            :integer
@@ -14,14 +17,13 @@
 #  artist_avatar   :string
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
-#  unknown         :boolean          not null
-#  track_number    :integer          not null
 #
 
-require 'test_helper'
+class Mix < ApplicationRecord
+	validates :user_id, :dj_id, :soundcloud_id, :title, :permalink_url, :artist_id,
+		:artist_username, presence: :true
 
-class TrackTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+	belongs_to :user
+	has_many :tracks
+
 end
