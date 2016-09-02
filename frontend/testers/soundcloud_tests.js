@@ -2,12 +2,12 @@ import { soundcloudTrackModelCreation, soundcloudMixModelCreation } from './trac
 import { searchSoundcloud } from './searchSoundcloud';
 import seedTracks from './seederTracks';
 
-export const makeTracks = () => {
+export const makeTracks = (mixId) => {
 
 
 	const cb = (tracks) => {
 		let track_id = tracks[0].id;
-		soundcloudTrackModelCreation(track_id);
+		soundcloudTrackModelCreation(track_id, mixId);
 	};
 
 
@@ -21,14 +21,12 @@ export const makeTracks = () => {
 };
 
 
-export const makeMix = (theMix) => {
+export const makeMix = (theMix, getMixId) => {
 
 	const cb = (mix) => {
 		let soundcloud_mix_id = mix[0].id;
-		debugger;
-		soundcloudMixModelCreation(soundcloud_mix_id);
+		soundcloudMixModelCreation(soundcloud_mix_id, getMixId);
 	};
-	debugger;
 
 	searchSoundcloud(theMix, cb);
 

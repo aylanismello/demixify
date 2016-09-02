@@ -14,7 +14,7 @@ class Api::TracksController < ApplicationController
       mix_id: track_params[:mix_id],
       artist_id: track_params[:artist][:id],
       artist_username: track_params[:artist][:username],
-      artist_avatar: track_params[:artist][:avatar_url],
+      artist_avatar: track_params[:artist][:avatar_url]
     }
     # track_final = {}
     # track_final = track_params.dup

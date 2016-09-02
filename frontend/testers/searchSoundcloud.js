@@ -3,7 +3,6 @@ import {VARS} from '../util/vars';
 
 export const searchSoundcloud = (track, cb) => {
 
-	debugger;
 	SC.initialize({
 	  client_id: VARS.CLIENT_ID
 	});

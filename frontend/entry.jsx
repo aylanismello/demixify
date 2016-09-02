@@ -23,11 +23,18 @@ document.addEventListener("DOMContentLoaded", () => {
 	// soundcloudTrackModelCreation(13158665);
 
 	// makeTracks();
-	makeMix('diplo');
+
+	const getMixId = (mixId) => {
+		console.log(mixId);
+		makeTracks(mixId);
+		return mixId;
+	};
+	makeMix('diplo', getMixId);
 
 
 
 // this tells the modal that it can block the entire body
+	Modal.setAppElement(document.body);
 	Modal.setAppElement(document.body);
 	const root = document.querySelector('#root');
 

@@ -28,7 +28,7 @@ class Track < ApplicationRecord
 
 	 validates :unknown, inclusion: {in: [true, false] }
 
-	# belongs_to :mix
+	belongs_to :mix
 
 
 end

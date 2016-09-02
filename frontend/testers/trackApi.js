@@ -1,7 +1,9 @@
 import {VARS, DUMMY_DATA} from '../util/vars';
 
-export const soundcloudMixModelCreation = (soundcloud_mix_id) => {
-	debugger;
+
+
+
+export const soundcloudMixModelCreation = (soundcloud_mix_id, getMixId) => {
 
 	const soundcloud_id = soundcloud_mix_id;
 	const url = `http://api.soundcloud.com/tracks/${soundcloud_id}`;
@@ -29,6 +31,7 @@ export const soundcloudMixModelCreation = (soundcloud_mix_id) => {
 			data: {mix: mix},
 			success: (theMix) => {
 				console.log(`SUCCESS: theMIX is ${theMix}`);
+				getMixId(theMix.id);
 				window.receivedMix = theMix;
 			},
 			error: (theMix) => {
@@ -49,7 +52,7 @@ export const soundcloudMixModelCreation = (soundcloud_mix_id) => {
 
 };
 
-export const soundcloudTrackModelCreation = (track_id) => {
+export const soundcloudTrackModelCreation = (track_id, mixId) => {
 	const soundcloud_id = track_id;
 	const url = `http://api.soundcloud.com/tracks/${soundcloud_id}`;
 	const clientId = VARS.CLIENT_ID;
@@ -58,29 +61,18 @@ export const soundcloudTrackModelCreation = (track_id) => {
 	let soundcloudApiSuccess = (data) => {
 		let track = {};
 		console.log(`${data} received.`);
-		// window.track = data;
 		track.title = data.title;
 		track.artist = data.user; // returns little object with id, name
-
 		track.artwork_url = data.artwork_url;
 		track.permalink_url = data.permalink_url;
-		// this way with the soundcloud player
-		// I can always generate new stream_urls!!
-
-
-		// DUMMY_DATA.RESOLVE_URL = track.permalink_url;
-
 		track.year = data.release_year;
 		track.soundcloud_id = soundcloud_id;
-		// track.streamable = data.streamable;
-		// track.stream_url = data.stream_url;
-		// post request to my api
 
 
 		// MY SHIT
 		track.track_number = 1;
 		track.unknown = false;
-		track.mix_id = 1;
+		track.mix_id = mixId;
 
 		window.sentTrack = track;
 		$.ajax({
