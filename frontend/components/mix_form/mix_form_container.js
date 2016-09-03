@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import MixForm from './mix_form';
 // import { login, logout, signup } from '../../actions/session_actions';
-import { submitMix, MixConstants } from '../../actions/mix_actions';
+import { submitMix, submitTrack, MixConstants } from '../../actions/mix_actions';
 
 
 
@@ -10,7 +10,8 @@ const mapStateToProps = state =>({
 });
 
 const mapDispatchToProps = dispatch => ({
-	submitMix: (mix) => dispatch(submitMix(mix))
+	submitMix: mix => dispatch(submitMix(mix)),
+	submitTrack: track => dispatch(submitTrack(track))
 });
 
 

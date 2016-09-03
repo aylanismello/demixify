@@ -34,6 +34,13 @@ const MixMiddleware = ({getState, dispatch}) => next => action => {
 			API.submitMix(action.mix, submitMixSuccess, error);
 			return next(action);
 
+			// 	tracks: {
+			// 		number, name, unkown
+			// 	},
+		case MixConstants.SUBMIT_TRACK:
+		// make api call to make soundcloud object
+
+			return next(action);
 
 
 		default:

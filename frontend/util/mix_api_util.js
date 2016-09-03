@@ -2,7 +2,7 @@ import { searchByTrack } from '../soundcloud_util/search';
 
 const suc = (user) => {
 
-	console.log(`SUCCESS: mix is this obj: ${user}`);
+	console.log(`SUCCESS: mix/track is this obj: ${user}`);
 };
 
 const err = (errors) => {
@@ -18,6 +18,14 @@ const err = (errors) => {
 				// {unkown, number, name}
 			// ]
 // }
+
+
+
+export const submitTrack = (track, success = suc, error = err) => {
+	// search for track, on callback we want to return the object and set to state.
+
+};
+
 export const submitMix = (mix, success = suc, error = err) => {
 
 
@@ -49,15 +57,15 @@ export const submitMix = (mix, success = suc, error = err) => {
 
 	// PROMISE THIS SHIT
 
-	let receiveResponse = tracks => `got ${tracks}`;
-
-	let request = new Promise( receiveResponse => {
-	  $.ajax({
-	    success: receiveResponse( 'success message' )
-	    })
-	});
-
-	request.then( receiveResponse );
+	// let receiveResponse = tracks => `got ${tracks}`;
+	//
+	// let request = new Promise( receiveResponse => {
+	//   $.ajax({
+	//     success: receiveResponse( 'success message' )
+	//     })
+	// });
+	//
+	// request.then( receiveResponse );
 
 
 
