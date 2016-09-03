@@ -8,6 +8,7 @@ import Modal from 'react-modal';
 // import { makeTracks, makeMix, createDJ } from './testers/soundcloud_tests';
 
 
+
 document.addEventListener("DOMContentLoaded", () => {
 
 	let store;
@@ -17,6 +18,8 @@ document.addEventListener("DOMContentLoaded", () => {
 	} else {
 		store = window.store = configureStore();
 	}
+
+
 
 	// sentTrack and received track should now be in window.
 	// feed this thing a track soundcloud id.

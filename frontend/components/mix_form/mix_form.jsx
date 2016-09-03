@@ -66,7 +66,7 @@ class MixForm extends React.Component {
 			const tracks = this.state.tracks;
 			tracks[number][field] = e.currentTarget.value;
 			// if we
-			tracks[number]['number'] = number;
+			tracks[number]['number'] = number + 1;
 			tracks[number]['unknown'] = false;
 
 			this.setState( {
@@ -81,7 +81,7 @@ class MixForm extends React.Component {
 
 			const tracks = this.state.tracks;
 			tracks[number]['unknown'] = true;
-			tracks[number]['number'] = number;
+			tracks[number]['number'] = number + 1;
 			tracks[number]['name'] = 'unknown';
 
 

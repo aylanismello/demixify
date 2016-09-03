@@ -1,7 +1,7 @@
 import {VARS} from './vars';
 // https://developers.soundcloud.com/docs/api/guide#search
 
-export const searchSoundcloud = (track, cb) => {
+export const searchByTrack = (track, cb) => {
 
 	SC.initialize({
 	  client_id: VARS.CLIENT_ID

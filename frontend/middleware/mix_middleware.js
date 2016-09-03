@@ -18,6 +18,15 @@ const MixMiddleware = ({getState, dispatch}) => next => action => {
 
 	debugger;
 
+// we've received
+// {
+// 	mix_name:
+// 	description:
+// 	tracks: {
+// 		number, name, unkown
+// 	},
+// 	user_id
+// }
 	switch (action.type) {
 
 		case MixConstants.SUBMIT_MIX:
