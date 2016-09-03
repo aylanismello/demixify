@@ -16,29 +16,11 @@ const MixMiddleware = ({getState, dispatch}) => next => action => {
 	};
 
 
-	debugger;
-
-// we've received
-// {
-// 	mix_name:
-// 	description:
-// 	tracks: {
-// 		number, name, unkown
-// 	},
-// 	user_id
-// }
 	switch (action.type) {
 
 		case MixConstants.SUBMIT_MIX:
 
 			API.submitMix(action.mix, submitMixSuccess, error);
-			return next(action);
-
-			// 	tracks: {
-			// 		number, name, unkown
-			// 	},
-		case MixConstants.SUBMIT_TRACK:
-		// make api call to make soundcloud object
 
 			return next(action);
 

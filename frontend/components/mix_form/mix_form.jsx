@@ -73,7 +73,6 @@ class MixForm extends React.Component {
 	updateTrackUnknown(number) {
 
 		return e => {
-			// debugger;
 			const tracks = this.state.tracks;
 			tracks[number]['unknown'] = true;
 			tracks[number]['number'] = number + 1;
@@ -129,27 +128,20 @@ class MixForm extends React.Component {
 
 	updateTrackCB(trackObj, trackIdx) {
 
-		// window.trackObj = trackObj;
-		// debugger;
 		console.log(`mix form received ${trackObj} from track ${trackIdx}`);
-
-		// now update state
-
 		const tracks = this.state.tracks;
 		const track = tracks[trackIdx];
-		// debugger;
 
 		track.sdObj = _.merge({}, trackObj);
 		track.number = trackIdx + 1;
-		track.unknown = true;
-		// debugger;
+		track.unknown = false;
 
 		this.setState({tracks: tracks});
 	}
 
 	updateMixCB(mixObj) {
-
-		// debugger;
+		console.log(`received mix ${mixObj}, setting state`);
+		this.setState({mix: mixObj});
 	}
 
 
@@ -157,11 +149,9 @@ class MixForm extends React.Component {
 		e.preventDefault();
 		const mix = this.state;
 
-		debugger;
 
 		this.props.submitMix(mix);
 	}
-
 
 
 	render() {

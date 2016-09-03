@@ -17,7 +17,7 @@ class Api::MixesController < ApplicationController
       artist_avatar: mix_params[:artist][:avatar_url],
 
       play_count: 0,
-      description: ""
+      description: mix_params[:description]
     }
 
 

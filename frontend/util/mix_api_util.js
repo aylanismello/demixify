@@ -1,74 +1,69 @@
-import { searchByTrack } from '../soundcloud_util/search';
+const suc = (mix) => {
 
-const suc = (user) => {
-
-	console.log(`SUCCESS: mix/track is this obj: ${user}`);
+	console.log(`SUCCESS: mix/track is this obj: ${mix}`);
+	window.receivedMix = mix;
 };
 
 const err = (errors) => {
-	// debugger;
 	console.log(`ERROR: ${errors.responseJSON}`);
 };
 
 
-// mix = {
-// description: string
-// mix_name:  string
-// tracks: [
-				// {unkown, number, name}
-			// ]
-// }
-
-
-
-export const submitTrack = (track, success = suc, error = err) => {
-	// search for track, on callback we want to return the object and set to state.
-
-};
-
 export const submitMix = (mix, success = suc, error = err) => {
 
+	// post to my api
 
-	// first query sound cloud for track_id...
-
-	// mixes need a dj id, so make a dj first.
-
-	//
+	// tracks belong to mixes. so make mix first
 
 
-	// tracks need a mix id. so make a mix first.
-	// practice making tracks
-
-
-	// separate this into soundcloud queries and model queries.
-	// let sdTrackIds = [];
-
-
-	SC.initialize({
-		client_id: VARS.CLIENT_ID
-	});
-
-	SC.get('/tracks', {
-		q: track
-	}).then(function(tracks) {
-		// console.log(tracks);
-		cb(tracks);
-	});
-
-	// PROMISE THIS SHIT
-
-	// let receiveResponse = tracks => `got ${tracks}`;
-	//
-	// let request = new Promise( receiveResponse => {
-	//   $.ajax({
-	//     success: receiveResponse( 'success message' )
-	//     })
-	// });
-	//
-	// request.then( receiveResponse );
-
-
+	makeMix(mix, makeTracks);
 
 	console.log('fuck u bitch');
 	return `youz a bitch.`;
+};
+
+
+const makeTracks = (mixId) => {
+	console.log('now gonna make tracks!');
+};
+
+const convertSdObjToMix = (mixObj) => {
+	let objForAPI = {};
+	let mix = mixObj.mix;
+
+	objForAPI.title = mix.title;
+	objForAPI.artwork_url = mix.artwork_url;
+	objForAPI.permalink_url = mix.permalink_url;
+	objForAPI.year = mix.release_year;
+	objForAPI.soundcloud_id = mix.id;
+	objForAPI.dj_id = mix.user.id;
+	objForAPI.artist = mix.user;
+
+
+
+	objForAPI.description = mixObj.description;
+	objForAPI.user_id = mixObj.user_id;
+
+	return objForAPI;
+	// debugger;
+
+};
+
+
+const makeMix = (sdTrackObj, makeTracksCB) => {
+
+	const mixToCreate = convertSdObjToMix(sdTrackObj);
+	// debugger;
+
+
+
+	$.ajax({
+		url: 'api/mixes',
+		method: 'POST',
+		data: {mix: mixToCreate},
+		success: suc,
+		error: err
+	});
+
+
 };
