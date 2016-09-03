@@ -3,22 +3,7 @@ import { searchSoundcloud } from './searchSoundcloud';
 import seedTracks from './seederTracks';
 
 
-export const createDJ = (dj) => {
-	// hit up the api
-	console.log(`gonna make ${dj}`);
 
-	$.ajax({
-		url: 'api/djs',
-		method: 'POST',
-		data: {dj},
-		success = (data) => console.log(`success! made dj ${data}!`),
-		error = (data) => console.log(`ERROR! on dj ${data}!`)
-	});
-
-	window.myDJ = artistObj;
-	debugger;
-
-};
 
 export const makeTracks = (mixId) => {
 
@@ -43,6 +28,10 @@ export const makeMix = (theMix, getMixId) => {
 
 	const cb = (mix) => {
 		let soundcloud_mix_id = mix[0].id;
+
+		// here create the DJ, and then pass in the DJ's id to mix for creation.
+
+
 		soundcloudMixModelCreation(soundcloud_mix_id, getMixId);
 	};
 

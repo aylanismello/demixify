@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160902190529) do
+ActiveRecord::Schema.define(version: 20160902234044) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "djs", force: :cascade do |t|
+    t.integer  "soundcloud_id"
+    t.string   "name"
+    t.string   "avatar_url"
+    t.string   "location"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
 
   create_table "mixes", force: :cascade do |t|
     t.string   "description"

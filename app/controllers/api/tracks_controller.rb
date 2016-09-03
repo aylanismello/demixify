@@ -33,7 +33,7 @@ class Api::TracksController < ApplicationController
       render "api/tracks/show"
       #do shit with track?
     else
-      byebug
+      # byebug
       render json: @track.errors.full_messages, status: 402
     end
 

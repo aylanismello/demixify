@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	const getMixId = (mixId, mixArtist) => {
 
 
-		// debugger
+		// debugger;
 		// here you create the DJ!
 		createDJ(mixArtist);
 		console.log(mixId);
