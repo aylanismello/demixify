@@ -3,6 +3,7 @@ import { Link, hashHistory } from 'react-router';
 import {seedTracks} from '../../soundcloud_util/seederTracks';
 import * as _ from 'lodash';
 import {searchByTrack} from '../../soundcloud_util/search';
+import MixInputField from '../mix_input_field/mix_input_field';
 
 
 class MixForm extends React.Component {
@@ -29,13 +30,6 @@ class MixForm extends React.Component {
 		this.makeSuggestions = this.makeSuggestions.bind(this);
 	}
 
-	handleMixSubmit(e) {
-		e.preventDefault();
-		const mix = this.state;
-		// debugger;
-
-		this.props.submitMix(mix);
-	}
 
 	renderErrors(){
 		let errorTexts;
@@ -106,11 +100,7 @@ class MixForm extends React.Component {
 
 			const onReceivedTracks = (theTracks) => {
 				const theTrack = theTracks[0];
-				// debugger;
-				console.log(`received ${theTrack}!`);
-				// const track = theTrack;
 				tracks[idx] = theTrack;
-
 				this.setState({
 					tracks: tracks
 				});
@@ -120,8 +110,6 @@ class MixForm extends React.Component {
 			searchByTrack(tracks[idx].name, onReceivedTracks);
 		};
 	}
-
-
 	handleMixInputUpdate(){
 		return e => {
 
@@ -138,8 +126,6 @@ class MixForm extends React.Component {
 			searchByTrack(e.currentTarget.value, updateSearchFilter);
 		}
 	}
-
-
 	makeTrackInput(idx) {
 		return (
 
@@ -175,8 +161,6 @@ class MixForm extends React.Component {
 			</div>
 		);
 	}
-
-
 	makeSuggestions() {
 		return(
 			<div>
@@ -184,12 +168,44 @@ class MixForm extends React.Component {
 				<li>{this.state.mixSuggestions[1].title}</li>
 				<li>{this.state.mixSuggestions[2].title}</li>
 			</div>
-		)
+		);
 	}
+
+	updateCB(trackObj, trackIdx) {
+
+		// window.trackObj = trackObj;
+		// debugger;
+		console.log(`mix form received ${trackObj} from track ${trackIdx}`);
+
+		// now update state
+
+		const tracks = this.state.tracks;
+		const track = tracks[trackIdx];
+		// debugger;
+
+		track.sdObj = _.merge({}, trackObj);
+		track.number = trackIdx + 1;
+		track.unknown = true;
+		// debugger;
+
+		this.setState({tracks: tracks});
+	}
+
+	handleMixSubmit(e) {
+		e.preventDefault();
+		const mix = this.state;
+
+		debugger;
+
+		this.props.submitMix(mix);
+	}
+
+
 
 	render() {
 		return(
 			<div className="mix-form-container">
+
 				<form onSubmit={this.handleMixSubmit} className="mix-form-box">
 				<br/>
 
@@ -199,18 +215,28 @@ class MixForm extends React.Component {
 
 				</div>
 
+
+
 				<div className="mix-form">
-					<input type="text"
+
+				<MixInputField updateCB={this.updateCB.bind(this)} idx="0"/>
+				<MixInputField updateCB={this.updateCB.bind(this)} idx="1"/>
+				<MixInputField updateCB={this.updateCB.bind(this)} idx="2"/>
+
+
+
+
+					{/* <input type="text"
 					value={this.state.mix_name}
 					onChange={this.handleMixInputUpdate()}
 					className="mix-input"
 					placeholder="Type mix name here to search!"/>
 
 
-					{this.makeSuggestions()}
+					{this.makeSuggestions()} */}
 
 
-					<textarea
+					{/* <textarea
 					cols="25"
 					rows="10"
 					value={this.state.description}
@@ -230,15 +256,11 @@ class MixForm extends React.Component {
 						return this.makeTrackInput(idx);
 					})}
 
-					<br />
+					<br /> */}
 
 
-					<input type="submit" value="Submit" />
-
-
-
+					<input type="submit" value="Create Mix" />
 				</div>
-
 				</form>
 			</div>
 		);
