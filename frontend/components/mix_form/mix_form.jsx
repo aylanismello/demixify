@@ -12,22 +12,17 @@ class MixForm extends React.Component {
 		super(props);
 
 		let tracks = [{}, {}, {}];
-		let mixSuggestions = [{title: ''}, {title: ''}, {title: ''}];
 		this.state = {
-			mix_name: "",
-			mixSuggestions: mixSuggestions,
+			mix: {},
 			description: "",
 			tracks: tracks,
 			user_id: props.currentUser.id
 		};
 
-		this.handleMixInputUpdate = this.handleMixInputUpdate.bind(this);
 		this.handleMixSubmit = this.handleMixSubmit.bind(this);
-		this.handleTrackSubmit = this.handleTrackSubmit.bind(this);
 		this.renderErrors = this.renderErrors.bind(this);
 		this.makeTrackInput = this.makeTrackInput.bind(this);
 
-		this.makeSuggestions = this.makeSuggestions.bind(this);
 	}
 
 
@@ -75,11 +70,9 @@ class MixForm extends React.Component {
 			});
 		};
 	}
-
 	updateTrackUnknown(number) {
 
 		return e => {
-			// if we just click unown , our name gets set to null and unkown is false
 			// debugger;
 			const tracks = this.state.tracks;
 			tracks[number]['unknown'] = true;
@@ -94,38 +87,8 @@ class MixForm extends React.Component {
 		};
 	}
 
-	handleTrackSubmit(idx) {
-		return e => {
-			const tracks = this.state.tracks;
-
-			const onReceivedTracks = (theTracks) => {
-				const theTrack = theTracks[0];
-				tracks[idx] = theTrack;
-				this.setState({
-					tracks: tracks
-				});
-
-			};
-
-			searchByTrack(tracks[idx].name, onReceivedTracks);
-		};
-	}
-	handleMixInputUpdate(){
-		return e => {
-
-			const updateSearchFilter = (tracks) => {
-
-				let suggestedTracks = tracks.slice(0, 3);
-				// debugger;
-
-				this.setState({mixSuggestions: suggestedTracks, mix_name: e.currentTarget.value});
 
 
-			}
-
-			searchByTrack(e.currentTarget.value, updateSearchFilter);
-		}
-	}
 	makeTrackInput(idx) {
 		return (
 
@@ -144,7 +107,7 @@ class MixForm extends React.Component {
 
 					<input type="button"
 					value="Mark as unkown"
-					onClick={this.updateTrackUnknown(idx)}
+					// onClick={this.updateTrackUnknown(idx)}
 
 					/>
 
@@ -153,7 +116,7 @@ class MixForm extends React.Component {
 					<input type="button"
 					key={idx}
 					value="Add track!"
-					onClick={this.handleTrackSubmit(idx)}
+					// onClick={this.handleTrackSubmit(idx)}
 					disabled={this.state.tracks[idx]['submitted']}
 
 					/>
@@ -161,17 +124,10 @@ class MixForm extends React.Component {
 			</div>
 		);
 	}
-	makeSuggestions() {
-		return(
-			<div>
-				<li>{this.state.mixSuggestions[0].title}</li>
-				<li>{this.state.mixSuggestions[1].title}</li>
-				<li>{this.state.mixSuggestions[2].title}</li>
-			</div>
-		);
-	}
 
-	updateCB(trackObj, trackIdx) {
+
+
+	updateTrackCB(trackObj, trackIdx) {
 
 		// window.trackObj = trackObj;
 		// debugger;
@@ -190,6 +146,12 @@ class MixForm extends React.Component {
 
 		this.setState({tracks: tracks});
 	}
+
+	updateMixCB(mixObj) {
+
+		// debugger;
+	}
+
 
 	handleMixSubmit(e) {
 		e.preventDefault();
@@ -219,24 +181,25 @@ class MixForm extends React.Component {
 
 				<div className="mix-form">
 
-				<MixInputField updateCB={this.updateCB.bind(this)} idx="0"/>
-				<MixInputField updateCB={this.updateCB.bind(this)} idx="1"/>
-				<MixInputField updateCB={this.updateCB.bind(this)} idx="2"/>
+
+
+				MIX:
+
+				<MixInputField updateCB={this.updateMixCB.bind(this)} idx="-1"/>
+
+
+				TRACKS:
+				<MixInputField
+					updateCB={this.updateTrackCB.bind(this)} idx="0"/>
+				<MixInputField
+					updateCB={this.updateTrackCB.bind(this)} idx="1"/>
+				<MixInputField
+					updateCB={this.updateTrackCB.bind(this)} idx="2"/>
 
 
 
 
-					{/* <input type="text"
-					value={this.state.mix_name}
-					onChange={this.handleMixInputUpdate()}
-					className="mix-input"
-					placeholder="Type mix name here to search!"/>
-
-
-					{this.makeSuggestions()} */}
-
-
-					{/* <textarea
+					<textarea
 					cols="25"
 					rows="10"
 					value={this.state.description}
@@ -246,17 +209,6 @@ class MixForm extends React.Component {
 
 
 					<br />
-					<br />
-					<h1>TRACKS</h1>
-					<br />
-					<br />
-
-
-					{seedTracks.map((track, idx) => {
-						return this.makeTrackInput(idx);
-					})}
-
-					<br /> */}
 
 
 					<input type="submit" value="Create Mix" />
