@@ -8,13 +8,6 @@ class MixForm extends React.Component {
 
 		super(props);
 
-		// debugger;
-
-		// let tracks = [
-			// {number: 1, unknown: false},
-			// {number: 2, unknown: false},
-			// {number: 3, unknown: false}
-		// ];
 		let tracks = [{}, {}, {}];
 
 		this.state = {
@@ -26,7 +19,6 @@ class MixForm extends React.Component {
 
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.renderErrors = this.renderErrors.bind(this);
-
 		this.makeTrackInput = this.makeTrackInput.bind(this);
 	}
 
@@ -68,19 +60,12 @@ class MixForm extends React.Component {
 	}
 
 
-// 	this.setState({
-//   items: update(this.state.items, {1: {name: {$set: 'updated field name'}}})
-// })
-
-	// items: update(this.state.items, {1: {name: {$set: 'updated field name'}}})
 	updateTrack(number, field) {
-
-		// const tracks = this.state.tracks;
-
-
+		// if we started typing again, our name gets set back and unkown is false
 		return e => {
 			const tracks = this.state.tracks;
 			tracks[number][field] = e.currentTarget.value;
+			// if we
 			tracks[number]['number'] = number;
 			tracks[number]['unknown'] = false;
 
@@ -88,15 +73,16 @@ class MixForm extends React.Component {
 					tracks: tracks
 			});
 		};
-
 	}
 
 	updateTrackUnknown(number) {
 		return e => {
+			// if we just click unown , our name gets set to null and unkown is false
+
 			const tracks = this.state.tracks;
 			tracks[number]['unknown'] = true;
 			tracks[number]['number'] = number;
-
+			tracks[number]['name'] = 'unknown';
 
 
 			// tracks[number]['name'] = 'unknown';
