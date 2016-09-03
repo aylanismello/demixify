@@ -5,6 +5,7 @@ import SessionFormContainer from '../session_form/session_form_container';
 import Splash from '../splash/splash';
 import Home from '../home/home';
 import ParentComponent from '../parent_component/parent_component';
+import MixFormContainer from '../mix_form/mix_form_container';
 
 class AppRouter extends React.Component {
 	constructor(props) {
@@ -33,6 +34,7 @@ class AppRouter extends React.Component {
 			<Router history={ hashHistory }>
 				<Route path="/" component= { ParentComponent }>
 					<Route path="/home" component={ Home } onEnter={ this._ensureLoggedIn }/>
+					<Router path="/create_mix" component={ MixFormContainer } onEnter={ this._ensureLoggedIn } />
 
 				</Route>
 

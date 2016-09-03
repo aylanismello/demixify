@@ -1,0 +1,23 @@
+.mix-form-container {
+	font-family: $text-font;
+	position: absolute;
+	top: 30px;
+
+	input[type=text] {
+		display: block;
+		padding-left: 20px;
+		width: 500px;
+		height: 40px;
+	}
+
+	input[type=submit] {
+		// float: right;
+		display: block;
+	}
+
+	text-area {
+		margin-top: 10px;
+		display: block;
+	}
+
+}

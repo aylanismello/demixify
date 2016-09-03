@@ -1,13 +1,13 @@
 import {VARS} from './vars';
 // https://developers.soundcloud.com/docs/api/guide#search
 
-export const searchSoundcloud = (track, cb) => {
+export const searchByTrack = (track, cb) => {
 
 	SC.initialize({
 	  client_id: VARS.CLIENT_ID
 	});
 
-	// find all sounds of buskers licensed under 'creative commons share alike'
+	// find all sounds of buskers licensed under 'creative` commons share alike'
 	SC.get('/tracks', {
 	  q: track
 	}).then(function(tracks) {

@@ -1,4 +1,4 @@
-import {VARS, DUMMY_DATA} from '../util/vars';
+import {VARS, DUMMY_DATA} from './vars';
 
 
 

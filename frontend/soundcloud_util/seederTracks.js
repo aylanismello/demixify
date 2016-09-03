@@ -1,7 +1,7 @@
-const seedTracks = [
-	'bounce it'
-	// 'dirty vibe',
-	// 'Earthquake AstronomarCareless Earthquake Edit',
+export const seedTracks = [
+	'bounce it',
+	'dirty vibe',
+	'Earthquake AstronomarCareless Earthquake Edit'
 	// 'Revolusion',
 	// 'King Of Africa',
 	// 'NULL',
@@ -15,4 +15,4 @@ const seedTracks = [
 
 ];
 
-export default seedTracks;
+// export default seedTracks;

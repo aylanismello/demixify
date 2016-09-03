@@ -10,6 +10,7 @@ const Home = () => (
 					<Link to="/home" className="navbar-brand">HOME</Link>
 					<Link to="/liked" className="navbar-brand">LIKED</Link>
 					<Link to="/djs" className="navbar-brand">DJS</Link>
+					<Link to="/create_mix" className="navbar-brand">MAKE DEMIX</Link>
 		    </div>
 		  </div>
 		</nav>

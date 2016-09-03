@@ -5,7 +5,7 @@ import { login, logout, signup } from './actions/session_actions';
 import configureStore from './store/store';
 import Root from './components/root';
 import Modal from 'react-modal';
-import { makeTracks, makeMix, createDJ } from './testers/soundcloud_tests';
+// import { makeTracks, makeMix, createDJ } from './testers/soundcloud_tests';
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -24,29 +24,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	// makeTracks();
 
-	const getMixId = (mixId, mixArtist) => {
-
-
-		// debugger;
-		// here you create the DJ!
-		createDJ(mixArtist);
-		console.log(mixId);
-
-
-		makeTracks(mixId);
-		return mixId;
-	};
-
-
-
-
-
-	makeMix('diplo', getMixId);
+	// const getMixId = (mixId, mixArtist) => {
+	//
+	//
+	// 	// debugger;
+	// 	// here you create the DJ!
+	// 	createDJ(mixArtist);
+	// 	console.log(mixId);
+	//
+	//
+	// 	makeTracks(mixId);
+	// 	return mixId;
+	// };
+	//
+	//
+	//
+	//
+	//
+	// makeMix('diplo', getMixId);
 
 
 
 // this tells the modal that it can block the entire body
-	Modal.setAppElement(document.body);
+	// Modal.setAppElement(document.body);
 	Modal.setAppElement(document.body);
 	const root = document.querySelector('#root');
 

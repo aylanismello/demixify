@@ -1,7 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 import { SoundPlayerContainer } from 'react-soundplayer/addons';
 import { PlayButton, Progress } from 'react-soundplayer/components';
-import {VARS, DUMMY_DATA} from '../../util/vars';
+import {VARS, DUMMY_DATA} from '../../soundcloud_util/vars';
 
 
 // const clientId = 'a13f1496f3ee0b36504328dde940b256';
