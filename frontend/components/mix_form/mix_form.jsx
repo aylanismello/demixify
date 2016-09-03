@@ -8,13 +8,19 @@ class MixForm extends React.Component {
 
 		super(props);
 
+		// debugger;
 
-		debugger;
+		// let tracks = [
+			// {number: 1, unknown: false},
+			// {number: 2, unknown: false},
+			// {number: 3, unknown: false}
+		// ];
+		let tracks = [{}, {}, {}];
 
 		this.state = {
 			mix_name: "",
 			description: "",
-			tracks: [],
+			tracks: tracks,
 			user_id: props.currentUser.id
 		};
 
@@ -67,13 +73,33 @@ class MixForm extends React.Component {
 // })
 
 	// items: update(this.state.items, {1: {name: {$set: 'updated field name'}}})
-	updateTrack(number) {
+	updateTrack(number, field) {
 
-		const tracks = this.state.tracks;
+		// const tracks = this.state.tracks;
+
 
 		return e => {
-			tracks[number] = e.currentTarget.value;
+			const tracks = this.state.tracks;
+			tracks[number][field] = e.currentTarget.value;
+			tracks[number]['number'] = number;
+			tracks[number]['unknown'] = false;
 
+			this.setState( {
+					tracks: tracks
+			});
+		};
+
+	}
+
+	updateTrackUnknown(number) {
+		return e => {
+			const tracks = this.state.tracks;
+			tracks[number]['unknown'] = true;
+			tracks[number]['number'] = number;
+
+
+
+			// tracks[number]['name'] = 'unknown';
 			this.setState( {
 					tracks: tracks
 			});
@@ -81,18 +107,33 @@ class MixForm extends React.Component {
 	}
 
 
+
+
 	makeTrackInput(idx) {
 		return (
 
-			<li key={idx}>
-			{idx+1}
-				<input type="text"
-				key = {idx}
-				value={this.state.track_name}
-				onChange={this.updateTrack(idx)}
-				className="track-input"
-				placeholder="track name!"/>
-			</li>
+			<div key={idx}>
+				<li>
+
+				{idx+1}
+					<input type="text"
+
+					value={this.state.tracks[idx]['name']}
+					onChange={this.updateTrack(idx, "name")}
+					className="track-input"
+					placeholder="track name!"/>
+					Unkown?
+
+
+					<input type="button"
+					value="Mark as unkown"
+					onClick={this.updateTrackUnknown(idx)}
+
+					/>
+
+
+				</li>
+			</div>
 		);
 	}
 
@@ -137,6 +178,7 @@ class MixForm extends React.Component {
 					})}
 
 					<br />
+
 
 					<input type="submit" value="Submit" />
 
