@@ -151,7 +151,8 @@ class MixForm extends React.Component {
 
 
 		this.props.submitMix(mix);
-		debugger;
+		hashHistory.push("/home");
+		// debugger;
 	}
 
 

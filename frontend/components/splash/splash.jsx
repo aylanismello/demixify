@@ -6,9 +6,9 @@ const Splash = ({openSignupModal}) => (
 	<div className="splash-mother">
 
 		<div className="splash-wrapper">
-				{/* <video src="http://res.cloudinary.com/dfkrjl3pb/video/upload/v1472688101/dj_vid_e5p5vj.mp4"
+				<video src="http://res.cloudinary.com/dfkrjl3pb/video/upload/v1472688101/dj_vid_e5p5vj.mp4"
 				 className="splash-video"  autoPlay muted loop>
-				</video> */}
+				</video>
 
 			<div className="splash" >
 

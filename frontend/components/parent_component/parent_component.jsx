@@ -11,20 +11,13 @@ class ParentComponent extends React.Component {
 
 	constructor(props) {
 		super(props);
-		// debugger;
 		this.renderSplash = this.renderSplash.bind(this);
-
-
-		// add modal state
 		this.state = {
 			modal: false,
 			formType: "signup"
 		};
 
-
 		this.modalFunctions = {
-
-
 		 getModalState: () => this.state,
 
 		 closeModal: () => {
@@ -37,13 +30,15 @@ class ParentComponent extends React.Component {
 		 openSignupModal: () => {
 			 $('.splash').css('z-index', -2);
 			 this.setState({modal: true, formType: "signup"});
-			 console.log(`opened signup modal, is set to ${this.state.modal} and ${this.state.formType}`);
+			 console.log(`opened signup modal,
+				 is set to ${this.state.modal} and ${this.state.formType}`);
 		 },
 
 		 openLoginModal: () => {
 			 $('.splash').css('z-index', -2);
 			 this.setState({modal: true, formType: "login"});
-			 console.log(`opened login modal, is set to ${this.state.modal} and ${this.state.formType}`);
+			 console.log(`opened login modal,
+				 is set to ${this.state.modal} and ${this.state.formType}`);
 
 		 }
 
@@ -73,13 +68,15 @@ class ParentComponent extends React.Component {
 
 				{this.renderSplash()}
 
-				<Modal className="modal-container" isOpen={this.state.modal} onRequestClose={this.modalFunctions.closeModal}>
-					<SessionFormContainer formType={this.state.formType} modal={this.state.modalFunctions}/>
+				<Modal className="modal-container" isOpen={this.state.modal}
+					onRequestClose={this.modalFunctions.closeModal}>
+					<SessionFormContainer formType={this.state.formType}
+						modal={this.state.modalFunctions}/>
 				</Modal>
 
 				{this.props.children}
 
-				{/* <FirstSoundPlayer/> */}
+				<FirstSoundPlayer/>
 			</div>
 		);
 	}
