@@ -1,4 +1,5 @@
-import { trackModelCreation } from '../soundcloud_util/trackApi';
+import { trackModelCreation,
+	djModelCreation } from '../soundcloud_util/trackApi';
 const suc = (mix) => {
 
 	console.log(`SUCCESS: mix/track is this obj: ${mix}`);
@@ -17,6 +18,11 @@ export const submitMix = (mix, success = suc, error = err) => {
 	// tracks belong to mixes. so make mix first
 
 
+
+	//
+
+	// makeDJ(mix.mix.user);
+
 	makeMix(mix);
 
 
@@ -25,7 +31,22 @@ export const submitMix = (mix, success = suc, error = err) => {
 	return `youz a bitch.`;
 };
 
+const makeDJ = (userObj) => {
+	const DJtoCreate = convertSdObjToDJ(userObj);
+	djModelCreation(DJtoCreate);
 
+};
+
+
+const convertSdObjToDJ = (userObj) => {
+	// debugger;
+	let dj = userObj;
+	let objForAPI = {};
+	objForAPI.soundcloud_id = dj.id;
+	objForAPI.name = dj.username;
+	objForAPI.avatar_url = dj.avatar_url;
+	return objForAPI;
+};
 
 
 const convertSdObjToMix = (mixObj) => {
@@ -68,6 +89,9 @@ const convertSdObjToTrack = (trackObj, mixId) => {
 	objForAPI.track_number = trackObj.number;
 	return objForAPI;
 };
+
+
+
 
 const makeMix = (sdTrackObj) => {
 

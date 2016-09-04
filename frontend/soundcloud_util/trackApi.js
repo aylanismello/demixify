@@ -124,6 +124,18 @@ export const trackModelCreation = (trackObj) => {
 
 };
 
+export const djModelCreation = (djObj) => {
+	$.ajax({
+		url: 'api/djs',
+		method: 'POST',
+		data: {dj: djObj},
+		success: (track) => console.log(`received dj ${djObj}`),
+		error: (errors) => {console.log(`failed with dj. errors:
+	 ${errors.responseJSON}`);}
+
+	});
+};
+
 export const soundcloudTrackModelCreation = (track_id, mixId) => {
 	const soundcloud_id = track_id;
 	const url = `http://api.soundcloud.com/tracks/${soundcloud_id}`;
