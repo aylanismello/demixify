@@ -21,39 +21,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-	// sentTrack and received track should now be in window.
-	// feed this thing a track soundcloud id.
-	// soundcloudTrackModelCreation(13158665);
-
-	// makeTracks();
-
-	// const getMixId = (mixId, mixArtist) => {
-	//
-	//
-	// 	// debugger;
-	// 	// here you create the DJ!
-	// 	createDJ(mixArtist);
-	// 	console.log(mixId);
-	//
-	//
-	// 	makeTracks(mixId);
-	// 	return mixId;
-	// };
-	//
-	//
-	//
-	//
-	//
-	// makeMix('diplo', getMixId);
-
-
-
-// this tells the modal that it can block the entire body
-	// Modal.setAppElement(document.body);
 	Modal.setAppElement(document.body);
 	const root = document.querySelector('#root');
 
-
+	window.store = store;
 
 	ReactDOM.render(<Root store={store}/>, root);
 	// ReactDOM.render(<FirstSoundPlayer/>, root);

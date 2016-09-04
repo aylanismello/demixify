@@ -10,9 +10,10 @@ const MixMiddleware = ({getState, dispatch}) => next => action => {
 		dispatch(receiveErrors(data));
 	};
 
-	const submitMixSuccess = user => {
+	const submitMixSuccess = mix => {
+			console.log('success');
 			hashHistory.push('/home');
-			dispatch(receiveNewMix(user));
+			dispatch(receiveNewMix(mix));
 	};
 
 

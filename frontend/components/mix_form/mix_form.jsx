@@ -151,6 +151,7 @@ class MixForm extends React.Component {
 
 
 		this.props.submitMix(mix);
+		debugger;
 	}
 
 
