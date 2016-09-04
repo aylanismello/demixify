@@ -12,6 +12,7 @@ class Api::MixesController < ApplicationController
       soundcloud_id: mix_params[:soundcloud_id],
       dj_id: mix_params[:dj_id],
       user_id: mix_params[:user_id],
+
       artist_id: mix_params[:artist][:id],
       artist_username: mix_params[:artist][:username],
       artist_avatar: mix_params[:artist][:avatar_url],

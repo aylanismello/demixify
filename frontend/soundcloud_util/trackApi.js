@@ -15,6 +15,8 @@ export const createDJ = (artistObj) => {
 
 
 
+
+
 export const soundcloudMixModelCreation = (soundcloud_mix_id, getMixId) => {
 
 	const soundcloud_id = soundcloud_mix_id;
@@ -104,6 +106,21 @@ export const soundcloudMixModelCreation = (soundcloud_mix_id, getMixId) => {
 	});
 
 
+
+};
+
+
+
+export const trackModelCreation = (trackObj) => {
+
+	$.ajax({
+		url: 'api/tracks',
+		method: 'POST',
+		data: {track: trackObj},
+		success: (track) => console.log(`received track ${track}`),
+		error: (errors) => {console.log(`failed with track. errors:
+   ${errors.responseJSON}`);}
+ });
 
 };
 

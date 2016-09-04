@@ -2,7 +2,6 @@ class Api::TracksController < ApplicationController
   def create
 
     track_params = params[:track]
-
     track_final = {
       title: track_params[:title],
       artwork_url: track_params[:artwork_url],
@@ -16,15 +15,6 @@ class Api::TracksController < ApplicationController
       artist_username: track_params[:artist][:username],
       artist_avatar: track_params[:artist][:avatar_url]
     }
-    # track_final = {}
-    # track_final = track_params.dup
-    #
-    # artist = params[:track][:artist]
-    # track_final.artist_id = artist[:id]
-    # track_final.artist_username = artist[:username]
-    # track_final.artist_avatar = artist[:avatar_url]
-    #
-    # byebug
 
     @track = Track.new(track_final)
 
