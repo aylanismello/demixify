@@ -5,19 +5,19 @@ class MixInputField extends React.Component {
 	constructor(props) {
 		super(props);
 
-		let suggestions = [{title: ''}, {title: ''}, {title: ''}];
+		this.suggestions = [{title: ''}, {title: ''}, {title: ''}];
 
 		this.state = {
 			trackName: "",
 			trackObj: {},
-			suggestions: suggestions
+			suggestions: this.suggestions
 		};
 
 
 
 
 		this.makeFakeTrack = this.makeFakeTrack.bind(this);
-
+		this.renderSuggestions = this.renderSuggestions.bind(this);
 		this.handleInputUpdate = this.handleInputUpdate.bind(this);
 		this.renderSuggestions = this.renderSuggestions.bind(this);
 		this.selectTrack = this.selectTrack.bind(this);
@@ -83,21 +83,29 @@ class MixInputField extends React.Component {
 
 
 
+
+
+
+
 	renderSuggestions() {
 		// debugger;
 		return(
 			<div className="track-suggestions">
-				<ol>
-					<li value="0" onClick={this.selectTrack()}>
-						{this.state.suggestions[0].title}
-					</li>
-					<li value="1" onClick={this.selectTrack()}>
-						{this.state.suggestions[1].title}
-					</li>
-					<li value="2" onClick={this.selectTrack()}>
-						{this.state.suggestions[2].title}
-					</li>
-				</ol>
+				<ul>
+
+			{		this.suggestions.map((sug, idx) => {
+
+						return (
+							<li value={idx} onClick={this.selectTrack()} key={idx * idx}>
+								{this.state.suggestions[idx].title}
+								<img
+								 src={this.state.suggestions[idx].artwork_url}
+									/>
+							</li>
+						);
+					})
+				}
+				</ul>
 			</div>
 		);
 	}

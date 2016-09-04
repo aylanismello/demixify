@@ -22,6 +22,7 @@ class MixForm extends React.Component {
 		this.handleMixSubmit = this.handleMixSubmit.bind(this);
 		this.renderErrors = this.renderErrors.bind(this);
 		this.makeTrackInput = this.makeTrackInput.bind(this);
+		this.renderTrackInputs = this.renderTrackInputs.bind(this);
 
 	}
 
@@ -155,6 +156,22 @@ class MixForm extends React.Component {
 		// debugger;
 	}
 
+	renderTrackInputs(count) {
+		let trackInputs = Array(count).fill(0);
+
+		return (
+			trackInputs.map((trackInput, idx) => {
+				return(
+					<MixInputField
+						updateCB={this.updateTrackCB.bind(this)} idx={idx} key={idx}/>
+				);
+			})
+
+		);
+
+
+	}
+
 
 	render() {
 		return(
@@ -181,15 +198,8 @@ class MixForm extends React.Component {
 
 
 				TRACKS:
-				<MixInputField
-					updateCB={this.updateTrackCB.bind(this)} idx="0"/>
-				<MixInputField
-					updateCB={this.updateTrackCB.bind(this)} idx="1"/>
-				<MixInputField
-					updateCB={this.updateTrackCB.bind(this)} idx="2"/>
 
-
-
+				{this.renderTrackInputs(3) }
 
 					<textarea
 					cols="25"
