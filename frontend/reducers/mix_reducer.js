@@ -3,7 +3,7 @@ import * as _ from 'lodash';
 
 
 let nullMix = Object.freeze({
-	currentMix: null,
+	currentMix: {tracks: []},
 	currentTracks: [],
 	errors: []
 });

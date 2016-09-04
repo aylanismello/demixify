@@ -16,20 +16,18 @@ class MixInputField extends React.Component {
 
 
 
-		this.makeFakeTrack = this.makeFakeTrack.bind(this);
+		this.makeHeater = this.makeHeater.bind(this);
 		this.renderSuggestions = this.renderSuggestions.bind(this);
 		this.handleInputUpdate = this.handleInputUpdate.bind(this);
 		this.renderSuggestions = this.renderSuggestions.bind(this);
 		this.selectTrack = this.selectTrack.bind(this);
 
-		// this.makeFakeTrack('dirty vibe');
+		// this.makeHeater('dirty vibe');
 
 
 	}
 
-	makeFakeTrack(suggestionsIdx, updateMixFormCB) {
-
-		// debugger;
+	makeHeater(suggestionsIdx, updateMixFormCB) {
 		let name = this.state.suggestions[suggestionsIdx].title;
 
 		const onReceivedTracks = (tracks) => {
@@ -40,7 +38,6 @@ class MixInputField extends React.Component {
 			});
 
 			updateMixFormCB(soundcloudTrackObj);
-
 		};
 
 		searchByTrack(name, onReceivedTracks);
@@ -71,13 +68,13 @@ class MixInputField extends React.Component {
 
 			const updateMixFormCB = (trackObj) => {
 				this.props.updateCB(trackObj, parseInt(this.props.idx));
-				this.setState({trackName: `track ${trackObj.title}`});
+				this.setState({trackName: `${trackObj.title}`});
 			};
 
 			if (e.currentTarget.value === undefined) {
 				console.log('cant do nothing');
 			} else {
-				this.makeFakeTrack(e.currentTarget.value, updateMixFormCB);
+				this.makeHeater(e.currentTarget.value, updateMixFormCB);
 			}
 
 		};
@@ -94,6 +91,14 @@ class MixInputField extends React.Component {
 
 			{		this.suggestions.map((sug, idx) => {
 
+						let artworkUrl = this.state.suggestions[idx].artwork_url;
+
+						//  this breaks updating inputField apparently
+						// if (this.state.suggestions[idx].title !== '' && !artworkUrl) {
+						// 	console.log(`${this.state.suggestions[idx].title} has no artwork`);
+						// 	artworkUrl = this.state.user.avatar_url;
+						// }
+
 						return (
 
 							<li className="suggestion-item cf" value={idx}
@@ -101,7 +106,7 @@ class MixInputField extends React.Component {
 								<p>{this.state.suggestions[idx].title}</p>
 
 								<img
-								 src={this.state.suggestions[idx].artwork_url}
+								 src={artworkUrl}
 									/>
 							</li>
 

@@ -121,7 +121,19 @@
     padding: 0 20px ;
 		// float: right;
 		text-decoration: inherit;
+
+    &:hover {
+      cursor: pointer;
+      color: $search-button-color;
+
+    }
 	}
+
+  // .login-signup > :hover {
+  //   cursor: pointer;
+  //   color: $search-button-color;
+  //
+  // }
 
 	.header-link {
 		padding: 0 40px;

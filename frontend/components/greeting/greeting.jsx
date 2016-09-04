@@ -28,8 +28,8 @@ class Greeting extends React.Component {
 
 		return (
 			<nav className="login-signup cf">
-			<button className="login btn btn-default" onClick={this.openLoginModal}>Login</button>
-			<button className="signup button btn-default" onClick={this.openSignupModal}>Sign Up</button>
+				<a className="login" onClick={this.openLoginModal}>Login</a>
+				<a className="signup" onClick={this.openSignupModal}>Sign Up</a>
 
 			</nav>
 		);
