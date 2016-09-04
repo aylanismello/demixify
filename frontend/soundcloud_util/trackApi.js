@@ -3,15 +3,13 @@ import {VARS, DUMMY_DATA} from './vars';
 
 
 
-
-
-export const trackModelCreation = (trackObj) => {
+export const trackModelCreation = (trackObj, receiveTrack) => {
 
 	$.ajax({
 		url: 'api/tracks',
 		method: 'POST',
 		data: {track: trackObj},
-		success: (track) => console.log(`received track ${track}`),
+		success: (track) => receiveTrack(track),
 		error: (errors) => {console.log(`failed with track. errors:
    ${errors.responseJSON}`);}
  });

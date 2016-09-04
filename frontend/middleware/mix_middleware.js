@@ -1,4 +1,4 @@
-import { MixConstants, receiveNewMix, receiveErrors } from '../actions/mix_actions';
+import { MixConstants, receiveNewMix, receiveNewTrack, receiveErrors } from '../actions/mix_actions';
 import { hashHistory } from 'react-router';
 
 import * as API from '../util/mix_api_util';
@@ -16,12 +16,18 @@ const MixMiddleware = ({getState, dispatch}) => next => action => {
 			dispatch(receiveNewMix(mix));
 	};
 
+	const submitTrackSuccess = track => {
+		console.log('sucess adding track');
+		dispatch(receiveNewTrack(track));
+	};
+
 
 	switch (action.type) {
 
 		case MixConstants.SUBMIT_MIX:
 
-			API.submitMix(action.mix, submitMixSuccess, error);
+			API.submitMix(action.mix,
+				submitMixSuccess, error, submitTrackSuccess);
 
 			return next(action);
 
