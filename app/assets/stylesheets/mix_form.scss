@@ -1,31 +1,75 @@
 .mix-form-container {
 	font-family: $text-font;
-	position: absolute;
+	display: block;
+	background: gray;
+	margin: 0 auto;
+	position: relative;
+	// position: absolute;
 	top: 30px;
 
-	input[type=text] {
-		display: block;
-		padding-left: 20px;
-		width: 500px;
-		height: 40px;
-	}
 
-	input[type=submit] {
-		// float: right;
-		display: block;
-	}
+	.mix-form-box{
 
-	
-
-	input[type=checkbox] {
+		// position: abso
+		margin-left: 500px;
 		display: block;
-		width: 100px;
-		height: 100px;
-	}
+		width: 600px;
+		background: white;
 
-	text-area {
-		margin-top: 10px;
-		display: block;
+
+		.mix-form {
+			margin-left: 40px;
+		}
+		.suggestion-item {
+			width: 500px;
+			border: 1px solid black;
+			// background: black;
+			background: gray;
+			margin-top: 10px;
+			p {
+				float: left;
+			}
+
+			img {
+				float: right;
+			}
+
+		}
+
+
+
+		.cf:after {
+			content: "";
+			clear: both;
+			display: block;
+		}
+
+
+		input[type=text] {
+			display: block;
+			padding-left: 20px;
+			margin-top: 20px;
+			width: 500px;
+			height: 40px;
+		}
+
+		input[type=submit] {
+			// float: right;
+			display: block;
+		}
+
+
+
+		input[type=checkbox] {
+			display: block;
+			width: 100px;
+			height: 100px;
+		}
+
+		text-area {
+			margin-top: 10px;
+			display: block;
+		}
 	}
 
 }

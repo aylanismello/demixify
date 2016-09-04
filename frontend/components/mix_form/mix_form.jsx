@@ -191,10 +191,10 @@ class MixForm extends React.Component {
 				<div className="mix-form">
 
 
-
 				MIX:
 
 				<MixInputField updateCB={this.updateMixCB.bind(this)} idx="-1"/>
+
 
 
 				TRACKS:
@@ -208,7 +208,6 @@ class MixForm extends React.Component {
 					onChange={this.update("description")}
 					className="mix-description"
 					placeholder="Description!"/>
-
 
 					<br />
 

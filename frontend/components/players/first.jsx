@@ -23,11 +23,17 @@ class Player extends Component {
 
         return (
             <div className="p2 border navy mt1 mb3 flex flex-center rounded">
-                <PlayButton className="flex-none h4 mr2 button white btn-big button-outline button-grow bg-orange circle" {...this.props} onKeyDown={this.handleIt}/>
+                <PlayButton
+									className="flex-none h4 mr2 button white btn-big button-outline button-grow bg-orange circle" 
+										{...this.props} onKeyDown={this.handleIt}/>
 
                 <div className="flex-auto">
-                    <h2 className="h4 nowrap m0">{track ? track.user.username : ''}</h2>
-                    <h2 className="h4 nowrap caps m0">{track ? track.title : ''}</h2>
+                    <h2 className="h4 nowrap m0">
+											{track ? track.user.username : ''}
+										</h2>
+                    <h2 className="h4 nowrap caps m0">{
+												track ? track.title : ''}
+											</h2>
 
                     <Progress
                         className="mt1 mb1 rounded"
@@ -45,7 +51,9 @@ class Player extends Component {
 class FirstSoundPlayer extends Component {
     render() {
         return (
-            <SoundPlayerContainer resolveUrl={DUMMY_DATA.RESOLVE_URL} clientId={VARS.CLIENT_ID}>
+            <SoundPlayerContainer
+							resolveUrl={DUMMY_DATA.RESOLVE_URL}
+							clientId={VARS.CLIENT_ID}>
                 <Player />
             </SoundPlayerContainer>
         );

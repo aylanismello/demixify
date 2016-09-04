@@ -27,11 +27,13 @@ class MixInputField extends React.Component {
 
 	}
 
-	makeFakeTrack(name, updateMixFormCB) {
+	makeFakeTrack(suggestionsIdx, updateMixFormCB) {
+
+		// debugger;
+		let name = this.state.suggestions[suggestionsIdx].title;
 
 		const onReceivedTracks = (tracks) => {
 			const soundcloudTrackObj = tracks[0];
-			// console.log(`received ${soundcloudTrackObj}!`);
 
 			this.setState({
 				trackObj: soundcloudTrackObj
@@ -69,20 +71,19 @@ class MixInputField extends React.Component {
 		return e => {
 
 			const updateMixFormCB = (trackObj) => {
-
 				this.props.updateCB(trackObj, parseInt(this.props.idx));
 				this.setState({trackName: `track ${trackObj.title}`});
 			};
 
-			this.makeFakeTrack('dirty vibe', updateMixFormCB);
+			if (e.currentTarget.value === undefined) {
+				console.log('cant do nothing');
+			} else {
+
+				this.makeFakeTrack(e.currentTarget.value, updateMixFormCB);
+			}
 
 		};
 	}
-
-
-
-
-
 
 
 
@@ -91,21 +92,22 @@ class MixInputField extends React.Component {
 		// debugger;
 		return(
 			<div className="track-suggestions">
-				<ul>
+
 
 			{		this.suggestions.map((sug, idx) => {
-
 						return (
-							<li value={idx} onClick={this.selectTrack()} key={idx * idx}>
-								{this.state.suggestions[idx].title}
+							<div className="suggestion-item cf" value={idx}
+									onClick={this.selectTrack()} key={idx}>
+								<p>{this.state.suggestions[idx].title}</p>
+
 								<img
 								 src={this.state.suggestions[idx].artwork_url}
 									/>
-							</li>
+							</div>
 						);
 					})
 				}
-				</ul>
+
 			</div>
 		);
 	}
