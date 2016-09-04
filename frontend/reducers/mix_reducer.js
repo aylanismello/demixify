@@ -8,6 +8,9 @@ let nullMix = Object.freeze({
 });
 
 
+// tracksOrdered = [];
+// store.getState().mix.currentMix.tracks.map((track) => {tracksOrdered[track.track_number - 1] = track;});
+
 const MixReducer = (state=nullMix, action) => {
 
 		// debugger;

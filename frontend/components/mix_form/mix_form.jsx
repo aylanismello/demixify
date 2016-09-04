@@ -19,6 +19,8 @@ class MixForm extends React.Component {
 			user_id: props.currentUser.id
 		};
 
+		this.tracks = tracks;
+
 		this.handleMixSubmit = this.handleMixSubmit.bind(this);
 		this.renderErrors = this.renderErrors.bind(this);
 		this.makeTrackInput = this.makeTrackInput.bind(this);
@@ -149,13 +151,18 @@ class MixForm extends React.Component {
 	handleMixSubmit(e) {
 		e.preventDefault();
 		const mix = this.state;
-
-
+		
 		this.props.submitMix(mix);
 		hashHistory.push("/home");
-		// debugger;
 	}
 
+	successfulSubmit() {
+
+	}
+
+	failedSubmit() {
+
+	}
 	renderTrackInputs(count) {
 		let trackInputs = Array(count).fill(0);
 
