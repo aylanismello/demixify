@@ -44,7 +44,6 @@ class MixInputField extends React.Component {
 		};
 
 		searchByTrack(name, onReceivedTracks);
-
 	}
 
 
@@ -78,7 +77,6 @@ class MixInputField extends React.Component {
 			if (e.currentTarget.value === undefined) {
 				console.log('cant do nothing');
 			} else {
-
 				this.makeFakeTrack(e.currentTarget.value, updateMixFormCB);
 			}
 
@@ -95,15 +93,18 @@ class MixInputField extends React.Component {
 
 
 			{		this.suggestions.map((sug, idx) => {
+
 						return (
-							<div className="suggestion-item cf" value={idx}
+
+							<li className="suggestion-item cf" value={idx}
 									onClick={this.selectTrack()} key={idx}>
 								<p>{this.state.suggestions[idx].title}</p>
 
 								<img
 								 src={this.state.suggestions[idx].artwork_url}
 									/>
-							</div>
+							</li>
+
 						);
 					})
 				}
@@ -127,8 +128,6 @@ class MixInputField extends React.Component {
 				placeholder="Type track name here to search!"/>
 
 				{ this.renderSuggestions()  }
-
-
 			</div>
 		);
 

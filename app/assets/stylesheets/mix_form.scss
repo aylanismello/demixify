@@ -20,10 +20,11 @@
 		.mix-form {
 			margin-left: 40px;
 		}
+
 		.suggestion-item {
+			list-style: none;
 			width: 500px;
 			border: 1px solid black;
-			// background: black;
 			background: gray;
 			margin-top: 10px;
 			p {

@@ -163,7 +163,8 @@ class MixForm extends React.Component {
 			trackInputs.map((trackInput, idx) => {
 				return(
 					<MixInputField
-						updateCB={this.updateTrackCB.bind(this)} idx={idx} key={idx}/>
+						updateCB={this.updateTrackCB.bind(this)}
+						idx={idx} key={idx}/>
 				);
 			})
 
