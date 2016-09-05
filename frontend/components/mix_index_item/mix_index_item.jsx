@@ -18,8 +18,10 @@ const MixIndexItem = ({mix}) => {
 				<div className="mix-text">
 					<h2 className="mix-item-title"> {mix.title} </h2>
 
-					<div> <h2> Mixed by </h2> </div>
-					{mix.artist_username}
+					<div className="mix-item-dj">
+								<h2> Mixed by </h2>
+								<h3 className="dj-name">{mix.artist_username}</h3>
+					</div>
 				</div>
 			</div>
 
