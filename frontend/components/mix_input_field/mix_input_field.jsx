@@ -50,7 +50,10 @@ class MixInputField extends React.Component {
 
 
 	handleInputUpdate(){
+
 		return e => {
+
+			e.persist();
 
 			const updateSearchFilter = (tracks) => {
 
