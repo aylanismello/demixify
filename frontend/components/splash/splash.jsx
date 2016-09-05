@@ -8,7 +8,6 @@ class Splash extends React.Component {
 constructor(props) {
 
 	super(props);
-	debugger;
 	this.openSignupModal = this.props.openSignupModal;
 }
 
@@ -57,11 +56,11 @@ render() {
 
 
 
+					<MixIndexContainer/>
 				</div>
 
+				</div>
 
-			</div>
-			<MixIndexContainer/>
 
 
 
