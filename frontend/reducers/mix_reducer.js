@@ -32,7 +32,13 @@ const MixReducer = (state=nullMix, action) => {
 			case MixConstants.RECEIVE_MIXES:
 
 				const newMixes = action.mixes;
-				newState = _.merge({}, state, {mixes: newMixes});
+
+				// newState = _.merge({}, state, {mixes: newMixes});
+				newState = _.merge({}, state);
+				newState.mixes = [];
+				newState = _.merge({}, newState, {mixes: newMixes});
+
+
 				// debugger;
 				// newState.mixes = [];
 				// newState.mixes = newMixes;

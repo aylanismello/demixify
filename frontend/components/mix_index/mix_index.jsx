@@ -5,8 +5,6 @@ class MixIndex extends React.Component {
 
 	constructor(props) {
 		super(props);
-		console.log('rendering mix index \n\n\n');
-		debugger;
 	}
 
 
