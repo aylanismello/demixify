@@ -1,0 +1,11 @@
+.mix-index-container {
+	display: absolute;
+	top: 0;
+	.mix-index-item {
+		display: block;
+		color: black;
+		background: white;
+		width: 465px;
+		height: 280px;
+	}
+}
