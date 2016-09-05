@@ -151,7 +151,7 @@ class MixForm extends React.Component {
 	handleMixSubmit(e) {
 		e.preventDefault();
 		const mix = this.state;
-		
+
 		this.props.submitMix(mix);
 		hashHistory.push("/home");
 	}
@@ -171,7 +171,7 @@ class MixForm extends React.Component {
 				return(
 					<MixInputField
 						updateCB={this.updateTrackCB.bind(this)}
-						idx={idx} key={idx}/>
+						mixType="track" idx={idx} key={idx}/>
 				);
 			})
 
@@ -185,43 +185,59 @@ class MixForm extends React.Component {
 		return(
 			<div className="mix-form-container">
 
+				<div className="mix-form-instructions">
+					<div className="instructions-text">
+						<p className="line-1"> Select one mix from Soundcloud</p>
+						<p className="line-2"> Then enter a tracklist </p>
+					</div>
+				</div>
+
+
 				<form onSubmit={this.handleMixSubmit} className="mix-form-box">
-				<br/>
-
-				<div className="mix-form-text">
-
-					OMG MAKE A MIX
-
-				</div>
+					<br/>
 
 
 
-				<div className="mix-form">
+
+					<div className="mix-form">
+
+						<div className="mix-selection">
+
+							<span className="mix-selection-advice">
+								Your mix selection must be longer than 10 minutes.
+							</span>
+
+							<div className="soundcloud-pic-container">
+								<img
+								src="http://res.cloudinary.com/dfkrjl3pb/image/upload/v1473059378/soundcloud-gray_kvunvw.png"/>
+							</div>
 
 
-				MIX:
-
-				<MixInputField updateCB={this.updateMixCB.bind(this)} idx="-1"/>
-
-
-
-				TRACKS:
-
-				{this.renderTrackInputs(3) }
-
-					<textarea
-					cols="25"
-					rows="10"
-					value={this.state.description}
-					onChange={this.update("description")}
-					className="mix-description"
-					placeholder="Description!"/>
-
-					<br />
+							<MixInputField
+								updateCB={this.updateMixCB.bind(this)} mixType="mix"
+								idx="-1"/>
 
 
-					<input type="submit" value="Create Mix" />
-				</div>
+
+						</div>
+
+					TRACKS:
+
+					{/* {this.renderTrackInputs(3) } */}
+
+						{/* <textarea
+						cols="25"
+						rows="10"
+						value={this.state.description}
+						onChange={this.update("description")}
+						className="mix-description"
+						placeholder="Description!"/> */}
+
+						<br />
+
+
+						<input type="submit" value="Create Mix" />
+					</div>
 				</form>
 			</div>
 		);

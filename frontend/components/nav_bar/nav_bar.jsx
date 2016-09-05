@@ -26,21 +26,22 @@ class NavBar extends React.Component {
 
 	updateSearchString() {
 		return e => {
-			this.setState({searchString: e.currentTarget.value});	
+			this.setState({searchString: e.currentTarget.value});
 		};
 	}
 
 	render() {
 		return(
 				<div>
-					<header className="my-nav-bar">
+					<header className="my-nav-bar cf">
 
-						<span className="header-left">
-							<Link to="/" className="header-link cf">
+						<div className="header-left cf">
+							<Link to="/" className="header-link">
 								<h1>Demixify</h1>
 							</Link>
 
 								{/* <div className="search-bar-wrapper"> */}
+
 
 							<form onSubmit={this.handleSearchSubmit} className="mix-search-form cf">
 								<input className="my-search-bar"
@@ -56,8 +57,9 @@ class NavBar extends React.Component {
 								</Link> */}
 
 							</form>
+
+						</div>
 								{/* </div> */}
-							</span>
 
 							<GreetingContainer
 							modalFunctions={this.props.modalFunctions}/>

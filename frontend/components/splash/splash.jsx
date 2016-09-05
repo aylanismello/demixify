@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import MixIndex from '../mix_index/mix_index';
 
 const Splash = ({openSignupModal}) => (
+<div className="the-splash-container">
 	<div className="splash-mother">
 
 		<div className="splash-wrapper">
@@ -28,8 +29,6 @@ const Splash = ({openSignupModal}) => (
 						</div>
 							<div className="signup-button" onClick={openSignupModal}>
 								<h2 className="call-to-action"> Sign Up </h2>
-								{/* <Link to="/signup">Sign Up</Link> */}
-								{/* <button className="signup" onClick={openSignupModal}>Sign Up</button> */}
 							</div>
 					</div>
 
@@ -44,6 +43,7 @@ const Splash = ({openSignupModal}) => (
 
 
 	</div>
+</div>
 );
 
 export default Splash;

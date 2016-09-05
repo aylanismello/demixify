@@ -15,7 +15,7 @@ class MixInputField extends React.Component {
 
 
 
-
+		this.getPlaceholder = this.getPlaceholder.bind(this);
 		this.makeHeater = this.makeHeater.bind(this);
 		this.renderSuggestions = this.renderSuggestions.bind(this);
 		this.handleInputUpdate = this.handleInputUpdate.bind(this);
@@ -25,6 +25,10 @@ class MixInputField extends React.Component {
 		// this.makeHeater('dirty vibe');
 
 
+	}
+
+	getPlaceholder() {
+		return `type ${this.props.mixType} name here to search!`;
 	}
 
 	makeHeater(suggestionsIdx, updateMixFormCB) {
@@ -130,7 +134,7 @@ class MixInputField extends React.Component {
 				value={this.state.trackName}
 				onChange={this.handleInputUpdate()}
 				className="mix-input"
-				placeholder="Type track name here to search!"/>
+				placeholder={this.getPlaceholder()}/>
 
 				{ this.renderSuggestions()  }
 			</div>
