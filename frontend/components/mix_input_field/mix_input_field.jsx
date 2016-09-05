@@ -53,7 +53,7 @@ class MixInputField extends React.Component {
 
 		return e => {
 
-			e.persist();
+			// e.persist();
 
 			const updateSearchFilter = (tracks) => {
 

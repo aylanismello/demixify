@@ -5,12 +5,23 @@ class MixIndex extends React.Component {
 
 	constructor(props) {
 		super(props);
-		// debugger;
+		console.log('rendering mix index \n\n\n');
+		debugger;
 	}
+
+
+
 	render() {
 		return (
 			<div className="mix-index-wrapper">
-				<MixIndexItem mix={this.props.mix.mixes[0]}/>
+				<ul className="mix-index-container">
+				{this.props.mix.mixes.map((mix, idx) => (
+						<MixIndexItem className="mix-index-item" key={idx} mix={mix}/>
+						)
+					)
+				}
+
+				</ul>
 			</div>
 		);
 	}

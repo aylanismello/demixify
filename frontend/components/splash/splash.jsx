@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router';
-import MixIndex from '../mix_index/mix_index';
 
 const Splash = ({openSignupModal}) => (
 <div className="the-splash-container">
@@ -41,7 +40,6 @@ const Splash = ({openSignupModal}) => (
 
 
 		</div>
-		{/* <MixIndex/> */}
 
 
 	</div>
