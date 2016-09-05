@@ -13,6 +13,8 @@ const err = (errors) => {
 
 
 export const getMixes = (searchString, success=suc, error=err) => {
+
+
 	$.ajax({
 		url: 'api/mixes',
 		method: 'GET',
@@ -21,7 +23,6 @@ export const getMixes = (searchString, success=suc, error=err) => {
 		error
 	});
 
-	debugger;
 };
 
 

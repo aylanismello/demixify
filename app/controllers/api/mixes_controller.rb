@@ -11,10 +11,11 @@ class Api::MixesController < ApplicationController
       render "api/mixes/index"
     else
       render json: "Found no mixes!"
-    else
+    end
 
 
   end
+  
   def create
 
     mix_params = params[:mix]
