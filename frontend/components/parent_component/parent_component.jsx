@@ -53,7 +53,7 @@ class ParentComponent extends React.Component {
 			return(
 			<div>
 				<Splash openSignupModal={this.modalFunctions.openSignupModal}/>;
-					<MixIndex/>
+					{/* <MixIndex/> */}
 			</div>
 		);
 		}
