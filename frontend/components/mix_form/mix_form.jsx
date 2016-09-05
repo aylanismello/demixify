@@ -16,7 +16,8 @@ class MixForm extends React.Component {
 			mix: {},
 			description: "",
 			tracks: tracks,
-			user_id: props.currentUser.id
+			user_id: props.currentUser.id,
+			artwork_url: "http://res.cloudinary.com/dfkrjl3pb/image/upload/v1473059378/soundcloud-gray_kvunvw.png"
 		};
 
 		this.tracks = tracks;
@@ -144,7 +145,8 @@ class MixForm extends React.Component {
 
 	updateMixCB(mixObj) {
 		console.log(`received mix ${mixObj}, setting state`);
-		this.setState({mix: mixObj});
+		this.setState({mix: mixObj, artwork_url: mixObj.artwork_url});
+		debugger;
 	}
 
 
@@ -201,42 +203,51 @@ class MixForm extends React.Component {
 
 					<div className="mix-form">
 
-						<div className="mix-selection">
+						<div className="mix-details cf">
 
-							<span className="mix-selection-advice">
-								Your mix selection must be longer than 10 minutes.
-							</span>
+								<div className="mix-selection">
 
-							<div className="soundcloud-pic-container">
-								<img
-								src="http://res.cloudinary.com/dfkrjl3pb/image/upload/v1473059378/soundcloud-gray_kvunvw.png"/>
+									<span className="mix-selection-advice">
+										Your mix selection must be longer than 10 minutes.
+									</span>
+
+									<div className="soundcloud-pic-container">
+										<img
+										src={this.state.artwork_url}/>
+									</div>
+
+
+									<MixInputField
+										updateCB={this.updateMixCB.bind(this)} mixType="mix"
+										idx="-1"/>
+
+
+
+								</div>
+
+								<div className="mix-selection-form">
+									<textarea
+									cols="25"
+									rows="10"
+									value={this.state.description}
+									onChange={this.update("description")}
+									className="mix-description"
+									placeholder="Description!"/>
+								</div>
+
+								<input type="submit" value="Create Mix" />
+
 							</div>
 
-
-							<MixInputField
-								updateCB={this.updateMixCB.bind(this)} mixType="mix"
-								idx="-1"/>
-
-
-
-						</div>
-
-					TRACKS:
+					{/* TRACKS: */}
 
 					{/* {this.renderTrackInputs(3) } */}
 
-						{/* <textarea
-						cols="25"
-						rows="10"
-						value={this.state.description}
-						onChange={this.update("description")}
-						className="mix-description"
-						placeholder="Description!"/> */}
 
 						<br />
 
 
-						<input type="submit" value="Create Mix" />
+
 					</div>
 				</form>
 			</div>

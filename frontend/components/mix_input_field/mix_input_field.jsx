@@ -38,7 +38,8 @@ class MixInputField extends React.Component {
 			const soundcloudTrackObj = tracks[0];
 
 			this.setState({
-				trackObj: soundcloudTrackObj
+				trackObj: soundcloudTrackObj,
+				suggestions: [{title: ''}, {title: ''}, {title: ''}]
 			});
 
 			updateMixFormCB(soundcloudTrackObj);
@@ -109,9 +110,9 @@ class MixInputField extends React.Component {
 									onClick={this.selectTrack()} key={idx}>
 								<p>{this.state.suggestions[idx].title}</p>
 
-								<img
+								{/* <img
 								 src={artworkUrl}
-									/>
+									/> */}
 							</li>
 
 						);

@@ -42,21 +42,32 @@
 
 		.mix-form {
 			margin-left: 40px;
-			.mix-selection {
-				background: #ccc;
-				width: 260px;
-				height: 225px;
 
-				.mix-selection-advice {
-					background: whitesmoke;
-					margin: 0 auto;
+			.mix-details {
+				width: 900px;
+				margin: 0 auto;
+
+				.mix-selection {
+					background: #ccc;
+					width: 260px;
+					height: 225px;
+					float: left;
+
+					.mix-selection-advice {
+						background: whitesmoke;
+						margin: 0 auto;
+					}
+					.soundcloud-pic-container {
+						width: 100px;
+						margin: 20px auto;
+					}
+
+
 				}
-				.soundcloud-pic-container {
-					width: 100px;
-					margin: 20px auto;
+
+				.mix-selection-form {
+					float: right;
 				}
-
-
 			}
 
 		}
@@ -94,7 +105,7 @@
 			// margin-top: 20px;
 			margin: 0 auto;
 			width: 80%;
-			height: 40px;
+			height: 20px;
 		}
 
 		input[type=submit] {
