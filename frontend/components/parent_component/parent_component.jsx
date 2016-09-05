@@ -53,7 +53,7 @@ class ParentComponent extends React.Component {
 		if (this.props.location.pathname === '/'){
 			return(
 			<div>
-				<Splash openSignupModal={this.modalFunctions.openSignupModal}/>
+				<SplashContainer openSignupModal={this.modalFunctions.openSignupModal}/>
 					{/* <MixIndex/> */}
 			</div>
 		);
