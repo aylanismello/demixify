@@ -76,7 +76,7 @@ class ParentComponent extends React.Component {
 
 				{this.props.children}
 
-				<FirstSoundPlayer/>
+				{/* <FirstSoundPlayer/> */}
 			</div>
 		);
 	}

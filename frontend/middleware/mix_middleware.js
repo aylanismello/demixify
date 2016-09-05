@@ -31,6 +31,9 @@ const MixMiddleware = ({getState, dispatch}) => next => action => {
 
 			return next(action);
 
+		case MixConstants.GET_MIXES:
+			API.getMixes(action.searchString);
+			return next(action);
 
 		default:
 			return next(action);

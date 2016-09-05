@@ -1,4 +1,11 @@
 class Api::MixesController < ApplicationController
+
+
+  def index
+    search_string = params[:search_string]
+
+    byebug
+  end
   def create
 
     mix_params = params[:mix]

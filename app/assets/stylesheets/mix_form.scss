@@ -1,6 +1,7 @@
 .mix-form-container {
 
 
+		background: inherit;
 	.mix-form-instructions {
 		background: #333;
 		color: white;
@@ -24,7 +25,6 @@
 
 	font-family: $text-font;
 	display: block;
-	background: gray;
 	margin: 0 auto;
 	position: relative;
 	// position: absolute;
@@ -44,8 +44,9 @@
 			margin-left: 40px;
 
 			.mix-details {
-				width: 900px;
+				width: 800px;
 				margin: 0 auto;
+				background: white;
 
 				.mix-selection {
 					background: #ccc;
@@ -67,16 +68,48 @@
 
 				.mix-selection-form {
 					float: right;
+					width: 500px;
+
+					.mix-description {
+						width: inherit;
+						margin-top: 7%;
+						height: 100px;
+					}
+
+					.mix-tags {
+						width: inherit;
+						width: 460px;
+						margin-top: 3%;
+						// padding: 0;
+						// border: none;
+						text-align: center;
+						border-radius: none;
+					}
+
+					.submit-mix-button {
+						margin-top: 3%;
+						margin-left: auto;
+						margin-right: auto;
+					}
 				}
+
+
 			}
 
+
+			.track-details {
+				width: 500px;
+				margin: 0 auto;
+				background: white;
+				margin-top: 25px;
+			}
 		}
 
 		.suggestion-item {
 			list-style: none;
 			// width: 500px;
-			border: 1px solid black;
-			background: gray;
+			// border: 1px solid black;
+			background: whitesmoke;
 			margin-top: 10px;
 			p {
 				float: left;

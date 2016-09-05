@@ -9,6 +9,8 @@ const err = (errors) => {
 };
 
 
+
+
 export const signup = (data, success = suc, error = err) => {
 
 	$.ajax({

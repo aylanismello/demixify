@@ -145,7 +145,17 @@ class MixForm extends React.Component {
 
 	updateMixCB(mixObj) {
 		console.log(`received mix ${mixObj}, setting state`);
-		this.setState({mix: mixObj, artwork_url: mixObj.artwork_url});
+		// change to user.avatar_url if no artwork_url
+		let artwork_url = mixObj.artwork_url;
+
+		if(!artwork_url) {
+			// console.log('changing artwork_url to user artwork');
+			artwork_url = mixObj.user.avatar_url;
+		} else {
+			// console.log('ok');
+		}
+
+		this.setState({mix: mixObj, artwork_url: artwork_url});
 		debugger;
 	}
 
@@ -226,23 +236,32 @@ class MixForm extends React.Component {
 								</div>
 
 								<div className="mix-selection-form">
-									<textarea
+									<textarea className="mix-description"
 									cols="25"
 									rows="10"
 									value={this.state.description}
 									onChange={this.update("description")}
 									className="mix-description"
 									placeholder="Description!"/>
+
+									<input type="text" className="mix-tags"
+										placeholder="Tags, separated, by, commas, please"/>
+
+									<input type="submit" value="Create Mix" className="submit-mix-button"/>
 								</div>
 
-								<input type="submit" value="Create Mix" />
 
 							</div>
 
 					{/* TRACKS: */}
 
-					{/* {this.renderTrackInputs(3) } */}
+					<div className="track-details">
+						<span className="track-selection-advice">
+							<strong>TRACKLIST</strong> - Choose at least 8 tracks.
+						</span>
 
+						{this.renderTrackInputs(8) }
+					</div>
 
 						<br />
 

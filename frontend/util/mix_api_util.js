@@ -11,6 +11,20 @@ const err = (errors) => {
 };
 
 
+
+export const getMixes = (searchString, success=suc, error=err) => {
+	$.ajax({
+		url: 'api/mixes',
+		method: 'GET',
+		data: {search_string: searchString},
+		success,
+		error
+	});
+
+	debugger;
+};
+
+
 export const submitMix = (mix, success = suc, error = err, trackSuccess) => {
 
 	// post to my api
@@ -18,11 +32,6 @@ export const submitMix = (mix, success = suc, error = err, trackSuccess) => {
 	// makeDJ(mix.mix.user);
 
 	makeMix(mix, success, trackSuccess);
-
-
-
-	console.log('fuck u bitch');
-	return `youz a bitch.`;
 };
 
 const makeDJ = (userObj) => {
