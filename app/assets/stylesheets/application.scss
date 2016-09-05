@@ -24,6 +24,7 @@
 
  @import './reset.scss';
  @import './nav-bar.scss';
+ @import './splash.scss';
  @import './music_player.scss';
  @import './mix_input_field.scss';
  @import './mix_form.scss';
@@ -40,92 +41,6 @@
  }
 
 
- .splash-mother {
-   background: #d7e6e3;
-   border-bottom: 4px solid #77d0c0;
-
-
-    position: absolute;
-    left: 20%;
-
-   .splash-wrapper {
-
-     width: 800px;
-     padding: 0;
-
-     video {
-       position: relative;
-       z-index: 0;
-       display: block;
-       width: 100%;
-       height: auto;
-
-     }
-
-     .draggable {
-       display: none;
-     }
-     .vsc-controller {
-       display: none;
-     }
-
-     .splash {
-       @include static-splash;
-
-       top: 2%;
-      color: black;
-      position: absolute;
-
-       z-index: $splash-z-index;
-
-       .splash-text {
-
-         background: rgba(160,186,207, 0.5);
-
-         margin-top: 4%;;
-         text-align: center;
-
-         .splash-logo {
-           font-size: 100px;
-         }
-
-         .sub-text{
-
-
-           .splash-summary {
-             font-weight: bold;
-             font-size: 25px;
-
-           }
-
-           .splash-description {
-             // padding
-           }
-
-
-         }
-
-         .signup-button {
-           @include buttonify;
-           // @include debugger;
-
-         }
-         .signup-button > a {
-           // @include debugger;
-
-           color: inherit;
-           line-height: 3;
-         }
-
-       }
-
-
-     }
-
-
-
-   }//CONTAINER
- }
 
 
 

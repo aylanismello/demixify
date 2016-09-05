@@ -6,17 +6,17 @@ const Splash = ({openSignupModal}) => (
 	<div className="splash-mother">
 
 		<div className="splash-wrapper">
-				<video src="http://res.cloudinary.com/dfkrjl3pb/video/upload/v1472688101/dj_vid_e5p5vj.mp4"
+				<video src="http://res.cloudinary.com/dfkrjl3pb/video/upload/c_scale,q_80,w_800/v1473040466/kaytra_landing_1_tjsirv.mp4"
 				 className="splash-video"  autoPlay muted loop>
 				</video>
 
 			<div className="splash" >
 
 				<div className="splash-text">
-						<h1 className="splash-logo"> Demixified </h1>
+						<h1 className="splash-logo"> Demixify </h1>
 
 						<div className="sub-text">
-							<h2 className="splash-summary"> Demixified is where music fans deconstruct
+							<h2 className="splash-summary"> Demixify is where music fans deconstruct
 								the latest DJ mixes
 						</h2>
 								<br/>
@@ -26,9 +26,10 @@ const Splash = ({openSignupModal}) => (
 									deconstruct these into demixes.  </p>
 								</span>
 						</div>
-							<div className="signup-button">
+							<div className="signup-button" onClick={openSignupModal}>
+								<h2 className="call-to-action"> Sign Up </h2>
 								{/* <Link to="/signup">Sign Up</Link> */}
-								<button className="signup button btn-default" onClick={openSignupModal}>Sign Up</button>
+								{/* <button className="signup" onClick={openSignupModal}>Sign Up</button> */}
 							</div>
 					</div>
 
