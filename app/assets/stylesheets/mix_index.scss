@@ -1,11 +1,53 @@
-.mix-index-container {
+.mix-index-wrapper{
 	display: absolute;
 	top: 0;
-	.mix-index-item {
-		display: block;
-		color: black;
-		background: white;
-		width: 465px;
-		height: 280px;
+	.mix-index-container {
+		display: flex;
+
+		.mix-index-item {
+			margin: 20px;
+			display: block;
+			color: black;
+			// background: transparent;
+			background: black;
+			width: 455px;
+			padding: 5px;
+			height: 260px;
+
+			.mix-item-creator {
+				background: white;
+				border: 1px solid transparent;
+				height: 55px;
+			}
+
+			.mix-item-detail {
+				margin-top: 10px;
+				background: white;
+				border: 1px solid transparent;
+				height: 180px;
+				padding: 5px;
+
+
+				.mix-avatar-wrapper{
+					// display: flex;
+					// flex-direction: column;
+					// justify-content: center;
+					float: left;
+					width: 200px;
+					height: 200px;
+
+					.mix-avatar{
+
+						display: block;
+						margin: 0 auto;
+						width: 175px;
+					}
+				}
+				.mix-text {
+					display: block;
+					// float: left;
+				}
+			}
+		}
 	}
 }

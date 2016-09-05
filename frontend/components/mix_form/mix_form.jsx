@@ -156,7 +156,6 @@ class MixForm extends React.Component {
 		}
 
 		this.setState({mix: mixObj, artwork_url: artwork_url});
-		debugger;
 	}
 
 
