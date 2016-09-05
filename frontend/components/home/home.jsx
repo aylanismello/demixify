@@ -1,11 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router';
-import MixIndex from '../mix_index/mix_index';
+import MixIndexContainer from '../mix_index/mix_index_container';
 
 class Home extends React.Component {
 
 	constructor(props) {
 		super(props);
+	}
+
+	componentDidMount(){
+		this.props.getMixes("");
 	}
 
 	render() {
@@ -30,7 +34,7 @@ class Home extends React.Component {
 					  </div>
 					</nav>
 
-					{/* <MixIndex/> */}
+					<MixIndexContainer/>
 
 
 				</div>

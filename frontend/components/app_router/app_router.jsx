@@ -4,7 +4,7 @@ import NavBar from '../nav_bar/nav_bar';
 import SessionFormContainer from '../session_form/session_form_container';
 import Splash from '../splash/splash';
 import Explore from '../explore/explore';
-import Home from '../home/home';
+import HomeContainer from '../home/home_container';
 import ParentComponent from '../parent_component/parent_component';
 import MixFormContainer from '../mix_form/mix_form_container';
 import MyDemixes from '../my_demixes/my_demixes';
@@ -39,7 +39,7 @@ class AppRouter extends React.Component {
 			<Router history={ hashHistory }>
 				<Route path="/" component= { ParentComponent } onEnter={ this._redirectIfLoggedIn }>
 
-					<Route path="/home" component={ Home }
+					<Route path="/home" component={ HomeContainer }
 						onEnter={ this._ensureLoggedIn }/>
 					<Route path="/explore" component={ Explore }/>
 					<Route path="/my_demixes" component ={ MyDemixes }
