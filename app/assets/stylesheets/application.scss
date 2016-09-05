@@ -28,6 +28,7 @@
  @import './music_player.scss';
  @import './mix_input_field.scss';
  @import './mix_form.scss';
+ @import './explore.scss';
  @import './mix_index.scss';
 
 
@@ -148,7 +149,8 @@
  }
 
  .mix-index-wrapper {
-   @include debugger;
+  //  @include debugger;
+  border-top: 3px solid black;
  /* position: absolute; */
    // top: 0;
    margin: 122px auto;

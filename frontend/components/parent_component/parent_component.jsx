@@ -1,6 +1,7 @@
 import React from 'react';
 import NavBarContainer from '../nav_bar/nav_bar_container';
 import Splash from '../splash/splash';
+import SplashContainer from '../splash/splash_container';
 import Modal from 'react-modal';
 import MixIndex from '../mix_index/mix_index';
 import SessionFormContainer from '../session_form/session_form_container';

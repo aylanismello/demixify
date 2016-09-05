@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 
+
 const Splash = ({openSignupModal}) => (
 <div className="the-splash-container">
 	<div className="splash-mother">
@@ -16,7 +17,8 @@ const Splash = ({openSignupModal}) => (
 						<h1 className="splash-logo"> Demixify </h1>
 
 						<div className="sub-text">
-							<h2 className="splash-summary"> Demixify is where music fans deconstruct
+							<h2 className="splash-summary">
+							Demixify is where music fans deconstruct
 								the latest DJ mixes
 						</h2>
 								<br/>
@@ -43,6 +45,9 @@ const Splash = ({openSignupModal}) => (
 
 
 	</div>
+
+
+
 </div>
 );
 
