@@ -24,8 +24,6 @@ class Greeting extends React.Component {
 
 
 	sessionLinks() {
-		// debugger;
-
 		return (
 			<nav className="login-signup cf">
 				<a className="login" onClick={this.openLoginModal}>Login</a>
@@ -38,49 +36,32 @@ class Greeting extends React.Component {
 
 	personalGreeting(currentUser, logout) {
 
-
-
 		return (
-		<nav className="profile-dropdown-wrapper">
-			<img className="header-profile-pic" src={currentUser.img_url} alt="{currentUser.username}"/>
+			<nav className="profile-dropdown-wrapper">
+				<img className="header-profile-pic"
+					src={currentUser.img_url} alt="{currentUser.username}"/>
 
-			<div className="my-dropdown">
-				<li> <Link to="/profile" >Profile</Link></li>
-				<li> <Link to="/create_demix" >Create DeMix</Link></li>
-				<li> <a className="logout" onClick={logout}>Log Out</a> </li>
+				<div className="my-dropdown">
+					<li> <Link to="/profile" >Profile</Link></li>
+					<li> <Link to="/create_demix" >Create DeMix</Link></li>
+					<li> <a className="logout" onClick={logout}>Log Out</a> </li>
 
-			</div>
+				</div>
 
-		</nav>
+			</nav>
 		);
 
 	}
 
-	// componentWillMount() {
-	// 	if (this.props.currentUser) {
-	// 		console.log('YO CLOSE IT');
-	// 		this.closeModal();
-	// 	}
-	// }
-
-	// componentDidUpdate() {
-	// 	if (this.props.currentUser) {
-	// 		this.closeModal();
-	// 	}
-	// }
 
 	render() {
 			// debugger;
 
 			if (this.props.currentUser) {
-				// alert('make modal go away!');
-				// this.closeModal();
 				return this.personalGreeting(this.props.currentUser, this.props.logout);
-
 			} else {
 				return (
 					 this.sessionLinks()
-					//  <Splash/>
 				);
 			}
 	}

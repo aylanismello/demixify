@@ -11,7 +11,7 @@ class Player extends Component {
 
 	constructor(props) {
 		super(props);
-		debugger;
+		// debugger;
 		this.handleIt = this.handleIt.bind(this);
 		this.state = {
 			activeIndex: 0

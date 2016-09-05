@@ -1,5 +1,5 @@
 import React from 'react';
-import NavBar from '../nav_bar/nav_bar';
+import NavBarContainer from '../nav_bar/nav_bar_container';
 import Splash from '../splash/splash';
 import Modal from 'react-modal';
 import MixIndex from '../mix_index/mix_index';
@@ -52,7 +52,7 @@ class ParentComponent extends React.Component {
 		if (this.props.location.pathname === '/'){
 			return(
 			<div>
-				<Splash openSignupModal={this.modalFunctions.openSignupModal}/>;
+				<Splash openSignupModal={this.modalFunctions.openSignupModal}/>
 					{/* <MixIndex/> */}
 			</div>
 		);
@@ -64,7 +64,7 @@ class ParentComponent extends React.Component {
 		// debugger;
 		return (
 			<div>
-				<NavBar modalFunctions={this.modalFunctions}/>
+				<NavBarContainer modalFunctions={this.modalFunctions}/>
 
 				{this.renderSplash()}
 

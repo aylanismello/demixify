@@ -3,6 +3,7 @@ import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import NavBar from '../nav_bar/nav_bar';
 import SessionFormContainer from '../session_form/session_form_container';
 import Splash from '../splash/splash';
+import Explore from '../explore/explore';
 import Home from '../home/home';
 import ParentComponent from '../parent_component/parent_component';
 import MixFormContainer from '../mix_form/mix_form_container';
@@ -37,8 +38,10 @@ class AppRouter extends React.Component {
 		return(
 			<Router history={ hashHistory }>
 				<Route path="/" component= { ParentComponent } onEnter={ this._redirectIfLoggedIn }>
+
 					<Route path="/home" component={ Home }
 						onEnter={ this._ensureLoggedIn }/>
+					<Route path="/explore" component={ Explore }/>
 					<Route path="/my_demixes" component ={ MyDemixes }
 						onEnter = {this._ensureLoggedIn} />
 
