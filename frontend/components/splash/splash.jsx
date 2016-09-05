@@ -22,9 +22,11 @@ const Splash = ({openSignupModal}) => (
 						</h2>
 								<br/>
 								<span className="splash-description">
-									<p > 	Everyday thousands of DJs release their mixes online.
+									<p >
+									Everyday thousands of DJs release their mixes online.
 									Listen to these mixes for free! Our users
-									deconstruct these into demixes.  </p>
+									deconstruct these into demixes.
+									</p>
 								</span>
 						</div>
 							<div className="signup-button" onClick={openSignupModal}>
