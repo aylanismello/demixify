@@ -7,6 +7,7 @@ class Api::MixesController < ApplicationController
     # this will automatically consider all mixes  is search_string is empty
     @mixes = Mix.all.select{|mix| mix.title.downcase.include?(search_string) || mix.artist_username.downcase.include?(search_string)}
 
+
     if @mixes
       render "api/mixes/index"
     else
@@ -21,6 +22,14 @@ class Api::MixesController < ApplicationController
 
     @mix = Mix.find(params[:id])
 
+
+    user = @mix.user
+    returned_user = {username: user.username, user_img: user.img_url}
+
+    @returned_mix = [@mix, returned_user]
+
+
+    # byebug
     if @mix.save
       render "api/mixes/show"
     else
