@@ -1,0 +1,41 @@
+.mix-show-container {
+	margin-top: $nav-bar-height;
+	.mix-description-container {
+		@include debugger;
+		display: flex;
+		// width: 100%;
+		height: 400px;
+
+		.mix-pic {
+			display: block;
+			width: 360px;
+			padding: 25px;
+
+		}
+
+			.mix-right{
+
+				.top-mix-details {
+					.title{
+
+					}
+
+					.details {
+
+					}
+
+					.tags {
+
+					}
+
+				}
+
+				.bottom-mix-details {
+
+				}
+
+
+			}
+
+	}
+}

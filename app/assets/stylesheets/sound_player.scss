@@ -26,6 +26,9 @@
 
 		.mix-pic {
 			@include player-img;
+			&:hover {
+				cursor: pointer;
+			}
 		}
 
 		.play-button, .next-button, .like-button {

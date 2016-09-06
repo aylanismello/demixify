@@ -16,7 +16,7 @@ class MixIndexItem extends React.Component {
 		return e => {
 			const mixId = args[0];
 			this.props.getMix(mixId);
-			// hashHistory.push(`/mixes/${mixId}`);
+			hashHistory.push(`/mixes/${mixId}`);
 		};
 	}
 

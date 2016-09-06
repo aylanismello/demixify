@@ -1,6 +1,6 @@
 import React from 'react';
 import SoundCloudAudio from 'soundcloud-audio';
-
+import { hashHistory } from 'react-router';
 const clientId = 'a13f1496f3ee0b36504328dde940b256';
 const resolveUrl = 'http://bit.ly/2cd9iUT';
 
@@ -19,6 +19,8 @@ class SoundPlayer extends React.Component {
 		this.handleLike = this.handleLike.bind(this);
 		this.renderTrackDetails = this.renderTrackDetails.bind(this);
 		this.playAtIdx = this.playAtIdx.bind(this);
+
+		this.routeToShow = this.routeToShow.bind(this);
 
 		this.renderPlayingState = this.renderPlayingState.bind(this);
 		this.state = {
@@ -192,6 +194,18 @@ class SoundPlayer extends React.Component {
 		}
 	}
 
+
+	routeToShow() {
+		console.log('is this working');
+		// debugger;
+		const args = arguments;
+		return e => {
+			const mixId = args[0];
+			hashHistory.push(`/mixes/${mixId}`);
+		};
+	}
+
+
 	render() {
 
 		this.setNewDemix();
@@ -200,8 +214,8 @@ class SoundPlayer extends React.Component {
 			<div className="sound-player-container cf">
 
 				<div className="player-controls cf">
-					<div className="mix-pic">
-						<img value={this.state.mixId} src={this.state.mixImg}/>
+					<div className="mix-pic" onClick={this.routeToShow(this.props.currentMix.mix.id)}>
+						<img value={this.state.mixId} src={this.state.mixImg} />
 					</div>
 
 					<button value="play" onClick={this.togglePlay}

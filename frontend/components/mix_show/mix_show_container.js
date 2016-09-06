@@ -5,7 +5,8 @@ import { requestMix } from '../../actions/mix_actions';
 
 
 const mapStateToProps = (state, ownProps) => ({
-  mixId: parseInt(ownProps.params.mixId)
+  mixId: parseInt(ownProps.params.mixId),
+  currentMix: state.mix.currentMix
 });
 
 

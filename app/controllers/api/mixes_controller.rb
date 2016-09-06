@@ -24,9 +24,9 @@ class Api::MixesController < ApplicationController
 
 
     # user = @mix.user
-    # returned_user = {username: user.username, user_img: user.img_url}
+    # returned_user = {username: user.username, img_url: user.img_url}
     #
-    # @returned_mix = {mix: @mix, user:returned_user}
+    # @returned_mix = {mix: @mix, user: returned_user}
 
 
     # byebug
