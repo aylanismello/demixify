@@ -5,7 +5,7 @@ import SplashContainer from '../splash/splash_container';
 import Modal from 'react-modal';
 import MixIndex from '../mix_index/mix_index';
 import SessionFormContainer from '../session_form/session_form_container';
-import FirstSoundPlayer from '../players/first';
+import SoundPlayerContainer from '../sound_player/sound_player_container';
 
 
 class ParentComponent extends React.Component {
@@ -78,6 +78,7 @@ class ParentComponent extends React.Component {
 				{this.props.children}
 
 				{/* <FirstSoundPlayer/> */}
+				<SoundPlayerContainer/>
 			</div>
 		);
 	}

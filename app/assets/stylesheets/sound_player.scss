@@ -1,0 +1,27 @@
+.sound-player-container {
+	bottom: 0;
+  z-index: $nav-z-index;
+  // position: fixed;
+	height: $nav-bar-height;
+  position: fixed;
+  width: 100%;
+  right: 0;
+  left: 0;
+	background-color: #ccc;
+
+
+	.play-button {
+		  float: left;
+	    font-family: "Montserrat", sans-serif;
+	    text-decoration: none;
+	    background-color: #5c6ea3;
+	    color: white;
+	    padding: 2px 6px 2px 6px;
+	    width: 160px;
+	    height: 47px;
+	    border: 1px solid gray;
+	    border-radius: 19px;
+	}
+
+
+}

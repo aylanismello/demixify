@@ -18,7 +18,6 @@
 
  @import 'bootstrap-sprockets';
  @import 'bootstrap';
- @import './base.css';
  @import './variables.scss';
  @import './mixins.scss';
 
@@ -30,6 +29,7 @@
  @import './mix_form.scss';
  @import './explore.scss';
  @import './mix_index.scss';
+ @import './sound_player.scss';
 
 
  img {
