@@ -25,6 +25,16 @@ export const getMixes = (searchString, success=suc, error=err) => {
 
 };
 
+export const getMix = (mixId, success=suc, error=err) => {
+	$.ajax({
+		url: `api/mixes/${mixId}`,
+		method: 'GET',
+		data: {id: mixId},
+		success,
+		error
+	});
+};
+
 
 export const submitMix = (mix, success = suc, error = err, trackSuccess) => {
 
