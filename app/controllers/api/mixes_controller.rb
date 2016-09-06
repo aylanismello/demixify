@@ -15,7 +15,24 @@ class Api::MixesController < ApplicationController
 
 
   end
-  
+
+
+  def show
+
+    @mix = Mix.find(params[:id])
+
+    if @mix.save
+      render "api/mixes/show"
+    else
+      render json: @mix.errors.full_messages, status: 402
+    end
+
+    
+  end
+
+
+  end
+
   def create
 
     mix_params = params[:mix]
