@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import MixIndex from './mix_index';
 // import { submitMix, submitTrack, MixConstants } from '../../actions/mix_actions';
-import { getMixes } from '../../actions/mix_actions';
+import { getMix } from '../../actions/mix_actions';
 
 
 const mapStateToProps = (state, ownProps) =>({
@@ -9,8 +9,13 @@ const mapStateToProps = (state, ownProps) =>({
 	mix: state.mix
 });
 
+const mapDispatchToProps = dispatch => ({
+	getMix: mixId => dispatch(getMix(mixId))
+});
+
 
 
 export default connect(
-	mapStateToProps
+	mapStateToProps,
+	mapDispatchToProps
 )(MixIndex);

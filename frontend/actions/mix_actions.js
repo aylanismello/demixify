@@ -3,6 +3,7 @@ export const MixConstants = {
 	RECEIVE_NEW_MIX: 'RECEIVE_NEW_MIX',
 	RECEIVE_MIXES: 'RECEIVE_MIXES',
 	GET_MIXES: 'GET_MIXES',
+	GET_MIX: 'GET_MIX',
 	RECEIVE_NEW_TRACK: 'RECEIVE_NEW_TRACK',
 	RECEIVE_ERRORS: 'RECEIVE_ERRORS'
 };
@@ -17,6 +18,11 @@ export const submitMix = (mix) => ({
 export const getMixes = (searchString) => ({
 	type: MixConstants.GET_MIXES,
 	searchString
+});
+
+export const getMix = (mixId) => ({
+	type: MixConstants.GET_MIX,
+	mixId
 });
 
 export const receiveMixes = (mixes) => ({

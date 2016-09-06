@@ -27,8 +27,6 @@ class Api::MixesController < ApplicationController
       render json: @mix.errors.full_messages, status: 402
     end
 
-    
-  end
 
 
   end
