@@ -5,6 +5,7 @@ export const MixConstants = {
 	RECEIVE_MIX: 'RECEIVE_MIX',
 	GET_MIXES: 'GET_MIXES',
 	GET_MIX: 'GET_MIX',
+	RECEIVE_TRACKS: 'RECEIVE_TRACKS',
 	RECEIVE_NEW_TRACK: 'RECEIVE_NEW_TRACK',
 	RECEIVE_ERRORS: 'RECEIVE_ERRORS'
 };
@@ -44,6 +45,11 @@ export const receiveNewMix = (mix) => ({
 export const receiveNewTrack = (track) => ({
 	type: MixConstants.RECEIVE_NEW_TRACK,
 	track
+});
+
+export const receiveTracks = (tracks) => ({
+	type: MixConstants.RECEIVE_TRACKS,
+	tracks
 });
 
 

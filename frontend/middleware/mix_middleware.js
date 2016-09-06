@@ -1,5 +1,6 @@
 import { MixConstants, receiveNewMix, receiveMixes,
-	receiveMix, receiveNewTrack, receiveErrors } from '../actions/mix_actions';
+	receiveMix, receiveNewTrack, receiveTracks,
+	receiveErrors } from '../actions/mix_actions';
 import { hashHistory } from 'react-router';
 
 import * as API from '../util/mix_api_util';
@@ -26,7 +27,26 @@ const MixMiddleware = ({getState, dispatch}) => next => action => {
 	};
 
 	const getMixesSuccess= mixes => dispatch(receiveMixes(mixes));
-	const getMixSuccess = mix => dispatch(receiveMix(mix));
+
+	// we need to update current track to reflect this mix,
+	// and we need to get the tracks
+
+
+
+
+	const getTracksSuccess = tracks => {
+		// debugger;
+		console.log('adding tracks!');
+		dispatch(receiveTracks(tracks));
+	};
+
+
+	const getMixSuccess = mix => {
+		// API.getTracks(mix)
+		dispatch(receiveNewMix(mix));
+		API.getTracks(mix.id, getTracksSuccess);
+		// getTracksForMix()
+	};
 
 
 	switch (action.type) {

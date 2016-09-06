@@ -23,10 +23,10 @@ class Api::MixesController < ApplicationController
     @mix = Mix.find(params[:id])
 
 
-    user = @mix.user
-    returned_user = {username: user.username, user_img: user.img_url}
-
-    @returned_mix = [@mix, returned_user]
+    # user = @mix.user
+    # returned_user = {username: user.username, user_img: user.img_url}
+    #
+    # @returned_mix = {mix: @mix, user:returned_user}
 
 
     # byebug

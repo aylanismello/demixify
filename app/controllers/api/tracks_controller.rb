@@ -32,6 +32,13 @@ class Api::TracksController < ApplicationController
   end
 
   def show
+    @tracks = Mix.find(params[:id]).tracks
+
+    if @tracks
+      render "api/tracks/show_many"
+    else
+      render json: @track.errors.full_messages, status: 402
+    end
   end
 
   # private

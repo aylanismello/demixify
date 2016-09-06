@@ -28,6 +28,13 @@ const MixReducer = (state=nullMix, action) => {
 				newState.currentMix.tracks.push(action.track);
 				return newState;
 
+			case MixConstants.RECEIVE_TRACKS:
+
+				newState = _.merge({}, state);
+				newState.currentMix.tracks = [];
+				newState.currentMix.tracks = action.tracks;
+				return newState;
+
 			case MixConstants.RECEIVE_MIXES:
 
 				const newMixes = action.mixes;
@@ -42,6 +49,9 @@ const MixReducer = (state=nullMix, action) => {
 				newState.currentMix.tracks = [];
 				newState.currentMix.mix = action.mix;
 				return newState;
+
+
+
 			case MixConstants.RECEIVE_ERRORS:
 				const errors = action.errors;
 				return _.merge({}, nullMix, {errors});

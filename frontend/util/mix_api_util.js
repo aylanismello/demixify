@@ -35,6 +35,20 @@ export const getMix = (mixId, success=suc, error=err) => {
 	});
 };
 
+export const getTracks = (mixId, success=suc, error=err) => {
+
+	$.ajax({
+		url: `api/tracks/${mixId}`,
+		method: 'GET',
+		data: {id: mixId},
+		success,
+		error
+	});
+
+};
+
+
+
 
 export const submitMix = (mix, success = suc, error = err, trackSuccess) => {
 
