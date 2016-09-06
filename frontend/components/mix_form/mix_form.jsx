@@ -256,10 +256,10 @@ class MixForm extends React.Component {
 
 					<div className="track-details">
 						<span className="track-selection-advice">
-							<strong>TRACKLIST</strong> - Choose at least 8 tracks.
+							<strong>TRACKLIST</strong> - Choose at least 3 tracks.
 						</span>
 
-						{this.renderTrackInputs(8) }
+						{this.renderTrackInputs(3) }
 					</div>
 
 						<br />

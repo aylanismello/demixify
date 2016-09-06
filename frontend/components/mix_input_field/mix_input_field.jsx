@@ -5,7 +5,7 @@ class MixInputField extends React.Component {
 	constructor(props) {
 		super(props);
 
-		this.suggestions = [{title: ''}, {title: ''}, {title: ''}];
+		this.suggestions = [{title: ''}, {title: ''}, {title: ''}, {title: ''}, {title: ''}];
 
 		this.state = {
 			trackName: "",
@@ -45,7 +45,7 @@ class MixInputField extends React.Component {
 			updateMixFormCB(soundcloudTrackObj);
 		};
 
-		searchByTrack(name, onReceivedTracks);
+		searchByTrack(name, onReceivedTracks, this.props.mixType);
 	}
 
 
@@ -65,7 +65,7 @@ class MixInputField extends React.Component {
 				);
 
 			};
-			searchByTrack(e.currentTarget.value, updateSearchFilter);
+			searchByTrack(e.currentTarget.value, updateSearchFilter, this.props.mixType);
 		};
 
 	}

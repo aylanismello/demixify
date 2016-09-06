@@ -55,9 +55,20 @@
 		width: 800px;
 		display: block;
 		float: left;
-		.track-details-top {
-			height: inherit;
+
+		.track-text{
 			float: left;
+
+			.track-details-top {
+				// height: inherit;
+				color: white;
+				float: left;
+			}
+
+			.track-details-bottom {
+
+			}
+
 		}
 
 		.artist-pic {

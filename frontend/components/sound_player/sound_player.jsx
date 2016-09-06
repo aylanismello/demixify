@@ -57,6 +57,8 @@ class SoundPlayer extends React.Component {
 		return this.state.playing ? "PLAYING" : "PAUSE";
 	}
 
+
+
 	playAtIdx(idx) {
 		let currentTracks = this.props.currentMix.tracks;
 		let currentMixTitle = this.props.currentMix.mix.title;
@@ -66,21 +68,17 @@ class SoundPlayer extends React.Component {
 
 		// this.sc.pause();
 		this.togglePlay();
+		// this.sc.pause();
 		// pause before we change
 
 		this.state.sc.resolve(this.state.tracks[idx].permalink_url, (track) => {
-			// console.log(`sucessfully loaded first track of demix: ${track.title}`);
-			// console.log(track);
-			// debugger;
-			this.setState({tracks: orderedTracks, mixTitle: currentMixTitle,
-				trackIdx: idx, mixImg: currentMixImg, mixArtist: currentMixArtist,
+
+			this.setState({mixTitle: currentMixTitle,
+				trackIdx: idx, mixImg: currentMixImg,
+				mixArtist: currentMixArtist,
 				mixId: currentMixId});
 
 				this.togglePlay();
-				// this.sc.
-			// this.togglePlay();
-			// this.state.sc.play();
-			// debugger;
 		});
 
 	}
@@ -89,15 +87,12 @@ class SoundPlayer extends React.Component {
 
 	playNext() {
 		let newIdx = this.state.trackIdx + 1;
-		debugger;
-		if (newIdx < this.state.tracks.length){
-			console.log(`playing next, moving idx from ${this.state.trackIdx} to ${newIdx}`);
-			this.playAtIdx(newIdx);
-		} else {
-			console.log('no tracks left to go to :(');
-		}
-	}
 
+		if (newIdx < this.state.tracks.length){
+			this.playAtIdx(newIdx);
+		}
+
+	}
 
 	handleLike() {
 
@@ -121,8 +116,6 @@ class SoundPlayer extends React.Component {
 				}
 
 
-
-
 				return(
 
 						<div className="player-track-details cf">
@@ -131,21 +124,20 @@ class SoundPlayer extends React.Component {
 									<img src={artistPic} />
 								</div>
 
-								<span className="track-details-top">
-									<h2 className="track-title">
-										{trackTitle}
-									</h2>
-									<h2 className="track-artist">
-									{artistPic}
-									</h2>
-								</span>
+								<div className="track-text">
+									<div className="track-details-top">
+										<h2 className="track-title">
+											{trackTitle}
+										</h2>
+										<h2 className="track-artist">
+										{artistUsername}
+										</h2>
+									</div>
 
-								<span className="mix-details-bottom">
-									<h2> Mix: </h2>
-									<h2 className="mix-title">
-										{mixTitle}
-									</h2>
-								</span>
+									<div className="mix-details-bottom">
+										<h2 className="mix-title"> Mix: {mixTitle} </h2>
+									</div>
+								</div>
 							</div>
 
 					);
@@ -153,8 +145,8 @@ class SoundPlayer extends React.Component {
 
 	isNewDemix(storeMixTitle, storeMixTracksLength) {
 		// let currentMix = this.props.currentMix;
-		console.log(`global mix is ${storeMixTitle}`);
-		console.log(`this player's loaded mix is ${this.state.mixTitle}`);
+		// console.log(`global mix is ${storeMixTitle}`);
+		// console.log(`this player's loaded mix is ${this.state.mixTitle}`);
 
 		if (storeMixTracksLength > 0) {
 			if (storeMixTitle !== this.state.mixTitle) {
@@ -193,39 +185,15 @@ class SoundPlayer extends React.Component {
 			let firstTrackUrl = orderedTracks[0].permalink_url;
 
 			this.state.sc.resolve(firstTrackUrl, (track) => {
-				// console.log(`sucessfully loaded first track of demix: ${track.title}`);
-				// console.log(track);
-				// debugger;
+
 				this.setState({mixTitle: currentMixTitle,
 					trackIdx: 0, mixImg: currentMixImg, mixArtist: currentMixArtist,
-					mixId: currentMixId});
+					mixId: currentMixId, tracks: orderedTracks});
 
 				this.togglePlay();
-				// this.state.sc.play();
-				// debugger;
 			});
 
 
-
-
-			// let orderedTracks = currentTracks.
-
-			// let firstTrackUrl = currentTracks[0].permalink_url;
-
-			// if(this.state.resolveUrl !== firstTrackUrl) {
-			// 	let trackTitle = currentTracks[0].title;
-			// 	console.log(`setting song to ${trackTitle}`);
-			//
-			// 	this.setState({resolveUrl: firstTrackUrl});
-			//
-			// 	this.state.sc.resolve(firstTrackUrl, (track) => {
-						// console.log(`sucessfully loaded ${trackTitle}`);
-						// console.log(track);
-					  // this.state.sc.play();
-			// 		}
-			// 	);
-			//
-			// }
 
 		}
 	}
@@ -234,13 +202,11 @@ class SoundPlayer extends React.Component {
 
 	render() {
 
-		// console.log('SOUND PLAYER RENDERS');
 		this.setNewDemix();
 		return (
 
 			<div className="sound-player-container cf">
 
-				{/* {this.setNewDemix()} */}
 
 				<div className="player-controls cf">
 					<div className="mix-pic">
