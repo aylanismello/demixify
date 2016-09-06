@@ -14,7 +14,6 @@ let nullMix = Object.freeze({
 
 const MixReducer = (state=nullMix, action) => {
 
-		// debugger;
 
 		let newState;
 		switch (action.type) {
@@ -33,18 +32,15 @@ const MixReducer = (state=nullMix, action) => {
 
 				const newMixes = action.mixes;
 
-				// newState = _.merge({}, state, {mixes: newMixes});
 				newState = _.merge({}, state);
 				newState.mixes = [];
 				newState = _.merge({}, newState, {mixes: newMixes});
-
-
+				return newState;
+			case MixConstants.RECEIVE_MIX:
 				// debugger;
-				// newState.mixes = [];
-				// newState.mixes = newMixes;
-
-
-
+				newState = _.merge(state, {});
+				newState.currentMix.tracks = [];
+				newState.currentMix.mix = action.mix;
 				return newState;
 			case MixConstants.RECEIVE_ERRORS:
 				const errors = action.errors;
