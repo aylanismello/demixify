@@ -1,3 +1,11 @@
+@mixin player-img {
+	margin-left: 40px;
+	margin-right: 40px;
+	margin-top: 5px;
+	float: left;
+	width: $nav-bar-height - 10px;
+}
+
 .sound-player-container {
 	bottom: 0;
   z-index: $nav-z-index;
@@ -9,18 +17,53 @@
   left: 0;
 	background-color: #ccc;
 
+	.player-controls {
 
-	.play-button {
-		  float: left;
-	    font-family: "Montserrat", sans-serif;
-	    text-decoration: none;
-	    background-color: #5c6ea3;
-	    color: white;
-	    padding: 2px 6px 2px 6px;
-	    width: 160px;
-	    height: 47px;
-	    border: 1px solid gray;
-	    border-radius: 19px;
+		float: left;
+		width: 500px;
+		background: black;
+		height: 100%;
+
+		.mix-pic {
+			@include player-img;
+		}
+
+		.play-button, .next-button, .like-button {
+			  float: left;
+				text-align: center;
+		    font-family: "Montserrat", sans-serif;
+		    text-decoration: none;
+		    background-color: #5c6ea3;
+		    color: white;
+		    padding: 2px 6px 2px 6px;
+		    width: 80px;
+		    height: 47px;
+				margin: 10px 10px;
+		    border: 1px solid gray;
+		    border-radius: 19px;
+		}
+	}
+
+	.player-track-details {
+		height: 100%;
+
+		font-family: $text-font;
+		font-size: 16px;
+
+
+		background-color: $emma-purple;
+		width: 800px;
+		display: block;
+		float: left;
+		.track-details-top {
+			height: inherit;
+			float: left;
+		}
+
+		.artist-pic {
+			@include player-img;
+		}
+
 	}
 
 
