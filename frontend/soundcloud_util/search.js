@@ -1,9 +1,13 @@
 import {VARS} from './vars';
+import SC from 'soundcloud';
 // https://developers.soundcloud.com/docs/api/guide#search
 //
 export const searchByTrack = (track, cb) => {
 
 	// console.log('searching sd');
+
+	debugger;
+
 	SC.initialize({
 	  client_id: VARS.CLIENT_ID
 	});

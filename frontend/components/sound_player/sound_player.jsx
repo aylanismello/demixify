@@ -89,7 +89,7 @@ class SoundPlayer extends React.Component {
 
 	playNext() {
 		let newIdx = this.state.trackIdx + 1;
-
+		debugger;
 		if (newIdx < this.state.tracks.length){
 			console.log(`playing next, moving idx from ${this.state.trackIdx} to ${newIdx}`);
 			this.playAtIdx(newIdx);

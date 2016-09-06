@@ -33,7 +33,6 @@
     "babel-preset-es2015": "^6.14.0",
     "babel-preset-react": "^6.11.1",
     "lodash": "^4.15.0",
-    "node-soundcloud": "0.0.5",
     "react": "^15.3.1",
     "react-dom": "^15.3.1",
     "react-masonry-component": "^4.2.1",
@@ -43,6 +42,7 @@
     "react-soundplayer": "^0.3.6",
     "redux": "^3.5.2",
     "redux-logger": "^2.6.1",
+    "soundcloud": "^3.1.2",
     "soundcloud-audio": "^1.0.3",
     "webpack": "^1.13.2"
   }
