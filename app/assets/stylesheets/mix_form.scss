@@ -1,6 +1,7 @@
 .mix-form-container {
 
 
+
 		background: inherit;
 	.mix-form-instructions {
 		background: #333;
@@ -24,7 +25,7 @@
 	margin: 0 auto;
 	position: relative;
 	// position: absolute;
-	top: 30px;
+	top: $nav-bar-height;
 
 
 	.mix-form-box{

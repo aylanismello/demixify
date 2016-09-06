@@ -24,11 +24,13 @@ class Home extends React.Component {
 								<Link to="/liked" className="navbar-brand">LIKED
 									</Link>
 
-								<Link to="/djs" className="navbar-brand">DJS
-									</Link>
 
 								<Link to="/my_demixes" className="navbar-brand">
 									MY DEMIXES
+								</Link>
+
+								<Link to="/create_demix" className="navbar-brand">
+									+
 								</Link>
 					    </div>
 					  </div>

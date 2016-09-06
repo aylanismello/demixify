@@ -1,4 +1,7 @@
-
+.the-splash-container{
+  position: relative;
+  top: $nav-bar-height;
+  
  .splash-mother {
    background: #d7e6e3;
    border-bottom: 4px solid #77d0c0;
@@ -87,3 +90,4 @@
 
    }//CONTAINER
  }
+}
