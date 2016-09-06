@@ -1,16 +1,20 @@
 import React from 'react';
 import {searchByTrack} from '../../soundcloud_util/search';
 
+
+const suggestionsSize = 5;
+
 class MixInputField extends React.Component {
 	constructor(props) {
 		super(props);
 
-		this.suggestions = [{title: ''}, {title: ''}, {title: ''}, {title: ''}, {title: ''}];
-
+		// this.suggestions
+		this.nullSuggestions = Array(suggestionsSize).fill({title: ''});
+		// debugger;
 		this.state = {
 			trackName: "",
 			trackObj: {},
-			suggestions: this.suggestions
+			suggestions: this.nullSuggestions
 		};
 
 
@@ -39,7 +43,7 @@ class MixInputField extends React.Component {
 
 			this.setState({
 				trackObj: soundcloudTrackObj,
-				suggestions: [{title: ''}, {title: ''}, {title: ''}]
+				suggestions: Array(suggestionsSize).fill({title: ''})
 			});
 
 			updateMixFormCB(soundcloudTrackObj);
@@ -50,7 +54,7 @@ class MixInputField extends React.Component {
 
 
 	handleInputUpdate(){
-
+		// console.log('received nothin');
 		return e => {
 
 			// e.persist();
@@ -58,7 +62,7 @@ class MixInputField extends React.Component {
 			const updateSearchFilter = (tracks) => {
 				// debugger;
 
-				let suggestedTracks = tracks.slice(0, 3);
+				let suggestedTracks = tracks.slice(0, 5);
 				this.setState(
 					{suggestions: suggestedTracks,
 						trackName: e.currentTarget.value}
@@ -98,7 +102,7 @@ class MixInputField extends React.Component {
 			<div className="track-suggestions">
 
 
-			{		this.suggestions.map((sug, idx) => {
+			{		this.nullSuggestions.map((sug, idx) => {
 
 						let artworkUrl = this.state.suggestions[idx].artwork_url;
 

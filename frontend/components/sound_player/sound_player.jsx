@@ -144,9 +144,6 @@ class SoundPlayer extends React.Component {
 	}
 
 	isNewDemix(storeMixTitle, storeMixTracksLength) {
-		// let currentMix = this.props.currentMix;
-		// console.log(`global mix is ${storeMixTitle}`);
-		// console.log(`this player's loaded mix is ${this.state.mixTitle}`);
 
 		if (storeMixTracksLength > 0) {
 			if (storeMixTitle !== this.state.mixTitle) {
@@ -166,19 +163,11 @@ class SoundPlayer extends React.Component {
 		let currentMixId = this.props.currentMix.mix.id;
 
 
-		// console.log(`is new demix? ${this.isNewDemix(currentMixTitle, currentTracks.length)}\n\n`);
-
-
-		// if(currentTracks.length > 0 && this.state.tracks.length === 0) {
 		if (this.isNewDemix(currentMixTitle, currentTracks.length)){
-
-			// console.log('detected new tracks!');
 			let orderedTracks = [];
-
 			currentTracks.map((track, idx) => {
 				orderedTracks[track.track_number - 1] = track;
 			});
-
 
 
 
@@ -187,10 +176,15 @@ class SoundPlayer extends React.Component {
 			this.state.sc.resolve(firstTrackUrl, (track) => {
 
 				this.setState({mixTitle: currentMixTitle,
-					trackIdx: 0, mixImg: currentMixImg, mixArtist: currentMixArtist,
+					trackIdx: 0, mixImg: currentMixImg,
+					mixArtist: currentMixArtist,
 					mixId: currentMixId, tracks: orderedTracks});
 
-				this.togglePlay();
+					this.state.sc.on('ended', () => {
+						this.playNext();
+					});
+
+					this.togglePlay();
 			});
 
 
@@ -198,15 +192,12 @@ class SoundPlayer extends React.Component {
 		}
 	}
 
-
-
 	render() {
 
 		this.setNewDemix();
 		return (
 
 			<div className="sound-player-container cf">
-
 
 				<div className="player-controls cf">
 					<div className="mix-pic">
@@ -231,14 +222,6 @@ class SoundPlayer extends React.Component {
 
 				</div>
 				{this.renderTrackDetails()}
-
-
-
-
-
-
-
-
 
 			</div>
 
