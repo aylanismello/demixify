@@ -56,6 +56,7 @@ class MixInputField extends React.Component {
 			// e.persist();
 
 			const updateSearchFilter = (tracks) => {
+				// debugger;
 
 				let suggestedTracks = tracks.slice(0, 3);
 				this.setState(

@@ -1,18 +1,33 @@
 import {VARS} from './vars';
 // https://developers.soundcloud.com/docs/api/guide#search
-
+//
 export const searchByTrack = (track, cb) => {
 
+	// console.log('searching sd');
 	SC.initialize({
 	  client_id: VARS.CLIENT_ID
 	});
 
-	// find all sounds of buskers licensed under 'creative` commons share alike'
 	SC.get('/tracks', {
 	  q: track
 	}).then(function(tracks) {
-	  // console.log(tracks);
 		cb(tracks);
 	});
 
 };
+
+
+// export const searchByTrack = (track, cb) => {
+//
+//
+// 	console.log(`${track}`);
+//
+// 	const url = `http://api.soundcloud.com/tracks/?q=${track}&client_id=${VARS.CLIENT_ID}`;
+//
+// 	$.ajax({
+// 		url,
+// 		method: 'GET',
+// 		sucess: cb
+// 	});
+//
+// };
