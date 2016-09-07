@@ -238,30 +238,34 @@ class SoundPlayer extends React.Component {
 		return (
 
 			<div className="sound-player-container cf" style={displayStyle}>
+				<div className="sound-player-nav-bar">
+				
+					<div className="player-controls cf">
+						<div className="mix-pic"
+						onClick={this.routeToShow(this.props.currentMix.mix.id)}>
+							<img value={this.state.mixId} src={this.state.mixImg} />
+						</div>
 
-				<div className="player-controls cf">
-					<div className="mix-pic" onClick={this.routeToShow(this.props.currentMix.mix.id)}>
-						<img value={this.state.mixId} src={this.state.mixImg} />
+						<button value="play" onClick={this.togglePlay}
+							className="play-button">
+
+								{this.renderPlayingState()}
+						</button>
+						<button value="NEXT" onClick={this.playNext}
+							className="next-button">
+
+							NEXT
+						</button>
+
+						<button value="LIKE" onClick={this.handleLike}
+							className="like-button">
+							LIKE
+						</button>
+
 					</div>
-
-					<button value="play" onClick={this.togglePlay}
-						className="play-button">
-
-							{this.renderPlayingState()}
-					</button>
-					<button value="NEXT" onClick={this.playNext}
-						className="next-button">
-
-						NEXT
-					</button>
-
-					<button value="LIKE" onClick={this.handleLike}
-						className="like-button">
-						LIKE
-					</button>
+					{this.renderTrackDetails()}
 
 				</div>
-				{this.renderTrackDetails()}
 
 			</div>
 

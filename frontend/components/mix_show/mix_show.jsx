@@ -11,6 +11,7 @@ class MixShow extends React.Component {
 		this.updateComment = this.updateComment.bind(this);
 		this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
 		this.theForm = this.theForm.bind(this);
+		this.theTracklist = this.theTracklist.bind(this);
 
 		this.state = {
 			comment: ""
@@ -43,6 +44,13 @@ class MixShow extends React.Component {
 		};
 	}
 
+
+	theTracklist() {
+		return (
+			<div>
+			</div>
+		);
+	}
 
 	theForm() {
 		return(

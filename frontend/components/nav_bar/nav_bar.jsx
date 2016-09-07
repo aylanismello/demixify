@@ -40,7 +40,9 @@ class NavBar extends React.Component {
 
 		return(
 				<div>
-					<header className="my-nav-bar cf">
+
+					<div className="my-nav-bar-container">
+					<div className="my-nav-bar cf">
 
 						<div className="header-left cf">
 							<Link to={homeLink} className="logo">
@@ -61,7 +63,9 @@ class NavBar extends React.Component {
 
 							<GreetingContainer
 							modalFunctions={this.props.modalFunctions}/>
-					</header>
+					</div>
+
+					</div>
 					{this.props.children}
 				</div>
 			);

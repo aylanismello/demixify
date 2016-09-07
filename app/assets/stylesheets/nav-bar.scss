@@ -1,4 +1,5 @@
-.my-nav-bar {
+
+.my-nav-bar-container{
 
   top: 0;
   z-index: $nav-z-index;
@@ -9,14 +10,17 @@
   left: 0;
 
 
-	background-color: $emma-dark-blue;
-	color: white;
+  background-color: $emma-dark-blue;
+  color: white;
   line-height: $nav-bar-height;
-	height: $nav-bar-height;
-	text-decoration: none;
+  height: $nav-bar-height;
+  text-decoration: none;
 
-	font-family: $text-font;
+  font-family: $text-font;
+.my-nav-bar {
 
+  margin: 0 auto;
+  width: 1400px;
   .header-left {
 
     float: left;
@@ -178,4 +182,5 @@
 		margin: 0;
 		width: 100%;
 	}
+}
 }
