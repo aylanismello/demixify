@@ -60,16 +60,24 @@ class SoundPlayer extends React.Component {
 		return this.state.playing ? "PLAYING" : "PAUSE";
 	}
 
-	toggleDisplay() {
+	toggleDisplay(onOrOff) {
 		// return {
 			// display: `none`
+			console.log(`onOrOff is ${onOrOff}`);
 		// };
-		return e => {
+		// return e => {
+			let displayState;
+			if (onOrOff === "on"){
+				displayState = `block`;
+			} else {
+				displayState = `none`;
+			}
 
 			this.setState({
-				display: `none`
+				display: displayState
 			});
-		};
+
+		// };
 	}
 
 
@@ -248,7 +256,7 @@ class SoundPlayer extends React.Component {
 						NEXT
 					</button>
 
-					<button value="LIKE" onClick={this.toggleDisplay}
+					<button value="LIKE" onClick={this.handleLike}
 						className="like-button">
 						LIKE
 					</button>

@@ -14,7 +14,6 @@ class MixShow extends React.Component {
 		this.state = {
 			comment: ""
 		};
-		// debugger;
 	}
 
 
@@ -24,8 +23,10 @@ class MixShow extends React.Component {
 		};
 	}
 
-	handleCommentSubmit() {
+	handleCommentSubmit(e) {
+		e.preventDefault();
 
+		this.props.submitComment(this.state.comment);
 	}
 
 	getStyles(artworkUrl) {
