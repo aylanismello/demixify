@@ -7,8 +7,33 @@ class MixShow extends React.Component {
 
 		super(props);
 		console.log('constructor called');
-		this.currentMix = props.currentMix;
-		this.trackCount = props.currentMix.tracks.length;
+
+
+
+		// this.currentMix = props.currentMix;
+
+		this.currentMix = props.mix.mixes[parseInt(this.props.params['mixId'])];
+		// find the mix with this mixId property of mixId
+
+		let mixId = this.props.params['mixId'];
+		let mixByParam;
+
+		// debugger;
+		props.mix.mixes.forEach(mix => {
+			if (mix.mix.id === parseInt(mixId)) {
+				mixByParam = mix;
+			}
+		});
+
+		// debugger;
+
+		this.currentMix = mixByParam;
+
+
+		// debugger;
+		this.trackCount = mixByParam.tracks.length;
+		
+
 		this.getStyles = this.getStyles.bind(this);
 		this.updateComment = this.updateComment.bind(this);
 		this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
@@ -34,7 +59,9 @@ class MixShow extends React.Component {
 		console.log('mounted');
 		debugger;
 
-		this.props.getComments(parseInt(this.props.params['mixId']));
+
+
+		// this.props.getComments(parseInt(this.props.params['mixId']));
 	}
 
 	componentDidUpdate() {

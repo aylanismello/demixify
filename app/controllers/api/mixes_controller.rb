@@ -2,10 +2,17 @@ class Api::MixesController < ApplicationController
 
 
   def index
-    search_string = params[:search_string].downcase
 
-    # this will automatically consider all mixes  is search_string is empty
-    @mixes = Mix.all.select{|mix| mix.title.downcase.include?(search_string) || mix.artist_username.downcase.include?(search_string)}
+
+    if params[:search_string]
+
+      search_string = params[:search_string].downcase
+      # this will automatically consider all mixes  is search_string is empty
+      @mixes = Mix.all.select{|mix| mix.title.downcase.include?(search_string) || mix.artist_username.downcase.include?(search_string)}
+    else
+      @mixes = Mix.all
+
+    end
 
 
     if @mixes
@@ -13,6 +20,7 @@ class Api::MixesController < ApplicationController
     else
       render json: "Found no mixes!"
     end
+
 
 
   end

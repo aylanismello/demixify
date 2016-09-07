@@ -5,7 +5,9 @@ class MixIndexItem extends React.Component {
 
 	constructor(props) {
 		super(props);
-		this.mix = props.mix;
+
+		// debugger;
+		this.mix = props.mix.mix;
 		this.handleShowRedirect = this.handleShowRedirect.bind(this);
 	}
 
@@ -15,7 +17,7 @@ class MixIndexItem extends React.Component {
 		const args = arguments;
 		return e => {
 			const mixId = args[0];
-			this.props.getMix(mixId);
+			// this.props.getMix(mixId);
 			
 			hashHistory.push(`/mixes/${mixId}`);
 		};
