@@ -6,15 +6,24 @@ class MixShow extends React.Component {
 		super(props);
 		this.currentMix = props.currentMix;
 		this.trackCount = props.currentMix.tracks.length;
+		this.getStyles = this.getStyles.bind(this);
 		// debugger;
 	}
 
+	getStyles(artworkUrl) {
+		return {
+			backgroundImage: `url(${artworkUrl})`,
+			backgroundSize: `100%`
+		};
+	}
 	render() {
 		// debugger;
 		let mixObj = this.currentMix;
+		let mixStyles = this.getStyles(mixObj.mix.artwork_url);
+		// debugger;
 		return (
 			<div className="mix-show-container">
-				<div className="mix-description-container">
+				<div className="mix-description-container" style={mixStyles}>
 
 				<div className="mix-pic">
 					<img src={mixObj.mix.artwork_url}/>
