@@ -24,10 +24,9 @@ class CommentForm extends React.Component {
 		e.preventDefault();
 		this.props.submitComment(this.state.comment, parseInt(this.props.mixId));
 
-
 	}
 
-	
+
 
 
 	render() {

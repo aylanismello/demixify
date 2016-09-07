@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import MixIndex from './mix_index';
 // import { submitMix, submitTrack, MixConstants } from '../../actions/mix_actions';
-import { getMix } from '../../actions/mix_actions';
+import { getMix, setCurrentMix } from '../../actions/mix_actions';
 
 
 const mapStateToProps = (state, ownProps) =>({
@@ -10,7 +10,8 @@ const mapStateToProps = (state, ownProps) =>({
 });
 
 const mapDispatchToProps = dispatch => ({
-	getMix: mixId => dispatch(getMix(mixId))
+	getMix: mixId => dispatch(getMix(mixId)),
+	setCurrentMix: mixId => dispatch(setCurrentMix(mixId))
 });
 
 

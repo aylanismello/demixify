@@ -17,8 +17,16 @@ class MixIndexItem extends React.Component {
 		const args = arguments;
 		return e => {
 			const mixId = args[0];
+
+			// now we do not update the mix, we set the currentTrack to the one clicked on
+
+
+
+			// this.props.setCurrentMix()
 			// this.props.getMix(mixId);
-			
+			// update currentMix
+
+
 			hashHistory.push(`/mixes/${mixId}`);
 		};
 	}

@@ -18,28 +18,4 @@ const CommentIndex = ({comments}) => (
 
 
 
-// class CommentIndex extends React.Component {
-// 	constructor(props) {
-// 		super(props);
-// 		debugger;
-//
-//
-// 	}
-//
-// 	render() {
-// 		return (
-// 			<div className="comment-index-wrapper">
-// 				<ul className="comment-index-container">
-//
-// 					{this.props.comments.map((comment, idx) => (
-// 						<CommentIndexItem key={idx} comment={comment}/>
-// 					))}
-//
-// 				</ul>
-//
-// 			</div>
-// 		);
-// 	}
-// }
-
 export default CommentIndex;

@@ -20,7 +20,6 @@ const MixReducer = (state=nullMix, action) => {
 				const newComment = action.comment;
 				newState = _.merge(state, {});
 				newState.currentMix.comments.push(newComment);
-
 				return newState;
 
 			case CommentConstants.RECEIVE_COMMENTS:
@@ -56,15 +55,9 @@ const MixReducer = (state=nullMix, action) => {
 
 
 			case MixConstants.RECEIVE_MIXES:
-
-				// debugger;
-
-				// const newMixes = action.mixes;
-
 				newState = _.merge({}, state);
 				newState.mixes = [];
 				newState.mixes = action.mixes;
-				// newState = _.merge({}, newState, {mixes: newMixes});
 				return newState;
 
 			case MixConstants.RECEIVE_MIX:

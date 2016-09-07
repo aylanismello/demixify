@@ -7,9 +7,15 @@ export const MixConstants = {
 	GET_MIX: 'GET_MIX',
 	RECEIVE_TRACKS: 'RECEIVE_TRACKS',
 	RECEIVE_NEW_TRACK: 'RECEIVE_NEW_TRACK',
-	RECEIVE_ERRORS: 'RECEIVE_ERRORS'
+	RECEIVE_ERRORS: 'RECEIVE_ERRORS',
+	SET_CURRENT_MIX: 'SET_CURRENT_MIX'
 };
 
+
+export const setCurrentMix = mixId => ({
+	type: MixConstants.SET_CURRENT_MIX,
+	mixId
+});
 
 
 export const submitMix = (mix) => ({

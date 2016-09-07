@@ -13,7 +13,6 @@ json.tracks do
 end
 
 
-
 json.comments do
   json.array! mix.comments do |comment|
     json.extract! comment, :body, :user_id, :mix_id, :created_at, :updated_at

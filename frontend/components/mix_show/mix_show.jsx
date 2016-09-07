@@ -10,28 +10,6 @@ class MixShow extends React.Component {
 
 
 
-		// this.currentMix = props.currentMix;
-
-		this.currentMix = props.mix.mixes[parseInt(this.props.params['mixId'])];
-		// find the mix with this mixId property of mixId
-
-		let mixId = this.props.params['mixId'];
-		let mixByParam;
-
-		// debugger;
-		props.mix.mixes.forEach(mix => {
-			if (mix.mix.id === parseInt(mixId)) {
-				mixByParam = mix;
-			}
-		});
-
-		// debugger;
-
-		this.currentMix = mixByParam;
-
-
-		// debugger;
-		this.trackCount = mixByParam.tracks.length;
 
 
 		this.getStyles = this.getStyles.bind(this);
@@ -40,9 +18,7 @@ class MixShow extends React.Component {
 		this.theTracklist = this.theTracklist.bind(this);
 
 		this.state = {
-			comment: "",
-			comments: ""
-
+			comment: ""
 		};
 	}
 
@@ -53,22 +29,10 @@ class MixShow extends React.Component {
 		};
 	}
 
-
-	componentDidMount() {
-
-		console.log('mounted');
-
+	componentDidReceiveProps() {
+		console.log('i am receiving new props!');
 	}
 
-	componentDidUpdate() {
-		console.log('\n\nUPDATED\n\n');
-	}
-
-	// handleCommentSubmit(e) {
-	// 	e.preventDefault();
-	//
-	// 	this.props.submitComment(this.state.comment, this.currentMix.mix.id);
-	// }
 
 	getStyles(artworkUrl) {
 		return {
@@ -112,7 +76,7 @@ class MixShow extends React.Component {
 
 
 	render() {
-		let mixObj = this.currentMix;
+		let mixObj = this.props.currentMix;
 		let mixStyles = this.getStyles(mixObj.mix.artwork_url);
 		// debugger;
 		return (
@@ -172,7 +136,7 @@ class MixShow extends React.Component {
 
 
 					<CommentFormContainer mixId={this.props.params['mixId']}/>
-					<CommentIndex className="comments-container" comments={this.currentMix.comments}/>
+					<CommentIndex className="comments-container" comments={this.props.currentMix.comments}/>
 
 
 
