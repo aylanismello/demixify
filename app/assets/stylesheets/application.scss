@@ -38,13 +38,10 @@
    display: block;
  }
 
- .demix-home {
-   margin-top: 300px;
- }
-
  body {
    background: #eeeeee;
  }
+
 
 
 
@@ -124,23 +121,31 @@
  }
 
 
- .navbar-default {
+
+
+
+ .home-navbar {
    // @include debugger;
+   color: white;
    position: absolute;
    width: 100%;
    top: $nav-bar-height;
+    background: $emma-light-blue;
    left: 0;
 
    a {
+     color: white;
+     font-family: $text-font;
      margin-right: 20px;
      padding-right: 10px;
-     margin-bottom: 0px;
-     line-height: 4;
-     padding-bottom: 0px;
+     margin-bottom: 3px;
+     line-height: 3;
+     padding-bottom: 2px;
      padding-top: 0px;
    }
    a:hover {
-     border-bottom: 2px solid $search-button-color;
+     border-bottom: 2px solid $emma-orange;
+
      // background: lighten($search-button-color, 10%);
      // display: none;
      // font-size: 16px;

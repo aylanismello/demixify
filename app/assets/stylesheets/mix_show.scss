@@ -1,7 +1,8 @@
 .mix-show-container {
 	margin-top: $nav-bar-height;
+
+
 	.mix-description-container {
-		@include debugger;
 		display: flex;
 		// width: 100%;
 		height: 400px;
@@ -13,29 +14,90 @@
 
 		}
 
-			.mix-right{
+		.mix-right{
+			position: relative;
+			padding: 25px;
 
-				.top-mix-details {
-					.title{
-
-					}
-
-					.details {
-
-					}
-
-					.tags {
-
-					}
-
+			.top-mix-details {
+				font-family: $text-font;
+				// padding: 25px;
+				.mix-title{
+					font-size: 24px;
 				}
 
-				.bottom-mix-details {
-
+				.mix-details {
+					padding: 10px 0;
 				}
 
+				.mix-tags {
+
+				}
 
 			}
 
+			.bottom-mix-details {
+				bottom: 0;
+				position: absolute;
+
+
+				.like-button {
+					float: left;
+					text-align: center;
+					font-family: "Montserrat", sans-serif;
+					text-decoration: none;
+					background-color: #5c6ea3;
+					color: white;
+					padding: 2px 6px 2px 6px;
+					width: 80px;
+					height: 47px;
+					margin: 10px 10px;
+					border: 1px solid gray;
+					border-radius: 19px;
+				}
+
+			}
+
+
+		}
+
 	}
+
+	.tracklist-container {
+		// @include debugger;
+
+		margin: 0 auto;
+		width: 900px;
+		background: $emma-orange;
+
+		.mix-item-creator {
+			// background: white;
+			border: 1px solid transparent;
+			height: 55px;
+			color: white;
+
+			.mix-item-creator-pic {
+				float: left;
+				margin: 0 10px;
+				width: 45px;
+				img {
+					// border-radius: 30px;
+					// border: 1px solid black;
+				}
+			}
+
+			.mix-item-create-text {
+				font-family: $text-font;
+				line-height: 2;
+				float: left;
+			}
+		}//creator
+
+		.tracklist-description {
+			background: white;
+			padding: 15px;
+			border-top: 5px solid $emma-dark-blue;
+			border-bottom: 5px solid $emma-dark-blue;
+		}
+
+	}//CONTAINER
 }
