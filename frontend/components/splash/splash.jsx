@@ -13,7 +13,7 @@ constructor(props) {
 
 
 componentDidMount() {
-	this.props.getMixes("");
+	// this.props.getMixes("");
 }
 
 render() {

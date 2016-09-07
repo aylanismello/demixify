@@ -23,6 +23,7 @@ const CommentMiddleware = ({getState, dispatch}) => next => action => {
 
 	switch (action.type) {
 		case CommentConstants.SUBMIT_COMMENT:
+			// debugger;
 			API.submitComment(action.comment, action.mixId, commentSubmitSuccess);
 			return next(action);
 		case CommentConstants.GET_COMMENTS:

@@ -4,7 +4,7 @@ class CommentForm extends React.Component {
 	constructor(props) {
 		super(props);
 
-		debugger;
+		// debugger;
 		this.updateComment = this.updateComment.bind(this);
 		this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
 
@@ -22,11 +22,12 @@ class CommentForm extends React.Component {
 
 	handleCommentSubmit(e) {
 		e.preventDefault();
-
-		debugger;
 		this.props.submitComment(this.state.comment, parseInt(this.props.mixId));
 
+
 	}
+
+	
 
 
 	render() {
@@ -43,7 +44,7 @@ class CommentForm extends React.Component {
 					onChange={this.updateComment()}
 					placeholder="What do you think of this demix?"/>
 
-					<input type="submit" value="submit"/>
+					<input className="submit-comment-button" type="submit" value="submit"/>
 
 				</form>
 			</div>

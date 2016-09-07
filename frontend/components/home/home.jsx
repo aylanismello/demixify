@@ -9,7 +9,7 @@ class Home extends React.Component {
 	}
 
 	componentDidMount(){
-		this.props.getMixes("");
+		// this.props.getMixes("");
 	}
 
 	render() {
@@ -18,11 +18,13 @@ class Home extends React.Component {
 					<nav className="navbar home-navbar denix-home">
 					  <div className="container-fluid">
 					    <div className="navbar-header">
-								<Link to="/home" className="navbar-brand">HOME
-									</Link>
+								<Link to="/home" className="navbar-brand">
+									HOME
+								</Link>
 
-								<Link to="/home/liked" className="navbar-brand">LIKED
-									</Link>
+								<Link to="/home/liked" className="navbar-brand">
+									LIKED
+								</Link>
 
 
 								<Link to="/home/my_demixes" className="navbar-brand">

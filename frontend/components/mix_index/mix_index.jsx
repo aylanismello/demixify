@@ -19,7 +19,6 @@ class MixIndex extends React.Component {
 						)
 					)
 				}
-
 				</ul>
 			</div>
 		);

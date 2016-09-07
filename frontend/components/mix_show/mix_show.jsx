@@ -1,6 +1,6 @@
 import React from 'react';
 import CommentFormContainer from '../comment_form/comment_form_container';
-import CommentIndexContainer from '../comment_index/comment_index_container';
+import CommentIndex from '../comment_index/comment_index';
 
 class MixShow extends React.Component {
 	constructor(props) {
@@ -32,11 +32,11 @@ class MixShow extends React.Component {
 
 		// debugger;
 		this.trackCount = mixByParam.tracks.length;
-		
+
 
 		this.getStyles = this.getStyles.bind(this);
 		this.updateComment = this.updateComment.bind(this);
-		this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
+		// this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
 		this.theTracklist = this.theTracklist.bind(this);
 
 		this.state = {
@@ -57,22 +57,18 @@ class MixShow extends React.Component {
 	componentDidMount() {
 
 		console.log('mounted');
-		debugger;
 
-
-
-		// this.props.getComments(parseInt(this.props.params['mixId']));
 	}
 
 	componentDidUpdate() {
 		console.log('\n\nUPDATED\n\n');
 	}
 
-	handleCommentSubmit(e) {
-		e.preventDefault();
-
-		this.props.submitComment(this.state.comment, this.currentMix.mix.id);
-	}
+	// handleCommentSubmit(e) {
+	// 	e.preventDefault();
+	//
+	// 	this.props.submitComment(this.state.comment, this.currentMix.mix.id);
+	// }
 
 	getStyles(artworkUrl) {
 		return {
@@ -176,7 +172,7 @@ class MixShow extends React.Component {
 
 
 					<CommentFormContainer mixId={this.props.params['mixId']}/>
-					<CommentIndexContainer className="comments-container"/>
+					<CommentIndex className="comments-container" comments={this.currentMix.comments}/>
 
 
 

@@ -12,6 +12,12 @@ json.tracks do
   json.array! mix.tracks
 end
 
+
+
 json.comments do
-  json.array! mix.comments
+  json.array! mix.comments do |comment|
+    json.extract! comment, :body, :user_id, :mix_id, :created_at, :updated_at
+    json.user_img comment.user.img_url
+    json.username comment.user.username
+  end
 end

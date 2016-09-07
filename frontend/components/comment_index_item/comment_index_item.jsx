@@ -6,6 +6,7 @@ class CommentIndexItem extends React.Component {
 
 	constructor(props) {
 		super(props);
+		// debugger;
 		this.comment = this.props.comment;
 		this.parseDate = this.parseDate.bind(this);
 	}

@@ -9,6 +9,10 @@ import ParentComponent from '../parent_component/parent_component';
 import MixFormContainer from '../mix_form/mix_form_container';
 import MyDemixes from '../my_demixes/my_demixes';
 
+
+
+
+
 import MixIndexContainer from '../mix_index/mix_index_container';
 
 import MixShowContainer from '../mix_show/mix_show_container';
@@ -18,12 +22,15 @@ class AppRouter extends React.Component {
 		super(props);
 		this._redirectIfLoggedIn = this._redirectIfLoggedIn.bind(this);
 		this._ensureLoggedIn = this._ensureLoggedIn.bind(this);
+		this._getMixes = this._getMixes.bind(this);
 	}
 
 	_redirectIfLoggedIn(nextState, replace) {
 		const currentUser = this.props.currentUser;
-		// debugger;
-		// if (currentUser) replace('/home');
+	}
+
+	_getMixes(nextState, replace) {
+		this.props.getMixes("");
 	}
 
 	_ensureLoggedIn(nextState, replace) {
@@ -41,7 +48,9 @@ class AppRouter extends React.Component {
 	render() {
 		return(
 			<Router history={ hashHistory }>
-				<Route path="/" component= { ParentComponent } onEnter={ this._redirectIfLoggedIn }>
+			{/*  put fetch mixes in on enter hook*/}
+				<Route path="/" component= { ParentComponent } onEnter={ this._getMixes }>
+
 
 					<Route path="/home" component={ HomeContainer }
 						onEnter={ this._ensureLoggedIn }>
@@ -55,7 +64,7 @@ class AppRouter extends React.Component {
 						<Route path="my_demixes" component ={ MyDemixes }
 						onEnter = {this._ensureLoggedIn} />
 
-						
+
 
 					</Route>
 
