@@ -1,12 +1,38 @@
-.comment-form-container {
-	background: $emma-light-blue;
-	width: 100%;
-	display: block;
-	height: 500px;
-	.comment-form-box {
-		text-align: center;
-		.comment-text {
+.comment-index-wrapper {
+	font-family: $text-font;
+	.comment-index-container {
 
-		}
+		width: 1200px;
+		background: whitesmoke;
+		margin: 0 auto;
+
+		.comment-index-item {
+			padding: 30px 20px;
+
+			.comment-item-creator {
+				.comment-item-creator-pic {
+					width: 70px;
+					display: table-cell;
+					img {
+						border-radius: 30px;
+					}
+				}
+
+				.comment-item-creator-text {
+					display: table-cell;
+					vertical-align: middle;
+				}
+			}
+
+			.comment-body {
+				padding: 30px 0;
+		    border-bottom: 2px solid #ccc;
+			}
+
+			.comment-data {
+				padding-top: 10px;
+			}
+		}//ITEM
+
 	}
 }

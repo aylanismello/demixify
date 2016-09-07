@@ -171,8 +171,14 @@ class MixShow extends React.Component {
 
 				</div>
 
-						<CommentIndexContainer/>
-						OMG WHERE DID I GO
+
+					{/* <div className="comments-container"> */}
+
+					{/* </div> */}
+
+							<CommentIndexContainer className="comments-container"/>
+
+
 
 				{/* <CommentFormContainer/> */}
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import dateFormat from 'dateformat';
 
 
 class CommentIndexItem extends React.Component {
@@ -6,9 +7,18 @@ class CommentIndexItem extends React.Component {
 	constructor(props) {
 		super(props);
 		this.comment = this.props.comment;
+		this.parseDate = this.parseDate.bind(this);
+	}
+
+
+	parseDate(date) {
+		let newDate = new Date(date);
+		return dateFormat(newDate, "mmmm dS, yyyy");
+
 	}
 
 	render() {
+		let commentDate = this.parseDate(this.comment.created_at);
 		return (
 			<div className="comment-index-item">
 				<div className="comment-item-creator">
@@ -18,14 +28,17 @@ class CommentIndexItem extends React.Component {
 					</div>
 
 					<div className="comment-item-creator-text">
-						 {this.comment.username}
+						 {this.comment.username} said
 					</div>
 
 				</div>
 
-				<div className="comment-data">
+				<div className="comment-body">
 					<p> {this.comment.body} </p>
-					<h3> on {this.comment.created_at} </h3>
+				</div>
+
+				<div className="comment-data">
+					<p> on {commentDate} </p>
 				</div>
 
 			</div>
