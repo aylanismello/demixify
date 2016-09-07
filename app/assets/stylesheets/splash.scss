@@ -1,20 +1,26 @@
+.splashy-frame {
+  position: fixed;
+  width: 100%;
 .the-splash-container{
-  position: relative;
-  top: $nav-bar-height;
-  
+
+  margin: 0 auto;
+  // width: 1400px;
+  // position: relative;
+  // top: $nav-bar-height;
+
  .splash-mother {
    background: #d7e6e3;
    border-bottom: 4px solid #77d0c0;
 
 
-    position: absolute;
-    left: 20%;
+    // position: absolute;
+    // left: 20%;
 
    .splash-wrapper {
 
-     width: 800px;
+    //  width: 800px;
      padding: 0;
-
+     position: relative;
      video {
        position: relative;
        z-index: 0;
@@ -34,7 +40,8 @@
      .splash {
        @include static-splash;
 
-       top: 2%;
+       top: 8%;
+       left: 20%;
       color: black;
       position: absolute;
 
@@ -46,7 +53,7 @@
 
         //  background: rgba(160,186,207, 0.5);
 
-         margin-top: 12%;;
+        //  margin-top: 12%;;
          text-align: center;
 
          .splash-logo {
@@ -90,4 +97,5 @@
 
    }//CONTAINER
  }
+}
 }

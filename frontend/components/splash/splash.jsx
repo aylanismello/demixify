@@ -18,6 +18,7 @@ componentDidMount() {
 
 render() {
 	return(
+	<div className="splashy-frame">
 		<div className="the-splash-container">
 			<div className="splash-mother">
 
@@ -64,6 +65,7 @@ render() {
 
 
 
+		</div>
 		</div>
 		);
 	}
