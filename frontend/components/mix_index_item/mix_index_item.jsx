@@ -24,9 +24,19 @@ class MixIndexItem extends React.Component {
 
 		return(
 			<div className="mix-index-item">
+
+
 				<div className="mix-item-creator">
-					{this.mix.user_id}
+					<div className="mix-item-creator-pic">
+						<img src={this.mix.user_img}/>
+					</div>
+
+					<div className="mix-item-create-text">
+						DEMIXIFIED BY: {this.mix.username}
+					</div>
+					
 				</div>
+
 
 				<div className="mix-item-detail cf">
 					<div className="mix-avatar-wrapper">

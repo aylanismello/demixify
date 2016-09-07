@@ -18,6 +18,22 @@
 				background: white;
 				border: 1px solid transparent;
 				height: 55px;
+
+				.mix-item-creator-pic {
+					float: left;
+					margin: 0 10px;
+					width: 45px;
+					img {
+						border-radius: 30px;
+						border: 1px solid black;
+					}
+				}
+
+				.mix-item-create-text {
+					font-family: $text-font;
+
+					float: left;
+				}
 			}
 
 			.mix-item-detail {

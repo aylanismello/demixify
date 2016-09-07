@@ -21,11 +21,13 @@
 
 		float: left;
 		width: 500px;
-		background: black;
 		height: 100%;
 
 		.mix-pic {
 			@include player-img;
+			img {
+				border: 1px solid black;
+			}
 			&:hover {
 				cursor: pointer;
 			}
@@ -76,6 +78,9 @@
 
 		.artist-pic {
 			@include player-img;
+			img {
+				border-radius: 30px;
+			}
 		}
 
 	}

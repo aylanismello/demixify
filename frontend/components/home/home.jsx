@@ -21,23 +21,24 @@ class Home extends React.Component {
 								<Link to="/home" className="navbar-brand">HOME
 									</Link>
 
-								<Link to="/liked" className="navbar-brand">LIKED
+								<Link to="/home/liked" className="navbar-brand">LIKED
 									</Link>
 
 
-								<Link to="/my_demixes" className="navbar-brand">
+								<Link to="/home/my_demixes" className="navbar-brand">
 									MY DEMIXES
 								</Link>
 
-								<Link to="/create_demix" className="navbar-brand">
+								<Link to="/home/create_demix" className="navbar-brand">
 									+
 								</Link>
+
 					    </div>
 					  </div>
 					</nav>
 
-					<MixIndexContainer/>
 
+					{this.props.children}
 
 				</div>
 		);

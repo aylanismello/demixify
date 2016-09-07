@@ -22,10 +22,16 @@
     float: left;
     width: 700px;
 
+    .logo {
+      display: inline-block;
+      width: 50px;
+      padding: 10px 50px;
+    }
     .mix-search-form{
 
       height: $search-bar-height;
       padding-top: 14px;
+      float: right;
 
       .my-search-bar {
         // line-height: 70px;

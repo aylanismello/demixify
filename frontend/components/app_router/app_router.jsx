@@ -9,6 +9,8 @@ import ParentComponent from '../parent_component/parent_component';
 import MixFormContainer from '../mix_form/mix_form_container';
 import MyDemixes from '../my_demixes/my_demixes';
 
+import MixIndexContainer from '../mix_index/mix_index_container';
+
 import MixShowContainer from '../mix_show/mix_show_container';
 
 class AppRouter extends React.Component {
@@ -42,13 +44,25 @@ class AppRouter extends React.Component {
 				<Route path="/" component= { ParentComponent } onEnter={ this._redirectIfLoggedIn }>
 
 					<Route path="/home" component={ HomeContainer }
-						onEnter={ this._ensureLoggedIn }/>
-					<Route path="/explore" component={ Explore }/>
-					<Route path="/my_demixes" component ={ MyDemixes }
+						onEnter={ this._ensureLoggedIn }>
+
+						<IndexRoute component={ MixIndexContainer }/>
+
+						<Route path="create_demix" component={ MixFormContainer }
+						onEnter={ this._ensureLoggedIn } />
+
+
+						<Route path="my_demixes" component ={ MyDemixes }
 						onEnter = {this._ensureLoggedIn} />
 
-					<Route path="/create_demix" component={ MixFormContainer }
-						onEnter={ this._ensureLoggedIn } />
+						
+
+					</Route>
+
+
+					<Route path="/explore" component={ Explore }/>
+
+
 
 				  <Route path="/mixes/:mixId" component={ MixShowContainer } />
 

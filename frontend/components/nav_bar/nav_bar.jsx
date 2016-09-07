@@ -34,16 +34,18 @@ class NavBar extends React.Component {
 
 
 	render() {
+
+		// debugger;
+		let homeLink  = this.props.currentUser ? "/home" : "/";
+
 		return(
 				<div>
 					<header className="my-nav-bar cf">
 
 						<div className="header-left cf">
-							<Link to="/" className="header-link">
-								<h1>Demixify</h1>
+							<Link to={homeLink} className="logo">
+									<img src="http://res.cloudinary.com/dfkrjl3pb/image/upload/v1473204560/Screen_Shot_2016-09-06_at_4.28.26_PM_dbangc.png"/>
 							</Link>
-
-								{/* <div className="search-bar-wrapper"> */}
 
 
 							<form onSubmit={this.handleSearchSubmit} className="mix-search-form cf">
@@ -53,16 +55,9 @@ class NavBar extends React.Component {
 									onChange={this.updateSearchString()}
 									type="text"/>
 
-
 								<input type="submit" value="Explore" className="search-button"/>
-								{/* <Link to="/explore" className="search-button">
-									Explore
-								</Link> */}
-
 							</form>
-
 						</div>
-								{/* </div> */}
 
 							<GreetingContainer
 							modalFunctions={this.props.modalFunctions}/>
