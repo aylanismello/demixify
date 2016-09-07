@@ -1,4 +1,5 @@
 import React from 'react';
+import CommentFormContainer from '../comment_form/comment_form_container';
 
 class MixShow extends React.Component {
 	constructor(props) {
@@ -7,7 +8,24 @@ class MixShow extends React.Component {
 		this.currentMix = props.currentMix;
 		this.trackCount = props.currentMix.tracks.length;
 		this.getStyles = this.getStyles.bind(this);
+		this.updateComment = this.updateComment.bind(this);
+		this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
+
+		this.state = {
+			comment: ""
+		};
 		// debugger;
+	}
+
+
+	updateComment(){
+		return e => {
+			this.setState({comment: e.currentTarget.value});
+		};
+	}
+
+	handleCommentSubmit() {
+
 	}
 
 	getStyles(artworkUrl) {
@@ -16,8 +34,11 @@ class MixShow extends React.Component {
 			backgroundSize: `100%`
 		};
 	}
+
+
+
+
 	render() {
-		// debugger;
 		let mixObj = this.currentMix;
 		let mixStyles = this.getStyles(mixObj.mix.artwork_url);
 		// debugger;
@@ -73,7 +94,33 @@ class MixShow extends React.Component {
 
 				</div>
 
-			</div>
+
+				{/* <CommentFormContainer/> */}
+
+			{/* temporary shit before i make different component */}
+
+					<div className="comment-form-container">
+
+						<form onSubmit={this.handleCommentSubmit}
+							className="comment-form-box">
+
+							<textarea className="comment-text"
+							cols="25"
+							rows="10"
+							value={this.state.comment}
+							onChange={this.updateComment()}
+							placeholder="What do you think of this demix?"/>
+
+							<input type="submit" value="submit"/>
+
+						</form>
+
+
+					</div>
+
+
+
+				</div>
 		);
 	}
 }

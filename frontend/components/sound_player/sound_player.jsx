@@ -20,7 +20,9 @@ class SoundPlayer extends React.Component {
 		this.renderTrackDetails = this.renderTrackDetails.bind(this);
 		this.playAtIdx = this.playAtIdx.bind(this);
 
+		this.toggleDisplay = this.toggleDisplay(this);
 		this.routeToShow = this.routeToShow.bind(this);
+		this.getStyle = this.getStyle.bind(this);
 
 		this.renderPlayingState = this.renderPlayingState.bind(this);
 		this.state = {
@@ -31,11 +33,10 @@ class SoundPlayer extends React.Component {
 			mixTitle: "",
 			mixImg: "http://res.cloudinary.com/dfkrjl3pb/image/upload/v1473059378/soundcloud-gray_kvunvw.png",
 			mixArtist: "",
-			mixId: 0
+			mixId: 0,
+			display: "block"
 		};
 	}
-
-
 
 
 
@@ -59,6 +60,17 @@ class SoundPlayer extends React.Component {
 		return this.state.playing ? "PLAYING" : "PAUSE";
 	}
 
+	toggleDisplay() {
+		// return {
+			// display: `none`
+		// };
+		return e => {
+
+			this.setState({
+				display: `none`
+			});
+		};
+	}
 
 
 	playAtIdx(idx) {
@@ -205,13 +217,20 @@ class SoundPlayer extends React.Component {
 		};
 	}
 
+	getStyle() {
+		return {
+			display: this.state.display
+		};
+	}
 
 	render() {
 
 		this.setNewDemix();
+		let displayStyle = this.getStyle();
+
 		return (
 
-			<div className="sound-player-container cf">
+			<div className="sound-player-container cf" style={displayStyle}>
 
 				<div className="player-controls cf">
 					<div className="mix-pic" onClick={this.routeToShow(this.props.currentMix.mix.id)}>
@@ -229,7 +248,7 @@ class SoundPlayer extends React.Component {
 						NEXT
 					</button>
 
-					<button value="LIKE" onClick={this.handleLike}
+					<button value="LIKE" onClick={this.toggleDisplay}
 						className="like-button">
 						LIKE
 					</button>
