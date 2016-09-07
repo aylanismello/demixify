@@ -22,14 +22,6 @@ class Api::MixesController < ApplicationController
 
     @mix = Mix.find(params[:id])
 
-
-    # user = @mix.user
-    # returned_user = {username: user.username, img_url: user.img_url}
-    #
-    # @returned_mix = {mix: @mix, user: returned_user}
-
-
-    # byebug
     if @mix.save
       render "api/mixes/show"
     else

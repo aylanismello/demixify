@@ -216,7 +216,6 @@ class SoundPlayer extends React.Component {
 
 
 	routeToShow() {
-		console.log('is this working');
 		// debugger;
 		const args = arguments;
 		return e => {

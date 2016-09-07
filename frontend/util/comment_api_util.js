@@ -1,7 +1,7 @@
 const suc = (comment) => {
 
 	console.log(`SUCCESS: comment is this obj: ${comment}`);
-	window.receivedMix = comment;
+	window.comment = comment;
 };
 
 const err = (errors) => {
@@ -10,12 +10,13 @@ const err = (errors) => {
 
 
 
-export const submitComment = (comment, success=suc, error=err) => {
-	
+export const submitComment = (comment, mixId, success=suc, error=err) => {
+
+
 	$.ajax({
 		url: 'api/comments',
 		method: 'POST',
-		data: {comment: comment},
+		data: {body: comment, mix_id: mixId},
 		success,
 		error
 	});

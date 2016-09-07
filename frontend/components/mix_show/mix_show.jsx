@@ -26,7 +26,7 @@ class MixShow extends React.Component {
 	handleCommentSubmit(e) {
 		e.preventDefault();
 
-		this.props.submitComment(this.state.comment);
+		this.props.submitComment(this.state.comment, this.currentMix.mix.id);
 	}
 
 	getStyles(artworkUrl) {

@@ -35,17 +35,13 @@ const MixMiddleware = ({getState, dispatch}) => next => action => {
 
 
 	const getTracksSuccess = tracks => {
-		// debugger;
-		console.log('adding tracks!');
 		dispatch(receiveTracks(tracks));
 	};
 
 
 	const getMixSuccess = mix => {
-		// API.getTracks(mix)
 		dispatch(receiveNewMix(mix));
 		API.getTracks(mix.id, getTracksSuccess);
-		// getTracksForMix()
 	};
 
 

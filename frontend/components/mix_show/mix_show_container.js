@@ -11,7 +11,7 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  submitComment: comment => dispatch(submitComment(comment))
+  submitComment: (comment, mixId) => dispatch(submitComment(comment, mixId))
 });
 
 

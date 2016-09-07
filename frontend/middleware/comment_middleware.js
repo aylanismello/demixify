@@ -1,17 +1,24 @@
-import { CommentConstants } from '../actions/comment_actions';
+import { CommentConstants,
+	receiveNewComment } from '../actions/comment_actions';
 
 import * as API from '../util/comment_api_util';
+
 
 const CommentMiddleware = ({getState, dispatch}) => next => action => {
 
 
-		debugger;
+
+	const commentSubmitSuccess = comment => {
+		// debugger;
+		console.log(`received ${comment.body}, now hitting up reducer`);
+
+		dispatch(receiveNewComment(comment));
+	};
+
 
 	switch (action.type) {
 		case CommentConstants.SUBMIT_COMMENT:
-
-			// API.
-			// debugger;
+			API.submitComment(action.comment, action.mixId, commentSubmitSuccess);
 			return next(action);
 		default:
 			return next(action);

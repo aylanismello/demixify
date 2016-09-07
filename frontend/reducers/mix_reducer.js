@@ -1,4 +1,5 @@
 import { MixConstants } from '../actions/mix_actions';
+import { CommentConstants } from '../actions/comment_actions';
 import * as _ from 'lodash';
 
 
@@ -17,6 +18,14 @@ const MixReducer = (state=nullMix, action) => {
 
 		let newState;
 		switch (action.type) {
+			case CommentConstants.RECEIVE_NEW_COMMENT:
+
+				const newComment = action.comment;
+
+				debugger;
+
+				return newState;
+
 			case MixConstants.RECEIVE_NEW_MIX:
 				const currentMix = action.mix;
 				newState = _.merge(state, {});
