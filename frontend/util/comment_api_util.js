@@ -1,6 +1,6 @@
 const suc = (comment) => {
 
-	console.log(`SUCCESS: comment is this obj: ${comment}`);
+	console.log(`SUCCESS: comment(s) is/are this obj: ${comment}`);
 	window.comment = comment;
 };
 
@@ -17,6 +17,19 @@ export const submitComment = (comment, mixId, success=suc, error=err) => {
 		url: 'api/comments',
 		method: 'POST',
 		data: {body: comment, mix_id: mixId},
+		success,
+		error
+	});
+
+};
+
+export const getComments = (mixId, success=suc, error=err) => {
+	debugger;
+
+	$.ajax({
+		url: 'api/comments',
+		method: 'GET',
+		data: {mix_id: mixId},
 		success,
 		error
 	});

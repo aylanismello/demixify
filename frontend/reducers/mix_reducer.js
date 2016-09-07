@@ -5,26 +5,31 @@ import * as _ from 'lodash';
 
 let nullMix = Object.freeze({
 	mixes: [],
-	currentMix: {mix: {}, tracks: []},
+	currentMix: {mix: {}, tracks: [], comments: []},
 	errors: []
 });
 
 
-// tracksOrdered = [];
-// store.getState().mix.currentMix.tracks.map((track) => {tracksOrdered[track.track_number - 1] = track;});
-
 const MixReducer = (state=nullMix, action) => {
-
-
 		let newState;
+
 		switch (action.type) {
 			case CommentConstants.RECEIVE_NEW_COMMENT:
 
 				const newComment = action.comment;
-
-				debugger;
+				newState = _.merge(state, {});
+				newState.currentMix.comments.push(newComment);
 
 				return newState;
+
+			case MixConstants.RECEIVE_COMMENTS:
+
+				newState = _.merge({}, state);
+				newState.currentMix.comments = [];
+				newState.currentMix.comments = action.comments;
+				return newState;
+
+
 
 			case MixConstants.RECEIVE_NEW_MIX:
 				const currentMix = action.mix;
@@ -32,6 +37,7 @@ const MixReducer = (state=nullMix, action) => {
 				newState.currentMix.tracks = [];
 				newState.currentMix.mix = action.mix;
 				return newState;
+
 			case MixConstants.RECEIVE_NEW_TRACK:
 				newState = _.merge(state, {});
 				newState.currentMix.tracks.push(action.track);
@@ -43,6 +49,8 @@ const MixReducer = (state=nullMix, action) => {
 				newState.currentMix.tracks = [];
 				newState.currentMix.tracks = action.tracks;
 				return newState;
+
+
 
 			case MixConstants.RECEIVE_MIXES:
 

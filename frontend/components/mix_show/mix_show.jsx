@@ -10,6 +10,7 @@ class MixShow extends React.Component {
 		this.getStyles = this.getStyles.bind(this);
 		this.updateComment = this.updateComment.bind(this);
 		this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
+		this.theForm = this.theForm.bind(this);
 
 		this.state = {
 			comment: ""
@@ -21,6 +22,12 @@ class MixShow extends React.Component {
 		return e => {
 			this.setState({comment: e.currentTarget.value});
 		};
+	}
+
+
+	componentDidMount() {
+		debugger;
+		this.props.getComments(this.currentMix.id);
 	}
 
 	handleCommentSubmit(e) {
@@ -37,11 +44,34 @@ class MixShow extends React.Component {
 	}
 
 
+	theForm() {
+		return(
+			<div className="comment-form-container">
+
+				<form onSubmit={this.handleCommentSubmit}
+					className="comment-form-box">
+
+					<textarea className="comment-text"
+					cols="25"
+					rows="10"
+					value={this.state.comment}
+					onChange={this.updateComment()}
+					placeholder="What do you think of this demix?"/>
+
+					<input type="submit" value="submit"/>
+
+				</form>
+
+
+			</div>
+		);
+	}
 
 
 	render() {
 		let mixObj = this.currentMix;
 		let mixStyles = this.getStyles(mixObj.mix.artwork_url);
+		let theForm = this.theForm();
 		// debugger;
 		return (
 			<div className="mix-show-container">
@@ -93,6 +123,7 @@ class MixShow extends React.Component {
 					</div>
 
 
+					{theForm}
 				</div>
 
 
@@ -100,7 +131,7 @@ class MixShow extends React.Component {
 
 			{/* temporary shit before i make different component */}
 
-					<div className="comment-form-container">
+					{/* <div className="comment-form-container">
 
 						<form onSubmit={this.handleCommentSubmit}
 							className="comment-form-box">
@@ -117,7 +148,7 @@ class MixShow extends React.Component {
 						</form>
 
 
-					</div>
+					</div> */}
 
 
 

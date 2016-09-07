@@ -1,8 +1,7 @@
 import { connect } from 'react-redux';
 import MixShow from './mix_show';
 // Actions
-import { requestMix } from '../../actions/mix_actions';
-import { submitComment } from '../../actions/comment_actions';
+import { submitComment, getComments } from '../../actions/comment_actions';
 
 
 const mapStateToProps = (state, ownProps) => ({
@@ -11,7 +10,8 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  submitComment: (comment, mixId) => dispatch(submitComment(comment, mixId))
+  submitComment: (comment, mixId) => dispatch(submitComment(comment, mixId)),
+  getComments: mixId => dispatch(getComments(mixId))
 });
 
 

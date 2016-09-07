@@ -157,7 +157,7 @@ class SoundPlayer extends React.Component {
 									</div>
 
 									<div className="mix-details-bottom">
-										<h2 className="mix-title"> Mix: {mixTitle} </h2>
+										<h2 className="mix-title"> {mixTitle} </h2>
 									</div>
 								</div>
 							</div>
