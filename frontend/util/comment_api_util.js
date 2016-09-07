@@ -24,7 +24,6 @@ export const submitComment = (comment, mixId, success=suc, error=err) => {
 };
 
 export const getComments = (mixId, success=suc, error=err) => {
-	debugger;
 
 	$.ajax({
 		url: 'api/comments',

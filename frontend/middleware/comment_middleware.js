@@ -18,7 +18,7 @@ const CommentMiddleware = ({getState, dispatch}) => next => action => {
 	const commentsGetSuccess = comments => {
 		console.log(`received comments ${comments}, now hitting up reducer`);
 		dispatch(receiveComments(comments));
-	}
+	};
 
 
 	switch (action.type) {

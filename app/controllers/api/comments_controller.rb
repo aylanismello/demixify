@@ -1,5 +1,17 @@
 class Api::CommentsController < ApplicationController
   def index
+
+    @comments = Comment.all.select {|comment| comment.mix_id == params[:mix_id].to_i}
+    # byebug
+
+    # even if comments is empty!
+    if @comments
+      render "api/comments/index"
+    else
+      render json: @comments.errors.full_messages, status: 402
+    end
+
+
   end
 
   def create

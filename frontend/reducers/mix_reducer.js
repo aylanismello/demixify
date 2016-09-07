@@ -12,6 +12,7 @@ let nullMix = Object.freeze({
 
 const MixReducer = (state=nullMix, action) => {
 		let newState;
+		// debugger;
 
 		switch (action.type) {
 			case CommentConstants.RECEIVE_NEW_COMMENT:
@@ -22,8 +23,9 @@ const MixReducer = (state=nullMix, action) => {
 
 				return newState;
 
-			case MixConstants.RECEIVE_COMMENTS:
+			case CommentConstants.RECEIVE_COMMENTS:
 
+				// debugger;
 				newState = _.merge({}, state);
 				newState.currentMix.comments = [];
 				newState.currentMix.comments = action.comments;
