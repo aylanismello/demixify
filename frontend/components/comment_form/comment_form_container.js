@@ -1,19 +1,20 @@
 import { connect } from 'react-redux';
 import CommentForm from './comment_form';
-// import { submitComment } from '../../actions/comment_actions';
+import { submitComment } from '../../actions/comment_actions';
 
 
 
-const mapStateToProps = state =>({
+const mapStateToProps = (state, ownProps) =>({
 	currentUser: state.session.currentUser,
-	currentMix: state.mix.currentMix
+	mixId: ownProps.mixId
 });
 
-// const mapDispatchToProps = dispatch => ({
-	// submitComment: comment => dispatch(submitComment(comment))
-// });
+const mapDispatchToProps = dispatch => ({
+	submitComment: comment => dispatch(submitComment(comment))
+});
 
 
 export default connect(
-	mapStateToProps
+	mapStateToProps,
+	mapDispatchToProps
 )(CommentForm);

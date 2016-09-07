@@ -6,17 +6,18 @@ class MixShow extends React.Component {
 	constructor(props) {
 
 		super(props);
+		console.log('constructor called');
 		this.currentMix = props.currentMix;
 		this.trackCount = props.currentMix.tracks.length;
 		this.getStyles = this.getStyles.bind(this);
 		this.updateComment = this.updateComment.bind(this);
 		this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
-		this.theForm = this.theForm.bind(this);
 		this.theTracklist = this.theTracklist.bind(this);
 
 		this.state = {
 			comment: "",
 			comments: ""
+
 		};
 	}
 
@@ -29,9 +30,10 @@ class MixShow extends React.Component {
 
 
 	componentDidMount() {
-		// debugger;
 
 		console.log('mounted');
+		debugger;
+
 		this.props.getComments(parseInt(this.props.params['mixId']));
 	}
 
@@ -60,52 +62,28 @@ class MixShow extends React.Component {
 		);
 	}
 
-	theForm() {
-		return(
-			<div className="comment-form-container">
-
-				<form onSubmit={this.handleCommentSubmit}
-					className="comment-form-box">
-
-					<textarea className="comment-text"
-					cols="25"
-					rows="10"
-					value={this.state.comment}
-					onChange={this.updateComment()}
-					placeholder="What do you think of this demix?"/>
-
-					<input type="submit" value="submit"/>
-
-				</form>
-
-
-			</div>
-		);
-	}
-
-	theComments() {
-		return (
-			<div className="comments-list">
-					{this.props.currentMix.comments.map ( (comment, idx) => {
-							return (
-								<div className="comment-item" key={idx} >
-
-									<h1> {comment.username} </h1>
-									<h2> {comment.created_at} </h2>
-
-									<p> {comment.body} </p>
-
-									<div className="commenter-avatar">
-										<img src={comment.user_img}/>
-									</div>
-
-								</div>
-							);
-						})
-					}
-			</div>
-		);
-	}
+	// theForm() {
+	// 	return(
+	// 		<div className="comment-form-container">
+	//
+	// 			<form onSubmit={this.handleCommentSubmit}
+	// 				className="comment-form-box">
+	//
+	// 				<textarea className="comment-text"
+	// 				cols="25"
+	// 				rows="10"
+	// 				value={this.state.comment}
+	// 				onChange={this.updateComment()}
+	// 				placeholder="What do you think of this demix?"/>
+	//
+	// 				<input type="submit" value="submit"/>
+	//
+	// 			</form>
+	//
+	//
+	// 		</div>
+	// 	);
+	// }
 
 
 
@@ -113,8 +91,6 @@ class MixShow extends React.Component {
 	render() {
 		let mixObj = this.currentMix;
 		let mixStyles = this.getStyles(mixObj.mix.artwork_url);
-		let theForm = this.theForm();
-		let theComments = this.theComments();
 		// debugger;
 		return (
 			<div className="mix-show-container">
@@ -161,26 +137,21 @@ class MixShow extends React.Component {
 					<div className="tracklist-description">
 						<p className="description-text">
 							{mixObj.mix.description}
-								{theComments}
+
 						</p>
 
 					</div>
 
 
-					{/* {theForm} */}
+
 
 				</div>
 
 
-					{/* <div className="comments-container"> */}
-
-					{/* </div> */}
-
-							<CommentIndexContainer className="comments-container"/>
+					<CommentFormContainer mixId={this.props.params['mixId']}/>
+					<CommentIndexContainer className="comments-container"/>
 
 
-
-				{/* <CommentFormContainer/> */}
 
 				</div>
 		);

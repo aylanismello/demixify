@@ -3,8 +3,8 @@ import React from 'react';
 class CommentForm extends React.Component {
 	constructor(props) {
 		super(props);
-		this.renderForm = this.renderForm.bind(this);
-		this.renderComments = this.renderComments.bind(this);
+
+		debugger;
 		this.updateComment = this.updateComment.bind(this);
 		this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
 
@@ -20,12 +20,17 @@ class CommentForm extends React.Component {
 		};
 	}
 
-	handleCommentSubmit() {
+	handleCommentSubmit(e) {
+		e.preventDefault();
+
+		debugger;
+		this.props.submitComment(this.state.comment, parseInt(this.props.mixId));
 
 	}
 
-	renderForm() {
-		return (
+
+	render() {
+		return(
 			<div className="comment-form-container">
 
 				<form onSubmit={this.handleCommentSubmit}
@@ -38,28 +43,10 @@ class CommentForm extends React.Component {
 					onChange={this.updateComment()}
 					placeholder="What do you think of this demix?"/>
 
+					<input type="submit" value="submit"/>
+
 				</form>
 			</div>
-		);
-	}
-
-	renderComments() {
-		return (
-			<div>
-			</div>
-		);
-	}
-
-
-	render() {
-		let renderedForm = this.renderForm();
-		let renderedComments = this.renderComments();
-		// debugger;
-		return(
-			// <div className="comments-container">
-				{renderedForm}
-				// {renderedComments}
-			// </div>
 		);
 	}
 }

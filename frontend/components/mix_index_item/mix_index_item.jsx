@@ -16,6 +16,7 @@ class MixIndexItem extends React.Component {
 		return e => {
 			const mixId = args[0];
 			this.props.getMix(mixId);
+			
 			hashHistory.push(`/mixes/${mixId}`);
 		};
 	}
@@ -34,7 +35,7 @@ class MixIndexItem extends React.Component {
 					<div className="mix-item-create-text">
 						DEMIXIFIED BY: {this.mix.username}
 					</div>
-					
+
 				</div>
 
 
