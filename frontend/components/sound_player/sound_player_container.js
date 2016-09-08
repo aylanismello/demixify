@@ -7,6 +7,7 @@ import SoundPlayer from './sound_player';
 const mapStateToProps = state =>({
 	currentUser: state.session.currentUser,
 	currentMix: state.mix.currentMix,
+	mixes: state.mix.mixes,
 	currentMixId: state.mix.currentMixId
 });
 

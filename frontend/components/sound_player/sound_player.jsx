@@ -12,6 +12,7 @@ class SoundPlayer extends React.Component {
 
 
 		// debugger;
+
 		this.setNewDemix = this.setNewDemix.bind(this);
 		this.isNewDemix = this.isNewDemix.bind(this);
 
@@ -24,6 +25,11 @@ class SoundPlayer extends React.Component {
 		this.toggleDisplay = this.toggleDisplay(this);
 		this.routeToShow = this.routeToShow.bind(this);
 		this.getStyle = this.getStyle.bind(this);
+		this.checkForShit = this.checkForShit.bind(this);
+
+
+
+
 
 		this.renderPlayingState = this.renderPlayingState.bind(this);
 		this.state = {
@@ -83,11 +89,15 @@ class SoundPlayer extends React.Component {
 
 
 	playAtIdx(idx) {
-		let currentTracks = this.props.currentMix.tracks;
-		let currentMixTitle = this.props.currentMix.mix.title;
-		let currentMixImg = this.props.currentMix.mix.artwork_url;
-		let currentMixArtist = this.props.currentMix.mix.artist_username;
-		let currentMixId = this.props.currentMix.mix.id;
+
+		let currentMix = this.props.mixes[this.props.currentMixId];
+
+
+		let currentTracks = currentMix.tracks;
+		let currentMixTitle = currentMix.mix.title;
+		let currentMixImg = currentMix.mix.artwork_url;
+		let currentMixArtist = currentMix.mix.artist_username;
+		let currentMixId = currentMix.mix.id;
 
 		// this.sc.pause();
 		this.togglePlay();
@@ -180,19 +190,52 @@ class SoundPlayer extends React.Component {
 
 
 	componentWillReceiveProps() {
+
+	}
+
+	checkForShit() {
+		let hasMixes = (Object.keys(this.props.mixes).length > 0);
+
+
 		console.log(`soundcloud player recevied new props! \n${this.props.currentMixId}`);
+
+		if (hasMixes && this.props.currentMixId !== -1){
+			console.log('load up that mix id into sd player');
+			this.setNewDemix(this.props.currentMixId);
+		}
+
 	}
 
 
-	setNewDemix() {
-		let currentTracks = this.props.currentMix.tracks;
-		let currentMixTitle = this.props.currentMix.mix.title;
-		let currentMixImg = this.props.currentMix.mix.artwork_url;
-		let currentMixArtist = this.props.currentMix.mix.artist_username;
-		let currentMixId = this.props.currentMix.mix.id;
+	setNewDemix(mixId) {
+		console.log(`soundcloud player Setting demix to ! \n${mixId}`);
+
+
+		let currentMix = this.props.mixes[mixId];
+
+
+		let currentTracks = currentMix.tracks;
+		// let currentTracks = this.props.mixes[mixId].tracks;
+
+		// let
+		// let currentTracks = this.props.currentMix.tracks;
+
+
+
+
+
+		let currentMixTitle = currentMix.mix.title;
+		let currentMixImg = currentMix.mix.artwork_url;
+		let currentMixArtist = currentMix.mix.artist_username;
+		let currentMixId = currentMix.mix.id;
+		// let currentMixTitle = this.props.currentMix.mix.title;
+		// let currentMixImg = this.props.currentMix.mix.artwork_url;
+		// let currentMixArtist = this.props.currentMix.mix.artist_username;
+		// let currentMixId = this.props.currentMix.mix.id;
 
 
 		if (this.isNewDemix(currentMixTitle, currentTracks.length)){
+
 			let orderedTracks = [];
 			currentTracks.map((track, idx) => {
 				orderedTracks[track.track_number - 1] = track;
@@ -202,20 +245,20 @@ class SoundPlayer extends React.Component {
 
 			let firstTrackUrl = orderedTracks[0].permalink_url;
 
-			// this.state.sc.resolve(firstTrackUrl, (track) => {
-			//
-			// 	this.setState({mixTitle: currentMixTitle,
-			// 		trackIdx: 0, mixImg: currentMixImg,
-			// 		mixArtist: currentMixArtist,
-			// 		mixId: currentMixId, tracks: orderedTracks});
-			//
-			// 		this.state.sc.on('ended', () => {
-			// 			this.playNext();
-			// 		});
-			//
-			// 		this.togglePlay();
-			// });
-			//
+			this.state.sc.resolve(firstTrackUrl, (track) => {
+
+				this.setState({mixTitle: currentMixTitle,
+					trackIdx: 0, mixImg: currentMixImg,
+					mixArtist: currentMixArtist,
+					mixId: currentMixId, tracks: orderedTracks});
+
+					this.state.sc.on('ended', () => {
+						this.playNext();
+					});
+
+					this.togglePlay();
+			});
+
 
 
 
@@ -240,7 +283,8 @@ class SoundPlayer extends React.Component {
 
 	render() {
 
-		this.setNewDemix();
+
+		this.checkForShit();
 		let displayStyle = this.getStyle();
 
 		return (
@@ -250,7 +294,7 @@ class SoundPlayer extends React.Component {
 
 					<div className="player-controls cf">
 						<div className="mix-pic"
-						onClick={this.routeToShow(this.props.currentMix.mix.id)}>
+						onClick={this.routeToShow(this.props.currentMixId)}>
 							<img value={this.state.mixId} src={this.state.mixImg} />
 						</div>
 
