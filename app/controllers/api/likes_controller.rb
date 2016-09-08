@@ -30,7 +30,7 @@ class Api::LikesController < ApplicationController
 		if like.destroy
 			render json: {
 				userId: current_user.id,
-				benchId: likes_params[:mix_id]
+				mixId: likes_params[:mix_id]
 			}
 		else
 			@errors = like.errors.full_messages

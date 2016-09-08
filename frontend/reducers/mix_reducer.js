@@ -13,7 +13,6 @@ let nullMix = Object.freeze({
 
 const MixReducer = (state=nullMix, action) => {
 		let newState;
-		// debugger;
 
 		switch (action.type) {
 

@@ -3,7 +3,17 @@ import React from 'react';
 const Like = ({liked, createLike, deleteLike, currentMixId}) => {
 
 	let likedText = liked ? "UNLIKE" : "LIKE";
-	let likeFunction = liked ? deleteLike : createLike;
+
+	let likeFunction;
+
+
+	if(liked) {
+		likeFunction = deleteLike;
+	} else {
+		likeFunction = createLike;
+	}
+
+	debugger;
 
 	return(
 

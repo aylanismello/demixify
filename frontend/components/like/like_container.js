@@ -1,16 +1,21 @@
 import { connect } from 'react-redux';
 import Like from './like';
-import { createLike, destroyLike } from '../../actions/like_actions';
+import { createLike, deleteLike } from '../../actions/like_actions';
 
 
 const mapStateToProps = (state, ownProps) => {
 
 	let likedMixes = state.session.likedMixes;
-	let currentMixId = state.mix.currentMixId;
+	let currentMixId = `${state.mix.currentMixId}`;
 
 	debugger;
-	// let liked = likedMixes.includes(currentMixId);
-	let liked = false;
+
+	if (likedMixes === undefined) {
+		likedMixes = [];
+	}
+
+	let liked = likedMixes.includes(currentMixId);
+	// let liked = false;
 
 	return {
 		liked,
@@ -20,7 +25,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => ({
 	createLike: mixId => dispatch(createLike(mixId)),
-	destroyLike: mixId => dispatch(destroyLike(mixId))
+	deleteLike: mixId => dispatch(deleteLike(mixId))
 });
 
 

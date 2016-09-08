@@ -9,7 +9,6 @@ const err = (errors) => {
 
 export const createLike = (mixId, success=suc, error=err) => {
 	let params = {mixId, success, error};
-	debugger;
 
 	$.ajax({
 		url: 'api/likes',
