@@ -106,6 +106,7 @@ class MixShow extends React.Component {
 
 
 					<CommentFormContainer mixId={this.props.params['mixId']}/>
+
 					{/* <CommentIndex className="comments-container" comments={this.props.currentMix.comments}/> */}
 					<CommentIndexContainer className="comments-container" mixId={this.props.params['mixId']}/>
 

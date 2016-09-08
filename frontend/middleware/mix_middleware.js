@@ -1,6 +1,6 @@
 import { MixConstants, receiveNewMix, receiveMixes,
 	receiveMix, receiveNewTrack, receiveTracks,
-	receiveErrors } from '../actions/mix_actions';
+	receiveErrors, setCurrentMixId } from '../actions/mix_actions';
 import { hashHistory } from 'react-router';
 
 import * as API from '../util/mix_api_util';
@@ -53,6 +53,9 @@ const MixMiddleware = ({getState, dispatch}) => next => action => {
 				submitMixSuccess, error, submitTrackSuccess);
 			return next(action);
 
+		case MixConstants.SET_CURRENT_MIX:
+			dispatch(setCurrentMixId(action.mixId));
+			return next(action);
 		case MixConstants.GET_MIXES:
 			API.getMixes(action.searchString, getMixesSuccess, error);
 			return next(action);

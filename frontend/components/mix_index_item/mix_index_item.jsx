@@ -22,7 +22,7 @@ class MixIndexItem extends React.Component {
 
 
 
-			// this.props.setCurrentMix()
+			this.props.setCurrentMixId(mixId);
 			// this.props.getMix(mixId);
 			// update currentMix
 

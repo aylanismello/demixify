@@ -38,8 +38,11 @@ class Greeting extends React.Component {
 
 		return (
 			<nav className="profile-dropdown-wrapper">
-				<img className="header-profile-pic"
-					src={currentUser.img_url} alt="{currentUser.username}"/>
+
+				<div className="header-profile-pic">
+				
+					<img src={currentUser.img_url} alt="{currentUser.username}"/>
+				</div>
 
 				<div className="my-dropdown">
 					<li> <Link to="/profile" >Profile</Link></li>

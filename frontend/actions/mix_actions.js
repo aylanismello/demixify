@@ -8,12 +8,12 @@ export const MixConstants = {
 	RECEIVE_TRACKS: 'RECEIVE_TRACKS',
 	RECEIVE_NEW_TRACK: 'RECEIVE_NEW_TRACK',
 	RECEIVE_ERRORS: 'RECEIVE_ERRORS',
-	SET_CURRENT_MIX: 'SET_CURRENT_MIX'
+	SET_CURRENT_MIX_ID: 'SET_CURRENT_MIX_ID'
 };
 
 
-export const setCurrentMix = mixId => ({
-	type: MixConstants.SET_CURRENT_MIX,
+export const setCurrentMixId = mixId => ({
+	type: MixConstants.SET_CURRENT_MIX_ID,
 	mixId
 });
 

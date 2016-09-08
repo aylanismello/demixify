@@ -11,6 +11,7 @@ class SoundPlayer extends React.Component {
 		const sc = new SoundCloudAudio(clientId);
 
 
+		// debugger;
 		this.setNewDemix = this.setNewDemix.bind(this);
 		this.isNewDemix = this.isNewDemix.bind(this);
 
@@ -93,15 +94,15 @@ class SoundPlayer extends React.Component {
 		// this.sc.pause();
 		// pause before we change
 
-		this.state.sc.resolve(this.state.tracks[idx].permalink_url, (track) => {
-
-			this.setState({mixTitle: currentMixTitle,
-				trackIdx: idx, mixImg: currentMixImg,
-				mixArtist: currentMixArtist,
-				mixId: currentMixId});
-
-				this.togglePlay();
-		});
+		// this.state.sc.resolve(this.state.tracks[idx].permalink_url, (track) => {
+		//
+		// 	this.setState({mixTitle: currentMixTitle,
+		// 		trackIdx: idx, mixImg: currentMixImg,
+		// 		mixArtist: currentMixArtist,
+		// 		mixId: currentMixId});
+		//
+		// 		this.togglePlay();
+		// });
 
 	}
 
@@ -177,6 +178,12 @@ class SoundPlayer extends React.Component {
 
 	}
 
+
+	componentWillReceiveProps() {
+		console.log(`soundcloud player recevied new props! \n${this.props.currentMixId}`);
+	}
+
+
 	setNewDemix() {
 		let currentTracks = this.props.currentMix.tracks;
 		let currentMixTitle = this.props.currentMix.mix.title;
@@ -195,19 +202,20 @@ class SoundPlayer extends React.Component {
 
 			let firstTrackUrl = orderedTracks[0].permalink_url;
 
-			this.state.sc.resolve(firstTrackUrl, (track) => {
-
-				this.setState({mixTitle: currentMixTitle,
-					trackIdx: 0, mixImg: currentMixImg,
-					mixArtist: currentMixArtist,
-					mixId: currentMixId, tracks: orderedTracks});
-
-					this.state.sc.on('ended', () => {
-						this.playNext();
-					});
-
-					this.togglePlay();
-			});
+			// this.state.sc.resolve(firstTrackUrl, (track) => {
+			//
+			// 	this.setState({mixTitle: currentMixTitle,
+			// 		trackIdx: 0, mixImg: currentMixImg,
+			// 		mixArtist: currentMixArtist,
+			// 		mixId: currentMixId, tracks: orderedTracks});
+			//
+			// 		this.state.sc.on('ended', () => {
+			// 			this.playNext();
+			// 		});
+			//
+			// 		this.togglePlay();
+			// });
+			//
 
 
 
@@ -239,7 +247,7 @@ class SoundPlayer extends React.Component {
 
 			<div className="sound-player-container cf" style={displayStyle}>
 				<div className="sound-player-nav-bar">
-				
+
 					<div className="player-controls cf">
 						<div className="mix-pic"
 						onClick={this.routeToShow(this.props.currentMix.mix.id)}>

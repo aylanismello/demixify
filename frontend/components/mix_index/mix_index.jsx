@@ -20,7 +20,7 @@ class MixIndex extends React.Component {
 
 							return (
 							<MixIndexItem
-								setCurrentMix={this.props.setCurrentMix}
+								setCurrentMixId={this.props.setCurrentMixId}
 								key={idx} mix={mix} />
 							);
 
