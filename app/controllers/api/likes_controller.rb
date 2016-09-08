@@ -2,17 +2,12 @@ class Api::LikesController < ApplicationController
 
 	def create
 
-		mix_id = likes_params[:mix_id]
-
-		mix_id = mix_id.to_i if mix_id
-
 		like = Like.new(
 			user_id: current_user.id,
 			mix_id: likes_params[:mix_id]
 		)
 
 
-		byebug
 
 		if like.save
 			render json: {

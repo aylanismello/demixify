@@ -2,7 +2,7 @@ import { SessionConstants } from '../actions/session_actions';
 import * as _ from 'lodash';
 
 let nullUser = Object.freeze({
-	currentUser: null,
+	currentUser: {likedMixes: []},
 	errors: []
 });
 
@@ -14,6 +14,7 @@ const SessionReducer = (state=nullUser, action) => {
 		case SessionConstants.RECEIVE_CURRENT_USER:
 			const currentUser = action.currentUser;
 			newUser = _.merge({}, nullUser, {currentUser});
+
 			return newUser;
 		case SessionConstants.RECEIVE_ERRORS:
 			const errors = action.errors;

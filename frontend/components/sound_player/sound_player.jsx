@@ -1,4 +1,5 @@
 import React from 'react';
+import LikeContainer from '../like/like_container';
 import SoundCloudAudio from 'soundcloud-audio';
 import { hashHistory } from 'react-router';
 const clientId = 'a13f1496f3ee0b36504328dde940b256';
@@ -32,6 +33,11 @@ class SoundPlayer extends React.Component {
 
 
 		this.renderPlayingState = this.renderPlayingState.bind(this);
+		this.renderLikedState = this.renderLikedState.bind(this);
+
+		// debugger;
+
+
 		this.state = {
 			playing: false,
 			sc: sc,
@@ -41,7 +47,8 @@ class SoundPlayer extends React.Component {
 			mixImg: "http://res.cloudinary.com/dfkrjl3pb/image/upload/v1473059378/soundcloud-gray_kvunvw.png",
 			mixArtist: "",
 			mixId: 0,
-			display: "block"
+			display: "block",
+			liked: false
 		};
 	}
 
@@ -52,27 +59,32 @@ class SoundPlayer extends React.Component {
 		if (this.state.playing) {
 			this.setState({playing: false});
 			this.state.sc.pause();
-			console.log('pausing');
 		} else {
 			this.setState({playing: true});
 			this.state.sc.play();
-
-			console.log('playing track');
 
 		}
 	}
 
 	renderPlayingState() {
 
-		return this.state.playing ? "PLAYING" : "PAUSE";
+		return this.state.playing ? "PLAYING" : "PAUSED";
+	}
+
+	renderLikedState() {
+		// also get initial liked state
+		// let likedState = (this.props.likedMixes.include(this.props.currentMixId));
+
+
+
+
+		// debugger;
+		// console.log(`liked state is ${likedState}`);
+		return this.state.liked ? "UNLIKE" : "LIKE";
 	}
 
 	toggleDisplay(onOrOff) {
-		// return {
-			// display: `none`
-			console.log(`onOrOff is ${onOrOff}`);
-		// };
-		// return e => {
+
 			let displayState;
 			if (onOrOff === "on"){
 				displayState = `block`;
@@ -84,7 +96,6 @@ class SoundPlayer extends React.Component {
 				display: displayState
 			});
 
-		// };
 	}
 
 
@@ -99,10 +110,8 @@ class SoundPlayer extends React.Component {
 		let currentMixArtist = currentMix.mix.artist_username;
 		let currentMixId = currentMix.mix.id;
 
-		// this.sc.pause();
 		this.togglePlay();
-		// this.sc.pause();
-		// pause before we change
+
 
 		this.state.sc.resolve(this.state.tracks[idx].permalink_url, (track) => {
 
@@ -117,18 +126,24 @@ class SoundPlayer extends React.Component {
 	}
 
 
-
 	playNext() {
 		let newIdx = this.state.trackIdx + 1;
-		console.log(`going from ${this.state.trackIdx} to ${newIdx}`);
 		if (newIdx < this.state.tracks.length){
-			console.log('triggering play');
 			this.playAtIdx(newIdx);
 		}
 
 	}
 
 	handleLike() {
+
+		let newLikeState = !this.state.liked;
+		this.setState({liked: newLikeState});
+
+		if (newLikeState) { //this is true, so this is to destroy like
+			this.props.createLike(this.props.currentMixId);
+		} else {
+			this.props.deleteLike(this.props.currentMixId);
+		}
 
 	}
 
@@ -190,7 +205,19 @@ class SoundPlayer extends React.Component {
 	}
 
 
-	componentWillReceiveProps() {
+	componentWillMount() {
+
+		console.log('CHECK FOR INITIAL LIKE STATUS');
+
+		if (this.props.likedMixes
+			&& this.props.likedMixes.includes(this.props.currentMixId)) {
+			console.log('THIS IS LIKE IN THE DB');
+			this.setState({liked: true});
+		} else {
+			console.log('THIS IS NOT LIKE IN THE DB');
+			this.setState({liked: false});
+		}
+
 
 	}
 
@@ -198,10 +225,7 @@ class SoundPlayer extends React.Component {
 		let hasMixes = (Object.keys(this.props.mixes).length > 0);
 
 
-		console.log(`soundcloud player recevied new props! \n${this.props.currentMixId}`);
-
 		if (hasMixes && this.props.currentMixId !== -1){
-			console.log('load up that mix id into sd player');
 			this.setNewDemix(this.props.currentMixId);
 		}
 
@@ -209,9 +233,6 @@ class SoundPlayer extends React.Component {
 
 
 	setNewDemix(mixId) {
-		console.log(`soundcloud player Setting demix to ! \n${mixId}`);
-
-
 		let currentMix = this.props.mixes[mixId];
 
 
@@ -310,10 +331,10 @@ class SoundPlayer extends React.Component {
 							NEXT
 						</button>
 
-						<button value="LIKE" onClick={this.handleLike}
-							className="like-button">
-							LIKE
-						</button>
+
+
+						<LikeContainer/>
+
 
 					</div>
 					{this.renderTrackDetails()}

@@ -5,7 +5,7 @@ json.mix do
 
   json.user_img mix.user.img_url
   json.username mix.user.username
-  # json.liked_users mix.liked_users.each {|user| user.id.to_i}
+  json.liked_users mix.liked_users.map {|user| user.id}
 
 end
 #
