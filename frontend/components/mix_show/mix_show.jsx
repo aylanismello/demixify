@@ -1,17 +1,12 @@
 import React from 'react';
 import CommentFormContainer from '../comment_form/comment_form_container';
 import CommentIndex from '../comment_index/comment_index';
+import CommentIndexContainer from '../comment_index/comment_index_container';
 
 class MixShow extends React.Component {
 	constructor(props) {
 
 		super(props);
-		console.log('constructor called');
-
-
-
-
-
 		this.getStyles = this.getStyles.bind(this);
 		this.updateComment = this.updateComment.bind(this);
 		// this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
@@ -29,7 +24,7 @@ class MixShow extends React.Component {
 		};
 	}
 
-	componentDidReceiveProps() {
+	componentWillReceiveProps() {
 		console.log('i am receiving new props!');
 	}
 
@@ -48,31 +43,6 @@ class MixShow extends React.Component {
 			</div>
 		);
 	}
-
-	// theForm() {
-	// 	return(
-	// 		<div className="comment-form-container">
-	//
-	// 			<form onSubmit={this.handleCommentSubmit}
-	// 				className="comment-form-box">
-	//
-	// 				<textarea className="comment-text"
-	// 				cols="25"
-	// 				rows="10"
-	// 				value={this.state.comment}
-	// 				onChange={this.updateComment()}
-	// 				placeholder="What do you think of this demix?"/>
-	//
-	// 				<input type="submit" value="submit"/>
-	//
-	// 			</form>
-	//
-	//
-	// 		</div>
-	// 	);
-	// }
-
-
 
 
 	render() {
@@ -136,8 +106,8 @@ class MixShow extends React.Component {
 
 
 					<CommentFormContainer mixId={this.props.params['mixId']}/>
-					<CommentIndex className="comments-container" comments={this.props.currentMix.comments}/>
-
+					{/* <CommentIndex className="comments-container" comments={this.props.currentMix.comments}/> */}
+					<CommentIndexContainer className="comments-container" />
 
 
 				</div>

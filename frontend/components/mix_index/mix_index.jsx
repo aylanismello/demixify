@@ -10,7 +10,6 @@ class MixIndex extends React.Component {
 
 
 	render() {
-		debugger;
 
 		return (
 			<div className="mix-index-wrapper">
@@ -20,7 +19,8 @@ class MixIndex extends React.Component {
 						let mix = this.props.mix.mixes[mixId];
 
 							return (
-							<MixIndexItem setCurrentMix={this.props.setCurrentMix}
+							<MixIndexItem
+								setCurrentMix={this.props.setCurrentMix}
 								key={idx} mix={mix} />
 							);
 

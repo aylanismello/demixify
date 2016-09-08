@@ -4,7 +4,7 @@ import * as _ from 'lodash';
 
 
 let nullMix = Object.freeze({
-	mixes: [],
+	mixes: {},
 	currentMix: {mix: {}, tracks: [], comments: []},
 	errors: []
 });
@@ -34,11 +34,12 @@ const MixReducer = (state=nullMix, action) => {
 
 			case MixConstants.RECEIVE_NEW_MIX:
 
-				const currentMix = action.mix;
-				newState = _.merge(state, {});
-				newState.currentMix.tracks = [];
-				newState.currentMix.mix = action.mix;
+
+				let newMixes = _.merge({}, state.mixes, action.mix)	;
+				newState = _.merge({}, state, {mixes: newMixes});
+				debugger;
 				return newState;
+
 
 			case MixConstants.RECEIVE_NEW_TRACK:
 				newState = _.merge(state, {});
@@ -55,9 +56,9 @@ const MixReducer = (state=nullMix, action) => {
 
 
 			case MixConstants.RECEIVE_MIXES:
-				newState = _.merge({}, state);
-				newState.mixes = [];
-				newState.mixes = action.mixes;
+				newState = _.merge({}, state, {mixes: action.mixes});
+				// newState.mixes = []; maybe
+				// newState.mixes = action.mixes;
 				return newState;
 
 			case MixConstants.RECEIVE_MIX:

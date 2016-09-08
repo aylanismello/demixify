@@ -41,7 +41,7 @@ const MixMiddleware = ({getState, dispatch}) => next => action => {
 
 	const getMixSuccess = mix => {
 		dispatch(receiveNewMix(mix));
-		API.getTracks(mix.id, getTracksSuccess);
+		API.getTracks(Object.keys(mix)[0], getTracksSuccess);
 	};
 
 
