@@ -33,7 +33,7 @@ class Api::MixesController < ApplicationController
     if @mix.save
       render "api/mixes/show"
     else
-      render json: @mix.errors.full_messages, status: 402
+      render json: @mix.errors.full_messages, status: 422
     end
 
 
@@ -70,7 +70,7 @@ class Api::MixesController < ApplicationController
       render "api/mixes/show"
       #do shit with track?
     else
-      render json: @mix.errors.full_messages, status: 402
+      render json: @mix.errors.full_messages, status: 422
     end
   end
 

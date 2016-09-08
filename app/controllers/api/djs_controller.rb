@@ -13,7 +13,7 @@ class Api::DjsController < ApplicationController
     if @dj.save
       render "api/djs/show"
     else
-      render json: @dj.errors.full_messages, status: 402
+      render json: @dj.errors.full_messages, status: 422
 
     end
 

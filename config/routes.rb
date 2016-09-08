@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     resources :djs, only: [:create]
     resource :session, only: [:create, :destroy]
     resources :comments, only: [:index, :create, :destroy]
+    resources :likes, only: [:create, :destroy]
 
   end
 

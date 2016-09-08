@@ -10,7 +10,7 @@ class Api::UsersController < ApplicationController
       render "api/users/show"
     else
       # byebug
-      render json: @user.errors.full_messages, status: 402
+      render json: @user.errors.full_messages, status: 422
     end
 
   end

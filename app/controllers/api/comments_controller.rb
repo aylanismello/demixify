@@ -8,7 +8,7 @@ class Api::CommentsController < ApplicationController
     if @comments
       render "api/comments/index"
     else
-      render json: @comments.errors.full_messages, status: 402
+      render json: @comments.errors.full_messages, status: 422
     end
 
 
@@ -25,7 +25,7 @@ class Api::CommentsController < ApplicationController
     if @comment.save
       render "api/comments/show"
     else
-      render json: @comment.errors.full_messages, status: 402
+      render json: @comment.errors.full_messages, status: 422
     end
 
 

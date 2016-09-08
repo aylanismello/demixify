@@ -24,7 +24,7 @@ class Api::TracksController < ApplicationController
       #do shit with track?
     else
       # byebug
-      render json: @track.errors.full_messages, status: 402
+      render json: @track.errors.full_messages, status: 422
     end
 
     # byebug
@@ -37,7 +37,7 @@ class Api::TracksController < ApplicationController
     if @tracks
       render "api/tracks/show_many"
     else
-      render json: @track.errors.full_messages, status: 402
+      render json: @track.errors.full_messages, status: 422
     end
   end
 

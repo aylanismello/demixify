@@ -24,7 +24,11 @@ class User < ApplicationRecord
 
 	has_many :mixes
 	has_many :comments
-	# has_many :likes
+	has_many :likes
+	
+	has_many :liked_mixes,
+		through: :likes,
+		source: :mix
 	# has_many :faves
 
 	def self.find_by_credentials(email, password)

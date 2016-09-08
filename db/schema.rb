@@ -10,19 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160907043431) do
+ActiveRecord::Schema.define(version: 20160908052145) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "comments", force: :cascade do |t|
-    t.string   "body",       null: false
-    t.integer  "user_id",    null: false
-    t.integer  "mix_id",     null: false
+    t.string   "body"
+    t.integer  "user_id"
+    t.integer  "mix_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["mix_id"], name: "index_comments_on_mix_id", using: :btree
-    t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
   end
 
   create_table "djs", force: :cascade do |t|
@@ -35,12 +33,10 @@ ActiveRecord::Schema.define(version: 20160907043431) do
   end
 
   create_table "likes", force: :cascade do |t|
-    t.string   "user_id"
-    t.string   "mix_id"
+    t.integer  "user_id"
+    t.integer  "mix_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["mix_id"], name: "index_likes_on_mix_id", unique: true, using: :btree
-    t.index ["user_id"], name: "index_likes_on_user_id", unique: true, using: :btree
   end
 
   create_table "mixes", force: :cascade do |t|
