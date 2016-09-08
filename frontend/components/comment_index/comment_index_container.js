@@ -4,7 +4,7 @@ import CommentIndex from './comment_index';
 
 
 const mapStateToProps = (state, ownProps) =>({
-	comments: state.mix.currentMix.comments
+	comments: state.mix.mixes[ownProps.mixId].comments
 });
 
 const mapDispatchToProps = dispatch => ({
