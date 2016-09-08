@@ -2,6 +2,7 @@ import React from 'react';
 import CommentFormContainer from '../comment_form/comment_form_container';
 import CommentIndex from '../comment_index/comment_index';
 import CommentIndexContainer from '../comment_index/comment_index_container';
+import LikeContainer from '../like/like_container';
 
 class MixShow extends React.Component {
 	constructor(props) {
@@ -70,9 +71,9 @@ class MixShow extends React.Component {
 						</div>
 
 						<div className="bottom-mix-details">
-							<button className="like-button">
-								LIKE
-							</button>
+
+							<LikeContainer/>
+
 						</div>
 				</div>
 

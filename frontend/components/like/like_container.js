@@ -8,7 +8,7 @@ const mapStateToProps = (state, ownProps) => {
 	let likedMixes = state.session.likedMixes;
 	let currentMixId = `${state.mix.currentMixId}`;
 
-	debugger;
+	// debugger;
 
 	if (likedMixes === undefined) {
 		likedMixes = [];

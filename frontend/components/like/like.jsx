@@ -13,7 +13,6 @@ const Like = ({liked, createLike, deleteLike, currentMixId}) => {
 		likeFunction = createLike;
 	}
 
-	debugger;
 
 	return(
 

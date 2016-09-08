@@ -2,7 +2,7 @@ class Api::UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     @user.generate_faker_data
-    
+
     if @user.save
       # @user.generate_faker_data
       # @user.save
