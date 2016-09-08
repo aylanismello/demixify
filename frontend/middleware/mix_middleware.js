@@ -19,19 +19,12 @@ const MixMiddleware = ({getState, dispatch}) => next => action => {
 	};
 
 
-
-
 	const submitTrackSuccess = track => {
 		console.log('sucess adding track');
 		dispatch(receiveNewTrack(track));
 	};
 
 	const getMixesSuccess= mixes => dispatch(receiveMixes(mixes));
-
-	// we need to update current track to reflect this mix,
-	// and we need to get the tracks
-
-
 
 
 	const getTracksSuccess = tracks => {

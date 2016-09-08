@@ -40,7 +40,7 @@ class Greeting extends React.Component {
 			<nav className="profile-dropdown-wrapper">
 
 				<div className="header-profile-pic">
-				
+
 					<img src={currentUser.img_url} alt="{currentUser.username}"/>
 				</div>
 
@@ -60,7 +60,7 @@ class Greeting extends React.Component {
 	render() {
 			// debugger;
 
-			if (this.props.currentUser) {
+			if (this.props.currentUser.id) {
 				return this.personalGreeting(this.props.currentUser, this.props.logout);
 			} else {
 				return (

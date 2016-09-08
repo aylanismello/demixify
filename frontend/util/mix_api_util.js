@@ -51,11 +51,6 @@ export const getTracks = (mixId, success=suc, error=err) => {
 
 
 export const submitMix = (mix, success = suc, error = err, trackSuccess) => {
-
-	// post to my api
-
-	// makeDJ(mix.mix.user);
-
 	makeMix(mix, success, trackSuccess);
 };
 
@@ -125,9 +120,10 @@ const makeMix = (sdTrackObj, receiveMix, receiveTrack) => {
 
 	const makeTracks = (mix) => {
 
-
+		let mix_id = parseInt(Object.keys(mix)[0]);
 		console.log(`making tracks, setting mix id to
-				${mix.id}`);
+				${mix_id}`);
+				debugger;
 
 		receiveMix(mix);
 // DEFINE RECEIVE TRACK
@@ -135,7 +131,7 @@ const makeMix = (sdTrackObj, receiveMix, receiveTrack) => {
 		let currentTrack;
 
 		sdTrackObj.tracks.forEach((track) => {
-			currentTrack = convertSdObjToTrack(track, mix.id);
+			currentTrack = convertSdObjToTrack(track, mix_id);
 			// debugger;
 			trackModelCreation(currentTrack, receiveTrack);
 			// soundcloudTrackModelCreation(track);

@@ -2,6 +2,8 @@ import React from 'react';
 
 const Like = ({liked, createLike, deleteLike, currentMixId}) => {
 
+
+	// debugger;
 	let likedText = liked ? "UNLIKE" : "LIKE";
 
 	let likeFunction;
