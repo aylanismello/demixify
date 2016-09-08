@@ -104,15 +104,15 @@ class SoundPlayer extends React.Component {
 		// this.sc.pause();
 		// pause before we change
 
-		// this.state.sc.resolve(this.state.tracks[idx].permalink_url, (track) => {
-		//
-		// 	this.setState({mixTitle: currentMixTitle,
-		// 		trackIdx: idx, mixImg: currentMixImg,
-		// 		mixArtist: currentMixArtist,
-		// 		mixId: currentMixId});
-		//
-		// 		this.togglePlay();
-		// });
+		this.state.sc.resolve(this.state.tracks[idx].permalink_url, (track) => {
+
+			this.setState({mixTitle: currentMixTitle,
+				trackIdx: idx, mixImg: currentMixImg,
+				mixArtist: currentMixArtist,
+				mixId: currentMixId});
+
+				this.togglePlay();
+		});
 
 	}
 
@@ -120,8 +120,9 @@ class SoundPlayer extends React.Component {
 
 	playNext() {
 		let newIdx = this.state.trackIdx + 1;
-
+		console.log(`going from ${this.state.trackIdx} to ${newIdx}`);
 		if (newIdx < this.state.tracks.length){
+			console.log('triggering play');
 			this.playAtIdx(newIdx);
 		}
 
