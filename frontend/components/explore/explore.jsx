@@ -21,7 +21,8 @@ class Explore extends React.Component {
 					</div>
 				</div> */}
 
-				<MixIndexContainer/>
+				{/* <MixIndexContainer/> */}
+				
 			</div>
 		);
 	}

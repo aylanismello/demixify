@@ -17,8 +17,18 @@ class NavBar extends React.Component {
 
 	handleSearchSubmit(e) {
 		e.preventDefault();
+
 		console.log(this.state.searchString);
-		this.props.getMixes(this.state.searchString);
+
+		this.props.setFilter("string", this.state.searchString);
+
+		// this.props.getMixes(this.state.searchString);
+
+
+
+		// this.props.setFilter....
+
+
 		hashHistory.push('/explore');
 		// debugger;
 

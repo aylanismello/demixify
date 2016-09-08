@@ -33,6 +33,8 @@ class MixIndexItem extends React.Component {
 
 	render() {
 
+		let likedUserCount = this.mix.liked_users.length;
+
 		return(
 			<div className="mix-index-item">
 
@@ -61,7 +63,10 @@ class MixIndexItem extends React.Component {
 						<h2 onClick={this.handleShowRedirect(this.mix.id)}
 							className="mix-item-title"> {this.mix.title} </h2>
 
+
+
 						<div className="mix-item-dj">
+									Like Count : {likedUserCount}
 									<h2> Mixed by </h2>
 									<h3 className="dj-name">
 										{this.mix.artist_username}

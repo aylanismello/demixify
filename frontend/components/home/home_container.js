@@ -1,6 +1,8 @@
 import { connect } from 'react-redux';
 import Home from './home';
 import { getMixes } from '../../actions/mix_actions';
+import { setFilter } from '../../actions/filter_actions';
+
 
 
 const mapStateToProps = (state, ownProps) => ({
@@ -9,7 +11,9 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-	getMixes: searchString => dispatch(getMixes(searchString))
+	getMixes: searchString => dispatch(getMixes(searchString)),
+	setFilter: (filterType, val) => dispatch(setFilter(filterType, val))
+
 });
 
 

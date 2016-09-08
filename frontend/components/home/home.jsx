@@ -6,11 +6,25 @@ class Home extends React.Component {
 
 	constructor(props) {
 		super(props);
+		this.setFilterToLike = this.setFilterToLike.bind(this);
+		this.setFilterToMine = this.setFilterToMine.bind(this);
 	}
 
 	componentDidMount(){
 		// this.props.getMixes("");
 	}
+
+
+	// these both just invoke setFilter with diff values
+	setFilterToLike() {
+		this.props.setFilter("my", "likes");
+	}
+
+	setFilterToMine() {
+		this.props.setFilter("my", "mixes");
+	}
+
+
 
 	render() {
 		return (
@@ -22,12 +36,13 @@ class Home extends React.Component {
 									HOME
 								</Link>
 
-								<Link to="/home/liked" className="navbar-brand">
+
+								<Link to="/home" className="navbar-brand" onClick={this.setFilterToLike}>
 									LIKED
 								</Link>
 
 
-								<Link to="/home/my_demixes" className="navbar-brand">
+								<Link to="/home" className="navbar-brand" onClick={this.setFilterToMine}>
 									MY DEMIXES
 								</Link>
 

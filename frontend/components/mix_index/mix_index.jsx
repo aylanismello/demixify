@@ -5,11 +5,23 @@ class MixIndex extends React.Component {
 
 	constructor(props) {
 		super(props);
+
+		this.mixes = [];
 	}
 
 
+	componentWillReceiveProps() {
+		// debugger;
+		console.log(`RECEIVED PROPS -> ${this.props}!\n\n`);
+	}
+
 
 	render() {
+
+		// console.log(`${this.props.filter.type}: ${this.props.filter.val}`);
+
+		// if ()
+
 
 		return (
 			<div className="mix-index-wrapper">

@@ -57,7 +57,7 @@ render() {
 
 
 
-					<MixIndexContainer/>
+					{/* <MixIndexContainer/> */}
 				</div>
 
 				</div>

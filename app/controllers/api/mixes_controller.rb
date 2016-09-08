@@ -15,6 +15,8 @@ class Api::MixesController < ApplicationController
     end
 
 
+
+
     if @mixes
       render "api/mixes/index"
     else
