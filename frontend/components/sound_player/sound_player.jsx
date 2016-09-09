@@ -49,8 +49,7 @@ class SoundPlayer extends React.Component {
 			mixTitle: "",
 			mixImg: "http://res.cloudinary.com/dfkrjl3pb/image/upload/v1473441056/demixify_logo_njitun.png",
 			mixArtist: "",
-			mixId: -1,
-			display: "block",
+			mixId: -2,
 			logged_in: false
 		};
 	}
@@ -61,11 +60,61 @@ class SoundPlayer extends React.Component {
 		if (props.currentMixId !== this.state.mixId) {
 
 			console.log(`NEW MIX SET. from ${this.state.mixId} => ${props.currentMixId}`);
-			this.setState({mixId: props.currentMixId});
+
+
+			if (props.currentMixId !== -1) {
+				console.log('can start playing!!!');
+
+				let currentMix = props.mixes[props.currentMixId];
+
+
+				let currentTracks =  [];
+				// = currentMix.tracks;
+				if (currentMix.tracks) {
+					currentTracks = currentMix.tracks;
+				}
+
+
+				let currentMixTitle = currentMix.mix.title;
+				let currentMixImg = currentMix.mix.artwork_url;
+				let currentMixArtist = currentMix.mix.artist_username;
+				let currentMixId = currentMix.mix.id;
+				// if (this.isNewDemix(currentMixTitle, currentTracks.length)){
+
+				let orderedTracks = [];
+				currentTracks.map((track, idx) => {
+					orderedTracks[track.track_number - 1] = track;
+				});
+
+			// }
+			let idx = 0;
+
+			this.state.sc.resolve(orderedTracks[idx].permalink_url, (track) => {
+
+				this.setState({mixTitle: currentMixTitle,
+					trackIdx: idx, mixImg: currentMixImg,
+					mixArtist: currentMixArtist,
+					mixId: props.currentMixId, tracks: orderedTracks});
+
+					this.state.sc.on('ended', () => {
+						this.playNext();
+					});
+
+
+					this.togglePlay();
+			});
+
+
+			// this.setState({mixId: props.currentMixId, tracks: orderedTracks});
+
+			// this.playAtIdx(0);
+
+
 			// console.log(`PLAYING ${props.mixes[props.currentMixId].mix.title}`);
 		}
 
 	}
+}
 
 
 
@@ -98,6 +147,9 @@ class SoundPlayer extends React.Component {
 
 
 	playAtIdx(idx) {
+
+
+		// debugger;
 
 		let currentMix = this.props.mixes[this.props.currentMixId];
 

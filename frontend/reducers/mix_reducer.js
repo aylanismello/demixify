@@ -7,7 +7,7 @@ let nullMix = Object.freeze({
 	mixes: {},
 	currentMix: {mix: {}, tracks: [], comments: []},
 	errors: [],
-	currentMixId: 0,
+	currentMixId: -1,
 	playerOpen: false
 });
 
