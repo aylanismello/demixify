@@ -50,7 +50,7 @@ class SoundPlayer extends React.Component {
 			tracks: [],
 			trackIdx: 0,
 			mixTitle: "",
-			mixImg: "http://res.cloudinary.com/dfkrjl3pb/image/upload/v1473204560/Screen_Shot_2016-09-06_at_4.28.26_PM_dbangc.png",
+			mixImg: "http://res.cloudinary.com/dfkrjl3pb/image/upload/v1473441056/demixify_logo_njitun.png",
 			mixArtist: "",
 			mixId: 0,
 			display: "block",

@@ -45,7 +45,7 @@ class NavBar extends React.Component {
 
 						<div className="header-left cf">
 							<Link to={homeLink} className="logo">
-									<img src="http://res.cloudinary.com/dfkrjl3pb/image/upload/v1473204560/Screen_Shot_2016-09-06_at_4.28.26_PM_dbangc.png"/>
+									<img src="http://res.cloudinary.com/dfkrjl3pb/image/upload/v1473441056/demixify_logo_njitun.png"/>
 							</Link>
 
 
