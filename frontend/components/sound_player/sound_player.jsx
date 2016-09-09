@@ -30,16 +30,13 @@ class SoundPlayer extends React.Component {
 		this.renderTrackDetails = this.renderTrackDetails.bind(this);
 		this.playAtIdx = this.playAtIdx.bind(this);
 
-		this.toggleDisplay = this.toggleDisplay.bind(this);
 		this.routeToShow = this.routeToShow.bind(this);
-		this.getStyle = this.getStyle.bind(this);
-		this.checkForShit = this.checkForShit.bind(this);
 		// this.renderLikeIfLoggedIn = this.renderLikeIfLoggedIn.bind(this);
 
 
 
 
-		this.renderPlayingState = this.renderPlayingState.bind(this);
+		// this.renderPlayingState = this.renderPlayingState.bind(this);
 		this.getPlayingImage = this.getPlayingImage.bind(this);
 		// debugger;
 
@@ -52,24 +49,21 @@ class SoundPlayer extends React.Component {
 			mixTitle: "",
 			mixImg: "http://res.cloudinary.com/dfkrjl3pb/image/upload/v1473441056/demixify_logo_njitun.png",
 			mixArtist: "",
-			mixId: 0,
+			mixId: -1,
 			display: "block",
 			logged_in: false
 		};
 	}
 
-	componentWillReceiveProps() {
-		// console.log(`currentUser id is now ${this.props.currentUser.id}`);
+	componentWillReceiveProps(props) {
 
-		if (this.props.currentUser.id) {
-			this.toggleDisplay("on");
-			// this.setState({logged_in: true});
+		// debugger;
+		if (props.currentMixId !== this.state.mixId) {
+
+			console.log(`NEW MIX SET. from ${this.state.mixId} => ${props.currentMixId}`);
+			this.setState({mixId: props.currentMixId});
+			// console.log(`PLAYING ${props.mixes[props.currentMixId].mix.title}`);
 		}
-		// else if (this.state.logged_in === true && !this.props.currentUser.id) {
-		// 	this.setState({logged_in: false});
-		// 	this.toggleDisplay("off");
-		// }
-
 
 	}
 
@@ -77,7 +71,7 @@ class SoundPlayer extends React.Component {
 
 	togglePlay() {
 
-		debugger;
+		// debugger;
 		if (this.state.playing) {
 			// let element = document.querySelector('.logo');
 			//
@@ -96,30 +90,11 @@ class SoundPlayer extends React.Component {
 		}
 	}
 
-	renderPlayingState() {
-
-		// return this.state.playing ? "PLAYING" : "PAUSED";
-	}
 
 	getPlayingImage() {
 		return this.state.playing ? UrlConstants.PLAY : UrlConstants.PAUSE;
 	}
 
-
-	toggleDisplay(onOrOff) {
-
-			let displayState;
-			if (onOrOff === "on"){
-				displayState = `block`;
-			} else {
-				displayState = `none`;
-			}
-
-			this.setState({
-				display: displayState
-			});
-
-	}
 
 
 	playAtIdx(idx) {
@@ -133,7 +108,7 @@ class SoundPlayer extends React.Component {
 		let currentMixArtist = currentMix.mix.artist_username;
 		let currentMixId = currentMix.mix.id;
 
-		this.togglePlay();
+		// this.togglePlay();
 
 
 		this.state.sc.resolve(this.state.tracks[idx].permalink_url, (track) => {
@@ -143,10 +118,19 @@ class SoundPlayer extends React.Component {
 				mixArtist: currentMixArtist,
 				mixId: currentMixId});
 
+				this.state.sc.on('ended', () => {
+					this.playNext();
+				});
+
+
 				this.togglePlay();
 		});
 
 	}
+
+
+
+
 
 
 	playNext() {
@@ -201,28 +185,22 @@ class SoundPlayer extends React.Component {
 					);
 	}
 
-	isNewDemix(storeMixTitle, storeMixTracksLength) {
+	isNewDemix() {
 
-		if (storeMixTracksLength > 0) {
-			if (storeMixTitle !== this.state.mixTitle) {
-				return true;
-			} else {
-				return false;
-			}
-		}
-
-	}
+		// if (storeMixTracksLength > 0) {
+		// 	if (storeMixTitle !== this.state.mixTitle) {
+		// 		return true;
+		// 	} else {
+		// 		return false;
+		// 	}
+		// }
 
 
-	checkForShit() {
-		let hasMixes = (Object.keys(this.props.mixes).length > 0);
-
-
-		if (hasMixes && this.props.currentMixId !== -1){
-			this.setNewDemix(this.props.currentMixId);
-		}
 
 	}
+
+
+
 
 
 	setNewDemix(mixId) {
@@ -230,7 +208,7 @@ class SoundPlayer extends React.Component {
 		// if(this.state.display === "none") {
 		// 	this.toggleDisplay("on");
 		// }
-		console.log(`\n\nNEW DEMIX DETECTED\n\n`);
+		// console.log(`\n\nNEW DEMIX DETECTED\n\n`);
 
 
 
@@ -246,35 +224,46 @@ class SoundPlayer extends React.Component {
 		let currentMixId = currentMix.mix.id;
 		if (this.isNewDemix(currentMixTitle, currentTracks.length)){
 
-			let orderedTracks = [];
-			currentTracks.map((track, idx) => {
-				orderedTracks[track.track_number - 1] = track;
-			});
+		let orderedTracks = [];
+		currentTracks.map((track, idx) => {
+			orderedTracks[track.track_number - 1] = track;
+		});
 
 
 
-			let firstTrackUrl = orderedTracks[0].permalink_url;
+		// this.setState({tracks: orderedTracks});
 
-			this.state.sc.resolve(firstTrackUrl, (track) => {
 
-				this.setState({mixTitle: currentMixTitle,
-					trackIdx: 0, mixImg: currentMixImg,
-					mixArtist: currentMixArtist,
-					mixId: currentMixId, tracks: orderedTracks});
+			// let firstTrackUrl = orderedTracks[0].permalink_url;
 
-					this.state.sc.on('ended', () => {
-						this.playNext();
-					});
 
-					this.togglePlay();
-					// this.togglePlay();
-			});
+			// this.playAtIdx(0);
+
+			// this.state.sc.resolve(firstTrackUrl, (track) => {
+			//
+			// 	this.setState({mixTitle: currentMixTitle,
+			// 		trackIdx: 0, mixImg: currentMixImg,
+			// 		mixArtist: currentMixArtist,
+			// 		mixId: currentMixId, tracks: orderedTracks});
+			//
+			// 		this.state.sc.on('ended', () => {
+			// 			this.playNext();
+			// 		});
+			//
+			// 		console.log(`\n\PLAYING ${currentMixTitle}\n\n`);
+			//
+			// 		this.togglePlay();
+			// });
+			//
+
+
+
+
 
 		}
 	}
 
 	routeToShow() {
-		// debugger;
 		const args = arguments;
 		return e => {
 			const mixId = args[0];
@@ -282,18 +271,12 @@ class SoundPlayer extends React.Component {
 		};
 	}
 
-	getStyle() {
-		return {
-			display: this.state.display
-		};
-	}
 
 	render() {
 
 
-		this.checkForShit();
-
 		if(this.props.playerOpen){
+			this.setNewDemix(this.props.currentMixId);
 			return (
 
 				<div className="sound-player-container cf">
