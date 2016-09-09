@@ -5,7 +5,10 @@ import { submitComment, getComments } from '../../actions/comment_actions';
 import { getMix } from '../../actions/mix_actions';
 
 const mapStateToProps = (state, ownProps) => ({
-  currentMix: state.mix.mixes[ownProps.params.mixId]
+  currentMix: state.mix.mixes[ownProps.params.mixId],
+  trackCount: state.mix.mixes[ownProps.params.mixId].tracks.length,
+  currentTracks: state.mix.mixes[ownProps.params.mixId].tracks,
+  likeCount: state.mix.mixes[ownProps.params.mixId].mix.liked_users.length
 });
 
 const mapDispatchToProps = dispatch => ({

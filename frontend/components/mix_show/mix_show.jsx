@@ -3,6 +3,8 @@ import CommentFormContainer from '../comment_form/comment_form_container';
 import CommentIndex from '../comment_index/comment_index';
 import CommentIndexContainer from '../comment_index/comment_index_container';
 import LikeContainer from '../like/like_container';
+import TrackIndex from '../track_index/track_index';
+
 
 class MixShow extends React.Component {
 	constructor(props) {
@@ -49,7 +51,8 @@ class MixShow extends React.Component {
 	render() {
 		let mixObj = this.props.currentMix;
 		let mixStyles = this.getStyles(mixObj.mix.artwork_url);
-		// debugger;
+
+		debugger;
 		return (
 			<div className="mix-show-container">
 				<div className="mix-description-container" style={mixStyles}>
@@ -65,7 +68,7 @@ class MixShow extends React.Component {
 							</div>
 
 							<div className="mix-details">
-								{this.trackCount} tracks
+								{this.props.trackCount} tracks | {this.props.likeCount} likes
 							</div>
 
 						</div>
@@ -93,10 +96,17 @@ class MixShow extends React.Component {
 					</div>
 
 					<div className="tracklist-description">
+
+					<h3> Tracklist Notes </h3>
+					<br/>
 						<p className="description-text">
 							{mixObj.mix.description}
 
 						</p>
+
+
+						<TrackIndex tracks={this.props.currentTracks}/>
+
 
 					</div>
 
