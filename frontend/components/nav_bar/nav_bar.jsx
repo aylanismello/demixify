@@ -19,7 +19,6 @@ class NavBar extends React.Component {
 		e.preventDefault();
 
 		console.log(this.state.searchString);
-
 		this.props.setFilter("string", this.state.searchString);
 
 		// this.props.getMixes(this.state.searchString);
@@ -29,7 +28,7 @@ class NavBar extends React.Component {
 		// this.props.setFilter....
 
 
-		hashHistory.push('/explore');
+		// hashHistory.push('/explore');
 		// debugger;
 
 	}

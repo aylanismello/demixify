@@ -7,7 +7,8 @@ class Home extends React.Component {
 	constructor(props) {
 		super(props);
 		this.setFilterToLike = this.setFilterToLike.bind(this);
-		this.setFilterToMine = this.setFilterToMine.bind(this);
+		this.setFilterToUser = this.setFilterToUser.bind(this);
+		this.setFilterToNone = this.setFilterToNone.bind(this);
 	}
 
 	componentDidMount(){
@@ -17,11 +18,15 @@ class Home extends React.Component {
 
 	// these both just invoke setFilter with diff values
 	setFilterToLike() {
-		this.props.setFilter("my", "likes");
+		this.props.setFilter("likes");
 	}
 
-	setFilterToMine() {
-		this.props.setFilter("my", "mixes");
+	setFilterToUser() {
+		this.props.setFilter("user");
+	}
+
+	setFilterToNone() {
+		this.props.setFilter("", "");
 	}
 
 
@@ -32,7 +37,7 @@ class Home extends React.Component {
 					<nav className="navbar home-navbar denix-home">
 					  <div className="container-fluid">
 					    <div className="navbar-header">
-								<Link to="/home" className="navbar-brand">
+								<Link to="/home" className="navbar-brand" onClick={this.setFilterToNone}>
 									HOME
 								</Link>
 
@@ -42,11 +47,11 @@ class Home extends React.Component {
 								</Link>
 
 
-								<Link to="/home" className="navbar-brand" onClick={this.setFilterToMine}>
+								<Link to="/home" className="navbar-brand" onClick={this.setFilterToUser}>
 									MY DEMIXES
 								</Link>
 
-								<Link to="/home/create_demix" className="navbar-brand">
+								<Link to="/home/create_demix" className="navbar-brand" >
 									+
 								</Link>
 

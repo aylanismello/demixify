@@ -66,10 +66,6 @@ class AppRouter extends React.Component {
 							onEnter={ this._ensureLoggedIn } />
 
 
-						<Route path="my_demixes" component ={ MyDemixes }
-						onEnter = {this._ensureLoggedIn} />
-
-
 
 					</Route>
 

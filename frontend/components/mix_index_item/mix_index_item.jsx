@@ -6,8 +6,6 @@ class MixIndexItem extends React.Component {
 	constructor(props) {
 		super(props);
 
-		// debugger;
-		this.mix = props.mix.mix;
 		this.handleShowRedirect = this.handleShowRedirect.bind(this);
 	}
 
@@ -19,21 +17,14 @@ class MixIndexItem extends React.Component {
 			const mixId = args[0];
 
 			// now we do not update the mix, we set the currentTrack to the one clicked on
-
-
-
 			this.props.setCurrentMixId(mixId);
-			// this.props.getMix(mixId);
-			// update currentMix
-
-
 			hashHistory.push(`/mixes/${mixId}`);
 		};
 	}
 
 	render() {
+		let likedUserCount = this.props.mix.mix.liked_users.length;
 
-		let likedUserCount = this.mix.liked_users.length;
 
 		return(
 			<div className="mix-index-item">
@@ -41,11 +32,11 @@ class MixIndexItem extends React.Component {
 
 				<div className="mix-item-creator">
 					<div className="mix-item-creator-pic">
-						<img src={this.mix.user_img}/>
+						<img src={this.props.mix.mix.user_img}/>
 					</div>
 
 					<div className="mix-item-create-text">
-						DEMIXIFIED BY: {this.mix.username}
+						DEMIXIFIED BY: {this.props.mix.mix.username}
 					</div>
 
 				</div>
@@ -54,14 +45,14 @@ class MixIndexItem extends React.Component {
 				<div className="mix-item-detail cf">
 					<div className="mix-avatar-wrapper">
 						<div className="mix-avatar">
-							<img  onClick={this.handleShowRedirect(this.mix.id)}
-								src={this.mix.artist_avatar}/>
+							<img  onClick={this.handleShowRedirect(this.props.mix.mix.id)}
+								src={this.props.mix.mix.artist_avatar}/>
 						</div>
 					</div>
 
 					<div className="mix-text">
-						<h2 onClick={this.handleShowRedirect(this.mix.id)}
-							className="mix-item-title"> {this.mix.title} </h2>
+						<h2 onClick={this.handleShowRedirect(this.props.mix.mix.id)}
+							className="mix-item-title"> {this.props.mix.mix.title} </h2>
 
 
 
@@ -69,7 +60,7 @@ class MixIndexItem extends React.Component {
 									Like Count : {likedUserCount}
 									<h2> Mixed by </h2>
 									<h3 className="dj-name">
-										{this.mix.artist_username}
+										{this.props.mix.mix.artist_username}
 									</h3>
 						</div>
 					</div>

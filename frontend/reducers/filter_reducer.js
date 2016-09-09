@@ -5,7 +5,7 @@ let defaultFilter = Object.freeze({
 	val: ""
 });
 
-const SessionReducer = (state=defaultFilter, action) => {
+const FilterReducer = (state=defaultFilter, action) => {
 
 
 	switch (action.type) {
@@ -17,4 +17,4 @@ const SessionReducer = (state=defaultFilter, action) => {
 
 };
 
-export default SessionReducer;
+export default FilterReducer;

@@ -7,7 +7,8 @@ import { getMix, setCurrentMixId } from '../../actions/mix_actions';
 const mapStateToProps = (state, ownProps) =>({
 	currentUser: state.session.currentUser,
 	mix: state.mix,
-	filter: state.filter
+	filter: state.filter,
+	likedMixes: state.session.currentUser.likedMixes
 });
 
 const mapDispatchToProps = dispatch => ({
