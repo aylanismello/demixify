@@ -6,6 +6,20 @@
 	width: $nav-bar-height - 10px;
 }
 
+.like-button {
+	display: block;
+	width: 70px;
+	height: auto;
+	float: left;
+	img {
+		border-radius: 1000px;
+		// background: red;
+	}
+	&:hover {
+		cursor: pointer;
+	}
+}
+
 .sound-player-container {
 	bottom: 0;
   z-index: $nav-z-index;
@@ -39,21 +53,37 @@
 				&:hover {
 					cursor: pointer;
 				}
+
 			}
 
 			.play-button, .next-button, .like-button {
+					display: block;
+					width: 65px;
+					height: auto;
 				  float: left;
-					text-align: center;
-			    font-family: "Montserrat", sans-serif;
-			    text-decoration: none;
-			    background-color: #5c6ea3;
-			    color: white;
-			    padding: 2px 6px 2px 6px;
-			    width: 80px;
-			    height: 47px;
-					margin: 10px 10px;
-			    border: 1px solid gray;
-			    border-radius: 19px;
+					border-radius: 1000px;
+
+
+					&:hover {
+						cursor: pointer;
+						background: white;
+						// width: 60px;
+					}
+
+					&:active {
+						background: none;
+					}
+					// text-align: center;
+			    // font-family: "Montserrat", sans-serif;
+			    // text-decoration: none;
+			    // background-color: #5c6ea3;
+			    // color: white;
+			    // padding: 2px 6px 2px 6px;
+			    // width: 80px;
+			    // height: 47px;
+					// margin: 10px 10px;
+			    // border: 1px solid gray;
+			    // border-radius: 19px;
 			}
 		}
 

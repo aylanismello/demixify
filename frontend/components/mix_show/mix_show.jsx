@@ -52,7 +52,7 @@ class MixShow extends React.Component {
 		let mixObj = this.props.currentMix;
 		let mixStyles = this.getStyles(mixObj.mix.artwork_url);
 
-		debugger;
+		// debugger;
 		return (
 			<div className="mix-show-container">
 				<div className="mix-description-container" style={mixStyles}>

@@ -5,6 +5,14 @@ import { hashHistory } from 'react-router';
 const clientId = 'a13f1496f3ee0b36504328dde940b256';
 const resolveUrl = 'http://bit.ly/2cd9iUT';
 
+
+const UrlConstants = {
+	NEXT: 'http://res.cloudinary.com/dfkrjl3pb/image/upload/v1473401275/next_dym71x.png',
+	PLAY: 'http://res.cloudinary.com/dfkrjl3pb/image/upload/v1473401282/play_ldwhar.png',
+	PAUSE: 'http://res.cloudinary.com/dfkrjl3pb/image/upload/v1473401283/pause_ixrfk5.png'
+};
+
+
 class SoundPlayer extends React.Component {
 
 	constructor(props) {
@@ -12,7 +20,6 @@ class SoundPlayer extends React.Component {
 		const sc = new SoundCloudAudio(clientId);
 
 
-		// debugger;
 
 		this.setNewDemix = this.setNewDemix.bind(this);
 		this.isNewDemix = this.isNewDemix.bind(this);
@@ -34,7 +41,7 @@ class SoundPlayer extends React.Component {
 
 		this.renderPlayingState = this.renderPlayingState.bind(this);
 		this.renderLikedState = this.renderLikedState.bind(this);
-
+		this.getPlayingImage = this.getPlayingImage.bind(this);
 		// debugger;
 
 
@@ -68,7 +75,11 @@ class SoundPlayer extends React.Component {
 
 	renderPlayingState() {
 
-		return this.state.playing ? "PLAYING" : "PAUSED";
+		// return this.state.playing ? "PLAYING" : "PAUSED";
+	}
+
+	getPlayingImage() {
+		return this.state.playing ? UrlConstants.PLAY : UrlConstants.PAUSE;
 	}
 
 	renderLikedState() {
@@ -320,16 +331,33 @@ class SoundPlayer extends React.Component {
 							<img value={this.state.mixId} src={this.state.mixImg} />
 						</div>
 
-						<button value="play" onClick={this.togglePlay}
+						{/* <button value="play" onClick={this.togglePlay}
 							className="play-button">
 
 								{this.renderPlayingState()}
-						</button>
-						<button value="NEXT" onClick={this.playNext}
+						</button> */}
+
+						<div className="play-button">
+
+							<img src={this.getPlayingImage()}
+								onClick={this.togglePlay}/>
+
+						</div>
+
+
+						<div className="next-button">
+
+							<img src={UrlConstants.NEXT} onClick={this.playNext}/>
+
+						</div>
+
+
+
+						{/* <button value="NEXT" onClick={this.playNext}
 							className="next-button">
 
 							NEXT
-						</button>
+						</button> */}
 
 
 
