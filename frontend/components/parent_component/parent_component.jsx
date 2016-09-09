@@ -4,6 +4,7 @@ import Splash from '../splash/splash';
 import SplashContainer from '../splash/splash_container';
 import Modal from 'react-modal';
 import MixIndex from '../mix_index/mix_index';
+import MixIndexContainer from '../mix_index/mix_index_container';
 import SessionFormContainer from '../session_form/session_form_container';
 import SoundPlayerContainer from '../sound_player/sound_player_container';
 
@@ -75,6 +76,7 @@ class ParentComponent extends React.Component {
 						modal={this.state.modalFunctions}/>
 				</Modal>
 
+				<MixIndexContainer/>
 				{this.props.children}
 
 				{/* <FirstSoundPlayer/> */}

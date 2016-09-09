@@ -35,9 +35,6 @@ class AppRouter extends React.Component {
 
 	_ensureLoggedIn(nextState, replace) {
 		const currentUser = this.props.currentUser;
-		// debugger;
-		// this.props.currentUser.id
-		// if current user is false
 		if(!currentUser.id) {
 			replace('/');
 		}
@@ -52,14 +49,20 @@ class AppRouter extends React.Component {
 		return(
 			<Router history={ hashHistory }>
 			{/*  put fetch mixes in on enter hook*/}
+
+
 				<Route path="/" component= { ParentComponent }
 					onEnter={ this._getMixes }>
+
+
+
+
 
 
 					<Route path="/home" component={ HomeContainer }
 						onEnter={ this._ensureLoggedIn }>
 
-						<IndexRoute component={ MixIndexContainer }/>
+						{/* <IndexRoute component={ MixIndexContainer }/> */}
 
 						<Route path="create_demix"
 							component={ MixFormContainer }

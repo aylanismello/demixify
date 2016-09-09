@@ -34,7 +34,7 @@ class Home extends React.Component {
 	render() {
 		return (
 				<div className="home-screen">
-					<nav className="navbar home-navbar denix-home">
+					<nav className="navbar home-navbar demix-home">
 					  <div className="container-fluid">
 					    <div className="navbar-header">
 								<Link to="/home" className="navbar-brand" onClick={this.setFilterToNone}>
