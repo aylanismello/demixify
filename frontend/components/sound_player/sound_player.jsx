@@ -33,7 +33,7 @@ class SoundPlayer extends React.Component {
 		this.routeToShow = this.routeToShow.bind(this);
 		this.getStyle = this.getStyle.bind(this);
 		this.checkForShit = this.checkForShit.bind(this);
-		this.renderLikeIfLoggedIn = this.renderLikeIfLoggedIn.bind(this);
+		// this.renderLikeIfLoggedIn = this.renderLikeIfLoggedIn.bind(this);
 
 
 
@@ -271,14 +271,14 @@ class SoundPlayer extends React.Component {
 		};
 	}
 
-	renderLikeIfLoggedIn() {
-		if (this.props.currentUserId){
-			return (
-				<LikeContainer/>
-			);
-		}
-
-	}
+	// renderLikeIfLoggedIn() {
+	// 	if (this.props.currentUserId){
+	// 		return (
+	// 			<LikeContainer/>
+	// 		);
+	// 	}
+	//
+	// }
 
 	render() {
 
@@ -312,8 +312,8 @@ class SoundPlayer extends React.Component {
 
 						</div>
 
-						{this.renderLikeIfLoggedIn()}
-
+						{/* {this.renderLikeIfLoggedIn()} */}
+						<LikeContainer />
 
 					</div>
 					{this.renderTrackDetails()}

@@ -6,7 +6,8 @@ import { submitComment } from '../../actions/comment_actions';
 
 const mapStateToProps = (state, ownProps) =>({
 	currentUser: state.session.currentUser,
-	mixId: ownProps.mixId
+	mixId: ownProps.mixId,
+	currentUserId: state.session.currentUser.id
 });
 
 const mapDispatchToProps = dispatch => ({

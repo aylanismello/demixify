@@ -49,13 +49,13 @@ class MixIndexItem extends React.Component {
 
 				<div className="mix-item-detail cf">
 					<div className="mix-avatar-wrapper">
-						<div className="mix-avatar">
+						<div className="mix-avatar" onClick={this.handleShowRedirect(this.props.mix.mix.id)}>
 
 						{/* <div className="overlay">
 						</div> */}
 
 
-							<img onClick={this.handleShowRedirect(this.props.mix.mix.id)}
+							<img
 								src={this.props.mix.mix.artist_avatar}/>
 
 								<h2 className="image-text">

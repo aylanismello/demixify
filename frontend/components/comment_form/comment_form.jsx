@@ -30,24 +30,32 @@ class CommentForm extends React.Component {
 
 
 	render() {
-		return(
-			<div className="comment-form-container">
+		if(this.props.currentUserId) {
+			return(
+				<div className="comment-form-container">
 
-				<form onSubmit={this.handleCommentSubmit}
-					className="comment-form-box">
+					<form onSubmit={this.handleCommentSubmit}
+						className="comment-form-box">
 
-					<textarea className="comment-text"
-					cols="25"
-					rows="10"
-					value={this.state.comment}
-					onChange={this.updateComment()}
-					placeholder="What do you think of this demix?"/>
+						<textarea className="comment-text"
+						cols="25"
+						rows="10"
+						value={this.state.comment}
+						onChange={this.updateComment()}
+						placeholder="What do you think of this demix?"/>
 
-					<input className="submit-comment-button" type="submit" value="submit"/>
+						<input className="submit-comment-button" type="submit" value="submit"/>
 
-				</form>
-			</div>
-		);
+					</form>
+				</div>
+			);
+		} else {
+				return (
+					<div>
+					</div>
+				);
+		}
+
 	}
 }
 

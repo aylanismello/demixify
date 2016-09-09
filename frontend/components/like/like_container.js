@@ -8,7 +8,7 @@ const mapStateToProps = (state, ownProps) => {
 
 	let likedMixes = state.session.currentUser.likedMixes;
 	let currentMixId = state.mix.currentMixId;
-
+	let currentUserId = state.session.currentUser.id;
 
 
 	if (likedMixes.length > 0) {
@@ -19,7 +19,8 @@ const mapStateToProps = (state, ownProps) => {
 
 	return {
 		liked,
-		currentMixId
+		currentMixId,
+		currentUserId
 	};
 };
 
