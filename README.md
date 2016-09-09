@@ -6,6 +6,9 @@
 Demixify is a full stack application inspired by 8tracks. It uses Redux + React
 on the frontend, Ruby on Rails in the backend, and a PostgreSQL database.
 
+The idea is different, in that the goal of demixify to break up DJ mixes
+into playist I call demixes.
+
 ## Features and Implementation
 ### Single Page App
 
@@ -26,8 +29,25 @@ liked by the current user.
 ![searchMixes](./docs/screenshots/search.png)
 
 Like 8tracks itself, Demixify has a handy search bar always present in the top
-nav bar. At any time, you can simply query a mix by artist and have them appear.
+nav bar. At any time, you can simply query a demix by artist and have them appear.
 This was implemented in Redux by simply filtering through mixes already fetched
-from our data store upon the first page render.
+from our data store upon the first page render. You can search whether or not
+you've logged in.
 
-FUTURE: have search bar autofill and search by tags.
+TODO: have search bar autofill and search by tags.
+
+### Dashboard
+![dashboard](./docs/screenshots/dashboard.png)
+
+Upon login, users are greeted with their personal dashboard. From here, users can view
+all demixes in the Home bar, their Liked demixes, or create a new demix.
+
+
+### Demix Creation
+![creation](./docs/screenshots/demix_creation.png)
+
+Users when logged in can create demix, which consist of 1 mix and 3 (ideally it would
+	be any amount) tracks. Once the create mix button is hit, the mix is stored in the DB
+	and should appear in the Home page.
+
+TODO: make tracklist be variable in size

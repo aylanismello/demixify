@@ -25,22 +25,20 @@ class ParentComponent extends React.Component {
 		 closeModal: () => {
 			 this.setState({modal: false});
 			 $('.splash').css('z-index', 1);
-			 console.log(`CLOSED modal, is set to ${this.state.modal}`);
+			//  console.log(`CLOSED modal, is set to ${this.state.modal}`);
 
 		 },
 
 		 openSignupModal: () => {
 			 $('.splash').css('z-index', -2);
 			 this.setState({modal: true, formType: "signup"});
-			 console.log(`opened signup modal,
-				 is set to ${this.state.modal} and ${this.state.formType}`);
+			//  console.log(`opened signup modal, is set to ${this.state.modal} and ${this.state.formType}`);
 		 },
 
 		 openLoginModal: () => {
 			 $('.splash').css('z-index', -2);
 			 this.setState({modal: true, formType: "login"});
-			 console.log(`opened login modal,
-				 is set to ${this.state.modal} and ${this.state.formType}`);
+			//  console.log(`opened login modal, is set to ${this.state.modal} and ${this.state.formType}`);
 
 		 }
 
