@@ -1,6 +1,13 @@
 .mix-index-wrapper{
 	display: absolute;
 	top: 0;
+	// border-top: 3px solid black;
+ /* position: absolute; */
+	 // top: 0;
+	//  margin: 122px auto;
+	 display: block;
+	 width: 100%;
+
 	.mix-index-container {
 		// display: flex;
 
@@ -53,13 +60,34 @@
 					height: 200px;
 
 					.mix-avatar{
-
+						position: relative;
 						display: block;
 						margin: 0 auto;
 						width: 175px;
+						//
+						//
+						// .overlay {
+						// 	display: absolute;
+						// 	width: 175px;
+						// 	// height: 175px;
+						// 	// background: red;
+						// 	z-index: 10;
+						// 	top: 0;
+						// 	left: 0;
+						// 	background-image: url('http://res.cloudinary.com/dfkrjl3pb/image/upload/v1473401282/play_ldwhar.png');
+						// 	background-size: contain;
+						// }
+
+
+
+
+
 						&:hover {
 							cursor: pointer;
 						}
+
+
+
 					}
 				}
 				.mix-text {

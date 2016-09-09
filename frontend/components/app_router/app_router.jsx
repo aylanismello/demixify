@@ -62,7 +62,7 @@ class AppRouter extends React.Component {
 					<Route path="/home" component={ HomeContainer }
 						onEnter={ this._ensureLoggedIn }>
 
-						{/* <IndexRoute component={ MixIndexContainer }/> */}
+						<IndexRoute component={ MixIndexContainer }/>
 
 						<Route path="create_demix"
 							component={ MixFormContainer }

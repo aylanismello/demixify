@@ -26,11 +26,10 @@ class SoundPlayer extends React.Component {
 
 		this.togglePlay = this.togglePlay.bind(this);
 		this.playNext = this.playNext.bind(this);
-		this.handleLike = this.handleLike.bind(this);
 		this.renderTrackDetails = this.renderTrackDetails.bind(this);
 		this.playAtIdx = this.playAtIdx.bind(this);
 
-		this.toggleDisplay = this.toggleDisplay(this);
+		this.toggleDisplay = this.toggleDisplay.bind(this);
 		this.routeToShow = this.routeToShow.bind(this);
 		this.getStyle = this.getStyle.bind(this);
 		this.checkForShit = this.checkForShit.bind(this);
@@ -40,7 +39,6 @@ class SoundPlayer extends React.Component {
 
 
 		this.renderPlayingState = this.renderPlayingState.bind(this);
-		this.renderLikedState = this.renderLikedState.bind(this);
 		this.getPlayingImage = this.getPlayingImage.bind(this);
 		// debugger;
 
@@ -54,9 +52,21 @@ class SoundPlayer extends React.Component {
 			mixImg: "http://res.cloudinary.com/dfkrjl3pb/image/upload/v1473059378/soundcloud-gray_kvunvw.png",
 			mixArtist: "",
 			mixId: 0,
-			display: "block",
-			liked: false
+			display: "none",
+			logged_in: false
 		};
+	}
+
+	componentWillReceiveProps() {
+		// console.log(`currentUser id is now ${this.props.currentUser.id}`);
+		// if (this.props.currentUser.id) {
+		// 	this.setState({logged_in: true});
+		// } else if (this.state.logged_in === true && !this.props.currentUser.id) {
+		// 	this.setState({logged_in: false});
+		// 	this.toggleDisplay("off");
+		// }
+
+
 	}
 
 
@@ -82,17 +92,6 @@ class SoundPlayer extends React.Component {
 		return this.state.playing ? UrlConstants.PLAY : UrlConstants.PAUSE;
 	}
 
-	renderLikedState() {
-		// also get initial liked state
-		// let likedState = (this.props.likedMixes.include(this.props.currentMixId));
-
-
-
-
-		// debugger;
-		// console.log(`liked state is ${likedState}`);
-		return this.state.liked ? "UNLIKE" : "LIKE";
-	}
 
 	toggleDisplay(onOrOff) {
 
@@ -144,20 +143,6 @@ class SoundPlayer extends React.Component {
 		}
 
 	}
-
-	handleLike() {
-
-		let newLikeState = !this.state.liked;
-		this.setState({liked: newLikeState});
-
-		if (newLikeState) { //this is true, so this is to destroy like
-			this.props.createLike(this.props.currentMixId);
-		} else {
-			this.props.deleteLike(this.props.currentMixId);
-		}
-
-	}
-
 
 
 	renderTrackDetails() {
@@ -216,22 +201,6 @@ class SoundPlayer extends React.Component {
 	}
 
 
-	componentWillMount() {
-
-		console.log('CHECK FOR INITIAL LIKE STATUS');
-
-		if (this.props.likedMixes
-			&& this.props.likedMixes.includes(this.props.currentMixId)) {
-			console.log('THIS IS LIKE IN THE DB');
-			this.setState({liked: true});
-		} else {
-			console.log('THIS IS NOT LIKE IN THE DB');
-			this.setState({liked: false});
-		}
-
-
-	}
-
 	checkForShit() {
 		let hasMixes = (Object.keys(this.props.mixes).length > 0);
 
@@ -244,29 +213,20 @@ class SoundPlayer extends React.Component {
 
 
 	setNewDemix(mixId) {
+
+		if(this.state.display === "none") {
+			this.toggleDisplay("on");
+		}
 		let currentMix = this.props.mixes[mixId];
 
 
 		let currentTracks = currentMix.tracks;
-		// let currentTracks = this.props.mixes[mixId].tracks;
-
-		// let
-		// let currentTracks = this.props.currentMix.tracks;
-
-
-
 
 
 		let currentMixTitle = currentMix.mix.title;
 		let currentMixImg = currentMix.mix.artwork_url;
 		let currentMixArtist = currentMix.mix.artist_username;
 		let currentMixId = currentMix.mix.id;
-		// let currentMixTitle = this.props.currentMix.mix.title;
-		// let currentMixImg = this.props.currentMix.mix.artwork_url;
-		// let currentMixArtist = this.props.currentMix.mix.artist_username;
-		// let currentMixId = this.props.currentMix.mix.id;
-
-
 		if (this.isNewDemix(currentMixTitle, currentTracks.length)){
 
 			let orderedTracks = [];
@@ -289,15 +249,12 @@ class SoundPlayer extends React.Component {
 						this.playNext();
 					});
 
-					this.togglePlay();
+					// this.togglePlay();
+					// this.togglePlay();
 			});
-
-
-
 
 		}
 	}
-
 
 	routeToShow() {
 		// debugger;
@@ -331,11 +288,6 @@ class SoundPlayer extends React.Component {
 							<img value={this.state.mixId} src={this.state.mixImg} />
 						</div>
 
-						{/* <button value="play" onClick={this.togglePlay}
-							className="play-button">
-
-								{this.renderPlayingState()}
-						</button> */}
 
 						<div className="play-button">
 
@@ -350,16 +302,6 @@ class SoundPlayer extends React.Component {
 							<img src={UrlConstants.NEXT} onClick={this.playNext}/>
 
 						</div>
-
-
-
-						{/* <button value="NEXT" onClick={this.playNext}
-							className="next-button">
-
-							NEXT
-						</button> */}
-
-
 
 						<LikeContainer/>
 

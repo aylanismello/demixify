@@ -76,7 +76,7 @@ class ParentComponent extends React.Component {
 						modal={this.state.modalFunctions}/>
 				</Modal>
 
-				<MixIndexContainer/>
+				{/* <MixIndexContainer/> */}
 				{this.props.children}
 
 				{/* <FirstSoundPlayer/> */}

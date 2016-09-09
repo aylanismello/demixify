@@ -18,6 +18,7 @@ componentDidMount() {
 
 render() {
 	return(
+		<div>
 	<div className="splashy-frame">
 		<div className="the-splash-container">
 			<div className="splash-mother">
@@ -57,7 +58,6 @@ render() {
 
 
 
-					{/* <MixIndexContainer/> */}
 				</div>
 
 				</div>
@@ -66,6 +66,9 @@ render() {
 
 
 		</div>
+		</div>
+		
+		<MixIndexContainer/>
 		</div>
 		);
 	}

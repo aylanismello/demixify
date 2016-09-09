@@ -20,6 +20,7 @@ class NavBar extends React.Component {
 
 		console.log(this.state.searchString);
 		this.props.setFilter("string", this.state.searchString);
+		hashHistory.push("/explore");
 	}
 
 	updateSearchString() {

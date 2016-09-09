@@ -5,7 +5,8 @@ import { createLike, deleteLike } from '../../actions/like_actions';
 const mapStateToProps = state =>({
 	currentUser: state.session.currentUser,
 	mixes: state.mix.mixes,
-	currentMixId: state.mix.currentMixId
+	currentMixId: state.mix.currentMixId,
+	currentUserId: state.session.currentUser.id
 });
 
 

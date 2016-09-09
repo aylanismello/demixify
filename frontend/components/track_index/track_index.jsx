@@ -13,9 +13,9 @@ const TrackIndex = ({tracks}) => {
 	return (
 		<div className="track-index-container">
 			<ul>
-				{orderedTracks.map(track => {
+				{orderedTracks.map((track, idx) => {
 					return (
-						<TrackIndexItem track={track}/>
+						<TrackIndexItem track={track} key={idx}/>
 					);
 				})}
 			</ul>

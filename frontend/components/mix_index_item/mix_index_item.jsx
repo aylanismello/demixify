@@ -1,6 +1,9 @@
 import React from 'react';
 import { hashHistory } from 'react-router';
 
+
+
+const PLAY_URL = 'http://res.cloudinary.com/dfkrjl3pb/image/upload/v1473401282/play_ldwhar.png';
 class MixIndexItem extends React.Component {
 
 	constructor(props) {
@@ -45,8 +48,12 @@ class MixIndexItem extends React.Component {
 				<div className="mix-item-detail cf">
 					<div className="mix-avatar-wrapper">
 						<div className="mix-avatar">
+
+						{/* <div className="overlay">
+						</div> */}
 							<img  onClick={this.handleShowRedirect(this.props.mix.mix.id)}
 								src={this.props.mix.mix.artist_avatar}/>
+
 						</div>
 					</div>
 
