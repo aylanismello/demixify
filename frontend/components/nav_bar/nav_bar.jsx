@@ -20,17 +20,6 @@ class NavBar extends React.Component {
 
 		console.log(this.state.searchString);
 		this.props.setFilter("string", this.state.searchString);
-
-		// this.props.getMixes(this.state.searchString);
-
-
-
-		// this.props.setFilter....
-
-
-		// hashHistory.push('/explore');
-		// debugger;
-
 	}
 
 	updateSearchString() {
@@ -45,7 +34,7 @@ class NavBar extends React.Component {
 	render() {
 
 		// debugger;
-		let homeLink  = this.props.currentUser ? "/home" : "/";
+		let homeLink  = this.props.currentUser.id ? "/home" : "/";
 
 		return(
 				<div>

@@ -18,14 +18,14 @@ class MixIndex extends React.Component {
 
 	render() {
 
+
 		let mixKeys = Object.keys(this.props.mix.mixes);
 		let mixes = this.props.mix.mixes;
 
-		// debugger;
 		let filterType = this.props.filter.type;
 		let filterVal = this.props.filter.val;
 		let likedMixes = this.props.likedMixes;
-		debugger;
+
 		if (filterType !== "") {
 			if (filterType === "string") {
 				console.log('\n\nupdate filter by str!!');
@@ -39,29 +39,40 @@ class MixIndex extends React.Component {
 
 			} else if(filterType === "likes") {
 
-
 				let newMixKeys = [];
 
 				mixKeys.forEach ( mixKey => {
-
-					debugger;
-					// return mixes[mixKey].mix.title.toLowerCase().includes(val);
-
+					if (likedMixes.includes(parseInt(mixKey))) {
+						newMixKeys.push(mixKey);
+					}
 				});
 
-
+				mixKeys = newMixKeys;
 
 				console.log('filter by likes!');
+
 			} else if (filterType === "user") {
 				console.log('filter by user!');
+
+				mixKeys = mixKeys.filter( mixKey => {
+					return (mixes[mixKey].mix.user_id === this.props.currentUser.id);
+				});
+
+				// debugger;
 			}
 
 
-		} else {
+		} else if(filterType === "user"){
+			console.log('filter by user!');
+
+
+
+		} else{
+
 			console.log('NO FILTER! show all');
 		}
 
-		// debugger;
+
 
 		return (
 			<div className="mix-index-wrapper">

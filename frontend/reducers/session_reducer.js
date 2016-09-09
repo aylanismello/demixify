@@ -26,7 +26,7 @@ const SessionReducer = (state=nullUser, action) => {
 			newUser = _.merge({}, state);
 
 			// newUser.likedMixes.push(action.like.mixId);
-			newUser.currentUser.likedMixes.push(action.like.mixId);
+			newUser.currentUser.likedMixes.push(parseInt(action.like.mixId));
 
 			// debugger;
 			return newUser;

@@ -5,10 +5,7 @@ import { createLike, deleteLike } from '../../actions/like_actions';
 
 const mapStateToProps = (state, ownProps) => {
 
-	//
 
-
-	// debugger;
 	let likedMixes = state.session.currentUser.likedMixes;
 	let currentMixId = state.mix.currentMixId;
 
@@ -18,12 +15,7 @@ const mapStateToProps = (state, ownProps) => {
 		likedMixes = likedMixes.map(mixId => parseInt(mixId));
 	}
 
-	// debugger;
 	let liked = likedMixes.includes(currentMixId);
-	// let lik
-
-	// let liked = false;
-	// let currentMixId = 1;
 
 	return {
 		liked,
