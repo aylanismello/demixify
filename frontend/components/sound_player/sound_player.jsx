@@ -1,6 +1,7 @@
 import React from 'react';
 import LikeContainer from '../like/like_container';
 import SoundCloudAudio from 'soundcloud-audio';
+import animateCss from 'animate.css-js';
 import { hashHistory } from 'react-router';
 const clientId = 'a13f1496f3ee0b36504328dde940b256';
 const resolveUrl = 'http://bit.ly/2cd9iUT';
@@ -59,9 +60,12 @@ class SoundPlayer extends React.Component {
 
 	componentWillReceiveProps() {
 		// console.log(`currentUser id is now ${this.props.currentUser.id}`);
-		// if (this.props.currentUser.id) {
-		// 	this.setState({logged_in: true});
-		// } else if (this.state.logged_in === true && !this.props.currentUser.id) {
+
+		if (this.props.currentUser.id) {
+			this.toggleDisplay("on");
+			// this.setState({logged_in: true});
+		}
+		// else if (this.state.logged_in === true && !this.props.currentUser.id) {
 		// 	this.setState({logged_in: false});
 		// 	this.toggleDisplay("off");
 		// }
@@ -73,10 +77,19 @@ class SoundPlayer extends React.Component {
 
 	togglePlay() {
 
+		debugger;
 		if (this.state.playing) {
+			// let element = document.querySelector('.logo');
+			//
+			// animateCss.animate(element, {
+			// 	animationName: 'pulse',
+			// 	duration: 50000
+			// });
+
 			this.setState({playing: false});
 			this.state.sc.pause();
 		} else {
+
 			this.setState({playing: true});
 			this.state.sc.play();
 
@@ -217,6 +230,9 @@ class SoundPlayer extends React.Component {
 		// if(this.state.display === "none") {
 		// 	this.toggleDisplay("on");
 		// }
+
+
+
 		let currentMix = this.props.mixes[mixId];
 
 
@@ -249,7 +265,7 @@ class SoundPlayer extends React.Component {
 						this.playNext();
 					});
 
-					// this.togglePlay();
+					this.togglePlay();
 					// this.togglePlay();
 			});
 
@@ -271,24 +287,14 @@ class SoundPlayer extends React.Component {
 		};
 	}
 
-	// renderLikeIfLoggedIn() {
-	// 	if (this.props.currentUserId){
-	// 		return (
-	// 			<LikeContainer/>
-	// 		);
-	// 	}
-	//
-	// }
-
 	render() {
 
 
 		this.checkForShit();
-		// let displayStyle = this.getStyle();
 
 		return (
 
-			<div className="sound-player-container cf" >
+			<div className="sound-player-container cf" style={this.getStyle()}>
 				<div className="sound-player-nav-bar">
 
 					<div className="player-controls cf">
@@ -323,6 +329,9 @@ class SoundPlayer extends React.Component {
 			</div>
 
 		);
+
+
+
 	}
 }
 

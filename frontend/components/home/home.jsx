@@ -38,23 +38,33 @@ class Home extends React.Component {
 					<nav className="navbar home-navbar demix-home">
 					  <div className="container-fluid">
 					    <div className="navbar-header">
-								<Link to="/home" className="navbar-brand" onClick={this.setFilterToNone}>
+
+
+								<li onClick={this.setFilterToNone}>
+								<Link to="/home" className="navbar-brand" >
 									HOME
 								</Link>
+								</li>
 
 
-								<Link to="/home" className="navbar-brand" onClick={this.setFilterToLike}>
+								<li onClick={this.setFilterToLike}>
+								<Link to="/home" className="navbar-brand" >
 									LIKED
 								</Link>
+								</li>
 
 
-								<Link to="/home" className="navbar-brand" onClick={this.setFilterToUser}>
+								<li onClick={this.setFilterToUser}>
+								<Link to="/home" className="navbar-brand" >
 									MY DEMIXES
 								</Link>
+								</li>
 
+								<li>
 								<Link to="/home/create_demix" className="navbar-brand" >
 									+
 								</Link>
+								</li>
 
 					    </div>
 					  </div>

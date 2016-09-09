@@ -56,7 +56,7 @@ class MixIndexItem extends React.Component {
 
 
 							<img
-								src={this.props.mix.mix.artist_avatar}/>
+								src={this.props.mix.mix.artwork_url}/>
 
 								<h2 className="image-text">
 									<span>

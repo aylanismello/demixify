@@ -62,7 +62,7 @@
 					height: auto;
 				  float: left;
 					border-radius: 1000px;
-
+					margin: 0px 9px;
 
 					&:hover {
 						cursor: pointer;
@@ -101,6 +101,8 @@
 
 			.track-text{
 				float: left;
+				display: flex;
+				flex-direction: column;
 
 				.track-details-top {
 					// height: inherit;

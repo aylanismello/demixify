@@ -90,7 +90,7 @@ class SessionForm extends React.Component {
 							<h3>Join the worldwide community and break down your music with Demixify</h3>
 						</div>
 
-						{this.props.formType}!
+						{/* {this.props.formType}! */}
 
 
 						<div className="login-form">
@@ -111,7 +111,7 @@ class SessionForm extends React.Component {
 									/>
 
 							<br />
-							<input type="submit" value="Submit" />
+							<input className="session-form-button" type="submit" value={this.props.formType} />
 						</div>
 				</form>
 			</div>
