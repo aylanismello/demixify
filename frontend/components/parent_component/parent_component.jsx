@@ -7,7 +7,7 @@ import MixIndex from '../mix_index/mix_index';
 import MixIndexContainer from '../mix_index/mix_index_container';
 import SessionFormContainer from '../session_form/session_form_container';
 import SoundPlayerContainer from '../sound_player/sound_player_container';
-
+import { hashHistory } from 'react-router';
 
 class ParentComponent extends React.Component {
 
@@ -48,6 +48,15 @@ class ParentComponent extends React.Component {
 
 		 this.renderSplash = this.renderSplash.bind(this);
 
+	 }
+
+	 componentWillReceiveProps() {
+		//  debugger;
+		 	if(this.props.currentUserId && this.state.modal) {
+				this.modalFunctions.closeModal();
+				console.log('\n\nYOU LOGGED IN, CLOSING MODAL\n\n');
+				hashHistory.push('/home');
+			}
 	 }
 
 	renderSplash() {

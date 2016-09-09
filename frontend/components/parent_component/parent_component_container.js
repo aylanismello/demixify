@@ -4,7 +4,8 @@ import ParentComponent from './parent_component';
 const mapStateToProps = (state, ownProps) => {
 	// debugger;
 	return {
-		currentUser: state.session.currentUser
+		currentUser: state.session.currentUser,
+		currentUserId: state.session.currentUser.id
 	};
 };
 

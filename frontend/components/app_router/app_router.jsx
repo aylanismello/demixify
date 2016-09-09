@@ -5,7 +5,7 @@ import SessionFormContainer from '../session_form/session_form_container';
 import Splash from '../splash/splash';
 import Explore from '../explore/explore';
 import HomeContainer from '../home/home_container';
-import ParentComponent from '../parent_component/parent_component';
+import ParentComponentContainer from '../parent_component/parent_component_container';
 import MixFormContainer from '../mix_form/mix_form_container';
 import MyDemixes from '../my_demixes/my_demixes';
 
@@ -51,7 +51,7 @@ class AppRouter extends React.Component {
 			{/*  put fetch mixes in on enter hook*/}
 
 
-				<Route path="/" component= { ParentComponent }
+				<Route path="/" component= { ParentComponentContainer }
 					onEnter={ this._getMixes }>
 
 
