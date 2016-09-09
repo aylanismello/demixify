@@ -2,7 +2,8 @@ import React from 'react';
 import { hashHistory } from 'react-router';
 
 
-
+const LIKE_URL = 'http://res.cloudinary.com/dfkrjl3pb/image/upload/v1473401279/like_qsf88g.png';
+const TRACK_URL = 'http://res.cloudinary.com/dfkrjl3pb/image/upload/v1473414939/cassette_wc1ayg.png';
 const PLAY_URL = 'http://res.cloudinary.com/dfkrjl3pb/image/upload/v1473401282/play_ldwhar.png';
 class MixIndexItem extends React.Component {
 
@@ -27,6 +28,7 @@ class MixIndexItem extends React.Component {
 
 	render() {
 		let likedUserCount = this.props.mix.mix.liked_users.length;
+		let trackCount = this.props.mix.tracks.length;
 
 
 		return(
@@ -51,8 +53,16 @@ class MixIndexItem extends React.Component {
 
 						{/* <div className="overlay">
 						</div> */}
-							<img  onClick={this.handleShowRedirect(this.props.mix.mix.id)}
+
+
+							<img onClick={this.handleShowRedirect(this.props.mix.mix.id)}
 								src={this.props.mix.mix.artist_avatar}/>
+
+								<h2 className="image-text">
+									<span>
+									PLAY
+									</span>
+								</h2>
 
 						</div>
 					</div>
@@ -64,10 +74,20 @@ class MixIndexItem extends React.Component {
 
 
 						<div className="mix-item-dj">
-									Like Count : {likedUserCount}
-									<h2> Mixed by </h2>
+									<div className="index-item-like-icon">
+											<img src={LIKE_URL}/>
+									</div>
+										 <p className="liked-user-count">{likedUserCount} </p>
+
+
+
+										<div className="index-item-track-icon">
+											<img src={TRACK_URL}/>
+										</div>
+										 <p className="track-count">{trackCount} </p>
+
+
 									<h3 className="dj-name">
-										{this.props.mix.mix.artist_username}
 									</h3>
 						</div>
 					</div>

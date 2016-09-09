@@ -20,6 +20,8 @@ class Explore extends React.Component {
 					</span>
 				</h2>
 
+
+
 				{/* <div className="mix-index-container">
 					<div className="mix-index-item">
 						<div className="mix-index-creator">

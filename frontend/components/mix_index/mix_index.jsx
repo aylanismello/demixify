@@ -1,5 +1,6 @@
 import React from 'react';
 import MixIndexItem from '../mix_index_item/mix_index_item';
+import Masonry from 'react-masonry-component';
 
 class MixIndex extends React.Component {
 
@@ -74,24 +75,40 @@ class MixIndex extends React.Component {
 
 
 
+		let el = 	mixKeys.map((mixId, idx) => {
+				let mix = this.props.mix.mixes[mixId];
+					return (
+
+					<li className="image-element-class">
+					<MixIndexItem
+						setCurrentMixId={this.props.setCurrentMixId}
+						key={idx} mix={mix} />
+						</li>
+					);
+
+				}
+			);
+
+
 		return (
 			<div className="mix-index-wrapper">
 				<ul className="mix-index-container">
-				{
-					mixKeys.map((mixId, idx) => {
-						let mix = this.props.mix.mixes[mixId];
-							return (
-							<MixIndexItem
-								setCurrentMixId={this.props.setCurrentMixId}
-								key={idx} mix={mix} />
-							);
 
-						}
-					)
-				}
-				</ul>
+				<Masonry
+				className={'my-gallery-class'} // default ''
+				elementType={'ul'} // default 'div'
+				// default {}
+				disableImagesLoaded={false} // default false
+				updateOnEachImageLoad={false} >
+				{el}
+			</Masonry>
+
+			</ul>
 			</div>
-		);
+
+			);
+
+
 	}
 
 }

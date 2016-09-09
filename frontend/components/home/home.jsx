@@ -12,7 +12,7 @@ class Home extends React.Component {
 	}
 
 	componentDidMount(){
-		// this.props.getMixes("");
+		this.props.getMixes();
 	}
 
 
@@ -33,6 +33,7 @@ class Home extends React.Component {
 
 	render() {
 		return (
+			<div>
 				<div className="home-screen">
 					<nav className="navbar home-navbar demix-home">
 					  <div className="container-fluid">
@@ -60,8 +61,9 @@ class Home extends React.Component {
 					</nav>
 
 
-					{this.props.children}
 
+				</div>
+				{this.props.children}
 				</div>
 		);
 	}

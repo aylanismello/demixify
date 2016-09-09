@@ -4,7 +4,7 @@
 	// border-top: 3px solid black;
  /* position: absolute; */
 	 // top: 0;
-	//  margin: 122px auto;
+	 margin: 122px auto;
 	 display: block;
 	 width: 100%;
 
@@ -16,7 +16,7 @@
 			display: block;
 			color: black;
 			// background: transparent;
-			background: black;
+			// background: black;
 			width: 455px;
 			padding: 5px;
 			height: 260px;
@@ -25,21 +25,24 @@
 				background: white;
 				border: 1px solid transparent;
 				height: 55px;
+				padding: 0 15px;
 
 				.mix-item-creator-pic {
-					float: left;
+					// float: left;
+					display: table-cell;
 					margin: 0 10px;
 					width: 45px;
 					img {
 						border-radius: 30px;
-						border: 1px solid black;
+						// border: 1px solid black;
 					}
 				}
 
 				.mix-item-create-text {
 					font-family: $text-font;
-
-					float: left;
+					display: table-cell;
+					vertical-align: middle;
+					// float: left;
 				}
 			}
 
@@ -64,22 +67,32 @@
 						display: block;
 						margin: 0 auto;
 						width: 175px;
-						//
-						//
-						// .overlay {
-						// 	display: absolute;
-						// 	width: 175px;
-						// 	// height: 175px;
-						// 	// background: red;
-						// 	z-index: 10;
-						// 	top: 0;
-						// 	left: 0;
-						// 	background-image: url('http://res.cloudinary.com/dfkrjl3pb/image/upload/v1473401282/play_ldwhar.png');
-						// 	background-size: contain;
-						// }
 
 
+						.image-text {
 
+							position: absolute;
+					   top: 70px;
+						 display: none;
+					   left: 0;
+					   width: 100%;
+						 text-align: center;
+							span {
+							color: white;
+							font-family: $text-font;
+							// position: absolute;
+							font-size: 14px;
+							 letter-spacing: -1px;
+							 background: rgb(0, 0, 0); /* fallback color */
+							 background: rgba(0, 0, 0, 0.7);
+							 padding: 10px;
+
+							}
+						}
+
+						&:hover .image-text {
+							display: block;
+						}
 
 
 						&:hover {
@@ -91,7 +104,9 @@
 					}
 				}
 				.mix-text {
-					display: relative;
+					// display: relative;
+					display: flex;
+					flex-direction: column;
 
 					.mix-item-title {
 						font-size: 20px;
@@ -102,11 +117,26 @@
 						}
 					}
 					.mix-item-dj {
+						padding-top: 5px;
+						font-family: $text-font;
+						// display: absolute;
+						// bottom: 0;
+						// left: 0;
+						// margin-top: 15px;
+						.index-item-like-icon, .index-item-track-icon {
+							width: 20px;
+							display: table-cell;
+							vertical-align: middle;
+						}
 
-						display: absolute;
-						bottom: 0;
-						left: 0;
-						margin-top: 15px;
+						.liked-user-count, .track-count {
+							// display: inline-block;
+							display: table-cell;
+							vertical-align: middle;
+							padding: 2px 6px;
+						}
+
+
 
 						h2 {
 							font-size: 14px;
@@ -124,4 +154,8 @@
 			}
 		}
 	}
+}
+
+.image-element-class {
+	list-style: none;
 }
