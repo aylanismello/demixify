@@ -59,11 +59,11 @@ class SoundPlayer extends React.Component {
 		// debugger;
 		if (props.currentMixId !== this.state.mixId) {
 
-			console.log(`NEW MIX SET. from ${this.state.mixId} => ${props.currentMixId}`);
+			// console.log(`NEW MIX SET. from ${this.state.mixId} => ${props.currentMixId}`);
 
 
 			if (props.currentMixId !== -1) {
-				console.log('can start playing!!!');
+				// console.log('can start playing!!!');
 
 				let currentMix = props.mixes[props.currentMixId];
 
@@ -160,7 +160,7 @@ class SoundPlayer extends React.Component {
 		let currentMixArtist = currentMix.mix.artist_username;
 		let currentMixId = currentMix.mix.id;
 
-		// this.togglePlay();
+		this.togglePlay();
 
 
 		this.state.sc.resolve(this.state.tracks[idx].permalink_url, (track) => {
