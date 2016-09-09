@@ -19,8 +19,11 @@
   font-family: $text-font;
 .my-nav-bar {
 
+
   margin: 0 auto;
   width: 1400px;
+  display: flex;
+
   .header-left {
 
     float: left;
@@ -139,6 +142,7 @@
 	.login-signup {
 		padding: 0 40px;
 		float: right;
+    width: 400px;
 
     // display: flex;
 	}
