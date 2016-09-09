@@ -7,7 +7,8 @@ let nullMix = Object.freeze({
 	mixes: {},
 	currentMix: {mix: {}, tracks: [], comments: []},
 	errors: [],
-	currentMixId: -1
+	currentMixId: -1,
+	playerOpen: false
 });
 
 
@@ -15,6 +16,11 @@ const MixReducer = (state=nullMix, action) => {
 		let newState;
 
 		switch (action.type) {
+
+			case MixConstants.SET_PLAYER_STATE:
+				newState = _.merge({}, state);
+				newState.playerOpen = action.playerState;
+				return newState;
 
 			case MixConstants.SET_CURRENT_MIX_ID:
 				newState = _.merge({}, state, {currentMixId: action.mixId});

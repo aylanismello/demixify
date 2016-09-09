@@ -82,7 +82,8 @@ class MixIndex extends React.Component {
 					<li key={idx} className="image-element-class">
 					<MixIndexItem
 						setCurrentMixId={this.props.setCurrentMixId}
-						key={idx} mix={mix} />
+						key={idx} mix={mix}
+						setPlayerState={this.props.setPlayerState} />
 						</li>
 					);
 

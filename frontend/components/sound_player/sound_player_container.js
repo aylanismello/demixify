@@ -6,7 +6,8 @@ const mapStateToProps = state =>({
 	currentUser: state.session.currentUser,
 	mixes: state.mix.mixes,
 	currentMixId: state.mix.currentMixId,
-	currentUserId: state.session.currentUser.id
+	currentUserId: state.session.currentUser.id,
+	playerOpen: state.mix.playerOpen
 });
 
 

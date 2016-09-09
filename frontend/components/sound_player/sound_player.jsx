@@ -230,6 +230,7 @@ class SoundPlayer extends React.Component {
 		// if(this.state.display === "none") {
 		// 	this.toggleDisplay("on");
 		// }
+		console.log(`\n\nNEW DEMIX DETECTED\n\n`);
 
 
 
@@ -292,43 +293,54 @@ class SoundPlayer extends React.Component {
 
 		this.checkForShit();
 
-		return (
+		if(this.props.playerOpen){
+			return (
 
-			<div className="sound-player-container cf" style={this.getStyle()}>
-				<div className="sound-player-nav-bar">
+				<div className="sound-player-container cf">
+					<div className="sound-player-nav-bar">
 
-					<div className="player-controls cf">
-						<div className="mix-pic"
-						onClick={this.routeToShow(this.props.currentMixId)}>
-							<img value={this.state.mixId} src={this.state.mixImg} />
+						<div className="player-controls cf">
+							<div className="mix-pic"
+							onClick={this.routeToShow(this.props.currentMixId)}>
+								<img value={this.state.mixId} src={this.state.mixImg} />
+							</div>
+
+
+							<div className="play-button">
+
+								<img src={this.getPlayingImage()}
+									onClick={this.togglePlay}/>
+
+							</div>
+
+
+							<div className="next-button">
+
+								<img src={UrlConstants.NEXT} onClick={this.playNext}/>
+
+							</div>
+
+							{/* {this.renderLikeIfLoggedIn()} */}
+							<LikeContainer />
+
 						</div>
-
-
-						<div className="play-button">
-
-							<img src={this.getPlayingImage()}
-								onClick={this.togglePlay}/>
-
-						</div>
-
-
-						<div className="next-button">
-
-							<img src={UrlConstants.NEXT} onClick={this.playNext}/>
-
-						</div>
-
-						{/* {this.renderLikeIfLoggedIn()} */}
-						<LikeContainer />
+						{this.renderTrackDetails()}
 
 					</div>
-					{this.renderTrackDetails()}
 
 				</div>
 
-			</div>
+			);
+		} else {
+			return (
+				<div>
+				</div>
+			);
+		}
 
-		);
+
+
+
 
 
 

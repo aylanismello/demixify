@@ -8,15 +8,25 @@ export const MixConstants = {
 	RECEIVE_TRACKS: 'RECEIVE_TRACKS',
 	RECEIVE_NEW_TRACK: 'RECEIVE_NEW_TRACK',
 	RECEIVE_ERRORS: 'RECEIVE_ERRORS',
-	SET_CURRENT_MIX_ID: 'SET_CURRENT_MIX_ID'
+	SET_CURRENT_MIX_ID: 'SET_CURRENT_MIX_ID',
+	SET_PLAYER_STATE: 'SET_PLAYER_STATE'
+
 };
 
 
+
+
+export const setPlayerState = playerState => ({
+	type: MixConstants.SET_PLAYER_STATE,
+	playerState
+});
 
 export const setCurrentMixId = mixId => ({
 	type: MixConstants.SET_CURRENT_MIX_ID,
 	mixId
 });
+
+
 
 
 export const submitMix = (mix) => ({

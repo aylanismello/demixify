@@ -21,6 +21,9 @@ class MixIndexItem extends React.Component {
 			const mixId = args[0];
 
 			// now we do not update the mix, we set the currentTrack to the one clicked on
+
+			this.props.setPlayerState(true);
+
 			this.props.setCurrentMixId(mixId);
 			hashHistory.push(`/mixes/${mixId}`);
 		};
@@ -50,10 +53,6 @@ class MixIndexItem extends React.Component {
 				<div className="mix-item-detail cf">
 					<div className="mix-avatar-wrapper">
 						<div className="mix-avatar" onClick={this.handleShowRedirect(this.props.mix.mix.id)}>
-
-						{/* <div className="overlay">
-						</div> */}
-
 
 							<img
 								src={this.props.mix.mix.artwork_url}/>
