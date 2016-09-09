@@ -13,7 +13,7 @@ class MixIndex extends React.Component {
 
 	componentWillReceiveProps() {
 		// debugger;
-		console.log(`RECEIVED PROPS -> ${this.props}!\n\n`);
+		// console.log(`RECEIVED PROPS -> ${this.props}!\n\n`);
 	}
 
 
@@ -29,7 +29,7 @@ class MixIndex extends React.Component {
 
 		if (filterType !== "") {
 			if (filterType === "string") {
-				console.log('\n\nupdate filter by str!!');
+				// console.log('\n\nupdate filter by str!!');
 				let val = filterVal.toLowerCase();
 
 				mixKeys = mixKeys.filter( mixKey => {
@@ -50,10 +50,10 @@ class MixIndex extends React.Component {
 
 				mixKeys = newMixKeys;
 
-				console.log('filter by likes!');
+				// console.log('filter by likes!');
 
 			} else if (filterType === "user") {
-				console.log('filter by user!');
+				// console.log('filter by user!');
 
 				mixKeys = mixKeys.filter( mixKey => {
 					return (mixes[mixKey].mix.user_id === this.props.currentUser.id);
@@ -64,13 +64,13 @@ class MixIndex extends React.Component {
 
 
 		} else if(filterType === "user"){
-			console.log('filter by user!');
+			// console.log('filter by user!');
 
 
 
 		} else{
 
-			console.log('NO FILTER! show all');
+			// console.log('NO FILTER! show all');
 		}
 
 
@@ -79,7 +79,7 @@ class MixIndex extends React.Component {
 				let mix = this.props.mix.mixes[mixId];
 					return (
 
-					<li className="image-element-class">
+					<li key={idx} className="image-element-class">
 					<MixIndexItem
 						setCurrentMixId={this.props.setCurrentMixId}
 						key={idx} mix={mix} />

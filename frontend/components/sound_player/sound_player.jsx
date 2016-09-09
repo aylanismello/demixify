@@ -33,7 +33,7 @@ class SoundPlayer extends React.Component {
 		this.routeToShow = this.routeToShow.bind(this);
 		this.getStyle = this.getStyle.bind(this);
 		this.checkForShit = this.checkForShit.bind(this);
-
+		this.renderLikeIfLoggedIn = this.renderLikeIfLoggedIn.bind(this);
 
 
 
@@ -52,7 +52,7 @@ class SoundPlayer extends React.Component {
 			mixImg: "http://res.cloudinary.com/dfkrjl3pb/image/upload/v1473059378/soundcloud-gray_kvunvw.png",
 			mixArtist: "",
 			mixId: 0,
-			display: "none",
+			display: "block",
 			logged_in: false
 		};
 	}
@@ -214,9 +214,9 @@ class SoundPlayer extends React.Component {
 
 	setNewDemix(mixId) {
 
-		if(this.state.display === "none") {
-			this.toggleDisplay("on");
-		}
+		// if(this.state.display === "none") {
+		// 	this.toggleDisplay("on");
+		// }
 		let currentMix = this.props.mixes[mixId];
 
 
@@ -271,15 +271,24 @@ class SoundPlayer extends React.Component {
 		};
 	}
 
+	renderLikeIfLoggedIn() {
+		if (this.props.currentUserId){
+			return (
+				<LikeContainer/>
+			);
+		}
+
+	}
+
 	render() {
 
 
 		this.checkForShit();
-		let displayStyle = this.getStyle();
+		// let displayStyle = this.getStyle();
 
 		return (
 
-			<div className="sound-player-container cf" style={displayStyle}>
+			<div className="sound-player-container cf" >
 				<div className="sound-player-nav-bar">
 
 					<div className="player-controls cf">
@@ -303,7 +312,7 @@ class SoundPlayer extends React.Component {
 
 						</div>
 
-						<LikeContainer/>
+						{this.renderLikeIfLoggedIn()}
 
 
 					</div>

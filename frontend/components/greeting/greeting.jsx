@@ -45,8 +45,8 @@ class Greeting extends React.Component {
 				</div>
 
 				<div className="my-dropdown">
-					<li> <Link to="/profile" >Profile</Link></li>
-					<li> <Link to="/create_demix" >Create DeMix</Link></li>
+					{/* <li> <Link to="/profile" >Profile</Link></li> */}
+					<li> <Link to="/home/create_demix" >Create Demix</Link></li>
 					<li> <a className="logout" onClick={logout}>Log Out</a> </li>
 
 				</div>
