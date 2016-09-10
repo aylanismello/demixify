@@ -4,7 +4,7 @@ import CommentIndex from './comment_index';
 
 
 const mapStateToProps = (state, ownProps) =>({
-	comments: state.mix.mixes[ownProps.mixId].comments
+	comments: state.mix.mixes[ownProps.mixId].comments.reverse()
 });
 
 const mapDispatchToProps = dispatch => ({
