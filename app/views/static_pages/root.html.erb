@@ -1,10 +1,14 @@
 <head>
 
+
+	<link rel='shortcut icon' type='image/x-icon' href='http://res.cloudinary.com/dfkrjl3pb/image/upload/v1473545029/demixify_favi1_njgefn.ico' />
+
 	<script type="text/javascript">
 		<% if current_user %>
 			window.currentUser = <%= render('api/users/user.json.jbuilder', user: current_user).html_safe %>
 		<% end %>
 	</script>
+
 
 </head>
 
