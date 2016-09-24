@@ -81,12 +81,10 @@ class SessionForm extends React.Component {
 
 
 	runDemo() {
-		console.log('running demo!');
 		this.handleDemo();
 	}
 
 	handleDemo() {
-		console.log('setting email, password');
 		this.setState({ email: "", password: "" });
 
 		this.email = "demo_user@gmail.com".split("");
@@ -98,7 +96,6 @@ class SessionForm extends React.Component {
 	}
 
 	animate() {
-		console.log('animating');
 			if (this.email.length > 0){
 				this.currentUsername += this.email.shift();
 				this.setState({ email: this.currentUsername });
