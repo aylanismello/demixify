@@ -49,12 +49,21 @@
 
        .splash-text {
 				 color: white;
-
+         position: relative;
 
         //  background: rgba(160,186,207, 0.5);
 
         //  margin-top: 12%;;
          text-align: center;
+
+         .d-inline-logo {
+           position: absolute;
+           left: 80px;
+           top: 12px;
+           display: inline-block;
+           width: 85px;
+           padding: 10px 50px;
+         }
 
          .splash-logo {
            font-size: 100px;

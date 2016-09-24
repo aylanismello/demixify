@@ -31,7 +31,16 @@ render() {
 					<div className="splash" >
 
 						<div className="splash-text">
-								<h1 className="splash-logo"> Demixify </h1>
+
+							<div className="splash-logo">
+								<div className="d-inline-logo">
+									<img src="http://res.cloudinary.com/dfkrjl3pb/image/upload/v1473441056/demixify_logo_njitun.png"/>
+								</div>
+									<h1 >  emixify </h1>
+							</div>
+
+
+
 
 								<div className="sub-text">
 									<h2 className="splash-summary">
@@ -67,7 +76,7 @@ render() {
 
 		</div>
 		</div>
-		
+
 		<MixIndexContainer/>
 		</div>
 		);

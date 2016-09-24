@@ -85,7 +85,6 @@ class MixInputField extends React.Component {
 			};
 
 			if (e.currentTarget.value === undefined) {
-				console.log('cant do nothing');
 			} else {
 				this.makeHeater(e.currentTarget.value, updateMixFormCB);
 			}

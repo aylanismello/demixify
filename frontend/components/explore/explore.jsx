@@ -8,7 +8,6 @@ class Explore extends React.Component {
 	}
 
 	render() {
-		console.log('rendering explore\n\n\n');
 		return (
 			<div>
 			<div className="explore-wrapper">
