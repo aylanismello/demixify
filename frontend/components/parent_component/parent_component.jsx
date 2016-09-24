@@ -80,7 +80,7 @@ class ParentComponent extends React.Component {
 				<Modal className="modal-container" isOpen={this.state.modal}
 					onRequestClose={this.modalFunctions.closeModal}>
 					<SessionFormContainer formType={this.state.formType}
-						modal={this.state.modalFunctions}/>
+						closeModal={this.modalFunctions.closeModal}/>
 				</Modal>
 
 				{/* <MixIndexContainer/> */}

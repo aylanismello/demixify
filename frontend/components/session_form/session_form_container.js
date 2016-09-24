@@ -3,7 +3,7 @@ import SessionForm from './session_form';
 import { login, logout, signup } from '../../actions/session_actions';
 
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
 
 	return {
 		loggedIn: Boolean(state.session.currentUser.id),
@@ -27,7 +27,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 
 	return {
 		processForm: user => dispatch(formFunction(user)),
-		formType
+		formType,
+		closeModal: ownProps.closeModal
 	};
 
 };

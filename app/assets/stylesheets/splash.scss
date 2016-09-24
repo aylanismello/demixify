@@ -4,7 +4,6 @@
 .the-splash-container{
 
   margin: 0 auto;
-  // width: 1400px;
   position: relative;
   top: $nav-bar-height;
 
@@ -14,12 +13,9 @@
    display: flex;
    justify-content: center;
 
-    // position: absolute;
-    // left: 20%;
-
    .splash-wrapper {
 
-    //  width: 800px;
+
      padding: 0;
      position: relative;
      video {
@@ -51,22 +47,28 @@
 				 color: white;
          position: relative;
 
-        //  background: rgba(160,186,207, 0.5);
 
         //  margin-top: 12%;;
          text-align: center;
 
          .d-inline-logo {
            position: absolute;
-           left: 80px;
+           left: 130px;
            top: 12px;
            display: inline-block;
            width: 85px;
            padding: 10px 50px;
          }
 
+         .fake-d {
+           visibility: hidden;
+         }
          .splash-logo {
+          //  color: $emma-blue;
+           font-family: "Exo";
+           background: rgba(160,186,207, 0.5);
            font-size: 100px;
+           text-align: center;
          }
 
          .sub-text{

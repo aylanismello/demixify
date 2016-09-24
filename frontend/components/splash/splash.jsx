@@ -24,7 +24,8 @@ render() {
 			<div className="splash-mother">
 
 				<div className="splash-wrapper">
-						<video src="http://res.cloudinary.com/dfkrjl3pb/video/upload/c_scale,q_80,w_800/v1473040466/kaytra_landing_1_tjsirv.mp4"
+						<video
+							src="http://res.cloudinary.com/dfkrjl3pb/video/upload/c_scale,q_80,w_800/v1473040466/kaytra_landing_1_tjsirv.mp4"
 						 className="splash-video"  autoPlay muted loop>
 						</video>
 
@@ -36,7 +37,7 @@ render() {
 								<div className="d-inline-logo">
 									<img src="http://res.cloudinary.com/dfkrjl3pb/image/upload/v1473441056/demixify_logo_njitun.png"/>
 								</div>
-									<h1 >  emixify </h1>
+									<span >  <span className="fake-d">D</span>emixify </span>
 							</div>
 
 

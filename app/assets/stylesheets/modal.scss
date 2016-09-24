@@ -5,6 +5,18 @@
 
 	.login-form-container {
 		text-align: center;
+
+
+
+
+		.x-modal {
+			width: 40px;
+			&:hover{
+				cursor: pointer;
+			}
+		}
+
+
 		.login-form {
 		 //  text-align: center;
 

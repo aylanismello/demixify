@@ -24,21 +24,15 @@ class SessionForm extends React.Component {
 	}
 
 	componentDidMount() {
-		if (this.props.formType === 'demo') {
+		if (this.props.formType === 'demo')
 			this.runDemo();
-			console.log('yes its a demo');
-		} else {
-			console.log('nah its not');
-		}
-
 	}
 
 	redirectIfLoggedIn() {
 
-		if (this.props.loggedIn) {
+		if (this.props.loggedIn)
 			hashHistory.push("/home");
-			// debugger;
-		}
+
 	}
 
 	update(field) {
@@ -92,13 +86,10 @@ class SessionForm extends React.Component {
 	}
 
 	handleDemo() {
-		// e.preventDefault();
 		console.log('setting email, password');
 		this.setState({ email: "", password: "" });
 
 		this.email = "demo_user@gmail.com".split("");
-		// this.email = ['d','e','m','o','_','U','s','e','r'];
-		// this.password = ['p','a','s','s','w','o','r','d'];
 		this.password = "password".split("");
 		this.currentUsername = "";
 		this.currentPass = "";
@@ -109,7 +100,7 @@ class SessionForm extends React.Component {
 	animate() {
 		console.log('animating');
 			if (this.email.length > 0){
-				this.currentUsername = this.currentUsername + this.email.shift();
+				this.currentUsername += this.email.shift();
 				this.setState({ email: this.currentUsername });
 
 		} else if (this.password.length > 0) {
@@ -126,12 +117,16 @@ class SessionForm extends React.Component {
 
 
 	render() {
-		// access img_url here
-
 
 		return (
 			<div className="login-form-container">
+
+
 				<form onSubmit={this.handleSubmit} className="login-form-box">
+						<div className="x-modal">
+						<img src="http://res.cloudinary.com/dfkrjl3pb/image/upload/v1474011907/x_hxdxmy.png"
+						onClick={this.props.closeModal}/>
+						</div>
 						<br/>
 
 						<div className="login-form-status">
@@ -170,7 +165,8 @@ class SessionForm extends React.Component {
 
 						<br/>
 
-							<input className="session-form-button" type="submit" value={this.props.formType} />
+							<input className="session-form-button"
+								type="submit" value={this.props.formType} />
 						</div>
 				</form>
 			</div>
