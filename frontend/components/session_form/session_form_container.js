@@ -19,7 +19,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 	// debugger;
 	let formFunction;
 
-	if (formType === 'login') {
+	if (formType === 'login' || formType === 'demo') {
 		formFunction = login; //set formType to the login function
 	} else if (formType === 'signup') {
 		formFunction = signup; // set formType to the signup function

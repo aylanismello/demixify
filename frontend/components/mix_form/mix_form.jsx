@@ -132,7 +132,6 @@ class MixForm extends React.Component {
 
 	updateTrackCB(trackObj, trackIdx) {
 
-		console.log(`mix form received ${trackObj} from track ${trackIdx}`);
 		const tracks = this.state.tracks;
 		const track = tracks[trackIdx];
 
@@ -144,15 +143,12 @@ class MixForm extends React.Component {
 	}
 
 	updateMixCB(mixObj) {
-		console.log(`received mix ${mixObj}, setting state`);
 		// change to user.avatar_url if no artwork_url
 		let artwork_url = mixObj.artwork_url;
 
 		if(!artwork_url) {
-			// console.log('changing artwork_url to user artwork');
 			artwork_url = mixObj.user.avatar_url;
 		} else {
-			// console.log('ok');
 		}
 
 		this.setState({mix: mixObj, artwork_url: artwork_url});

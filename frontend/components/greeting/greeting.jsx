@@ -16,6 +16,7 @@ class Greeting extends React.Component {
 
 		this.openSignupModal = this.props.modalFunctions.openSignupModal.bind(this);
 		this.openLoginModal = this.props.modalFunctions.openLoginModal.bind(this);
+		this.openDemoModal = this.props.modalFunctions.openDemoModal.bind(this);
 		this.closeModal = this.props.modalFunctions.closeModal.bind(this);
 
 		this.getModalState = this.props.modalFunctions.getModalState.bind(this);
@@ -27,7 +28,9 @@ class Greeting extends React.Component {
 		return (
 			<nav className="login-signup cf">
 				<a className="login" onClick={this.openLoginModal}>Login</a>
-				<a className="signup" onClick={this.openSignupModal}>Sign Up</a>
+				<a className="signup" onClick={this.openDemoModal}>Demo</a>
+
+				{/* <a className="signup" onClick={this.openSignupModal}>Sign Up</a> */}
 
 			</nav>
 		);

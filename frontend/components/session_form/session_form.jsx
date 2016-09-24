@@ -9,6 +9,9 @@ class SessionForm extends React.Component {
 			password: ""
 		};
 
+		this.runDemo = this.runDemo.bind(this);
+		this.handleDemo = this.handleDemo.bind(this);
+		this.animate = this.animate.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.renderErrors = this.renderErrors.bind(this);
 	}
@@ -17,6 +20,17 @@ class SessionForm extends React.Component {
 
 	componentDidUpdate() {
 		this.redirectIfLoggedIn();
+
+	}
+
+	componentDidMount() {
+		if (this.props.formType === 'demo') {
+			this.runDemo();
+			console.log('yes its a demo');
+		} else {
+			console.log('nah its not');
+		}
+
 	}
 
 	redirectIfLoggedIn() {
@@ -70,8 +84,50 @@ class SessionForm extends React.Component {
 		);
 	}
 
+
+
+	runDemo() {
+		console.log('running demo!');
+		this.handleDemo();
+	}
+
+	handleDemo() {
+		// e.preventDefault();
+		console.log('setting email, password');
+		this.setState({ email: "", password: "" });
+
+		this.email = "demo_user@gmail.com".split("");
+		// this.email = ['d','e','m','o','_','U','s','e','r'];
+		// this.password = ['p','a','s','s','w','o','r','d'];
+		this.password = "password".split("");
+		this.currentUsername = "";
+		this.currentPass = "";
+
+		this.interval = window.setInterval(this.animate, 50);
+	}
+
+	animate() {
+		console.log('animating');
+			if (this.email.length > 0){
+				this.currentUsername = this.currentUsername + this.email.shift();
+				this.setState({ email: this.currentUsername });
+
+		} else if (this.password.length > 0) {
+				this.currentPass = this.currentPass + this.password.shift();
+				this.setState({ password: this.currentPass });
+
+		} else {
+			let user = this.state;
+			this.props.processForm({ user });
+			window.clearInterval(this.interval);
+		}
+	}
+
+
+
 	render() {
 		// access img_url here
+
 
 		return (
 			<div className="login-form-container">
@@ -94,23 +150,26 @@ class SessionForm extends React.Component {
 
 
 						<div className="login-form">
-							<br />
-								<input type="text"
-									value={this.state.email}
-									onChange={this.update("email")}
-									className="login-input"
-									placeholder="email"
-									/>
 
-							<br />
-								<input type="password"
-									value={this.state.password}
-									onChange={this.update("password")}
-									className="login-input"
-									placeholder="Password"
-									/>
+						<br />
+							<input type="text"
+								value={this.state.email}
+								onChange={this.update("email")}
+								className="login-input"
+								placeholder="email"
+								/>
 
-							<br />
+						<br />
+							<input type="password"
+								value={this.state.password}
+								onChange={this.update("password")}
+								className="login-input"
+								placeholder="Password"
+								/>
+
+
+						<br/>
+
 							<input className="session-form-button" type="submit" value={this.props.formType} />
 						</div>
 				</form>
