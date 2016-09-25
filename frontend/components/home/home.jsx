@@ -6,29 +6,25 @@ class Home extends React.Component {
 
 	constructor(props) {
 		super(props);
-		this.setFilterToLike = this.setFilterToLike.bind(this);
-		this.setFilterToUser = this.setFilterToUser.bind(this);
 		this.setFilterToNone = this.setFilterToNone.bind(this);
 	}
 
 	componentDidMount(){
 		this.props.getMixes();
+		this.setFilterToNone();
 	}
-
 
 	// these both just invoke setFilter with diff values
-	setFilterToLike() {
-		this.props.setFilter("likes");
-	}
-
-	setFilterToUser() {
-		this.props.setFilter("user");
-	}
 
 	setFilterToNone() {
 		this.props.setFilter("", "");
 	}
 
+
+	setFilterTo(type) {
+		console.log(type);
+		this.props.setFilter(type);
+	}
 
 
 	render() {
@@ -40,28 +36,31 @@ class Home extends React.Component {
 					    <div className="navbar-header">
 
 
-								<li onClick={this.setFilterToNone}>
-								<Link to="/home" className="navbar-brand" >
-									HOME
+								<li className="nav-item"
+									onClick={this.setFilterToNone}>
+									<Link to="/home" className="nav-item" >
+										<p>HOME</p>
+									</Link>
+								</li>
+
+
+								<li className="nav-item"
+									onClick={this.setFilterTo.bind(this, "likes")}>
+								<Link to="/home" className="nav-item" >
+									<p>LIKED</p>
 								</Link>
 								</li>
 
 
-								<li onClick={this.setFilterToLike}>
-								<Link to="/home" className="navbar-brand" >
-									LIKED
-								</Link>
-								</li>
-
-
-								<li onClick={this.setFilterToUser}>
-								<Link to="/home" className="navbar-brand" >
+								<li className="nav-item"
+									onClick={this.setFilterTo.bind(this, "user")}>
+								<Link to="/home" className="nav-item" >
 									MY DEMIXES
 								</Link>
 								</li>
 
-								<li>
-								<Link to="/home/create_demix" className="navbar-brand" >
+								<li className="nav-item">
+								<Link to="/home/create_demix" className="nav-item" >
 									+
 								</Link>
 								</li>

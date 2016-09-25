@@ -52,6 +52,22 @@
         float: left;
       }
 
+      .explore-suggestions {
+        background: white;
+        position: absolute;
+
+        .explore-suggestion-item {
+          list-style: none;
+          background: white;
+          color: blue;
+          &:hover {
+            cursor: pointer;
+            color: $emma-pink;
+            background: #eee;
+          }
+        }
+      }
+
       .search-button {
         // padding: 8px 20px;
         border-top-right-radius: $search-bar-radius;
@@ -107,6 +123,7 @@
         // text-align: center;
         padding-left: 20px;
         list-style: none;
+        color: $emma-blue;
       }
     }
 
@@ -126,6 +143,7 @@
 
   .profile-dropdown-wrapper .my-dropdown > li:hover  {
     background: #eee;
+    color: $emma-pink;
     // cursor: pointer;
     // display: block;
   }

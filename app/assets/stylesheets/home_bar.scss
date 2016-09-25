@@ -1,6 +1,15 @@
 .navbar-header {
 	display: flex;
 
-	// div:hover 
+	.nav-item {
+
+		&:hover {
+			cursor: pointer;
+			color: black;
+
+		}
+		margin: 10px;
+	}
+	// div:hover
 
 }

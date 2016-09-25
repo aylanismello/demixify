@@ -8,7 +8,8 @@ class NavBar extends React.Component {
 		super(props);
 		this.handleSearchSubmit = this.handleSearchSubmit.bind(this);
 		this.updateSearchString = this.updateSearchString.bind(this);
-
+		this.matchingMixes = this.matchingMixes.bind(this);
+		this.handleShowRedirect = this.handleShowRedirect.bind(this);
 
 		this.state = {
 			searchString: ""
@@ -17,7 +18,6 @@ class NavBar extends React.Component {
 
 	handleSearchSubmit(e) {
 		e.preventDefault();
-
 		this.props.setFilter("string", this.state.searchString);
 		hashHistory.push("/explore");
 	}
@@ -25,16 +25,67 @@ class NavBar extends React.Component {
 	updateSearchString() {
 		return e => {
 			this.setState({searchString: e.currentTarget.value});
+			this.props.setFilter("string", e.currentTarget.value);
 		};
 	}
 
+	handleShowRedirect() {
+		const args = arguments;
+		return e => {
+			const mixId = args[0];
+
+			// now we do not update the mix, we set the currentTrack to the one clicked on
+
+			this.props.setPlayerState(true);
+
+			this.props.setCurrentMixId(mixId);
+			hashHistory.push(`/mixes/${mixId}`);
+		};
+
+	}
+
+	matchingMixes() {
+		let mixKeys = Object.keys(this.props.mix.mixes);
+		let mixes = this.props.mix.mixes;
+
+		let filterType = this.props.filter.type;
+		let filterVal = this.props.filter.val.toLowerCase();
+
+		console.log(`filter val is ${filterVal}`);
+
+		mixKeys = mixKeys.filter( mixKey => {
+
+			return mixes[mixKey].mix.title.toLowerCase().includes(filterVal);
+
+		});
+
+		console.log(mixKeys);
 
 
+		let el = 	mixKeys.splice(0, 2).map((mixId, idx) => {
+				let mix = this.props.mix.mixes[mixId];
+				let title = mix.mix.title;
+					console.log(title);
+					return (
+					<li key={idx} className="explore-suggestion-item"
+						onClick={this.handleShowRedirect(mixId)}>
+						{title}
+					</li>
+					);
+
+				}
+		);
+
+		return el;
+
+
+	}
 
 	render() {
-
-		// debugger;
 		let homeLink  = this.props.currentUser.id ? "/home" : "/";
+
+		let searchMixes = this.matchingMixes();
+		// let
 
 		return(
 				<div>
@@ -48,14 +99,24 @@ class NavBar extends React.Component {
 							</Link>
 
 
-							<form onSubmit={this.handleSearchSubmit} className="mix-search-form cf">
+							<form onSubmit={this.handleSearchSubmit}
+								className="mix-search-form cf">
 								<input className="my-search-bar"
 									placeholder="What sort of mix are you feeling?"
 									value={this.state.searchString}
 									onChange={this.updateSearchString()}
 									type="text"/>
 
-								<input type="submit" value="Explore" className="search-button"/>
+								<input type="submit"
+									value="Explore"
+									className="search-button"/>
+
+
+								<ul className="explore-suggestions">
+									{searchMixes}
+								</ul>
+
+
 							</form>
 						</div>
 

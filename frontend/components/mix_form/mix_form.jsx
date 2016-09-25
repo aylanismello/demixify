@@ -17,10 +17,13 @@ class MixForm extends React.Component {
 			description: "",
 			tracks: tracks,
 			user_id: props.currentUser.id,
-			artwork_url: "http://res.cloudinary.com/dfkrjl3pb/image/upload/v1473059378/soundcloud-gray_kvunvw.png"
+			artwork_url: "http://res.cloudinary.com/dfkrjl3pb/image/upload/v1473059378/soundcloud-gray_kvunvw.png",
+			numTracks: 3
 		};
 
 		this.tracks = tracks;
+
+		this.addTrackInput = this.addTrackInput.bind(this);
 
 		this.handleMixSubmit = this.handleMixSubmit.bind(this);
 		this.renderErrors = this.renderErrors.bind(this);
@@ -187,8 +190,14 @@ class MixForm extends React.Component {
 
 	}
 
+	addTrackInput(e) {
+		e.preventDefault();
+		this.setState({numTracks: this.state.numTracks + 1});
+	}
 
 	render() {
+		let trackInputs = this.renderTrackInputs(this.state.numTracks);
+
 		return(
 			<div className="mix-form-container">
 
@@ -202,8 +211,6 @@ class MixForm extends React.Component {
 
 				<form onSubmit={this.handleMixSubmit} className="mix-form-box">
 					<br/>
-
-
 
 
 					<div className="mix-form">
@@ -223,7 +230,8 @@ class MixForm extends React.Component {
 
 
 									<MixInputField
-										updateCB={this.updateMixCB.bind(this)} mixType="mix"
+										updateCB={this.updateMixCB.bind(this)}
+										mixType="mix"
 										idx="-1"/>
 
 
@@ -239,10 +247,13 @@ class MixForm extends React.Component {
 									className="mix-description"
 									placeholder="Description!"/>
 
-									<input type="text" className="mix-tags"
-										placeholder="Tags, separated, by, commas, please"/>
+									{/* <input type="text"
+										className="mix-tags"
+										placeholder="Tags"/> */}
 
-									<input type="submit" value="Create Mix" className="submit-mix-button"/>
+									<input type="submit"
+										value="Create Mix"
+										className="submit-mix-button"/>
 								</div>
 
 
@@ -255,13 +266,16 @@ class MixForm extends React.Component {
 							<strong>TRACKLIST</strong> - Choose at least 3 tracks.
 						</span>
 
-						{this.renderTrackInputs(3) }
+						{trackInputs}
 					</div>
 
-						<br />
+						<br/>
 
 
-
+						<div className="add-track-btn">
+							<button
+								onClick={this.addTrackInput}> + </button>
+						</div>
 					</div>
 				</form>
 			</div>

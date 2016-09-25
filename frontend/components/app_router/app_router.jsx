@@ -55,10 +55,6 @@ class AppRouter extends React.Component {
 					onEnter={ this._getMixes }>
 
 
-
-
-
-
 					<Route path="/home" component={ HomeContainer }
 						onEnter={ this._ensureLoggedIn }>
 

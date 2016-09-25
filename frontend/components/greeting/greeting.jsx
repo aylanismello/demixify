@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { hashHistory } from 'react-router';
 import Modal from 'react-modal';
 import Splash from '../splash/splash';
 import SessionFormContainer from '../session_form/session_form_container';
@@ -37,20 +37,26 @@ class Greeting extends React.Component {
 
 	}
 
+	goTo(url) {
+		// window.location.href = '/home/create_demix';
+		hashHistory.push('/home/create_demix');
+	}
+
 	personalGreeting(currentUser, logout) {
 
 		return (
 			<nav className="profile-dropdown-wrapper">
-
 				<div className="header-profile-pic">
 
-					<img src={currentUser.img_url} alt="{currentUser.username}"/>
+					<img src={currentUser.img_url}
+						alt="{currentUser.username}"/>
+
 				</div>
 
 				<div className="my-dropdown">
 					{/* <li> <Link to="/profile" >Profile</Link></li> */}
-					<li> <Link to="/home/create_demix" >Create Demix</Link></li>
-					<li> <a className="logout" onClick={logout}>Log Out</a> </li>
+					<li onClick={this.goTo.bind(this)}>Create Demix</li>
+					<li onClick={logout}>Log Out</li>
 
 				</div>
 

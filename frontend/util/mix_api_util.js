@@ -62,7 +62,6 @@ const makeDJ = (userObj) => {
 
 
 const convertSdObjToDJ = (userObj) => {
-	// debugger;
 	let dj = userObj;
 	let objForAPI = {};
 	objForAPI.soundcloud_id = dj.id;
@@ -90,9 +89,6 @@ const convertSdObjToMix = (mixObj) => {
 	objForAPI.user_id = mixObj.user_id;
 
 	return objForAPI;
-	// debugger;
-
-
 };
 
 const convertSdObjToTrack = (trackObj, mixId) => {
@@ -123,7 +119,6 @@ const makeMix = (sdTrackObj, receiveMix, receiveTrack) => {
 		let mix_id = parseInt(Object.keys(mix)[0]);
 		console.log(`making tracks, setting mix id to
 				${mix_id}`);
-				debugger;
 
 		receiveMix(mix);
 // DEFINE RECEIVE TRACK
@@ -132,7 +127,6 @@ const makeMix = (sdTrackObj, receiveMix, receiveTrack) => {
 
 		sdTrackObj.tracks.forEach((track) => {
 			currentTrack = convertSdObjToTrack(track, mix_id);
-			// debugger;
 			trackModelCreation(currentTrack, receiveTrack);
 			// soundcloudTrackModelCreation(track);
 		});

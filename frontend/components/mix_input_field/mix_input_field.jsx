@@ -8,9 +8,7 @@ class MixInputField extends React.Component {
 	constructor(props) {
 		super(props);
 
-		// this.suggestions
 		this.nullSuggestions = Array(suggestionsSize).fill({title: ''});
-		// debugger;
 		this.state = {
 			trackName: "",
 			trackObj: {},
@@ -25,9 +23,6 @@ class MixInputField extends React.Component {
 		this.handleInputUpdate = this.handleInputUpdate.bind(this);
 		this.renderSuggestions = this.renderSuggestions.bind(this);
 		this.selectTrack = this.selectTrack.bind(this);
-
-		// this.makeHeater('dirty vibe');
-
 
 	}
 

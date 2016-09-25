@@ -18,8 +18,6 @@ class MixIndex extends React.Component {
 
 
 	render() {
-
-
 		let mixKeys = Object.keys(this.props.mix.mixes);
 		let mixes = this.props.mix.mixes;
 
@@ -63,16 +61,7 @@ class MixIndex extends React.Component {
 			}
 
 
-		} else if(filterType === "user"){
-			// console.log('filter by user!');
-
-
-
-		} else{
-
-			// console.log('NO FILTER! show all');
-		}
-
+		} 
 
 
 		let el = 	mixKeys.map((mixId, idx) => {

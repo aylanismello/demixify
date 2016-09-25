@@ -41,6 +41,10 @@
 		.mix-form {
 			margin-left: 40px;
 
+			.add-track-btn {
+				text-align: center;
+			}
+
 			.mix-details {
 				width: 800px;
 				margin: 0 auto;
@@ -51,6 +55,18 @@
 					width: 260px;
 					height: 225px;
 					float: left;
+
+					.mix-input-container {
+						.track-suggestions {
+							background: whitesmoke;
+							position: relative;
+							z-index: 1000;
+							li:hover {
+								cursor: pointer;
+							}
+						}
+					}
+
 
 					.mix-selection-advice {
 						background: whitesmoke;
@@ -115,6 +131,11 @@
 
 			img {
 				float: right;
+			}
+
+			&:hover {
+				color: $emma-purple;
+				background: "#333";
 			}
 
 		}
