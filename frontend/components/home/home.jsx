@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link, hashHistory } from 'react-router';
 import MixIndexContainer from '../mix_index/mix_index_container';
 
 class Home extends React.Component {
@@ -24,6 +24,7 @@ class Home extends React.Component {
 	setFilterTo(type) {
 		console.log(type);
 		this.props.setFilter(type);
+		this.hashHistory.push('/home');
 	}
 
 
@@ -39,7 +40,7 @@ class Home extends React.Component {
 								<li className="nav-item"
 									onClick={this.setFilterToNone}>
 									<Link to="/home" className="nav-item" >
-										<p>HOME</p>
+										HOME
 									</Link>
 								</li>
 
@@ -47,7 +48,7 @@ class Home extends React.Component {
 								<li className="nav-item"
 									onClick={this.setFilterTo.bind(this, "likes")}>
 								<Link to="/home" className="nav-item" >
-									<p>LIKED</p>
+									LIKED
 								</Link>
 								</li>
 
