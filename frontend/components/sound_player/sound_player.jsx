@@ -48,14 +48,14 @@ class SoundPlayer extends React.Component {
 
 		if (props.currentMixId !== this.state.mixId || !this.playedYet) {
 
-			console.log('whattt');
+			// console.log('whattt');
 
 
 			if (props.currentMixId !== -1 || !this.playedYet) {
 
 				this.playedYet = true;
 
-				
+
 
 				let currentMix = props.mixes[props.currentMixId];
 				let currentTracks =  [];
