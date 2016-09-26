@@ -3,6 +3,8 @@ import { Link, hashHistory } from 'react-router';
 import GreetingContainer from '../greeting/greeting_container';
 
 
+const PLACEHOLDER = "What sort of mix are you feeling?";
+
 class NavBar extends React.Component {
 	constructor(props) {
 		super(props);
@@ -12,7 +14,8 @@ class NavBar extends React.Component {
 		this.handleShowRedirect = this.handleShowRedirect.bind(this);
 
 		this.state = {
-			searchString: ""
+			searchString: "",
+			placeholder: PLACEHOLDER
 		};
 	}
 
@@ -35,6 +38,11 @@ class NavBar extends React.Component {
 			const mixId = args[0];
 
 			// now we do not update the mix, we set the currentTrack to the one clicked on
+			// also close menu
+
+			this.setState({searchString: "", placeholder: PLACEHOLDER});
+			this.props.setFilter("string", "asdfghjkl");
+
 
 			this.props.setPlayerState(true);
 
@@ -51,7 +59,12 @@ class NavBar extends React.Component {
 		let filterType = this.props.filter.type;
 		let filterVal = this.props.filter.val.toLowerCase();
 
-		console.log(`filter val is ${filterVal}`);
+		let gibberish = 'asdfghjkl';
+		// OMG SUCH A HACK.
+		if (filterVal === "")
+			filterVal = gibberish;
+
+		// console.log(`filter val is ${filterVal}`);
 
 		mixKeys = mixKeys.filter( mixKey => {
 
@@ -66,11 +79,17 @@ class NavBar extends React.Component {
 				let mix = this.props.mix.mixes[mixId];
 				let title = mix.mix.title;
 					console.log(title);
+
 					return (
-					<li key={idx} className="explore-suggestion-item"
+					<div key={idx} className="explore-suggestion-item-container"
 						onClick={this.handleShowRedirect(mixId)}>
-						{title}
-					</li>
+
+						<div className="explore-suggestion-item-artwork">
+							<img src={mix.mix.artwork_url}/>
+						</div>
+
+						<p className="explore-suggestion-item-text">{title}</p>
+					</div>
 					);
 
 				}
@@ -79,6 +98,10 @@ class NavBar extends React.Component {
 		return el;
 
 
+	}
+
+	onFocus() {
+		this.setState({placeholder: ""});
 	}
 
 	render() {
@@ -102,9 +125,11 @@ class NavBar extends React.Component {
 							<form onSubmit={this.handleSearchSubmit}
 								className="mix-search-form cf">
 								<input className="my-search-bar"
-									placeholder="What sort of mix are you feeling?"
+									placeholder={this.state.placeholder}
 									value={this.state.searchString}
 									onChange={this.updateSearchString()}
+									onFocus={this.onFocus.bind(this)}
+
 									type="text"/>
 
 								<input type="submit"

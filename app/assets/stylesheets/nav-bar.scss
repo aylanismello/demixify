@@ -53,13 +53,45 @@
       }
 
       .explore-suggestions {
+        // background: white;
+        // position: absolute;
+        // top: 70px;
+
         background: white;
         position: absolute;
+        top: 51px;
+        border-radius: 300px;
+        /* width: 391px; */
+        width: 410px;
+        border-left: 1px solid gray;
 
-        .explore-suggestion-item {
+        .explore-suggestion-item-container {
           list-style: none;
           background: white;
           color: blue;
+          display: flex;
+          flex-wrap: nowrap;
+          height: 50px;
+          justify-content: space-between;
+          align-items: center;
+
+          .explore-suggestion-item-text {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            min-width: 0;
+            font-size: 12px;
+            margin: 10px;
+
+          }
+
+          .explore-suggestion-item-artwork {
+            width: 40px;
+            margin: 10px;
+          }
+
+
+
           &:hover {
             cursor: pointer;
             color: $emma-pink;
