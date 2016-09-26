@@ -23,8 +23,8 @@ class Home extends React.Component {
 
 	setFilterTo(type) {
 		console.log(type);
+
 		this.props.setFilter(type);
-		this.hashHistory.push('/home');
 	}
 
 

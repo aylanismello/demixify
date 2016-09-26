@@ -57,7 +57,7 @@ class NavBar extends React.Component {
 		let mixes = this.props.mix.mixes;
 
 		let filterType = this.props.filter.type;
-		let filterVal = this.props.filter.val.toLowerCase();
+		let filterVal = (this.props.filter.val || "").toLowerCase();
 
 		let gibberish = 'asdfghjkl';
 		// OMG SUCH A HACK.
