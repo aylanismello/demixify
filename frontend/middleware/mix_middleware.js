@@ -24,7 +24,9 @@ const MixMiddleware = ({getState, dispatch}) => next => action => {
 		dispatch(receiveNewTrack(track));
 	};
 
-	const getMixesSuccess= mixes => dispatch(receiveMixes(mixes));
+	const getMixesSuccess= mixes => {
+		dispatch(receiveMixes(mixes));
+	};
 
 
 	const getTracksSuccess = tracks => {
@@ -41,18 +43,15 @@ const MixMiddleware = ({getState, dispatch}) => next => action => {
 	switch (action.type) {
 
 		case MixConstants.SUBMIT_MIX:
-
 			API.submitMix(action.mix,
 				submitMixSuccess, error, submitTrackSuccess);
 			return next(action);
-
 		case MixConstants.SET_CURRENT_MIX:
 			dispatch(setCurrentMixId(action.mixId));
 			return next(action);
 		case MixConstants.GET_MIXES:
 			API.getMixes(action.searchString, getMixesSuccess, error);
 			return next(action);
-
 		case MixConstants.GET_MIX:
 			API.getMix(action.mixId, getMixSuccess, error);
 			return next(action);

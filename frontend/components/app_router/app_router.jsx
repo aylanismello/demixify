@@ -74,7 +74,7 @@ class AppRouter extends React.Component {
 					</Route>
 
 
-				  <Route path="/mixes/:mixId" component={ MixShowContainer } />
+				  <Route path="/mixes/:mixId" component={ MixShowContainer}/>
 
 				</Route>
 

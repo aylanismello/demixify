@@ -10,10 +10,15 @@ class MixShow extends React.Component {
 	constructor(props) {
 
 		super(props);
+
+
 		this.getStyles = this.getStyles.bind(this);
 		this.updateComment = this.updateComment.bind(this);
 		// this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
 		this.theTracklist = this.theTracklist.bind(this);
+
+		this.redirectedFromIndex = (Object.keys(this.props.mix.mixes).length === 0) ? false : true;
+		// this.redirectedFromIndex = this.props
 
 		this.state = {
 			comment: ""
@@ -27,7 +32,13 @@ class MixShow extends React.Component {
 		};
 	}
 
-	componentWillReceiveProps() {
+	componentDidMount() {
+		// if (this.props.mix.mixId === )
+		if(!this.redirectedFromIndex) {
+			this.props.setCurrentMixId(this.props.mixId);
+			this.props.setPlayerState(true);
+		}
+		
 	}
 
 
@@ -48,11 +59,22 @@ class MixShow extends React.Component {
 
 
 	render() {
-		let mixObj = this.props.currentMix;
-		let mixStyles = this.getStyles(mixObj.mix.artwork_url);
 
-		// debugger;
-		return (
+		let loaded = (Object.keys(this.props.mix.mixes).length === 0) ? false : true;
+
+
+		if (loaded){
+			const mix = this.props.mix;
+
+			let mixObj = mix.mixes[this.props.mixId];
+			let mixStyles = this.getStyles(mixObj.mix.artwork_url);
+			let trackCount = mixObj.tracks.length;
+			let likeCount = mixObj.mix.liked_users.length;
+			let currentTracks = mixObj.tracks;
+			// debugger;
+
+
+			return (
 			<div className="mix-show-container">
 				<div className="mix-description-container" style={mixStyles}>
 
@@ -67,7 +89,7 @@ class MixShow extends React.Component {
 							</div>
 
 							<div className="mix-details">
-								{this.props.trackCount} tracks | {this.props.likeCount} likes
+								{trackCount} tracks | {likeCount} likes
 							</div>
 
 						</div>
@@ -104,7 +126,7 @@ class MixShow extends React.Component {
 						</p>
 
 
-						<TrackIndex tracks={this.props.currentTracks}/>
+						<TrackIndex tracks={currentTracks}/>
 
 
 					</div>
@@ -115,14 +137,22 @@ class MixShow extends React.Component {
 				</div>
 
 
-					<CommentFormContainer mixId={this.props.params['mixId']}/>
+					<CommentFormContainer mixId={this.props.mixId}/>
 
-					{/* <CommentIndex className="comments-container" comments={this.props.currentMix.comments}/> */}
-					<CommentIndexContainer className="comments-container" mixId={this.props.params['mixId']}/>
+					<CommentIndexContainer
+						className="comments-container"
+						mixId={this.props.mixId}/>
 
 
 				</div>
 		);
+		}//IF
+		else {
+			return(
+				<div>
+				</div>
+			);
+		}
 	}
 }
 

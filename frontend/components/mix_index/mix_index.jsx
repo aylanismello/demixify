@@ -61,7 +61,7 @@ class MixIndex extends React.Component {
 			}
 
 
-		} 
+		}
 
 
 		let el = 	mixKeys.map((mixId, idx) => {

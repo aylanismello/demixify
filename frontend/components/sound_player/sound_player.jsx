@@ -27,6 +27,8 @@ class SoundPlayer extends React.Component {
 		this.routeToShow = this.routeToShow.bind(this);
 		this.getPlayingImage = this.getPlayingImage.bind(this);
 
+		this.playedYet = false;
+
 
 		this.state = {
 			playing: false,
@@ -44,14 +46,16 @@ class SoundPlayer extends React.Component {
 
 	componentWillReceiveProps(props) {
 
-		if (props.currentMixId !== this.state.mixId) {
+		if (props.currentMixId !== this.state.mixId || !this.playedYet) {
+
+			console.log('whattt');
 
 
+			if (props.currentMixId !== -1 || !this.playedYet) {
 
-			if (props.currentMixId !== -1) {
-				// console.log('can start playing!!!');
-				// console.log(`NEW MIX TO BE  SET RN. from ${this.state.mixId} => ${props.currentMixId}`);
+				this.playedYet = true;
 
+				
 
 				let currentMix = props.mixes[props.currentMixId];
 				let currentTracks =  [];
@@ -88,7 +92,7 @@ class SoundPlayer extends React.Component {
 					this.togglePlay();
 			});
 
-		}
+		} // assuming first track to be played..
 
 	}
 }
