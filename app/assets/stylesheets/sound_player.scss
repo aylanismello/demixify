@@ -100,9 +100,13 @@
 			// float: left;
 
 			.track-text{
-				float: left;
 				display: flex;
 				flex-direction: column;
+				width: 600px;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+
 
 				.track-details-top {
 					// height: inherit;

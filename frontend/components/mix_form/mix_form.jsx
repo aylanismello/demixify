@@ -269,7 +269,6 @@ class MixForm extends React.Component {
 						{trackInputs}
 					</div>
 
-						<br/>
 
 
 						<div className="add-track-btn">

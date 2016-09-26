@@ -104,6 +104,18 @@ class NavBar extends React.Component {
 		this.setState({placeholder: ""});
 	}
 
+	onBlur() {
+		// console.log('blurred!');
+		// return e => {
+		// 	this.setState({placeholder: PLACEHOLDER, searchString: ""});
+		// 	this.props.setFilter("string", "");
+		//
+		// };
+
+	}
+
+
+
 	render() {
 		let homeLink  = this.props.currentUser.id ? "/home" : "/";
 
@@ -129,6 +141,7 @@ class NavBar extends React.Component {
 									value={this.state.searchString}
 									onChange={this.updateSearchString()}
 									onFocus={this.onFocus.bind(this)}
+									onBlur={this.onBlur.bind(this)}
 
 									type="text"/>
 
