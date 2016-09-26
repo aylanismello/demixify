@@ -8,12 +8,12 @@ const LikeMiddleware = ({getState, dispatch}) => next => action => {
 
 
 	let createLikeSuccess = like => {
-		console.log(`received like: ${like}`);
+		// console.log(`received like: ${like}`);
 		dispatch(receiveLike(like));
 	};
 
 	let deleteLikeSuccess = like => {
-		console.log(`deleting like: ${like}`);
+		// console.log(`deleting like: ${like}`);
 		dispatch(removeLike(like));
 	};
 

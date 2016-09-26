@@ -72,13 +72,13 @@ class NavBar extends React.Component {
 
 		});
 
-		console.log(mixKeys);
+		// console.log(mixKeys);
 
 
 		let el = 	mixKeys.splice(0, 2).map((mixId, idx) => {
 				let mix = this.props.mix.mixes[mixId];
 				let title = mix.mix.title;
-					console.log(title);
+					// console.log(title);
 
 					return (
 					<div key={idx} className="explore-suggestion-item-container"

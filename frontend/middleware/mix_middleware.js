@@ -13,14 +13,14 @@ const MixMiddleware = ({getState, dispatch}) => next => action => {
 	};
 
 	const submitMixSuccess = mix => {
-			console.log('success');
+			// console.log('success');
 			hashHistory.push('/home');
 			dispatch(receiveNewMix(mix));
 	};
 
 
 	const submitTrackSuccess = track => {
-		console.log('sucess adding track');
+		// console.log('sucess adding track');
 		dispatch(receiveNewTrack(track));
 	};
 

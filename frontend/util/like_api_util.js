@@ -1,10 +1,10 @@
 const suc = (like) => {
 
-	console.log(`SUCCESS: like is this obj: ${like}`);
+	// console.log(`SUCCESS: like is this obj: ${like}`);
 };
 
 const err = (errors) => {
-	console.log(`ERROR: ${errors.responseJSON}`);
+	// console.log(`ERROR: ${errors.responseJSON}`);
 };
 
 export const createLike = (mixId, success=suc, error=err) => {

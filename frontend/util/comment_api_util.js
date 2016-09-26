@@ -1,11 +1,11 @@
 const suc = (comment) => {
 
-	console.log(`SUCCESS: comment(s) is/are this obj: ${comment}`);
+	// console.log(`SUCCESS: comment(s) is/are this obj: ${comment}`);
 	window.comment = comment;
 };
 
 const err = (errors) => {
-	console.log(`ERROR: ${errors.responseJSON}`);
+	// console.log(`ERROR: ${errors.responseJSON}`);
 };
 
 

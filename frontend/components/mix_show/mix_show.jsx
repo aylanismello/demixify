@@ -28,7 +28,6 @@ class MixShow extends React.Component {
 	}
 
 	componentWillReceiveProps() {
-		console.log('i am receiving new props!');
 	}
 
 

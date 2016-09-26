@@ -16,7 +16,7 @@ export const makeTracks = (mixId) => {
 
 	seedTracks.forEach ((track) => {
 		if (track === 'NULL') {
-			console.log('no track created, but empty track slot made in MIX....');
+			// console.log('no track created, but empty track slot made in MIX....');
 		}
 		searchSoundcloud(track, cb);
 	});

@@ -10,7 +10,7 @@ const CommentMiddleware = ({getState, dispatch}) => next => action => {
 
 
 	const commentSubmitSuccess = comment => {
-		console.log(`received ${comment.body}, now hitting up reducer`);
+		// console.log(`received ${comment.body}, now hitting up reducer`);
 
 		// dispatch(receiveNewComment(comment));
 		dispatch(getMix(comment.mix_id));
@@ -18,7 +18,7 @@ const CommentMiddleware = ({getState, dispatch}) => next => action => {
 	};
 
 	const commentsGetSuccess = comments => {
-		console.log(`received comments ${comments}, now hitting up reducer`);
+		// console.log(`received comments ${comments}, now hitting up reducer`);
 		dispatch(receiveComments(comments));
 	};
 
