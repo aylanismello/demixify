@@ -9,6 +9,7 @@ constructor(props) {
 
 	super(props);
 	this.openSignupModal = this.props.openSignupModal;
+	this.openDemoModal = this.props.openDemoModal;
 }
 
 
@@ -60,6 +61,11 @@ render() {
 									<div className="signup-button" onClick={this.openSignupModal}>
 										<h2 className="call-to-action"> Sign Up </h2>
 									</div>
+									<div className="signup-button" onClick={this.openDemoModal}>
+										<h2 className="call-to-action"> Demo </h2>
+									</div>
+
+
 							</div>
 
 

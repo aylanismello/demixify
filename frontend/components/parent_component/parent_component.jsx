@@ -62,7 +62,9 @@ class ParentComponent extends React.Component {
 			return(
 			<div>
 				<SplashContainer
-					openSignupModal={this.modalFunctions.openSignupModal}/>
+					openSignupModal={this.modalFunctions.openSignupModal}
+					openDemoModal={this.modalFunctions.openDemoModal}
+					/>
 					{/* <MixIndex/> */}
 			</div>
 		);

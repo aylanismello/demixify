@@ -1,8 +1,5 @@
 import React from 'react';
 
-
-
-
 const LIKE_URL = 'http://res.cloudinary.com/dfkrjl3pb/image/upload/v1473401279/like_qsf88g.png';
 
 const Like = ({liked, createLike, deleteLike, currentMixId, currentUserId}) => {
@@ -26,7 +23,6 @@ const Like = ({liked, createLike, deleteLike, currentMixId, currentUserId}) => {
 
 	if (currentUserId) {
 		return(
-
 
 			<div className="like-button">
 				<img src={LIKE_URL} style={likeDisplay}

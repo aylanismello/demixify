@@ -7,7 +7,8 @@ import { getMixes } from '../../actions/mix_actions';
 const mapStateToProps = (state, ownProps) =>({
 	currentUser: state.session.currentUser,
 	mix: state.session.mix,
-	openSignupModal: ownProps.openSignupModal
+	openSignupModal: ownProps.openSignupModal,
+	openDemoModal: ownProps.openDemoModal
 });
 
 const mapDispatchToProps = dispatch => ({
