@@ -28,9 +28,7 @@ class Greeting extends React.Component {
 		return (
 			<nav className="login-signup cf">
 				<a className="login" onClick={this.openLoginModal}>Login</a>
-				<a className="signup" onClick={this.openDemoModal}>Demo</a>
-
-				{/* <a className="signup" onClick={this.openSignupModal}>Sign Up</a> */}
+				<a className="signup" onClick={this.openSignupModal}>Sign Up</a>
 
 			</nav>
 		);
@@ -38,7 +36,6 @@ class Greeting extends React.Component {
 	}
 
 	goTo(url) {
-		// window.location.href = '/home/create_demix';
 		hashHistory.push('/home/create_demix');
 	}
 
@@ -54,7 +51,6 @@ class Greeting extends React.Component {
 				</div>
 
 				<div className="my-dropdown">
-					{/* <li> <Link to="/profile" >Profile</Link></li> */}
 					<li onClick={this.goTo.bind(this)}>Create Demix</li>
 					<li onClick={logout}>Log Out</li>
 
@@ -67,8 +63,6 @@ class Greeting extends React.Component {
 
 
 	render() {
-			// debugger;
-
 			if (this.props.currentUser.id) {
 				return this.personalGreeting(this.props.currentUser, this.props.logout);
 			} else {
